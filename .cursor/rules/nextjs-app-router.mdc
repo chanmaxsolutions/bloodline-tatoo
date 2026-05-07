@@ -1,0 +1,426 @@
+---
+description: Next.js App Router enforcement rules for Bloodline Tattoo
+globs:
+  - "src/app/**/*.{ts,tsx}"
+alwaysApply: true
+---
+
+# Next.js App Router Rules
+
+## Core Framework Rules
+
+- Use App Router only.
+- Never use Pages Router.
+- Never use `getServerSideProps`.
+- Never use `getStaticProps`.
+- Never use legacy routing patterns.
+
+The platform is fully App Router-based.
+
+---
+
+## Rendering Philosophy
+
+The platform is:
+
+```txt
+Server-first
+SEO-first
+Performance-first
+```
+
+Prefer:
+- Server Components
+- static rendering
+- ISR
+- minimal hydration
+
+Avoid:
+- unnecessary client rendering
+- hydration-heavy pages
+- browser-dependent SEO content
+
+---
+
+## Server Component Rules
+
+Use Server Components by default.
+
+Server Components should handle:
+- SEO content
+- metadata
+- schema rendering
+- content rendering
+- route composition
+- data preparation
+
+Do not add `"use client"` unless interaction requires it.
+
+---
+
+## Client Component Rules
+
+Client Components are allowed only for:
+
+- modals
+- menus
+- filters
+- carousels
+- browser APIs
+- CTA interactions
+- lightweight animation interaction
+
+Keep Client Components:
+- isolated
+- small
+- intentional
+
+Avoid:
+- client-rendering entire pages
+- unnecessary hydration
+- client-side SEO rendering
+
+---
+
+## Layout Rules
+
+Use nested layouts intentionally.
+
+Recommended:
+
+```txt
+app/
+  layout.tsx
+  page.tsx
+
+  tattoo-blog/
+    layout.tsx
+    page.tsx
+    [slug]/
+      page.tsx
+```
+
+Layouts should handle:
+- shared structure
+- metadata wrappers
+- route-level consistency
+
+Avoid:
+- duplicated wrappers across pages
+
+---
+
+## Metadata Rules
+
+Use App Router metadata APIs.
+
+Use:
+- `generateMetadata`
+- centralized metadata helpers
+
+Do not manually duplicate metadata logic.
+
+Metadata should support:
+- title
+- description
+- Open Graph
+- canonical URLs
+- region awareness
+
+---
+
+## Metadata Philosophy
+
+Metadata must remain:
+
+- typed
+- centralized
+- SEO-safe
+- region-aware
+
+Avoid:
+- inline duplicated metadata
+- hardcoded region titles
+- inconsistent OG generation
+
+---
+
+## Static Generation Rules
+
+Prefer:
+- static rendering
+- `generateStaticParams`
+- ISR
+
+Use ISR for:
+- blog content
+- gallery systems
+- review systems
+- dynamic SEO content
+
+Avoid unnecessary runtime rendering.
+
+---
+
+## Route Handler Rules
+
+Use Route Handlers for:
+
+- webhooks
+- review sync endpoints
+- external callbacks
+- internal APIs
+- health endpoints
+
+Preferred structure:
+
+```txt
+app/api/.../route.ts
+```
+
+Avoid:
+- mixing API logic inside pages
+- client-side secret handling
+
+---
+
+## Server Action Rules
+
+Use Server Actions for:
+
+- CTA submissions
+- lightweight mutations
+- Airtable writes
+- contact flows
+
+Keep Server Actions:
+- small
+- focused
+- secure
+
+Avoid:
+- bloated action logic
+- large business orchestration inside actions
+
+---
+
+## Loading State Rules
+
+Use route-level loading states intentionally.
+
+Loading states should feel:
+- lightweight
+- premium
+- fast
+
+Avoid:
+- excessive skeleton choreography
+- playful loaders
+- layout shifting
+
+---
+
+## Error Boundary Rules
+
+Use route-level error handling where meaningful.
+
+Error experiences should:
+- remain stable
+- preserve UX clarity
+- avoid breaking layouts
+
+Avoid:
+- exposing raw errors
+- crashing entire route trees
+
+---
+
+## Suspense Rules
+
+Use Suspense carefully.
+
+Good use cases:
+- deferred media
+- non-critical sections
+- async supporting systems
+
+Avoid:
+- suspense-wrapping entire SEO pages unnecessarily
+
+---
+
+## Caching Philosophy
+
+Prefer:
+- stable caching
+- ISR
+- predictable invalidation
+
+Avoid:
+- excessive no-store rendering
+- unstable runtime fetching
+- unnecessary cache busting
+
+---
+
+## Dynamic Rendering Rules
+
+Use dynamic rendering only when truly required.
+
+Avoid:
+- defaulting everything to dynamic
+- runtime-heavy route generation
+
+The platform should remain:
+```txt
+fast and cache-efficient
+```
+
+---
+
+## Route Structure Rules
+
+Follow the locked route blueprint.
+
+Approved route groups:
+
+```txt
+/
+tattoo-styles/
+tattoo-services/
+gallery/
+reviews/
+tattoo-blog/
+faq/
+contact/
+```
+
+Do not invent new SEO route systems casually.
+
+---
+
+## SEO Rendering Rules
+
+SEO-critical content must remain:
+- server-rendered
+- crawlable
+- visible without JS dependency
+
+Avoid:
+- client-only metadata
+- client-rendered schema
+- hidden SEO content
+
+---
+
+## Image Rules
+
+Use:
+- `next/image`
+- responsive sizing
+- lazy loading
+- optimized formats
+
+Avoid:
+- raw `<img>` tags
+- oversized media payloads
+- loading huge galleries immediately
+
+---
+
+## Font Rules
+
+Use:
+- `next/font`
+
+Avoid:
+- external blocking font loading
+- layout-shifting typography
+
+---
+
+## Middleware Rules
+
+Use middleware minimally and intentionally.
+
+Allowed:
+- region/domain detection
+- lightweight redirects
+
+Avoid:
+- heavy logic in middleware
+- unnecessary request overhead
+
+---
+
+## Environment Rules
+
+Environment variables must remain:
+- centralized
+- secure
+- server-safe
+
+Never expose secrets to client bundles.
+
+Only expose browser-safe values using:
+```txt
+NEXT_PUBLIC_
+```
+
+---
+
+## Performance Rules
+
+Prioritize:
+- low hydration cost
+- optimized bundles
+- server rendering
+- fast LCP
+- minimal client JS
+
+Avoid:
+- unnecessary providers
+- global client wrappers
+- oversized client state systems
+
+---
+
+## Accessibility Rules
+
+Maintain:
+- semantic layouts
+- proper heading hierarchy
+- keyboard-safe navigation
+- reduced motion support
+
+---
+
+## Forbidden Patterns
+
+Never introduce:
+
+- Pages Router
+- `getServerSideProps`
+- `getStaticProps`
+- client-rendered SEO pages
+- global `"use client"` abuse
+- unnecessary runtime rendering
+- duplicated metadata systems
+- inline secret usage
+- unstable route architecture
+
+---
+
+## Final Principle
+
+Every App Router decision should reinforce:
+
+- SEO safety
+- performance
+- server-first rendering
+- scalability
+- stability
+- maintainability
+- architectural consistency
+
+If an implementation weakens those goals, do not implement it.

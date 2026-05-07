@@ -1,0 +1,398 @@
+---
+description: SEO enforcement rules for Bloodline Tattoo
+globs:
+  - "src/**/*.{ts,tsx,mdx}"
+alwaysApply: true
+---
+
+# Bloodline SEO Rules
+
+## Core SEO Philosophy
+
+SEO should feel:
+
+- premium
+- authoritative
+- trust-heavy
+- region-aware
+- conversion-oriented
+
+Avoid:
+- keyword stuffing
+- thin SEO pages
+- AI spam content
+- doorway page patterns
+- cheap local SEO tactics
+
+---
+
+## Metadata Rules
+
+Use centralized metadata generation.
+
+Use:
+- `generateMetadata`
+- shared SEO helpers
+- typed metadata systems
+
+Avoid:
+- duplicated metadata logic
+- hardcoded metadata everywhere
+- inconsistent title structures
+
+---
+
+## Title Rules
+
+Preferred patterns:
+
+```txt
+{Topic} in {Region} | Bloodline Tattoo
+```
+
+Examples:
+
+```txt
+Realistic Tattoos in Bangkok | Bloodline Tattoo
+Cover-Up Tattoos in Bali | Bloodline Tattoo
+```
+
+Titles should:
+- remain readable
+- support trust
+- support SEO naturally
+
+Avoid:
+- keyword repetition
+- spammy title formatting
+
+---
+
+## Meta Description Rules
+
+Descriptions should:
+- sound human
+- reinforce trust
+- support conversion
+- include regional context naturally
+
+Avoid:
+- robotic phrasing
+- excessive keyword stuffing
+- generic AI wording
+
+---
+
+## Canonical Rules
+
+Each regional domain canonicalizes to itself.
+
+Correct:
+
+```txt
+Bangkok pages
+→ Bangkok canonical
+
+Bali pages
+→ Bali canonical
+```
+
+Avoid:
+- forcing canonicals to global domain
+- cross-region canonical confusion
+
+---
+
+## Regional SEO Rules
+
+Every regional page should contain:
+- region-aware metadata
+- localized reviews
+- localized schema
+- localized FAQ variation
+- localized supporting copy
+
+Avoid:
+- cloned regional pages
+- duplicate regional content
+- copy-pasted SEO structures
+
+---
+
+## Heading Hierarchy Rules
+
+Maintain:
+
+- one H1 only
+- logical H2 hierarchy
+- logical H3 progression
+
+Headings should:
+- remain semantic
+- remain readable
+- support scanning
+
+Avoid:
+- multiple H1s
+- decorative heading misuse
+- keyword stuffing in headings
+
+---
+
+## Internal Linking Rules
+
+Internal linking is mandatory.
+
+Pages should support:
+- style ↔ service links
+- blog ↔ style links
+- blog ↔ service links
+- gallery ↔ styles
+- FAQ ↔ services
+
+Links should feel:
+- contextual
+- useful
+- natural
+
+Avoid:
+- spammy link blocks
+- repetitive exact-match anchors
+
+---
+
+## Anchor Text Rules
+
+Anchor text should:
+- describe destination naturally
+- support user discovery
+- support SEO context
+
+Avoid:
+- exact-match repetition loops
+- manipulative anchor spam
+
+---
+
+## Schema Rules
+
+Use centralized schema utilities.
+
+Supported schema:
+
+- LocalBusiness
+- TattooParlor
+- FAQPage
+- Article
+- BreadcrumbList
+- Review
+- AggregateRating
+
+Do not fabricate schema data.
+
+---
+
+## Review SEO Rules
+
+Reviews should:
+- remain crawlable
+- remain authentic
+- remain region-aware
+
+Avoid:
+- fake testimonials
+- fabricated ratings
+- duplicated reviews across regions
+
+---
+
+## MDX SEO Rules
+
+MDX content should:
+- maintain heading hierarchy
+- include internal links
+- support topical authority
+- remain human-readable
+- reinforce trust
+
+Avoid:
+- filler paragraphs
+- repetitive AI structures
+- keyword spam sections
+
+---
+
+## Content Density Rules
+
+The platform supports:
+- long-form SEO
+- FAQs
+- educational content
+
+BUT content must remain:
+- structured
+- scannable
+- visually readable
+
+Avoid:
+- giant text walls
+- bloated SEO copy
+- meaningless filler sections
+
+---
+
+## Blog Rules
+
+Blog content should support:
+- topical authority
+- tattoo education
+- traveler intent
+- conversion nurturing
+
+Avoid:
+- generic marketing blogs
+- mass AI article generation
+- low-information content
+
+---
+
+## FAQ Rules
+
+FAQs should:
+- answer real user concerns
+- support long-tail SEO
+- reduce conversion friction
+
+Avoid:
+- fake FAQ stuffing
+- bloated repetitive answers
+
+---
+
+## Image SEO Rules
+
+All meaningful images require:
+- descriptive alt text
+- optimized filenames
+- responsive sizing
+
+Avoid:
+- keyword-stuffed alt text
+- meaningless alt content
+
+---
+
+## Gallery SEO Rules
+
+Gallery is a:
+```txt
+visual authority system
+```
+
+Gallery content should:
+- support style categorization
+- support internal linking
+- support SEO naturally
+
+Avoid:
+- unstructured media dumps
+
+---
+
+## Performance SEO Rules
+
+SEO-critical pages should prioritize:
+- Server Components
+- ISR
+- optimized media
+- low hydration cost
+- fast LCP
+
+Avoid:
+- client-rendered SEO content
+- oversized animation payloads
+- runtime-heavy pages
+
+---
+
+## Route SEO Rules
+
+Approved SEO route groups:
+
+```txt
+tattoo-styles/
+tattoo-services/
+tattoo-blog/
+gallery/
+reviews/
+faq/
+```
+
+Do not invent:
+- doorway city pages
+- thin keyword routes
+- duplicate route intent
+
+---
+
+## AI Content Rules
+
+AI-generated content must:
+- feel human
+- remain trustworthy
+- avoid repetition
+- support expertise
+- support topical authority
+
+Avoid:
+- generic AI tone
+- repetitive sentence patterns
+- obvious machine-generated structure
+
+---
+
+## Premium Positioning Rules
+
+SEO must never weaken:
+- premium perception
+- trust
+- craftsmanship positioning
+- professional tone
+
+Avoid:
+- spammy conversion language
+- cheap local SEO tactics
+- aggressive keyword repetition
+
+---
+
+## Forbidden SEO Patterns
+
+Never introduce:
+
+- keyword stuffing
+- thin pages
+- duplicate metadata
+- duplicate regional copy
+- fake schema
+- fake testimonials
+- hidden SEO text
+- doorway pages
+- exact-match anchor spam
+- AI filler content
+
+---
+
+## Final Principle
+
+Every SEO decision should reinforce:
+
+- authority
+- trust
+- craftsmanship
+- regional relevance
+- premium positioning
+- conversion quality
+- long-term scalability
+
+If an SEO implementation weakens those goals, do not implement it.

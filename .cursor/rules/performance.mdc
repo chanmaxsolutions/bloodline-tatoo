@@ -1,0 +1,459 @@
+---
+description: Performance enforcement rules for Bloodline Tattoo
+globs:
+  - "src/**/*.{ts,tsx}"
+alwaysApply: true
+---
+
+# Bloodline Performance Rules
+
+## Core Performance Philosophy
+
+The platform must feel:
+
+- fast
+- responsive
+- smooth
+- stable
+- lightweight
+
+Premium experience must never become:
+```txt
+heavy or sluggish
+```
+
+Performance is part of brand perception.
+
+---
+
+## Rendering Philosophy
+
+The platform is:
+
+```txt
+Server-first
+SEO-first
+Performance-first
+```
+
+Prefer:
+- Server Components
+- static rendering
+- ISR
+- minimal hydration
+
+Avoid:
+- unnecessary client rendering
+- hydration-heavy pages
+- runtime-heavy interactions
+
+---
+
+## Hydration Rules
+
+Hydration should remain:
+- minimal
+- isolated
+- intentional
+
+Client Components should exist only where interaction is required.
+
+Avoid:
+- hydrating entire pages
+- wrapping layouts with unnecessary providers
+- client-side rendering creep
+
+---
+
+## JavaScript Rules
+
+Ship as little JavaScript as possible.
+
+Avoid:
+- oversized client bundles
+- unnecessary dependencies
+- browser-heavy rendering
+- giant client-side state systems
+
+The site should remain:
+```txt
+content-first
+```
+
+---
+
+## Dependency Rules
+
+Before adding any package:
+- validate necessity
+- validate maintenance quality
+- validate bundle impact
+
+Avoid:
+- dependency bloat
+- overlapping libraries
+- experimental heavy packages
+
+---
+
+## Image Rules
+
+Always use:
+```tsx
+next/image
+```
+
+Required:
+- responsive sizing
+- lazy loading
+- optimized formats
+- proper sizing strategy
+
+Avoid:
+- raw `<img>` tags
+- oversized source images
+- loading full-resolution media unnecessarily
+
+---
+
+## Gallery Performance Rules
+
+Gallery systems should:
+- lazy load images
+- paginate or virtualize when needed
+- avoid loading huge grids immediately
+
+Avoid:
+- rendering massive image datasets at once
+- giant client-side gallery payloads
+
+The gallery should feel:
+```txt
+smooth and responsive
+```
+
+---
+
+## Video Rules
+
+Videos should:
+- remain optimized
+- avoid blocking rendering
+- lazy load where possible
+
+Avoid:
+- autoplay overload
+- giant uncompressed hero videos
+- multiple simultaneous background videos
+
+Video should support atmosphere,
+not dominate performance budget.
+
+---
+
+## Motion Performance Rules
+
+Motion should prioritize:
+- transform animations
+- opacity transitions
+- GPU-safe rendering
+
+Avoid:
+- layout-thrashing animation
+- CPU-heavy motion systems
+- oversized animation orchestration
+
+Motion must remain:
+```txt
+performance-safe
+```
+
+---
+
+## Scroll Performance Rules
+
+Avoid:
+- heavy scroll listeners
+- giant parallax systems
+- scroll hijacking
+- expensive continuous calculations
+
+Scroll interactions should remain:
+- lightweight
+- responsive
+- stable
+
+---
+
+## Client Component Rules
+
+Client Components should remain:
+- small
+- isolated
+- interaction-focused
+
+Avoid:
+- client-rendering SEO content
+- giant interactive wrappers
+- unnecessary browser state
+
+---
+
+## Provider Rules
+
+Avoid excessive global providers.
+
+Only use providers when:
+- truly required
+- architecture-critical
+
+Avoid:
+- provider stacking
+- unnecessary global client wrappers
+
+---
+
+## Font Performance Rules
+
+Use:
+```txt
+next/font
+```
+
+Required:
+- optimized loading
+- minimal layout shift
+
+Avoid:
+- blocking external font loading
+- excessive font families
+- oversized font variants
+
+---
+
+## Data Fetching Rules
+
+Prefer:
+- server-side data preparation
+- ISR
+- caching
+- normalized datasets
+
+Avoid:
+- repeated client fetching
+- unnecessary runtime requests
+- duplicate fetch logic
+
+---
+
+## Airtable Performance Rules
+
+Never fetch Airtable directly from UI components.
+
+Use:
+- normalization layer
+- cached structures
+- server-side preparation
+
+Avoid:
+- client-side Airtable access
+- runtime-heavy Airtable rendering
+
+---
+
+## Review System Rules
+
+Reviews should:
+- render from cached JSON
+- support ISR
+- avoid runtime scraping
+
+Avoid:
+- live-fetching reviews on page load
+
+---
+
+## MDX Performance Rules
+
+MDX should:
+- compile efficiently
+- remain lightweight
+- avoid giant interactive embeds
+
+Avoid:
+- unnecessary heavy MDX runtime systems
+- oversized dynamic MDX rendering
+
+---
+
+## Bundle Rules
+
+Continuously minimize:
+- bundle size
+- hydration cost
+- client-side logic
+
+Avoid:
+- importing large libraries globally
+- oversized animation packages
+- dead dependencies
+
+---
+
+## Route Performance Rules
+
+SEO-critical routes should:
+- render quickly
+- avoid client dependency
+- avoid excessive runtime logic
+
+Priority routes:
+- homepage
+- styles
+- services
+- blog articles
+
+---
+
+## Lazy Loading Rules
+
+Lazy load:
+- below-the-fold media
+- heavy galleries
+- non-critical components
+- optional interactions
+
+Avoid:
+- lazy-loading critical above-the-fold content
+
+---
+
+## Core Web Vitals Rules
+
+Prioritize:
+- low LCP
+- low CLS
+- low TBT
+- fast interaction readiness
+
+Avoid:
+- layout shift
+- unstable media sizing
+- delayed content rendering
+
+---
+
+## Mobile Performance Rules
+
+Mobile performance takes priority.
+
+Optimize for:
+- weak networks
+- mid-range devices
+- touch responsiveness
+
+Avoid:
+- desktop-only optimization thinking
+
+---
+
+## Accessibility Performance Rules
+
+Performance optimizations must never:
+- reduce accessibility
+- hide semantic content
+- break keyboard interaction
+
+Maintain:
+- usability
+- readability
+- stability
+
+---
+
+## Caching Rules
+
+Prefer:
+- ISR
+- static rendering
+- predictable cache strategy
+
+Avoid:
+- unnecessary no-store rendering
+- unstable cache invalidation
+
+---
+
+## SEO Performance Rules
+
+Performance supports SEO.
+
+Maintain:
+- server-rendered content
+- fast route delivery
+- crawlable structure
+- lightweight rendering
+
+Avoid:
+- JS-heavy SEO pages
+- client-only metadata systems
+
+---
+
+## Monitoring Rules
+
+Continuously monitor:
+- Lighthouse
+- bundle size
+- hydration cost
+- route performance
+- Core Web Vitals
+
+Performance regressions should be treated seriously.
+
+---
+
+## AI Performance Safety Rules
+
+AI-generated implementation must:
+- minimize hydration
+- minimize dependencies
+- preserve ISR
+- preserve server rendering
+- avoid unnecessary client logic
+
+Avoid:
+- shipping complexity unnecessarily
+- introducing heavy libraries casually
+- bloating interaction systems
+
+---
+
+## Forbidden Patterns
+
+Never introduce:
+
+- giant client-side state systems
+- oversized bundles
+- autoplay chaos
+- giant parallax systems
+- direct Airtable fetching in components
+- raw unoptimized media
+- unnecessary providers
+- hydration-heavy SEO pages
+- layout-thrashing animation
+
+---
+
+## Final Principle
+
+Every performance decision should reinforce:
+
+- speed
+- responsiveness
+- stability
+- SEO quality
+- mobile experience
+- premium perception
+
+If an implementation weakens performance significantly, do not implement it.

@@ -1,0 +1,441 @@
+---
+description: Component architecture and composition rules for Bloodline Tattoo
+globs:
+  - "src/components/**/*.{ts,tsx}"
+alwaysApply: true
+---
+
+# Bloodline Component Rules
+
+## Core Philosophy
+
+Build systems, not isolated pages.
+
+Components should be:
+- reusable
+- composable
+- scalable
+- predictable
+- typed
+- section-driven
+
+Avoid:
+- one-off component chaos
+- duplicated layout structures
+- tightly coupled UI
+
+---
+
+## Component Taxonomy
+
+Use the official component structure:
+
+```txt
+components/
+  ui/
+  layout/
+  sections/
+  cta/
+  seo/
+  motion/
+  gallery/
+  shared/
+```
+
+Do not invent random component folders unnecessarily.
+
+---
+
+## UI Component Rules
+
+`ui/` contains:
+- primitives
+- reusable low-level UI
+- reusable variants
+
+Examples:
+
+```txt
+Button
+Card
+Badge
+Input
+Dialog
+Accordion
+```
+
+UI primitives should remain:
+- generic
+- reusable
+- token-driven
+
+Avoid:
+- business-specific logic inside UI primitives
+
+---
+
+## Section Component Rules
+
+`sections/` contains:
+- reusable business sections
+- page composition blocks
+
+Examples:
+
+```txt
+HeroSection
+ReviewPreviewSection
+StudioStandardsSection
+FAQSection
+```
+
+Sections should:
+- receive structured props
+- remain reusable
+- support multiple page contexts
+
+Avoid:
+- hardcoded region copy
+- inline fetch logic
+- duplicated section variants
+
+---
+
+## Layout Component Rules
+
+`layout/` contains:
+- structural wrappers
+- navigation
+- footer
+- containers
+- grids
+
+Layout components should:
+- remain structural
+- avoid business-specific behavior
+
+---
+
+## CTA Component Rules
+
+`cta/` contains:
+- CTA systems
+- WhatsApp interactions
+- conversion modals
+- sticky CTA bars
+
+CTA behavior should remain:
+- centralized
+- reusable
+- config-driven
+
+Avoid:
+- scattered CTA implementations
+
+---
+
+## Motion Component Rules
+
+`motion/` contains:
+- reusable animation wrappers
+- reveal systems
+- hover systems
+- stagger systems
+
+Motion components should:
+- remain lightweight
+- remain reusable
+- follow motion guidelines
+
+Avoid:
+- section-specific animation duplication
+
+---
+
+## SEO Component Rules
+
+`seo/` contains:
+- schema helpers
+- breadcrumb rendering
+- metadata support components
+
+Avoid:
+- duplicating SEO rendering logic across routes
+
+---
+
+## Shared Component Rules
+
+`shared/` contains:
+- small reusable business fragments
+- repeated micro-patterns
+
+Examples:
+
+```txt
+SectionHeading
+ProofStrip
+TrustBadge
+```
+
+Avoid:
+- oversized shared abstractions
+
+---
+
+## Prop Rules
+
+Components should receive:
+- typed props
+- structured data
+- prepared content
+
+Avoid:
+- hidden assumptions
+- untyped object props
+- business logic embedded in UI
+
+Preferred:
+
+```ts
+interface HeroSectionProps {
+  heading: string;
+  subheading: string;
+}
+```
+
+---
+
+## Data Fetching Rules
+
+Components should NOT:
+- fetch Airtable directly
+- normalize external data
+- perform business orchestration
+
+Data preparation belongs in:
+- route loaders
+- utilities
+- server functions
+- lib helpers
+
+Components should focus on:
+```txt
+presentation
+```
+
+---
+
+## Region Rules
+
+Components must remain:
+- region-agnostic
+- reusable
+
+All regional content should flow through:
+- props
+- config
+- helpers
+
+Avoid:
+- hardcoded regional copy
+
+Forbidden:
+
+```tsx
+<h1>Bangkok Tattoo Studio</h1>
+```
+
+---
+
+## Variant Rules
+
+Use reusable variant systems.
+
+Examples:
+- button variants
+- card variants
+- spacing variants
+- heading variants
+
+Preferred:
+- CVA
+- centralized variant logic
+
+Avoid:
+- duplicated styling branches
+
+---
+
+## Composition Rules
+
+Pages should be assembled from:
+- reusable sections
+- reusable wrappers
+- reusable patterns
+
+Avoid:
+- giant monolithic page files
+- duplicated page anatomy
+
+---
+
+## Section Rhythm Rules
+
+Pages should follow:
+
+```txt
+Attention
+→ Trust
+→ Proof
+→ Depth
+→ Conversion
+```
+
+Avoid:
+- filler sections
+- decorative clutter
+- inconsistent sequencing
+
+---
+
+## Reusability Rules
+
+Before creating a new component:
+- check existing variants
+- check reusable systems
+- check section compatibility
+
+Avoid:
+- near-duplicate components
+- copy-paste section architecture
+
+---
+
+## Typography Rules
+
+Components must follow:
+- uppercase heading rules
+- token-based styling
+- approved typography system
+
+Avoid:
+- arbitrary font usage
+- inconsistent heading hierarchy
+
+---
+
+## Styling Rules
+
+Use:
+- semantic tokens
+- reusable spacing systems
+- centralized variants
+
+Avoid:
+- random arbitrary styling
+- duplicated utility combinations
+- hardcoded color values
+
+---
+
+## Accessibility Rules
+
+All components should support:
+- semantic HTML
+- keyboard navigation
+- aria support where necessary
+- readable contrast
+- reduced motion support
+
+Accessibility is mandatory.
+
+---
+
+## Performance Rules
+
+Components should:
+- minimize hydration
+- avoid unnecessary client rendering
+- lazy load heavy media where appropriate
+
+Avoid:
+- oversized interactive wrappers
+- client-side rendering creep
+
+---
+
+## Naming Rules
+
+Use PascalCase.
+
+Examples:
+
+```txt
+HeroSection.tsx
+ReviewCard.tsx
+TattooStyleGrid.tsx
+```
+
+Avoid:
+- vague component names
+- inconsistent naming patterns
+
+---
+
+## File Size Rules
+
+Avoid:
+- giant 1000-line components
+- monolithic section logic
+
+Prefer:
+- decomposition
+- reusable fragments
+- clean separation
+
+---
+
+## AI Safety Rules
+
+AI-generated components must:
+- follow existing patterns
+- reuse systems
+- preserve architecture consistency
+- avoid unnecessary invention
+
+Do not generate:
+- disconnected UI systems
+- one-off layout architectures
+- duplicated section patterns
+
+---
+
+## Forbidden Patterns
+
+Never introduce:
+
+- hardcoded regional copy
+- duplicated sections
+- duplicated layout systems
+- direct Airtable calls in components
+- oversized monolithic pages
+- random component folders
+- business logic inside primitives
+- client-rendered SEO sections
+
+---
+
+## Final Principle
+
+Every component decision should reinforce:
+
+- scalability
+- composability
+- consistency
+- performance
+- SEO safety
+- premium presentation
+- architectural clarity
+
+If a component weakens those goals, do not implement it.

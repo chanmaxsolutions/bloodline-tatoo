@@ -1,0 +1,429 @@
+---
+description: Bloodline Tattoo visual system and UI enforcement rules
+globs:
+  - "src/**/*.{ts,tsx,css}"
+alwaysApply: true
+---
+
+# Bloodline Design System Rules
+
+## Brand Identity
+
+The UI must feel:
+
+- aggressive
+- premium
+- cinematic
+- tactical
+- energetic
+- high-trust
+
+Avoid:
+- soft luxury aesthetics
+- playful startup styling
+- generic SaaS visuals
+- futuristic cyberpunk overload
+- editorial minimal fashion layouts
+
+---
+
+## Typography Rules
+
+### Heading Font
+
+Use:
+
+```txt
+Barlow Condensed
+```
+
+### Body Font
+
+Use:
+
+```txt
+Plus Jakarta Sans
+```
+
+---
+
+## Heading Behavior
+
+All major headings should default to:
+
+- uppercase
+- tight tracking
+- aggressive hierarchy
+- condensed structure
+- bold weight
+
+Headings are part of the brand identity.
+
+Avoid:
+- lowercase hero headings
+- decorative typography
+- loose tracking
+- soft typography rhythm
+
+---
+
+## Color Rules
+
+Primary colors:
+
+```txt
+Background: #0B0B0D
+Accent: #C6FF3B
+```
+
+Do not introduce random brand colors.
+
+---
+
+## Token Rules
+
+Use semantic tokens only.
+
+Preferred:
+
+```tsx
+className="bg-background text-foreground"
+className="text-accent border-border"
+```
+
+Avoid arbitrary values:
+
+```tsx
+className="bg-[#0B0B0D]"
+className="text-[#C6FF3B]"
+className="rounded-[17px]"
+```
+
+Only use arbitrary values when absolutely necessary.
+
+---
+
+## Surface Rules
+
+Use layered dark surfaces.
+
+Approved hierarchy:
+
+- background
+- surface
+- surface-elevated
+- surface-strong
+
+Avoid:
+- flat endless black sections
+- excessive glassmorphism
+- random gradients
+- bright surfaces
+
+---
+
+## Layout Rules
+
+Layouts should feel:
+
+- structured
+- cinematic
+- proof-heavy
+- breathable
+- tactical
+
+Avoid:
+- chaotic asymmetry
+- cluttered layouts
+- excessive whitespace minimalism
+- Pinterest-style randomness
+
+---
+
+## Spacing Rules
+
+Use:
+- strong vertical rhythm
+- large cinematic section spacing
+- controlled density
+
+Avoid:
+- cramped UI
+- tiny spacing
+- oversized empty luxury spacing
+
+---
+
+## Border Rules
+
+Borders should be:
+- subtle
+- tactical
+- low-opacity
+
+Use borders for:
+- structure
+- separation
+- rhythm
+
+Avoid:
+- heavy card outlines
+- excessive divider clutter
+
+---
+
+## Radius Rules
+
+Use restrained radius values.
+
+The UI should feel:
+- sharp
+- tactical
+- structured
+
+Avoid:
+- oversized pill radius
+- overly soft SaaS corners
+
+---
+
+## Shadow Rules
+
+Use shadows minimally.
+
+Prefer:
+- contrast
+- layering
+- subtle elevation
+
+Avoid:
+- heavy blurred glow systems
+- floating card shadows
+- dramatic neumorphism
+
+---
+
+## Glow Rules
+
+Accent glow usage should remain restrained.
+
+Allowed:
+- CTA hover glow
+- active states
+- tactical highlights
+
+Avoid:
+- constant neon glow
+- cyberpunk lighting effects
+
+---
+
+## CTA Rules
+
+Primary CTA tone should feel:
+
+- confident
+- premium
+- direct
+- action-oriented
+
+Primary CTA platform:
+
+```txt
+WhatsApp
+```
+
+Avoid:
+- generic SaaS CTA wording
+- corporate marketing language
+- weak CTA hierarchy
+
+---
+
+## Card Rules
+
+Cards should feel:
+
+- premium
+- dark
+- tactical
+- structured
+
+Avoid:
+- soft startup cards
+- excessive gradients
+- playful UI styling
+
+---
+
+## Image Rules
+
+Tattoo imagery is proof content.
+
+Images should feel:
+
+- cinematic
+- immersive
+- sharp
+- high contrast
+- authentic
+
+Avoid:
+- stock-photo treatment
+- washed-out imagery
+- decorative filler media
+
+---
+
+## Gallery Rules
+
+Gallery systems should feel:
+
+```txt
+Curated craftsmanship showcase
+```
+
+NOT:
+```txt
+random media dump
+```
+
+Use:
+- strong crops
+- aggressive visual hierarchy
+- tactical overlays
+- subtle hover depth
+
+---
+
+## Review UI Rules
+
+Reviews should feel:
+
+- authentic
+- premium
+- trust-heavy
+
+Avoid:
+- SaaS testimonial layouts
+- fake case study styling
+- playful quote blocks
+
+---
+
+## Section Rhythm Rules
+
+Pages should follow:
+
+```txt
+Attention
+→ Trust
+→ Proof
+→ Depth
+→ Conversion
+```
+
+Avoid:
+- filler sections
+- random decorative blocks
+- repetitive layout patterns
+
+---
+
+## Motion Rules
+
+Motion should feel:
+
+- fast
+- cinematic
+- sharp
+- controlled
+
+Allowed:
+- fade reveals
+- stagger reveals
+- subtle scale
+- hover zoom
+
+Forbidden:
+- bounce
+- spin
+- exaggerated parallax
+- gimmicky animation
+
+---
+
+## Accessibility Rules
+
+Maintain:
+- semantic hierarchy
+- readable contrast
+- visible focus states
+- reduced motion support
+
+Luxury styling must never reduce usability.
+
+---
+
+## Mobile Rules
+
+Mobile UI should feel:
+
+- dense but readable
+- tactical
+- premium
+
+Prioritize:
+- strong typography
+- optimized spacing
+- sticky CTA usability
+- fast media loading
+
+Avoid:
+- oversized mobile spacing
+- tiny typography
+- overloaded mobile animation
+
+---
+
+## Reuse Rules
+
+Prefer:
+- reusable variants
+- reusable sections
+- reusable layout systems
+
+Avoid:
+- one-off styling
+- duplicated section patterns
+- inconsistent spacing systems
+
+---
+
+## Forbidden Visual Patterns
+
+Never introduce:
+
+- pastel aesthetics
+- playful gradients
+- glassmorphism overload
+- futuristic UI clutter
+- oversized rounded pills
+- random typography systems
+- editorial fashion minimalism
+- bright white layouts
+
+---
+
+## Final Principle
+
+Every visual decision should reinforce:
+
+- trust
+- craftsmanship
+- authority
+- energy
+- premium positioning
+- conversion confidence
+
+If a visual decision weakens the Bloodline identity, do not implement it.
