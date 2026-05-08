@@ -1,26 +1,197 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Core semantic color tokens */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-strong: var(--surface-strong);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ring: var(--ring);
+
+  /* Compatibility aliases for shadcn variants */
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--surface-elevated);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--accent-foreground);
+  --color-secondary: var(--surface-strong);
+  --color-secondary-foreground: var(--foreground);
+  --color-input: var(--surface-elevated);
+  --color-destructive: var(--danger);
+
+  /* Typography */
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.2);
+
+  /* Motion timing */
+  --duration-fast: var(--motion-fast);
+  --duration-base: var(--motion-base);
+  --duration-reveal: var(--motion-reveal);
+  --duration-slow: var(--motion-slow);
+  --ease-standard: var(--motion-ease);
+
+  /* Spacing rhythm */
+  --space-section-y: var(--section-space-y);
+  --space-section-y-tight: var(--section-space-y-tight);
+  --space-content-gap: var(--content-gap);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Core palette */
+  --background: #0b0b0d;
+  --foreground: #f4f4f5;
+  --accent: #c6ff3b;
+  --accent-foreground: #0b0b0d;
+  --surface: #0f0f12;
+  --surface-elevated: #151518;
+  --surface-strong: #1b1b20;
+  --muted: #17171b;
+  --muted-foreground: #b3b3b9;
+  --border: #24242a;
+  --border-strong: #34343d;
+  --danger: #ff6b6b;
+  --ring: #c6ff3b;
+
+  /* Radius: restrained/tactical */
+  --radius: 0.5rem;
+
+  /* Motion tokens: fast, controlled, cinematic */
+  --motion-fast: 0.2s;
+  --motion-base: 0.3s;
+  --motion-reveal: 0.55s;
+  --motion-slow: 0.7s;
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Spacing scale + section rhythm */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  --section-space-y-tight: var(--space-3xl);
+  --section-space-y: var(--space-4xl);
+  --content-gap: var(--space-xl);
+}
+
+.dark {
+  --background: #0b0b0d;
+  --foreground: #f4f4f5;
+  --accent: #c6ff3b;
+  --accent-foreground: #0b0b0d;
+  --surface: #0f0f12;
+  --surface-elevated: #151518;
+  --surface-strong: #1b1b20;
+  --muted: #17171b;
+  --muted-foreground: #b3b3b9;
+  --border: #24242a;
+  --border-strong: #34343d;
+  --danger: #ff6b6b;
+  --ring: #c6ff3b;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply h-full font-sans;
+  }
+  body {
+    @apply min-h-full bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-heading-display {
+    @apply font-heading font-bold uppercase tracking-tight leading-none;
+  }
+
+  .text-heading-section {
+    @apply font-heading font-semibold uppercase tracking-tight leading-tight;
+  }
+
+  .text-body-readable {
+    @apply text-base text-muted-foreground leading-8;
+  }
+
+  .surface-base {
+    @apply bg-surface border border-border;
+  }
+
+  .surface-elevated {
+    @apply bg-surface-elevated border border-border;
+  }
+
+  .surface-strong {
+    @apply bg-surface-strong border border-border-strong;
+  }
+
+  .section-space {
+    padding-top: var(--space-section-y);
+    padding-bottom: var(--space-section-y);
+  }
+
+  .section-space-tight {
+    padding-top: var(--space-section-y-tight);
+    padding-bottom: var(--space-section-y-tight);
+  }
+
+  .content-gap {
+    gap: var(--space-content-gap);
+  }
+
+  .motion-standard {
+    transition-timing-function: var(--ease-standard);
+    transition-duration: var(--duration-base);
+  }
+
+  .motion-fast {
+    transition-timing-function: var(--ease-standard);
+    transition-duration: var(--duration-fast);
+  }
+
+  .motion-reveal {
+    transition-timing-function: var(--ease-standard);
+    transition-duration: var(--duration-reveal);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-standard,
+  .motion-fast,
+  .motion-reveal {
+    transition-duration: 0.01ms;
+  }
 }
