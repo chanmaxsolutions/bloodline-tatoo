@@ -3,11 +3,9 @@ import { HeroSection, TrustProofBarSection, type TrustProofItem } from "@/compon
 import { getRegionConfig, resolveRegionFromHostname } from "@/lib/region";
 
 const defaultTrustProofItems: TrustProofItem[] = [
-  { label: "Google Rating", value: "4.9/5" },
+  { label: "Google Rating", value: "4.9" },
   { label: "Verified Reviews", value: "1.2K+" },
-  { label: "Studios", value: "4 Regions" },
   { label: "Years Experience", value: "12+" },
-  { label: "Artists & Specialists", value: "18+" },
 ];
 
 export default async function Home() {

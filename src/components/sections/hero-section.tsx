@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/shared/motion";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { buttonVariants } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -34,7 +35,6 @@ function HeroSection({
   primaryCta,
   secondaryCta,
 }: HeroSectionProps) {
-  const ctaHeightClass = "h-11 md:h-12";
   const trustIndicators = [
     "Award-winning artists",
     "Custom tattoo specialists",
@@ -42,7 +42,7 @@ function HeroSection({
   ] as const;
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden border-b border-border bg-surface-strong">
+    <section className="relative min-h-[100svh] overflow-hidden bg-surface-strong">
       {!media.videoSrc && media.src ? (
         <Image
           src={media.src}
@@ -69,15 +69,15 @@ function HeroSection({
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(11,11,13,0.12)_0%,rgba(11,11,13,0.68)_64%,rgba(11,11,13,0.95)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.12)_0%,rgba(0,0,0,0.68)_64%,rgba(0,0,0,0.95)_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(11,11,13,0.3)_0%,rgba(11,11,13,0.55)_45%,rgba(11,11,13,1)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,1)_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(11,11,13,0.66)_0%,rgba(11,11,13,0.18)_28%,rgba(11,11,13,0.18)_72%,rgba(11,11,13,0.66)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.66)_0%,rgba(0,0,0,0.18)_28%,rgba(0,0,0,0.18)_72%,rgba(0,0,0,0.66)_100%)]"
       />
 
       <Container
@@ -85,56 +85,62 @@ function HeroSection({
         className="relative z-10 flex min-h-[100svh] items-center justify-center py-12 md:py-16 lg:py-20"
       >
         <div className="grid max-w-4xl justify-items-center gap-8 text-center md:gap-10">
-          <SectionHeading
-            align="center"
-            eyebrow={eyebrow}
-            heading={title}
-            description={description}
-            className="max-w-2xl gap-5 md:max-w-4xl"
-            titleClassName="text-5xl leading-[0.95] md:text-7xl md:leading-[0.9] lg:text-8xl"
-            descriptionClassName="mx-auto max-w-2xl text-base leading-7 text-muted-foreground md:text-xl md:leading-8"
-          />
+          <Reveal mode="default">
+            <SectionHeading
+              align="center"
+              eyebrow={eyebrow}
+              heading={title}
+              description={description}
+              className="max-w-2xl gap-5 md:max-w-4xl"
+              eyebrowClassName="text-lg md:text-lg"
+              titleClassName="text-5xl leading-[0.95] md:text-7xl md:leading-[0.9] lg:text-8xl"
+              descriptionClassName="mx-auto max-w-2xl text-xl leading-7 text-muted-foreground md:text-2xl md:leading-8"
+            />
+          </Reveal>
 
-          <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <Link
-              href={primaryCta.href}
-              className={buttonVariants({
-                variant: "primary",
-                size: "md",
-                className: ctaHeightClass,
-              })}
-            >
-              {primaryCta.label}
-            </Link>
-            {secondaryCta ? (
+          <Reveal mode="soft" delay={0.08}>
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:gap-4">
               <Link
-                href={secondaryCta.href}
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: "md", className: ctaHeightClass }),
-                  "border border-border-strong bg-background/35 text-muted-foreground hover:bg-background/55 hover:text-foreground",
-                )}
+                href={primaryCta.href}
+                className={buttonVariants({
+                  variant: "primary",
+                  size: "lg",
+                })}
               >
-                {secondaryCta.label}
+                {primaryCta.label}
               </Link>
-            ) : null}
-          </div>
-
-          <ul className="mt-2 flex max-w-3xl flex-wrap items-center justify-center gap-x-5 gap-y-3 md:mt-3">
-            {trustIndicators.map((indicator) => (
-              <li
-                key={indicator}
-                className="flex items-center gap-2 font-heading text-sm font-medium uppercase tracking-tight text-muted-foreground md:text-base"
-              >
-                <span
-                  aria-hidden="true"
-                  className="font-heading text-lg leading-none text-accent/85 md:text-xl"
+              {secondaryCta ? (
+                <Link
+                  href={secondaryCta.href}
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "lg" }),
+                    "border border-border-strong bg-background/35 text-muted-foreground hover:bg-background/55 hover:text-foreground",
+                  )}
                 >
-                  ✓
-                </span>
-                <span>{indicator}</span>
-              </li>
-            ))}
-          </ul>
+                  {secondaryCta.label}
+                </Link>
+              ) : null}
+            </div>
+          </Reveal>
+
+          <Reveal mode="soft" delay={0.16}>
+            <ul className="mt-3 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-3 md:mt-3">
+              {trustIndicators.map((indicator) => (
+                <li
+                  key={indicator}
+                  className="flex items-center gap-2 font-heading text-base font-medium uppercase tracking-tight text-muted-foreground md:text-xl"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="font-heading text-2xl leading-none text-accent/85 md:text-2xl"
+                  >
+                    ✓
+                  </span>
+                  <span>{indicator}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </Container>
     </section>

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/shared/motion";
 import { cn } from "@/lib/utils";
 
 type SectionSpacingTier = "tight" | "default" | "cinematic";
@@ -11,6 +12,9 @@ interface SectionShellProps {
   surface?: SectionSurface;
   containerSize?: "default" | "narrow" | "wide" | "full";
   className?: string;
+  reveal?: boolean;
+  revealMode?: "default" | "soft";
+  revealDelay?: number;
   children: ReactNode;
 }
 
@@ -33,11 +37,22 @@ function SectionShell({
   surface = "transparent",
   containerSize = "wide",
   className,
+  reveal = false,
+  revealMode = "default",
+  revealDelay = 0,
   children,
 }: SectionShellProps) {
+  const content = reveal ? (
+    <Reveal mode={revealMode} delay={revealDelay}>
+      {children}
+    </Reveal>
+  ) : (
+    children
+  );
+
   return (
     <section id={id} className={cn(spacingClassMap[spacing], surfaceClassMap[surface], className)}>
-      <Container size={containerSize}>{children}</Container>
+      <Container size={containerSize}>{content}</Container>
     </section>
   );
 }
