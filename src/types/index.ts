@@ -1,3 +1,6 @@
+export * from "@/types/homepage-authority";
+export * from "@/types/homepage-testimonial";
 export * from "@/types/region";
+export * from "@/types/tattoo-style";
 export * from "@/types/review";
 export * from "@/types/seo";

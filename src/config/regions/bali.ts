@@ -1,3 +1,5 @@
+import { homepageAuthorityForRegion } from "@/config/homepage-authority";
+import { homepageTattooStylesForRegion } from "@/config/homepage-tattoo-styles";
 import type { RegionConfig } from "@/types";
 
 export const baliRegionConfig: RegionConfig = {
@@ -5,6 +7,8 @@ export const baliRegionConfig: RegionConfig = {
   domain: "bloodlinetattoobali.com",
   regionName: "Bali",
   heroHeading: "PREMIUM TATTOO STUDIO IN BALI",
+  googleBusinessProfileUrl:
+    "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bali",
   branding: {
     logoWordmark: "BLOODLINE BALI",
     logoMonogram: "BL",
@@ -25,4 +29,6 @@ export const baliRegionConfig: RegionConfig = {
     defaultTitle: "Premium Tattoo Studio in Bali | Bloodline Tattoo",
     defaultDescription: "Regional Bloodline Tattoo foundation configuration for Bali.",
   },
+  homepageAuthority: homepageAuthorityForRegion("bali", "Bali"),
+  homepageTattooStyles: homepageTattooStylesForRegion("bali", "Bali"),
 };

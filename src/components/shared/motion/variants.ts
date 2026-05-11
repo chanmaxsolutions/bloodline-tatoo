@@ -1,7 +1,8 @@
 import type { Variants } from "framer-motion";
-import { cinematicEase, composedEase } from "@/components/shared/motion/easing";
+import { composedEase } from "@/components/shared/motion/easing";
 import { motionDistance, motionDurations } from "@/components/shared/motion/motion-tokens";
 
+/** Transitions live on `<motion>` in `Reveal` so `delay` can merge without dropping duration/ease. */
 const revealVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -10,10 +11,6 @@ const revealVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: motionDurations.slow,
-      ease: cinematicEase,
-    },
   },
 };
 
@@ -25,10 +22,18 @@ const revealSoftVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: motionDurations.medium,
-      ease: composedEase,
-    },
+  },
+};
+
+/** Section entrances: more travel + slower ease so scroll reveals read clearly after hero. */
+const revealFirmVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: motionDistance.revealYFirm,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
   },
 };
 
@@ -37,4 +42,4 @@ const subtleHoverTransition = {
   ease: composedEase,
 } as const;
 
-export { revealSoftVariants, revealVariants, subtleHoverTransition };
+export { revealFirmVariants, revealSoftVariants, revealVariants, subtleHoverTransition };

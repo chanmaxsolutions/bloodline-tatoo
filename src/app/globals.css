@@ -134,8 +134,9 @@
 }
 
 @layer utilities {
+  /** Line-height comes from paired `text-*` / `leading-*` utilities (avoids tailwind-merge dropping this when custom leading is used). */
   .text-heading-display {
-    @apply font-heading font-bold uppercase tracking-tight leading-none;
+    @apply font-heading font-bold uppercase tracking-tight;
   }
 
   .text-heading-section {
@@ -156,6 +157,21 @@
 
   .surface-strong {
     @apply bg-surface-strong border border-border-strong;
+  }
+
+  /** Authority band: `--background` (#0B0B0D) at top → #1C1B1D at bottom */
+  .bg-gradient-authority {
+    background-image: linear-gradient(180deg, var(--background) 0%, #1c1b1d 100%);
+  }
+
+  /** Tattoo styles gateway: continues from authority tone into page background */
+  .bg-gradient-tattoo-styles {
+    background-image: linear-gradient(180deg, #1c1b1d 0%, var(--background) 100%);
+  }
+
+  /** Seamless strip with authority gradient end (#1C1B1D) — e.g. testimonial bridge */
+  .bg-band-charcoal {
+    background-color: #1c1b1d;
   }
 
   .section-space {
@@ -186,6 +202,7 @@
     transition-timing-function: var(--ease-standard);
     transition-duration: var(--duration-reveal);
   }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

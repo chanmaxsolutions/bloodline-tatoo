@@ -1,12 +1,14 @@
 import * as React from "react";
+import { clsx } from "clsx";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const sectionHeadingVariants = cva("grid gap-3", {
+const sectionHeadingVariants = cva("", {
   variants: {
     align: {
-      left: "text-left",
-      center: "text-center",
+      left: "grid gap-3 text-left",
+      /** Matches homepage authority intro stack: centered column + tactile vertical rhythm */
+      center: "flex flex-col items-center gap-4 text-center md:gap-5",
     },
   },
   defaultVariants: {
@@ -19,6 +21,8 @@ interface SectionHeadingProps
   eyebrow?: string;
   heading: React.ReactNode;
   description?: string;
+  /** When set, applied to the `h2` for `aria-labelledby` on the parent section. */
+  headingId?: string;
   eyebrowClassName?: string;
   titleClassName?: string;
   descriptionClassName?: string;
@@ -30,6 +34,7 @@ function SectionHeading({
   eyebrow,
   heading,
   description,
+  headingId,
   eyebrowClassName,
   titleClassName,
   descriptionClassName,
@@ -51,7 +56,16 @@ function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={cn("text-heading-display text-3xl md:text-4xl", titleClassName)}>{heading}</h2>
+      <h2
+        id={headingId}
+        className={clsx(
+          "text-heading-display",
+          /** `cn`/`tailwind-merge` treats `text-heading-display` + `text-foreground` as conflicting `text-*` and drops the display preset—use `clsx` only here. */
+          titleClassName ?? "text-3xl md:text-4xl",
+        )}
+      >
+        {heading}
+      </h2>
       {description ? (
         <p
           className={cn(

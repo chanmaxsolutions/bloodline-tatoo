@@ -1,3 +1,5 @@
+import { homepageAuthorityForRegion } from "@/config/homepage-authority";
+import { homepageTattooStylesForRegion } from "@/config/homepage-tattoo-styles";
 import type { RegionConfig } from "@/types";
 
 export const bangkokRegionConfig: RegionConfig = {
@@ -5,6 +7,8 @@ export const bangkokRegionConfig: RegionConfig = {
   domain: "bloodlinetattoobangkok.com",
   regionName: "Bangkok",
   heroHeading: "PREMIUM TATTOO STUDIO IN BANGKOK",
+  googleBusinessProfileUrl:
+    "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bangkok",
   branding: {
     logoWordmark: "BLOODLINE BANGKOK",
     logoMonogram: "BL",
@@ -25,4 +29,6 @@ export const bangkokRegionConfig: RegionConfig = {
     defaultTitle: "Premium Tattoo Studio in Bangkok | Bloodline Tattoo",
     defaultDescription: "Regional Bloodline Tattoo foundation configuration for Bangkok.",
   },
+  homepageAuthority: homepageAuthorityForRegion("bangkok", "Bangkok"),
+  homepageTattooStyles: homepageTattooStylesForRegion("bangkok", "Bangkok"),
 };

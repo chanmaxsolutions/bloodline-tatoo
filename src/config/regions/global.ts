@@ -1,3 +1,5 @@
+import { homepageAuthorityForRegion } from "@/config/homepage-authority";
+import { homepageTattooStylesForRegion } from "@/config/homepage-tattoo-styles";
 import type { RegionConfig } from "@/types";
 
 export const globalRegionConfig: RegionConfig = {
@@ -5,6 +7,8 @@ export const globalRegionConfig: RegionConfig = {
   domain: "bloodlinetattoo.com",
   regionName: "Global",
   heroHeading: "BLOODLINE TATTOO",
+  googleBusinessProfileUrl:
+    "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bangkok",
   branding: {
     logoWordmark: "BLOODLINE",
     logoMonogram: "BL",
@@ -25,4 +29,6 @@ export const globalRegionConfig: RegionConfig = {
     defaultTitle: "Bloodline Tattoo",
     defaultDescription: "Global brand hub for Bloodline Tattoo.",
   },
+  homepageAuthority: homepageAuthorityForRegion("global", "Global"),
+  homepageTattooStyles: homepageTattooStylesForRegion("global", "Global"),
 };

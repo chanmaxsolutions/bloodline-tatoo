@@ -1,5 +1,14 @@
 import { headers } from "next/headers";
-import { HeroSection, TrustProofBarSection, type TrustProofItem } from "@/components/sections";
+import {
+  AuthoritySection,
+  HeroSection,
+  HomepageTestimonialsCarouselSection,
+  TattooStylesSection,
+  TrustProofBarSection,
+  type TrustProofItem,
+} from "@/components/sections";
+import { getHomepageTestimonials } from "@/config/homepage-testimonials";
+import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
 import { getRegionConfig, resolveRegionFromHostname } from "@/lib/region";
 
 const defaultTrustProofItems: TrustProofItem[] = [
@@ -14,6 +23,10 @@ export default async function Home() {
     requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost";
   const region = resolveRegionFromHostname(hostname);
   const regionConfig = getRegionConfig(region);
+  const homepageTattooStyleTiles = resolveHomepageTattooStyleTiles(
+    regionConfig.homepageTattooStyles.featuredSlugs,
+  );
+  const homepageTestimonials = getHomepageTestimonials(region);
 
   const heroDescription =
     region === "global"
@@ -30,7 +43,7 @@ export default async function Home() {
   };
 
   return (
-    <main className="bg-background">
+    <main className="min-w-0 bg-background">
       <HeroSection
         eyebrow="Premium Tattoo Culture"
         title={
@@ -53,6 +66,15 @@ export default async function Home() {
           label: "VIEW PORTFOLIO",
           href: "/gallery",
         }}
+      />
+      <AuthoritySection content={regionConfig.homepageAuthority} />
+      <HomepageTestimonialsCarouselSection
+        testimonials={homepageTestimonials}
+        googleBusinessProfileUrl={regionConfig.googleBusinessProfileUrl}
+      />
+      <TattooStylesSection
+        config={regionConfig.homepageTattooStyles}
+        tiles={homepageTattooStyleTiles}
       />
       <TrustProofBarSection items={defaultTrustProofItems} />
     </main>

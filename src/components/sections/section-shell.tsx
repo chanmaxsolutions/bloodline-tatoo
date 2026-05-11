@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/shared/motion";
 import { cn } from "@/lib/utils";
@@ -8,6 +8,7 @@ type SectionSurface = "transparent" | "base" | "elevated" | "strong";
 
 interface SectionShellProps {
   id?: string;
+  "aria-labelledby"?: string;
   spacing?: SectionSpacingTier;
   surface?: SectionSurface;
   containerSize?: "default" | "narrow" | "wide" | "full";
@@ -15,6 +16,8 @@ interface SectionShellProps {
   reveal?: boolean;
   revealMode?: "default" | "soft";
   revealDelay?: number;
+  /** Applied to the outer `<section>` (e.g. gradients that must not be overridden by utilities). */
+  style?: CSSProperties;
   children: ReactNode;
 }
 
@@ -33,6 +36,7 @@ const surfaceClassMap: Record<SectionSurface, string> = {
 
 function SectionShell({
   id,
+  "aria-labelledby": ariaLabelledBy,
   spacing = "default",
   surface = "transparent",
   containerSize = "wide",
@@ -40,6 +44,7 @@ function SectionShell({
   reveal = false,
   revealMode = "default",
   revealDelay = 0,
+  style,
   children,
 }: SectionShellProps) {
   const content = reveal ? (
@@ -51,7 +56,12 @@ function SectionShell({
   );
 
   return (
-    <section id={id} className={cn(spacingClassMap[spacing], surfaceClassMap[surface], className)}>
+    <section
+      id={id}
+      aria-labelledby={ariaLabelledBy}
+      style={style}
+      className={cn(spacingClassMap[spacing], surfaceClassMap[surface], className)}
+    >
       <Container size={containerSize}>{content}</Container>
     </section>
   );

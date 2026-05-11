@@ -1,3 +1,6 @@
+import type { RegionHomepageAuthorityConfig } from "@/types/homepage-authority";
+import type { RegionHomepageTattooStylesConfig } from "@/types/tattoo-style";
+
 export type RegionSlug = "global" | "bangkok" | "bali" | "phuket";
 
 export interface RegionContactConfig {
@@ -29,8 +32,12 @@ export interface RegionConfig {
   domain: string;
   regionName: string;
   heroHeading: string;
+  /** Public Google Maps / Business listing for this studio (homepage review “View more”). */
+  googleBusinessProfileUrl: string;
   branding: RegionBrandingConfig;
   headerCta: RegionHeaderCtaConfig;
   contact: RegionContactConfig;
   seo: RegionSeoConfig;
+  homepageAuthority: RegionHomepageAuthorityConfig;
+  homepageTattooStyles: RegionHomepageTattooStylesConfig;
 }

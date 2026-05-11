@@ -1,0 +1,427 @@
+"use client";
+
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type MutableRefObject,
+  type ReactNode,
+} from "react";
+import Image from "next/image";
+import { useReducedMotion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import type { HomepageTestimonial } from "@/types/homepage-testimonial";
+
+interface HomepageTestimonialsCarouselSectionProps {
+  testimonials: readonly HomepageTestimonial[];
+  /** Region’s Google Business / Maps listing (“View more” when copy is clamped). */
+  googleBusinessProfileUrl: string;
+}
+
+const GOOGLE_STAR = "#FBBC04";
+const GOOGLE_STAR_EMPTY = "rgba(255,255,255,0.14)";
+
+function getInitials(author: string): string {
+  const cleaned = author.replace(/\./g, "").trim();
+  const parts = cleaned.split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0]!.slice(0, 2).toUpperCase();
+  const first = parts[0]![0] ?? "";
+  const last = parts[parts.length - 1]![0] ?? "";
+  return `${first}${last}`.toUpperCase();
+}
+
+function GoogleMark({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-4 shrink-0", className)}
+      viewBox="0 0 24 24"
+      aria-hidden
+      focusable="false"
+    >
+      <path
+        fill="#4285F4"
+        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+      />
+      <path
+        fill="#34A853"
+        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+      />
+      <path
+        fill="#FBBC05"
+        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+      />
+      <path
+        fill="#EA4335"
+        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+      />
+    </svg>
+  );
+}
+
+function GoogleStarRow({ rating }: { rating: number }) {
+  return (
+    <div className="flex items-center gap-px" role="img" aria-label={`${rating} out of 5 stars`}>
+      {Array.from({ length: 5 }, (_, i) => (
+        <svg key={i} viewBox="0 0 24 24" className="size-3.5 shrink-0 md:size-4" aria-hidden>
+          <path
+            fill={i < rating ? GOOGLE_STAR : GOOGLE_STAR_EMPTY}
+            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+          />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+interface GoogleReviewCardDarkProps {
+  item: HomepageTestimonial;
+  businessProfileUrl: string;
+  onPointerEnterCard: () => void;
+  onPointerLeaveCard: () => void;
+}
+
+/** One row; from `md` each card is 1/5 of the viewport minus gaps (`gap-5` × 4) and horizontal inset. */
+const carouselCardWidthClassName =
+  "w-[min(17.5rem,calc(100vw-2rem))] shrink-0 md:w-[calc((100vw-3rem-5rem)/5)]";
+
+function isRemotePhotoUrl(url: string | undefined): url is string {
+  if (!url) return false;
+  return url.startsWith("https://");
+}
+
+/** ~3 lines at card width; `line-clamp` breaks scroll overflow checks, so length gates “View more”. */
+const VIEW_MORE_CHAR_THRESHOLD = 92;
+
+function GoogleReviewCardDark({
+  item,
+  businessProfileUrl,
+  onPointerEnterCard,
+  onPointerLeaveCard,
+}: GoogleReviewCardDarkProps) {
+  const avatarSrc = item.profilePhotoUrl;
+  const showAvatar = isRemotePhotoUrl(avatarSrc);
+
+  /**
+   * With Tailwind `line-clamp`, overflow detection via scroll metrics is unreliable; use length
+   * as a proxy for “past three lines” at this card width.
+   */
+  const showViewMoreLink = item.text.trim().length > VIEW_MORE_CHAR_THRESHOLD;
+
+  return (
+    <article
+      className={cn(
+        "group flex h-full min-h-[216px] flex-col md:min-h-[232px]",
+        "rounded-xl border border-white/5 bg-surface-strong/95 p-3 shadow-md shadow-black/35 md:p-4",
+        "motion-fast transition-[border-color,box-shadow]",
+        "hover:border-white/15 hover:shadow-md hover:shadow-black/42",
+        carouselCardWidthClassName,
+      )}
+      onPointerEnter={onPointerEnterCard}
+      onPointerLeave={onPointerLeaveCard}
+    >
+      <div className="flex shrink-0 gap-3">
+        {showAvatar ? (
+          <div className="relative size-11 shrink-0 overflow-hidden rounded-full border border-white/10 bg-muted/20">
+            <Image src={avatarSrc} alt="" fill sizes="44px" className="object-cover" />
+          </div>
+        ) : (
+          <div
+            className="flex size-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-muted/25 font-sans text-sm font-semibold tracking-tight text-foreground"
+            aria-hidden
+          >
+            {getInitials(item.author)}
+          </div>
+        )}
+        <div className="min-w-0 flex-1">
+          <div className="flex items-start justify-between gap-2">
+            <p className="truncate font-sans text-sm font-medium leading-tight text-foreground">
+              {item.author}
+            </p>
+            {item.dateIso ? (
+              <time
+                className="shrink-0 font-sans text-[11px] tabular-nums text-muted-foreground md:text-xs"
+                dateTime={item.dateIso}
+              >
+                {item.timeLabel}
+              </time>
+            ) : (
+              <span className="shrink-0 font-sans text-[11px] text-muted-foreground md:text-xs">
+                {item.timeLabel}
+              </span>
+            )}
+          </div>
+          <div className="mt-1.5">
+            <GoogleStarRow rating={item.rating} />
+          </div>
+        </div>
+      </div>
+      <div className="mt-3 flex min-h-0 flex-1 flex-col gap-1.5">
+        <p className="line-clamp-3 min-h-0 font-sans text-[13px] leading-relaxed text-foreground/88 md:text-sm">
+          {item.text}
+        </p>
+        {showViewMoreLink ? (
+          <a
+            href={businessProfileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-fit font-sans text-xs font-medium text-muted-foreground underline decoration-white/25 underline-offset-2 outline-none transition-colors motion-fast hover:text-foreground hover:decoration-white/40 focus-visible:ring-2 focus-visible:ring-ring/60"
+            aria-label="View full review on Google Business Profile"
+          >
+            View more
+          </a>
+        ) : null}
+      </div>
+      <div className="mt-auto flex shrink-0 items-center gap-2 border-t border-border/50 pt-3">
+        {item.reviewUrl ? (
+          <a
+            href={item.reviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-xs font-sans text-xs text-muted-foreground underline-offset-2 outline-none transition-colors motion-fast hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/60"
+          >
+            <GoogleMark />
+            <span>View on Google</span>
+          </a>
+        ) : (
+          <p className="inline-flex items-center gap-1.5 font-sans text-xs text-muted-foreground">
+            <GoogleMark />
+            <span>Posted on Google</span>
+          </p>
+        )}
+      </div>
+    </article>
+  );
+}
+
+interface TestimonialMarqueeRowProps {
+  items: readonly HomepageTestimonial[];
+  direction: "left" | "right";
+  googleBusinessProfileUrl: string;
+  onCardEnter: () => void;
+  onCardLeave: () => void;
+  pausedRef: MutableRefObject<boolean>;
+  prefersReducedMotion: boolean | null;
+  /** Row-specific key so translate resets when this row’s reviews change. */
+  rowIdsKey: string;
+  /**
+   * Staggers the loop start in [0, 1) so the second row does not visually align with the first.
+   */
+  phaseRatio: number;
+}
+
+const MARQUEE_VIEWPORT_PAD_PX = 96;
+const MARQUEE_REPEAT_MAX = 48;
+
+function buildCycleItems(
+  items: readonly HomepageTestimonial[],
+  repeatsInHalf: number,
+): HomepageTestimonial[] {
+  const r = Math.max(1, Math.min(MARQUEE_REPEAT_MAX, repeatsInHalf));
+  const out: HomepageTestimonial[] = [];
+  for (let i = 0; i < r; i += 1) out.push(...items);
+  return out;
+}
+
+function getInitialTranslateX(
+  direction: "left" | "right",
+  half: number,
+  phaseRatio: number,
+): number {
+  if (half <= 0) return 0;
+  const p = ((phaseRatio % 1) + 1) % 1;
+  if (direction === "left") return -p * half;
+  return -(1 - p) * half;
+}
+
+/**
+ * Infinite horizontal marquee. Repeats the row’s reviews inside one period until the period is
+ * wider than the viewport, then duplicates that period for a seamless loop.
+ */
+function TestimonialMarqueeRow({
+  items,
+  direction,
+  googleBusinessProfileUrl,
+  onCardEnter,
+  onCardLeave,
+  pausedRef,
+  prefersReducedMotion,
+  rowIdsKey,
+  phaseRatio,
+}: TestimonialMarqueeRowProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const translateXRef = useRef(0);
+  const rafRef = useRef(0);
+
+  const count = items.length;
+  const [repeatsInHalf, setRepeatsInHalf] = useState(1);
+
+  const cycleItems = useMemo(
+    () => (count > 0 ? buildCycleItems(items, repeatsInHalf) : []),
+    [items, count, repeatsInHalf],
+  );
+  const loopItems = cycleItems.length > 0 ? [...cycleItems, ...cycleItems] : [];
+
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    const track = trackRef.current;
+    if (!container || !track || count === 0) return;
+
+    const half = track.scrollWidth / 2;
+    const needWidth = container.clientWidth + MARQUEE_VIEWPORT_PAD_PX;
+
+    if (half > 32 && half < needWidth && repeatsInHalf < MARQUEE_REPEAT_MAX) {
+      setRepeatsInHalf((n) => n + 1);
+      return;
+    }
+
+    if (half <= 32) return;
+
+    translateXRef.current = getInitialTranslateX(direction, half, phaseRatio);
+    track.style.transform = `translate3d(${translateXRef.current}px,0,0)`;
+  }, [count, direction, rowIdsKey, repeatsInHalf, phaseRatio, loopItems.length]);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+
+    const ro = new ResizeObserver(() => {
+      setRepeatsInHalf(1);
+    });
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+    };
+  }, [rowIdsKey]);
+
+  useEffect(() => {
+    if (count === 0) return;
+
+    const base = prefersReducedMotion ? 0.56 : 2.1;
+    const pxPerFrame = direction === "right" ? base * 0.92 : base;
+
+    function tick() {
+      const track = trackRef.current;
+      if (track && !pausedRef.current && !document.hidden) {
+        const half = track.scrollWidth / 2;
+        if (half > 32) {
+          if (direction === "right") {
+            translateXRef.current += pxPerFrame;
+            if (translateXRef.current >= 0) translateXRef.current -= half;
+          } else {
+            translateXRef.current -= pxPerFrame;
+            if (-translateXRef.current >= half) translateXRef.current += half;
+          }
+          track.style.transform = `translate3d(${translateXRef.current}px,0,0)`;
+        }
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    }
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, [count, direction, prefersReducedMotion, rowIdsKey, pausedRef]);
+
+  if (count === 0) return null;
+
+  return (
+    <div ref={containerRef} className="relative w-full min-w-0 overflow-hidden">
+      <div
+        ref={trackRef}
+        className="flex w-max flex-nowrap items-stretch gap-5 px-6 py-1 will-change-transform"
+      >
+        {loopItems.map((item, i) => (
+          <GoogleReviewCardDark
+            key={`${direction}-${item.id}-${i}`}
+            item={item}
+            businessProfileUrl={googleBusinessProfileUrl}
+            onPointerEnterCard={onCardEnter}
+            onPointerLeaveCard={onCardLeave}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function HomepageTestimonialsCarouselSection({
+  testimonials,
+  googleBusinessProfileUrl,
+}: HomepageTestimonialsCarouselSectionProps) {
+  const prefersReducedMotion = useReducedMotion();
+  const regionId = useId();
+  const [marqueePaused, setMarqueePaused] = useState(false);
+  const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pausedRef = useRef(false);
+
+  const count = testimonials.length;
+
+  const testimonialIdsKey = useMemo(() => testimonials.map((t) => t.id).join("|"), [testimonials]);
+
+  useEffect(() => {
+    pausedRef.current = marqueePaused;
+  }, [marqueePaused]);
+
+  const onCardEnter = useCallback(() => {
+    if (leaveTimerRef.current != null) {
+      clearTimeout(leaveTimerRef.current);
+      leaveTimerRef.current = null;
+    }
+    setMarqueePaused(true);
+  }, []);
+
+  const onCardLeave = useCallback(() => {
+    leaveTimerRef.current = setTimeout(() => {
+      setMarqueePaused(false);
+      leaveTimerRef.current = null;
+    }, 100);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (leaveTimerRef.current != null) clearTimeout(leaveTimerRef.current);
+    };
+  }, []);
+
+  if (count === 0) return null;
+
+  const sectionShell = (children: ReactNode) => (
+    <section
+      id="homepage-testimonials"
+      aria-labelledby={`${regionId}-label`}
+      className={cn(
+        "w-full min-w-0 max-w-none overflow-hidden bg-band-charcoal text-foreground",
+        "py-8 md:py-10",
+      )}
+    >
+      <h2 id={`${regionId}-label`} className="sr-only">
+        Google reviews from clients
+      </h2>
+      {children}
+    </section>
+  );
+
+  return sectionShell(
+    <TestimonialMarqueeRow
+      key={testimonialIdsKey}
+      items={testimonials}
+      direction="left"
+      googleBusinessProfileUrl={googleBusinessProfileUrl}
+      onCardEnter={onCardEnter}
+      onCardLeave={onCardLeave}
+      pausedRef={pausedRef}
+      prefersReducedMotion={prefersReducedMotion}
+      rowIdsKey={testimonialIdsKey}
+      phaseRatio={0}
+    />,
+  );
+}
+
+export { HomepageTestimonialsCarouselSection };

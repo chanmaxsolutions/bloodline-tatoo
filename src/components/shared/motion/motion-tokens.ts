@@ -13,6 +13,7 @@ const motionViewport = {
 const motionDistance = {
   revealY: 14,
   revealYSoft: 10,
+  revealYFirm: 26,
 } as const;
 
 export { motionDistance, motionDurations, motionViewport };

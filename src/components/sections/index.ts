@@ -1,5 +1,9 @@
+export { AuthoritySection } from "@/components/sections/authority-section";
+export { HomepageTestimonialsCarouselSection } from "@/components/sections/homepage-testimonials-carousel-section";
 export { HeroSection } from "@/components/sections/hero-section";
 export { SectionShell } from "@/components/sections/section-shell";
 export type { SectionSpacingTier, SectionSurface } from "@/components/sections/section-shell";
+export { TattooStyleTile } from "@/components/sections/tattoo-style-tile";
+export { TattooStylesSection } from "@/components/sections/tattoo-styles-section";
 export { TrustProofBarSection } from "@/components/sections/trust-proof-bar-section";
 export type { TrustProofItem } from "@/components/sections/trust-proof-bar-section";
