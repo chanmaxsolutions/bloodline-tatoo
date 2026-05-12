@@ -83,6 +83,7 @@ function HeaderClient({
                 className="object-contain object-left"
                 sizes="(max-width: 768px) 96px, 112px"
                 priority
+                unoptimized
               />
               <span className="sr-only">{logoMonogram}</span>
             </Link>
