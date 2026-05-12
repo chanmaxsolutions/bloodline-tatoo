@@ -85,13 +85,19 @@ interface GoogleReviewCardDarkProps {
   businessProfileUrl: string;
   onPointerEnterCard: () => void;
   onPointerLeaveCard: () => void;
-  /** When true, card participates in horizontal scroll snap (mobile strip). */
-  snapStart?: boolean;
+  /** Mobile strip: center snap + horizontal pan hint (desktop marquee ignores). */
+  mobileCarousel?: boolean;
 }
 
 /** One row; from `md` each card is 1/5 of the viewport minus gaps (`gap-5` × 4) and horizontal inset. */
 const carouselCardWidthClassName =
   "w-[min(17.5rem,calc(100vw-2rem))] shrink-0 md:w-[calc((100vw-3rem-5rem)/5)]";
+
+/**
+ * Symmetric inset so `snap-center` cards sit in the middle of the viewport with a sliver of
+ * neighbors visible (must stay in sync with `carouselCardWidthClassName` mobile width).
+ */
+const MOBILE_CAROUSEL_CENTER_PAD = "max(1rem, calc(50% - min(17.5rem, calc(100vw - 2rem)) / 2))";
 
 function isRemotePhotoUrl(url: string | undefined): url is string {
   if (!url) return false;
@@ -106,7 +112,7 @@ function GoogleReviewCardDark({
   businessProfileUrl,
   onPointerEnterCard,
   onPointerLeaveCard,
-  snapStart = false,
+  mobileCarousel = false,
 }: GoogleReviewCardDarkProps) {
   const avatarSrc = item.profilePhotoUrl;
   const showAvatar = isRemotePhotoUrl(avatarSrc);
@@ -124,7 +130,7 @@ function GoogleReviewCardDark({
         "rounded-xl border border-white/5 bg-surface-strong/95 p-3 shadow-md shadow-black/35 md:p-4",
         "motion-fast transition-[border-color,box-shadow]",
         "hover:border-white/15 hover:shadow-md hover:shadow-black/42",
-        snapStart && "snap-start",
+        mobileCarousel && "snap-center touch-pan-x",
         carouselCardWidthClassName,
       )}
       onPointerEnter={onPointerEnterCard}
@@ -371,83 +377,85 @@ function TestimonialMarqueeRow({
 
 interface HomepageTestimonialsMobileScrollerProps {
   sectionLabelId: string;
+  /** Optional hint for scroll affordance (screen readers). */
+  describedById?: string;
   testimonials: readonly HomepageTestimonial[];
   googleBusinessProfileUrl: string;
   onCardEnter: () => void;
   onCardLeave: () => void;
-  prefersReducedMotion: boolean | null;
 }
 
 function HomepageTestimonialsMobileScroller({
   sectionLabelId,
+  describedById,
   testimonials,
   googleBusinessProfileUrl,
   onCardEnter,
   onCardLeave,
-  prefersReducedMotion,
 }: HomepageTestimonialsMobileScrollerProps) {
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const scrollRafRef = useRef(0);
-  const [activeIndex, setActiveIndex] = useState(0);
+  /** Mouse / pen drag-to-scroll (touch uses native pan-x). */
+  const pointerDragRef = useRef<{
+    pointerId: number;
+    startClientX: number;
+    startScrollLeft: number;
+  } | null>(null);
 
   const count = testimonials.length;
 
-  const updateActiveFromScroll = useCallback(() => {
+  const testimonialIdsKey = useMemo(() => testimonials.map((t) => t.id).join("|"), [testimonials]);
+
+  /** Open on the 2nd card so a slice of the 1st and 3rd are visible (when there are enough reviews). */
+  useLayoutEffect(() => {
     const el = scrollerRef.current;
-    if (!el || count === 0) return;
-    const center = el.scrollLeft + el.clientWidth / 2;
-    const { children } = el;
-    let best = 0;
-    let bestDist = Infinity;
-    for (let i = 0; i < children.length; i += 1) {
-      const child = children[i] as HTMLElement;
-      const mid = child.offsetLeft + child.offsetWidth / 2;
-      const d = Math.abs(mid - center);
-      if (d < bestDist) {
-        bestDist = d;
-        best = i;
+    if (!el || count < 2) return;
+    const second = el.children[1] as HTMLElement | undefined;
+    if (!second) return;
+    second.scrollIntoView({ inline: "center", block: "nearest", behavior: "auto" });
+  }, [count, testimonialIdsKey]);
+
+  const onScrollerPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === "touch") return;
+    if (e.button !== 0) return;
+    const target = e.target as HTMLElement | null;
+    if (target?.closest("a, button, input, textarea, select")) return;
+    const el = scrollerRef.current;
+    if (!el) return;
+    pointerDragRef.current = {
+      pointerId: e.pointerId,
+      startClientX: e.clientX,
+      startScrollLeft: el.scrollLeft,
+    };
+    el.setPointerCapture(e.pointerId);
+  }, []);
+
+  const onScrollerPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === "touch") return;
+    const d = pointerDragRef.current;
+    if (!d || d.pointerId !== e.pointerId) return;
+    e.preventDefault();
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollLeft = d.startScrollLeft - (e.clientX - d.startClientX);
+  }, []);
+
+  const onScrollerPointerUpOrCancel = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const d = pointerDragRef.current;
+    if (!d || d.pointerId !== e.pointerId) return;
+    pointerDragRef.current = null;
+    const el = scrollerRef.current;
+    if (el) {
+      try {
+        el.releasePointerCapture(e.pointerId);
+      } catch {
+        /* capture already released */
       }
     }
-    setActiveIndex((prev) => (prev === best ? prev : best));
-  }, [count]);
+  }, []);
 
-  const onScrollerScroll = useCallback(() => {
-    if (scrollRafRef.current !== 0) return;
-    scrollRafRef.current = requestAnimationFrame(() => {
-      scrollRafRef.current = 0;
-      updateActiveFromScroll();
-    });
-  }, [updateActiveFromScroll]);
-
-  useLayoutEffect(() => {
-    updateActiveFromScroll();
-  }, [updateActiveFromScroll, testimonials]);
-
-  useEffect(
-    () => () => {
-      if (scrollRafRef.current !== 0) {
-        cancelAnimationFrame(scrollRafRef.current);
-        scrollRafRef.current = 0;
-      }
-    },
-    [],
-  );
-
-  const scrollToSlide = useCallback(
-    (index: number) => {
-      const el = scrollerRef.current;
-      if (!el) return;
-      const child = el.children[index] as HTMLElement | undefined;
-      if (!child) return;
-      const reduce = prefersReducedMotion === true;
-      child.scrollIntoView({
-        inline: "start",
-        block: "nearest",
-        behavior: reduce ? "auto" : "smooth",
-      });
-    },
-    [prefersReducedMotion],
-  );
+  const onScrollerLostPointerCapture = useCallback(() => {
+    pointerDragRef.current = null;
+  }, []);
 
   if (count === 0) return null;
 
@@ -456,11 +464,21 @@ function HomepageTestimonialsMobileScroller({
       <div
         ref={scrollerRef}
         aria-labelledby={sectionLabelId}
-        onScroll={onScrollerScroll}
+        {...(describedById ? { "aria-describedby": describedById } : {})}
+        onPointerDown={onScrollerPointerDown}
+        onPointerMove={onScrollerPointerMove}
+        onPointerUp={onScrollerPointerUpOrCancel}
+        onPointerCancel={onScrollerPointerUpOrCancel}
+        onLostPointerCapture={onScrollerLostPointerCapture}
+        style={{
+          paddingInline: MOBILE_CAROUSEL_CENTER_PAD,
+          scrollPaddingInline: MOBILE_CAROUSEL_CENTER_PAD,
+        }}
         className={cn(
-          "flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain px-6 pb-1",
+          "flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-0",
+          "touch-pan-x [-webkit-overflow-scrolling:touch] cursor-grab active:cursor-grabbing",
           "scroll-smooth motion-reduce:scroll-auto",
-          "scroll-pl-6 scroll-pr-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
+          "[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
         )}
       >
         {testimonials.map((item) => (
@@ -470,30 +488,10 @@ function HomepageTestimonialsMobileScroller({
             businessProfileUrl={googleBusinessProfileUrl}
             onPointerEnterCard={onCardEnter}
             onPointerLeaveCard={onCardLeave}
-            snapStart
+            mobileCarousel
           />
         ))}
       </div>
-      <nav aria-label="Review slides" className="mt-4 flex justify-center gap-2.5 px-6 pb-1">
-        {testimonials.map((item, index) => (
-          <button
-            key={item.id}
-            type="button"
-            className={cn(
-              "size-2.5 shrink-0 rounded-full border outline-none transition-[background-color,border-color] motion-fast",
-              "border-border/70 focus-visible:ring-2 focus-visible:ring-ring/60",
-              index === activeIndex
-                ? "border-accent/80 bg-accent"
-                : "bg-muted-foreground/30 hover:bg-muted-foreground/50",
-            )}
-            aria-label={`Show review ${index + 1} of ${count}`}
-            {...(index === activeIndex ? { "aria-current": "true" as const } : {})}
-            onClick={() => {
-              scrollToSlide(index);
-            }}
-          />
-        ))}
-      </nav>
     </div>
   );
 }
@@ -570,6 +568,9 @@ function HomepageTestimonialsCarouselSection({
       <h2 id={`${regionId}-label`} className="sr-only">
         Google reviews from clients
       </h2>
+      <p id={`${regionId}-reviews-scroll-hint`} className="sr-only">
+        Reviews are in a horizontal row. Swipe sideways with one finger to see more.
+      </p>
       <motion.div
         className="w-full min-w-0"
         initial="hidden"
@@ -580,11 +581,11 @@ function HomepageTestimonialsCarouselSection({
       >
         <HomepageTestimonialsMobileScroller
           sectionLabelId={`${regionId}-label`}
+          describedById={`${regionId}-reviews-scroll-hint`}
           testimonials={testimonials}
           googleBusinessProfileUrl={googleBusinessProfileUrl}
           onCardEnter={onCardEnter}
           onCardLeave={onCardLeave}
-          prefersReducedMotion={prefersReducedMotion}
         />
         <div className="hidden min-w-0 md:block">
           <TestimonialMarqueeRow

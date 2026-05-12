@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Container } from "@/components/layout/container";
+import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
 import { Reveal } from "@/components/shared/motion";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { buttonVariants } from "@/components/ui";
@@ -56,20 +57,18 @@ function HeroSection({
         ) : null}
 
         {media.videoSrc ? (
-          <video
+          <HeroBackgroundVideo
+            key={media.videoSrc}
+            src={media.videoSrc}
+            poster={media.poster}
+            stillSrc={media.poster ?? media.src ?? "/fallback.png"}
+            stillAlt={media.alt}
             className={cn(
               "absolute object-cover object-center",
               "left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 max-md:min-h-[100%] max-md:min-w-[100%]",
               "md:inset-0 md:left-0 md:top-0 md:h-full md:w-full md:min-h-0 md:min-w-0 md:translate-x-0 md:translate-y-0",
             )}
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={media.poster}
-          >
-            <source src={media.videoSrc} />
-          </video>
+          />
         ) : null}
       </div>
 
