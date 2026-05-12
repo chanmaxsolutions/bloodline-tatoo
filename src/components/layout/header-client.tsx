@@ -74,14 +74,14 @@ function HeaderClient({
             <Link
               href="/"
               aria-label="Bloodline home"
-              className="flex items-center gap-3 text-foreground motion-fast hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+              className="relative flex h-[65px] w-24 shrink-0 items-center text-foreground motion-fast hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:h-[72px] md:w-28"
             >
               <Image
                 src={logoPath}
                 alt={logoWordmark}
-                width={396}
-                height={72}
-                className="h-[65px] w-auto md:h-[72px]"
+                fill
+                className="object-contain object-left"
+                sizes="(max-width: 768px) 96px, 112px"
                 priority
               />
               <span className="sr-only">{logoMonogram}</span>

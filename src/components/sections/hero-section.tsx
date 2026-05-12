@@ -90,7 +90,7 @@ function HeroSection({
         className="relative z-10 flex min-h-[100svh] items-center justify-center py-12 max-md:pb-[max(3rem,calc(3rem+env(safe-area-inset-bottom,0px)))] md:py-16 lg:py-20"
       >
         <div className="grid max-w-4xl justify-items-center gap-8 text-center md:gap-10">
-          <Reveal mode="default">
+          <Reveal mode="default" playWhen="mount">
             <SectionHeading
               align="center"
               eyebrow={eyebrow}
@@ -103,7 +103,7 @@ function HeroSection({
             />
           </Reveal>
 
-          <Reveal mode="soft" delay={0.08}>
+          <Reveal mode="soft" playWhen="mount" delay={0.06}>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:gap-4">
               <Link
                 href={primaryCta.href}
@@ -128,16 +128,16 @@ function HeroSection({
             </div>
           </Reveal>
 
-          <Reveal mode="soft" delay={0.16}>
+          <Reveal mode="soft" playWhen="mount" delay={0.12}>
             <ul className="mt-3 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-3 md:mt-3">
               {trustIndicators.map((indicator) => (
                 <li
                   key={indicator}
-                  className="flex items-center gap-2 font-heading text-base font-medium uppercase tracking-tight text-muted-foreground md:text-xl"
+                  className="flex items-center gap-2 font-heading text-lg font-medium uppercase tracking-tight text-foreground md:text-xl"
                 >
                   <span
                     aria-hidden="true"
-                    className="font-heading text-2xl leading-none text-accent/85 md:text-2xl"
+                    className="font-heading text-3xl leading-none text-accent md:text-2xl"
                   >
                     ✓
                   </span>

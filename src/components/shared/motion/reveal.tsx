@@ -21,6 +21,11 @@ interface RevealProps {
   id?: string;
   delay?: number;
   mode?: "default" | "soft" | "firm";
+  /**
+   * `inView` waits for intersection (scroll sections).
+   * `mount` runs when the client tree mounts — avoids IntersectionObserver latency on above-the-fold hero.
+   */
+  playWhen?: "inView" | "mount";
   once?: boolean;
   amount?: number;
   /** IntersectionObserver root margin — only `px` or `%` (not `vh`/`rem`). Expands in-view detection when scrolling. */
@@ -34,6 +39,7 @@ function Reveal({
   id,
   delay = 0,
   mode = "default",
+  playWhen = "inView",
   once = motionViewport.once,
   amount = motionViewport.amount,
   viewportMargin,
@@ -52,23 +58,33 @@ function Reveal({
           ? { duration: motionDurations.cinematicSlow, ease: cinematicEase }
           : { duration: motionDurations.slow, ease: cinematicEase };
 
-    const duration =
+    let duration =
       prefersReducedMotion === true ? Math.min(0.04, base.duration * 0.08) : base.duration;
 
+    if (playWhen === "mount" && prefersReducedMotion !== true) {
+      duration *= 0.78;
+    }
+
     return { ...base, duration, delay };
-  }, [mode, delay, prefersReducedMotion]);
+  }, [mode, delay, prefersReducedMotion, playWhen]);
+
+  const mountAnimation = playWhen === "mount";
 
   return (
     <Motion
       id={id}
       className={className}
       initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once,
-        amount,
-        ...(viewportMargin ? { margin: viewportMargin } : {}),
-      }}
+      {...(mountAnimation
+        ? { animate: "visible" as const }
+        : {
+            whileInView: "visible" as const,
+            viewport: {
+              once,
+              amount,
+              ...(viewportMargin ? { margin: viewportMargin } : {}),
+            },
+          })}
       variants={variants}
       transition={transition}
     >
