@@ -102,8 +102,8 @@ function HeroSection({
             />
           </div>
 
-          <div className="hero-reveal-motion hero-reveal-motion-delay-sm w-full max-w-full">
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:gap-4">
+          <div className="hero-reveal-motion hero-reveal-motion-delay-sm mx-auto flex w-full max-w-3xl flex-col items-center gap-6">
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
               <Link
                 href={primaryCta.href}
                 className={buttonVariants({
@@ -125,10 +125,8 @@ function HeroSection({
                 </Link>
               ) : null}
             </div>
-          </div>
 
-          <div className="hero-reveal-motion hero-reveal-motion-delay-md w-full max-w-full">
-            <ul className="mt-3 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-3 md:mt-3">
+            <ul className="flex max-w-full flex-wrap items-center justify-center gap-x-6 gap-y-3">
               {trustIndicators.map((indicator) => (
                 <li
                   key={indicator}
