@@ -1,7 +1,7 @@
+import dynamic from "next/dynamic";
 import {
   AuthoritySection,
   HeroSection,
-  HomepageTestimonialsCarouselSection,
   TattooStylesSection,
   TrustProofBarSection,
   type TrustProofItem,
@@ -9,6 +9,18 @@ import {
 import { getHomepageTestimonials } from "@/config/homepage-testimonials";
 import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
 import { getRequestRegionContext } from "@/lib/request-region";
+
+const HomepageTestimonialsCarouselSection = dynamic(
+  () =>
+    import("@/components/sections/homepage-testimonials-carousel-section").then((mod) => ({
+      default: mod.HomepageTestimonialsCarouselSection,
+    })),
+  {
+    loading: () => (
+      <section className="w-full min-h-[min(42vh,360px)] bg-band-charcoal" aria-hidden />
+    ),
+  },
+);
 
 const defaultTrustProofItems: TrustProofItem[] = [
   { label: "Google Rating", value: "4.9" },
@@ -38,7 +50,7 @@ export default async function Home() {
   };
 
   return (
-    <main className="min-w-0 bg-background">
+    <div className="min-w-0 bg-background">
       <HeroSection
         eyebrow="Premium Tattoo Culture"
         title={
@@ -72,6 +84,6 @@ export default async function Home() {
         config={regionConfig.homepageTattooStyles}
         tiles={homepageTattooStyleTiles}
       />
-    </main>
+    </div>
   );
 }

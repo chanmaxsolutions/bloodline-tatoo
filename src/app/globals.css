@@ -2,6 +2,18 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/** Hero text entrance: GPU-friendly, no Framer on critical path */
+@keyframes hero-reveal-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -203,6 +215,19 @@
     transition-duration: var(--duration-reveal);
   }
 
+  .hero-reveal-motion {
+    opacity: 0;
+    animation: hero-reveal-fade-up 0.44s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hero-reveal-motion-delay-sm {
+    animation-delay: 0.06s;
+  }
+
+  .hero-reveal-motion-delay-md {
+    animation-delay: 0.12s;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -210,5 +235,11 @@
   .motion-fast,
   .motion-reveal {
     transition-duration: 0.01ms;
+  }
+
+  .hero-reveal-motion {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

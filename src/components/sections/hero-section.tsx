@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Container } from "@/components/layout/container";
 import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
-import { Reveal } from "@/components/shared/motion";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { buttonVariants } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -90,7 +89,7 @@ function HeroSection({
         className="relative z-10 flex min-h-[100svh] items-center justify-center py-12 max-md:pb-[max(3rem,calc(3rem+env(safe-area-inset-bottom,0px)))] md:py-16 lg:py-20"
       >
         <div className="grid max-w-4xl justify-items-center gap-8 text-center md:gap-10">
-          <Reveal mode="default" playWhen="mount">
+          <div className="hero-reveal-motion max-w-full">
             <SectionHeading
               align="center"
               eyebrow={eyebrow}
@@ -101,9 +100,9 @@ function HeroSection({
               titleClassName="text-5xl leading-[0.95] md:text-7xl md:leading-[0.9] lg:text-8xl"
               descriptionClassName="mx-auto max-w-2xl text-xl leading-7 text-muted-foreground md:text-2xl md:leading-8"
             />
-          </Reveal>
+          </div>
 
-          <Reveal mode="soft" playWhen="mount" delay={0.06}>
+          <div className="hero-reveal-motion hero-reveal-motion-delay-sm w-full max-w-full">
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:gap-4">
               <Link
                 href={primaryCta.href}
@@ -126,9 +125,9 @@ function HeroSection({
                 </Link>
               ) : null}
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal mode="soft" playWhen="mount" delay={0.12}>
+          <div className="hero-reveal-motion hero-reveal-motion-delay-md w-full max-w-full">
             <ul className="mt-3 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-3 md:mt-3">
               {trustIndicators.map((indicator) => (
                 <li
@@ -145,7 +144,7 @@ function HeroSection({
                 </li>
               ))}
             </ul>
-          </Reveal>
+          </div>
         </div>
       </Container>
     </section>
