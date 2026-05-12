@@ -278,9 +278,10 @@ function TestimonialMarqueeRow({
   const count = items.length;
   const [repeatsInHalf, setRepeatsInHalf] = useState(1);
 
+  const repeatsForCycle = enabled ? repeatsInHalf : 1;
   const cycleItems = useMemo(
-    () => (count > 0 ? buildCycleItems(items, repeatsInHalf) : []),
-    [items, count, repeatsInHalf],
+    () => (count > 0 ? buildCycleItems(items, repeatsForCycle) : []),
+    [items, count, repeatsForCycle],
   );
   const loopItems = cycleItems.length > 0 ? [...cycleItems, ...cycleItems] : [];
 
@@ -288,6 +289,9 @@ function TestimonialMarqueeRow({
     const container = containerRef.current;
     const track = trackRef.current;
     if (!container || !track || count === 0) return;
+
+    /** Mobile uses manual scroll; do not measure or inflate repeats while disabled. */
+    if (!enabled) return;
 
     const half = track.scrollWidth / 2;
     const needWidth = container.clientWidth + MARQUEE_VIEWPORT_PAD_PX;
@@ -301,11 +305,11 @@ function TestimonialMarqueeRow({
 
     translateXRef.current = getInitialTranslateX(direction, half, phaseRatio);
     track.style.transform = `translate3d(${translateXRef.current}px,0,0)`;
-  }, [count, direction, rowIdsKey, repeatsInHalf, phaseRatio, loopItems.length]);
+  }, [count, direction, rowIdsKey, repeatsInHalf, phaseRatio, loopItems.length, enabled]);
 
   useEffect(() => {
     const el = containerRef.current;
-    if (!el || typeof ResizeObserver === "undefined") return;
+    if (!el || typeof ResizeObserver === "undefined" || !enabled) return;
 
     const ro = new ResizeObserver(() => {
       setRepeatsInHalf(1);
@@ -314,7 +318,7 @@ function TestimonialMarqueeRow({
     return () => {
       ro.disconnect();
     };
-  }, [rowIdsKey]);
+  }, [rowIdsKey, enabled]);
 
   useEffect(() => {
     if (count === 0 || !enabled) return;
@@ -587,21 +591,23 @@ function HomepageTestimonialsCarouselSection({
           onCardEnter={onCardEnter}
           onCardLeave={onCardLeave}
         />
-        <div className="hidden min-w-0 md:block">
-          <TestimonialMarqueeRow
-            key={testimonialIdsKey}
-            items={testimonials}
-            direction="left"
-            googleBusinessProfileUrl={googleBusinessProfileUrl}
-            onCardEnter={onCardEnter}
-            onCardLeave={onCardLeave}
-            pausedRef={pausedRef}
-            prefersReducedMotion={prefersReducedMotion}
-            enabled={isMdUp}
-            rowIdsKey={testimonialIdsKey}
-            phaseRatio={0}
-          />
-        </div>
+        {isMdUp ? (
+          <div className="min-w-0">
+            <TestimonialMarqueeRow
+              key={testimonialIdsKey}
+              items={testimonials}
+              direction="left"
+              googleBusinessProfileUrl={googleBusinessProfileUrl}
+              onCardEnter={onCardEnter}
+              onCardLeave={onCardLeave}
+              pausedRef={pausedRef}
+              prefersReducedMotion={prefersReducedMotion}
+              enabled
+              rowIdsKey={testimonialIdsKey}
+              phaseRatio={0}
+            />
+          </div>
+        ) : null}
       </motion.div>
     </section>
   );
