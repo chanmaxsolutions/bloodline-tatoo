@@ -11,7 +11,7 @@ import {
   type MutableRefObject,
 } from "react";
 import Image from "next/image";
-import { useReducedMotion } from "framer-motion";
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import { marqueeSpeedPxPerSec } from "@/components/shared/motion/motion-tokens";
 import { cn } from "@/lib/utils";
 import type { HomepageTestimonial } from "@/types/homepage-testimonial";
@@ -502,7 +502,7 @@ function HomepageTestimonialsCarouselSection({
   testimonials,
   googleBusinessProfileUrl,
 }: HomepageTestimonialsCarouselSectionProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const regionId = useId();
   const [marqueePaused, setMarqueePaused] = useState(false);
   const [isMdUp, setIsMdUp] = useState(false);

@@ -2,11 +2,11 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/** Hero text entrance: GPU-friendly, no Framer on critical path */
+/** Hero text entrance — short CSS only, no JS animation libraries */
 @keyframes hero-reveal-fade-up {
   from {
     opacity: 0;
-    transform: translate3d(0, 12px, 0);
+    transform: translate3d(0, 8px, 0);
   }
   to {
     opacity: 1;
@@ -217,15 +217,15 @@
 
   .hero-reveal-motion {
     opacity: 0;
-    animation: hero-reveal-fade-up 0.44s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: hero-reveal-fade-up 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .hero-reveal-motion-delay-sm {
-    animation-delay: 0.06s;
+    animation-delay: 0.04s;
   }
 
   .hero-reveal-motion-delay-md {
-    animation-delay: 0.12s;
+    animation-delay: 0.08s;
   }
 
 }
