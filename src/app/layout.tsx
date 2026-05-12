@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Barlow_Condensed, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteFooter, SiteHeader } from "@/components/layout";
-import { getRegionConfig, resolveRegionFromHostname } from "@/lib/region";
+import { getRequestRegionContext } from "@/lib/request-region";
 import "./globals.css";
 
 const headingFont = Barlow_Condensed({
@@ -17,15 +16,12 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 async function getRequestRegion() {
-  const requestHeaders = await headers();
-  const hostname =
-    requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost";
-  return resolveRegionFromHostname(hostname);
+  const { region } = await getRequestRegionContext();
+  return region;
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const region = await getRequestRegion();
-  const regionConfig = getRegionConfig(region);
+  const { regionConfig } = await getRequestRegionContext();
 
   return {
     title: "Bloodline Tattoo Platform",

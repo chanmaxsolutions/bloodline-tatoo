@@ -98,7 +98,7 @@ function HeroBackgroundVideo({
       muted
       loop
       playsInline
-      preload="auto"
+      preload="metadata"
       poster={poster}
       aria-hidden
     >

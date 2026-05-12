@@ -1,4 +1,3 @@
-import { headers } from "next/headers";
 import {
   AuthoritySection,
   HeroSection,
@@ -9,7 +8,7 @@ import {
 } from "@/components/sections";
 import { getHomepageTestimonials } from "@/config/homepage-testimonials";
 import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
-import { getRegionConfig, resolveRegionFromHostname } from "@/lib/region";
+import { getRequestRegionContext } from "@/lib/request-region";
 
 const defaultTrustProofItems: TrustProofItem[] = [
   { label: "Google Rating", value: "4.9" },
@@ -18,11 +17,7 @@ const defaultTrustProofItems: TrustProofItem[] = [
 ];
 
 export default async function Home() {
-  const requestHeaders = await headers();
-  const hostname =
-    requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost";
-  const region = resolveRegionFromHostname(hostname);
-  const regionConfig = getRegionConfig(region);
+  const { region, regionConfig } = await getRequestRegionContext();
   const homepageTattooStyleTiles = resolveHomepageTattooStyleTiles(
     regionConfig.homepageTattooStyles.featuredSlugs,
   );
@@ -53,10 +48,10 @@ export default async function Home() {
         }
         description={heroDescription}
         media={{
-          src: "/fallback.png",
+          src: "/hero-poster.jpg",
           videoSrc: heroVideoByRegion[region],
           alt: `${regionConfig.seo.siteName} studio mark`,
-          poster: "/fallback.png",
+          poster: "/hero-poster.jpg",
         }}
         primaryCta={{
           label: regionConfig.headerCta.label,

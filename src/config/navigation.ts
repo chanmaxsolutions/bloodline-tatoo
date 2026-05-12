@@ -15,7 +15,6 @@ export const desktopNavigationItems: HeaderNavItem[] = [
       { label: "Realism", href: "/tattoo-styles/realism" },
       { label: "Fine Line", href: "/tattoo-styles/fine-line" },
       { label: "Blackwork", href: "/tattoo-styles/blackwork" },
-      { label: "Geometric", href: "/tattoo-styles/geometric" },
     ],
   },
   { label: "Portfolio", href: "/gallery" },

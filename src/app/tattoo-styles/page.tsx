@@ -1,0 +1,61 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Container } from "@/components/layout/container";
+import { buttonVariants } from "@/components/ui";
+import { getTattooStyleBySlug, TATTOO_STYLE_SLUGS } from "@/config/tattoo-style-catalog";
+import { getRequestRegionContext } from "@/lib/request-region";
+import { cn } from "@/lib/utils";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { regionConfig } = await getRequestRegionContext();
+  return {
+    title: `Tattoo styles | ${regionConfig.seo.siteName}`,
+    description: `Browse core tattoo styles available at Bloodline in ${regionConfig.regionName}.`,
+  };
+}
+
+export default async function TattooStylesIndexPage() {
+  const { regionConfig } = await getRequestRegionContext();
+
+  return (
+    <div className="bg-background section-space">
+      <Container size="narrow" className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
+          <p className="font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg">
+            Tattoo styles
+          </p>
+          <h1 className="text-heading-display text-4xl text-foreground md:text-5xl">
+            Core disciplines in {regionConfig.regionName}
+          </h1>
+          <p className="font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug">
+            Each style route is wired for SEO and internal linking. Open a style to read the live
+            placeholder editorial while long-form pages are completed.
+          </p>
+        </div>
+        <ul className="grid gap-3">
+          {TATTOO_STYLE_SLUGS.map((slug) => {
+            const style = getTattooStyleBySlug(slug);
+            return (
+              <li key={slug}>
+                <Link
+                  href={`/tattoo-styles/${slug}`}
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "lg" }),
+                    "w-full justify-between sm:w-auto",
+                  )}
+                >
+                  <span className="font-heading text-lg font-semibold uppercase tracking-tight">
+                    {style.title}
+                  </span>
+                  <span aria-hidden className="text-muted-foreground">
+                    →
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </Container>
+    </div>
+  );
+}

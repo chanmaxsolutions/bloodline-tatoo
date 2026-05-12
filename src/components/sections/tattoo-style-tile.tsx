@@ -22,6 +22,7 @@ function TattooStyleTile({ tile }: TattooStyleTileProps) {
         alt={tile.imageAlt}
         fill
         sizes="(min-width: 1024px) 22vw, (min-width: 768px) 45vw, 100vw"
+        quality={68}
         className={cn(
           "object-cover object-center transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
           "group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100",
