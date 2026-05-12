@@ -74,15 +74,15 @@ function HeroSection({
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.58)_64%,rgba(0,0,0,0.86)_100%)]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,rgba(27,27,32,0.08)_0%,rgba(27,27,32,0.58)_64%,rgba(27,27,32,0.86)_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.24)_0%,rgba(0,0,0,0.46)_45%,rgba(0,0,0,0.9)_100%)]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(27,27,32,0.24)_0%,rgba(27,27,32,0.46)_45%,rgba(27,27,32,0.9)_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_right,rgba(0,0,0,0.56)_0%,rgba(0,0,0,0.14)_28%,rgba(0,0,0,0.14)_72%,rgba(0,0,0,0.56)_100%)]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_right,rgba(27,27,32,0.56)_0%,rgba(27,27,32,0.14)_28%,rgba(27,27,32,0.14)_72%,rgba(27,27,32,0.56)_100%)]"
       />
 
       <Container

@@ -13,8 +13,8 @@ import { getRegionConfig, resolveRegionFromHostname } from "@/lib/region";
 
 const defaultTrustProofItems: TrustProofItem[] = [
   { label: "Google Rating", value: "4.9" },
-  { label: "Verified Reviews", value: "1.2K+" },
-  { label: "Years Experience", value: "12+" },
+  { label: "Customers served per year", value: "5000+" },
+  { label: "Five-star Google reviews", value: "2500+" },
 ];
 
 export default async function Home() {
@@ -67,6 +67,7 @@ export default async function Home() {
           href: "/gallery",
         }}
       />
+      <TrustProofBarSection items={defaultTrustProofItems} />
       <AuthoritySection content={regionConfig.homepageAuthority} />
       <HomepageTestimonialsCarouselSection
         testimonials={homepageTestimonials}
@@ -76,7 +77,6 @@ export default async function Home() {
         config={regionConfig.homepageTattooStyles}
         tiles={homepageTattooStyleTiles}
       />
-      <TrustProofBarSection items={defaultTrustProofItems} />
     </main>
   );
 }

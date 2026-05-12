@@ -11,10 +11,8 @@ import {
   type MutableRefObject,
 } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
-import { cinematicEase } from "@/components/shared/motion/easing";
-import { marqueeSpeedPxPerSec, motionDurations } from "@/components/shared/motion/motion-tokens";
-import { revealFirmVariants } from "@/components/shared/motion/variants";
+import { useReducedMotion } from "framer-motion";
+import { marqueeSpeedPxPerSec } from "@/components/shared/motion/motion-tokens";
 import { cn } from "@/lib/utils";
 import type { HomepageTestimonial } from "@/types/homepage-testimonial";
 
@@ -555,11 +553,6 @@ function HomepageTestimonialsCarouselSection({
 
   if (count === 0) return null;
 
-  const entranceDuration =
-    prefersReducedMotion === true
-      ? Math.min(0.06, motionDurations.fast * 0.25)
-      : motionDurations.cinematicSlow;
-
   return (
     <section
       id="homepage-testimonials"
@@ -575,14 +568,7 @@ function HomepageTestimonialsCarouselSection({
       <p id={`${regionId}-reviews-scroll-hint`} className="sr-only">
         Reviews are in a horizontal row. Swipe sideways with one finger to see more.
       </p>
-      <motion.div
-        className="w-full min-w-0"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.08, margin: "0px 0px 22% 0px" }}
-        variants={revealFirmVariants}
-        transition={{ duration: entranceDuration, ease: cinematicEase }}
-      >
+      <div className="w-full min-w-0">
         <HomepageTestimonialsMobileScroller
           sectionLabelId={`${regionId}-label`}
           describedById={`${regionId}-reviews-scroll-hint`}
@@ -608,7 +594,7 @@ function HomepageTestimonialsCarouselSection({
             />
           </div>
         ) : null}
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -1,21 +1,18 @@
 import type { CSSProperties, ReactNode } from "react";
 import { Container } from "@/components/layout/container";
-import { Reveal } from "@/components/shared/motion";
 import { cn } from "@/lib/utils";
 
-type SectionSpacingTier = "tight" | "default" | "cinematic";
+type SectionSpacingTier = "tight" | "default" | "cinematic" | "none";
 type SectionSurface = "transparent" | "base" | "elevated" | "strong";
 
 interface SectionShellProps {
   id?: string;
   "aria-labelledby"?: string;
+  "aria-label"?: string;
   spacing?: SectionSpacingTier;
   surface?: SectionSurface;
   containerSize?: "default" | "narrow" | "wide" | "full";
   className?: string;
-  reveal?: boolean;
-  revealMode?: "default" | "soft";
-  revealDelay?: number;
   /** Applied to the outer `<section>` (e.g. gradients that must not be overridden by utilities). */
   style?: CSSProperties;
   children: ReactNode;
@@ -25,6 +22,7 @@ const spacingClassMap: Record<SectionSpacingTier, string> = {
   tight: "section-space-tight",
   default: "section-space",
   cinematic: "py-24 md:py-32",
+  none: "",
 };
 
 const surfaceClassMap: Record<SectionSurface, string> = {
@@ -37,32 +35,23 @@ const surfaceClassMap: Record<SectionSurface, string> = {
 function SectionShell({
   id,
   "aria-labelledby": ariaLabelledBy,
+  "aria-label": ariaLabel,
   spacing = "default",
   surface = "transparent",
   containerSize = "wide",
   className,
-  reveal = false,
-  revealMode = "default",
-  revealDelay = 0,
   style,
   children,
 }: SectionShellProps) {
-  const content = reveal ? (
-    <Reveal mode={revealMode} delay={revealDelay}>
-      {children}
-    </Reveal>
-  ) : (
-    children
-  );
-
   return (
     <section
       id={id}
       aria-labelledby={ariaLabelledBy}
+      aria-label={ariaLabel}
       style={style}
       className={cn(spacingClassMap[spacing], surfaceClassMap[surface], className)}
     >
-      <Container size={containerSize}>{content}</Container>
+      <Container size={containerSize}>{children}</Container>
     </section>
   );
 }
