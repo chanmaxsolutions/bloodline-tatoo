@@ -1,20 +1,13 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-  type MutableRefObject,
-} from "react";
+import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
-import { marqueeSpeedPxPerSec } from "@/components/shared/motion/motion-tokens";
 import { cn } from "@/lib/utils";
 import type { HomepageTestimonial } from "@/types/homepage-testimonial";
+
+/** Interval between gentle auto-scroll steps (one card width). */
+const TESTIMONIALS_AUTO_SCROLL_MS = 3000;
 
 interface HomepageTestimonialsCarouselSectionProps {
   testimonials: readonly HomepageTestimonial[];
@@ -81,15 +74,15 @@ function GoogleStarRow({ rating }: { rating: number }) {
 interface GoogleReviewCardDarkProps {
   item: HomepageTestimonial;
   businessProfileUrl: string;
-  onPointerEnterCard: () => void;
-  onPointerLeaveCard: () => void;
-  /** Mobile strip: center snap + horizontal pan hint (desktop marquee ignores). */
-  mobileCarousel?: boolean;
 }
 
-/** One row; from `md` each card is 1/5 of the viewport minus gaps (`gap-5` × 4) and horizontal inset. */
+/**
+ * Desktop: **four** cards across the row (`gap-5` × 3 = 3.75rem; horizontal inset `px-6` = 3rem).
+ * With a full row of four, there is often little or no horizontal overflow, so “open on the 2nd
+ * card” may clamp to the start — that is a layout trade-off for a true 4-up grid.
+ */
 const carouselCardWidthClassName =
-  "w-[min(17.5rem,calc(100vw-2rem))] shrink-0 md:w-[calc((100vw-3rem-5rem)/5)]";
+  "w-[min(17.5rem,calc(100vw-2rem))] shrink-0 md:w-[calc((100vw-3rem-3.75rem)/4)]";
 
 /**
  * Symmetric inset so `snap-center` cards sit in the middle of the viewport with a sliver of
@@ -105,13 +98,7 @@ function isRemotePhotoUrl(url: string | undefined): url is string {
 /** ~3 lines at card width; `line-clamp` breaks scroll overflow checks, so length gates “View more”. */
 const VIEW_MORE_CHAR_THRESHOLD = 92;
 
-function GoogleReviewCardDark({
-  item,
-  businessProfileUrl,
-  onPointerEnterCard,
-  onPointerLeaveCard,
-  mobileCarousel = false,
-}: GoogleReviewCardDarkProps) {
+function GoogleReviewCardDark({ item, businessProfileUrl }: GoogleReviewCardDarkProps) {
   const avatarSrc = item.profilePhotoUrl;
   const showAvatar = isRemotePhotoUrl(avatarSrc);
 
@@ -128,11 +115,9 @@ function GoogleReviewCardDark({
         "rounded-xl border border-white/5 bg-surface-strong/95 p-3 shadow-md shadow-black/35 md:p-4",
         "motion-fast transition-[border-color,box-shadow]",
         "hover:border-white/15 hover:shadow-md hover:shadow-black/42",
-        mobileCarousel && "snap-center touch-pan-x",
+        "snap-center touch-pan-x",
         carouselCardWidthClassName,
       )}
-      onPointerEnter={onPointerEnterCard}
-      onPointerLeave={onPointerLeaveCard}
     >
       <div className="flex shrink-0 gap-3">
         {showAvatar ? (
@@ -210,211 +195,159 @@ function GoogleReviewCardDark({
   );
 }
 
-interface TestimonialMarqueeRowProps {
-  items: readonly HomepageTestimonial[];
-  direction: "left" | "right";
-  googleBusinessProfileUrl: string;
-  onCardEnter: () => void;
-  onCardLeave: () => void;
-  pausedRef: MutableRefObject<boolean>;
-  prefersReducedMotion: boolean | null;
-  /** When false, RAF marquee is disabled (e.g. small viewports use manual scroll instead). */
-  enabled: boolean;
-  /** Row-specific key so translate resets when this row’s reviews change. */
-  rowIdsKey: string;
-  /**
-   * Staggers the loop start in [0, 1) so the second row does not visually align with the first.
-   */
-  phaseRatio: number;
-}
-
-const MARQUEE_VIEWPORT_PAD_PX = 96;
-const MARQUEE_REPEAT_MAX = 48;
-
-function buildCycleItems(
-  items: readonly HomepageTestimonial[],
-  repeatsInHalf: number,
-): HomepageTestimonial[] {
-  const r = Math.max(1, Math.min(MARQUEE_REPEAT_MAX, repeatsInHalf));
-  const out: HomepageTestimonial[] = [];
-  for (let i = 0; i < r; i += 1) out.push(...items);
-  return out;
-}
-
-function getInitialTranslateX(
-  direction: "left" | "right",
-  half: number,
-  phaseRatio: number,
-): number {
-  if (half <= 0) return 0;
-  const p = ((phaseRatio % 1) + 1) % 1;
-  if (direction === "left") return -p * half;
-  return -(1 - p) * half;
-}
-
-/**
- * Infinite horizontal marquee. Repeats the row’s reviews inside one period until the period is
- * wider than the viewport, then duplicates that period for a seamless loop.
- */
-function TestimonialMarqueeRow({
-  items,
-  direction,
-  googleBusinessProfileUrl,
-  onCardEnter,
-  onCardLeave,
-  pausedRef,
-  prefersReducedMotion,
-  enabled,
-  rowIdsKey,
-  phaseRatio,
-}: TestimonialMarqueeRowProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const translateXRef = useRef(0);
-  const rafRef = useRef(0);
-
-  const count = items.length;
-  const [repeatsInHalf, setRepeatsInHalf] = useState(1);
-
-  const repeatsForCycle = enabled ? repeatsInHalf : 1;
-  const cycleItems = useMemo(
-    () => (count > 0 ? buildCycleItems(items, repeatsForCycle) : []),
-    [items, count, repeatsForCycle],
-  );
-  const loopItems = cycleItems.length > 0 ? [...cycleItems, ...cycleItems] : [];
-
-  useLayoutEffect(() => {
-    const container = containerRef.current;
-    const track = trackRef.current;
-    if (!container || !track || count === 0) return;
-
-    /** Mobile uses manual scroll; do not measure or inflate repeats while disabled. */
-    if (!enabled) return;
-
-    const half = track.scrollWidth / 2;
-    const needWidth = container.clientWidth + MARQUEE_VIEWPORT_PAD_PX;
-
-    if (half > 32 && half < needWidth && repeatsInHalf < MARQUEE_REPEAT_MAX) {
-      setRepeatsInHalf((n) => n + 1);
-      return;
-    }
-
-    if (half <= 32) return;
-
-    translateXRef.current = getInitialTranslateX(direction, half, phaseRatio);
-    track.style.transform = `translate3d(${translateXRef.current}px,0,0)`;
-  }, [count, direction, rowIdsKey, repeatsInHalf, phaseRatio, loopItems.length, enabled]);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el || typeof ResizeObserver === "undefined" || !enabled) return;
-
-    const ro = new ResizeObserver(() => {
-      setRepeatsInHalf(1);
-    });
-    ro.observe(el);
-    return () => {
-      ro.disconnect();
-    };
-  }, [rowIdsKey, enabled]);
-
-  useEffect(() => {
-    if (count === 0 || !enabled) return;
-
-    const mag = prefersReducedMotion ? marqueeSpeedPxPerSec.reduced : marqueeSpeedPxPerSec.default;
-    const dirFactor = prefersReducedMotion
-      ? marqueeSpeedPxPerSec.reducedReverseFactor
-      : marqueeSpeedPxPerSec.defaultReverseFactor;
-    const signedSpeedPxPerSec = direction === "left" ? -mag : mag * dirFactor;
-
-    let last = performance.now();
-
-    function tick(now: number) {
-      const track = trackRef.current;
-      const dtMs = Math.min(48, now - last);
-      last = now;
-
-      if (track && !pausedRef.current && !document.hidden) {
-        const half = track.scrollWidth / 2;
-        if (half > 32) {
-          translateXRef.current += (signedSpeedPxPerSec * dtMs) / 1000;
-          if (direction === "right") {
-            if (translateXRef.current >= 0) translateXRef.current -= half;
-          } else if (-translateXRef.current >= half) {
-            translateXRef.current += half;
-          }
-          track.style.transform = `translate3d(${translateXRef.current}px,0,0)`;
-        }
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    }
-
-    rafRef.current = requestAnimationFrame(tick);
-    return () => {
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, [count, direction, enabled, prefersReducedMotion, rowIdsKey, pausedRef]);
-
-  if (count === 0) return null;
-
-  return (
-    <div ref={containerRef} className="relative w-full min-w-0 overflow-hidden">
-      <div
-        ref={trackRef}
-        className="flex w-max flex-nowrap items-stretch gap-5 px-6 py-1 will-change-transform"
-      >
-        {loopItems.map((item, i) => (
-          <GoogleReviewCardDark
-            key={`${direction}-${item.id}-${i}`}
-            item={item}
-            businessProfileUrl={googleBusinessProfileUrl}
-            onPointerEnterCard={onCardEnter}
-            onPointerLeaveCard={onCardLeave}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-interface HomepageTestimonialsMobileScrollerProps {
+interface HomepageTestimonialsScrollStripProps {
   sectionLabelId: string;
-  /** Optional hint for scroll affordance (screen readers). */
   describedById?: string;
   testimonials: readonly HomepageTestimonial[];
   googleBusinessProfileUrl: string;
-  onCardEnter: () => void;
-  onCardLeave: () => void;
 }
 
-function HomepageTestimonialsMobileScroller({
+/**
+ * Horizontal reviews strip: native scroll + touch pan, mouse/pen drag on pointer devices,
+ * and gentle timed auto-scroll (paused on hover; off when `prefers-reduced-motion`).
+ */
+function HomepageTestimonialsScrollStrip({
   sectionLabelId,
   describedById,
   testimonials,
   googleBusinessProfileUrl,
-  onCardEnter,
-  onCardLeave,
-}: HomepageTestimonialsMobileScrollerProps) {
+}: HomepageTestimonialsScrollStripProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const scrollerRef = useRef<HTMLDivElement>(null);
-  /** Mouse / pen drag-to-scroll (touch uses native pan-x). */
   const pointerDragRef = useRef<{
     pointerId: number;
     startClientX: number;
     startScrollLeft: number;
   } | null>(null);
+  const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const [useCompactPadding, setUseCompactPadding] = useState(false);
+  const [stepPx, setStepPx] = useState(0);
+  const [autoplayPaused, setAutoplayPaused] = useState(false);
 
   const count = testimonials.length;
 
   const testimonialIdsKey = useMemo(() => testimonials.map((t) => t.id).join("|"), [testimonials]);
 
-  /** Open on the 2nd card so a slice of the 1st and 3rd are visible (when there are enough reviews). */
   useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 767.98px)");
+    function apply() {
+      setUseCompactPadding(mq.matches);
+    }
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
+
+  /**
+   * Center the **second** card in the scrollport (sliver of 1st + 3rd). Uses viewport deltas +
+   * `scrollLeft` only (not `scrollIntoView`, which can move the page on iOS). Re-runs on resize /
+   * card size changes so desktop overflow and avatars settling don’t leave us stuck on card 1.
+   */
+  useLayoutEffect(() => {
+    function measureStepPx(el: HTMLDivElement): number {
+      if (el.children.length < 2) return 0;
+      const first = el.children[0] as HTMLElement;
+      const second = el.children[1] as HTMLElement;
+      const step = second.offsetLeft - first.offsetLeft;
+      return step > 0 ? step : 0;
+    }
+
+    function centerSecondCard(el: HTMLDivElement): void {
+      if (count < 2) return;
+      const second = el.children[1] as HTMLElement | undefined;
+      if (!second) return;
+      if (el.clientWidth < 1) return;
+      const maxScroll = Math.max(0, el.scrollWidth - el.clientWidth);
+      if (maxScroll < 2) return;
+
+      const er = el.getBoundingClientRect();
+      const sr = second.getBoundingClientRect();
+      const delta = sr.left + sr.width / 2 - (er.left + er.width / 2);
+      const next = el.scrollLeft + delta;
+      el.scrollLeft = Math.max(0, Math.min(maxScroll, Math.round(next)));
+    }
+
+    function syncLayout(): void {
+      const el = scrollerRef.current;
+      if (!el) return;
+      centerSecondCard(el);
+      setStepPx(measureStepPx(el));
+    }
+
+    syncLayout();
+    requestAnimationFrame(() => {
+      syncLayout();
+    });
+
+    const deferredId = window.setTimeout(syncLayout, 400);
+
+    if (typeof ResizeObserver === "undefined") {
+      return () => {
+        window.clearTimeout(deferredId);
+      };
+    }
+    const ro = new ResizeObserver(() => {
+      syncLayout();
+    });
     const el = scrollerRef.current;
-    if (!el || count < 2) return;
-    const second = el.children[1] as HTMLElement | undefined;
-    if (!second) return;
-    second.scrollIntoView({ inline: "center", block: "nearest", behavior: "auto" });
-  }, [count, testimonialIdsKey]);
+    if (el) {
+      ro.observe(el);
+      for (let i = 0; i < Math.min(6, el.children.length); i += 1) {
+        const child = el.children[i];
+        if (child instanceof HTMLElement) ro.observe(child);
+      }
+    }
+    return () => {
+      window.clearTimeout(deferredId);
+      ro.disconnect();
+    };
+  }, [count, testimonialIdsKey, useCompactPadding]);
+
+  const onStripPointerEnter = useCallback(() => {
+    if (leaveTimerRef.current != null) {
+      clearTimeout(leaveTimerRef.current);
+      leaveTimerRef.current = null;
+    }
+    setAutoplayPaused(true);
+  }, []);
+
+  const onStripPointerLeave = useCallback(() => {
+    leaveTimerRef.current = setTimeout(() => {
+      setAutoplayPaused(false);
+      leaveTimerRef.current = null;
+    }, 160);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (leaveTimerRef.current != null) clearTimeout(leaveTimerRef.current);
+    };
+  }, []);
+
+  const reduceMotion = prefersReducedMotion === true;
+  const autoplayOn = count >= 2 && stepPx > 0 && !reduceMotion && !autoplayPaused;
+
+  useEffect(() => {
+    if (!autoplayOn) return;
+
+    const id = window.setInterval(() => {
+      const el = scrollerRef.current;
+      if (!el || document.hidden) return;
+      const maxScroll = Math.max(0, el.scrollWidth - el.clientWidth);
+      if (maxScroll < 4) return;
+      const step = stepPx;
+      const atEnd = el.scrollLeft >= maxScroll - 4;
+      if (atEnd) {
+        el.scrollTo({ left: 0, behavior: "auto" });
+      } else {
+        el.scrollBy({ left: step, behavior: "smooth" });
+      }
+    }, TESTIMONIALS_AUTO_SCROLL_MS);
+
+    return () => window.clearInterval(id);
+  }, [autoplayOn, stepPx, testimonialIdsKey]);
 
   const onScrollerPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     if (e.pointerType === "touch") return;
@@ -461,8 +394,14 @@ function HomepageTestimonialsMobileScroller({
 
   if (count === 0) return null;
 
+  const padInline = useCompactPadding ? MOBILE_CAROUSEL_CENTER_PAD : "1.5rem";
+
   return (
-    <div className="w-full min-w-0 md:hidden">
+    <div
+      className="w-full min-w-0 md:py-1"
+      onPointerEnter={onStripPointerEnter}
+      onPointerLeave={onStripPointerLeave}
+    >
       <div
         ref={scrollerRef}
         aria-labelledby={sectionLabelId}
@@ -473,11 +412,11 @@ function HomepageTestimonialsMobileScroller({
         onPointerCancel={onScrollerPointerUpOrCancel}
         onLostPointerCapture={onScrollerLostPointerCapture}
         style={{
-          paddingInline: MOBILE_CAROUSEL_CENTER_PAD,
-          scrollPaddingInline: MOBILE_CAROUSEL_CENTER_PAD,
+          paddingInline: padInline,
+          scrollPaddingInline: padInline,
         }}
         className={cn(
-          "flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-0",
+          "flex snap-x snap-proximity gap-5 overflow-x-auto overscroll-x-contain pb-0",
           "touch-pan-x [-webkit-overflow-scrolling:touch] cursor-grab active:cursor-grabbing",
           "scroll-smooth motion-reduce:scroll-auto",
           "[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
@@ -488,9 +427,6 @@ function HomepageTestimonialsMobileScroller({
             key={item.id}
             item={item}
             businessProfileUrl={googleBusinessProfileUrl}
-            onPointerEnterCard={onCardEnter}
-            onPointerLeaveCard={onCardLeave}
-            mobileCarousel
           />
         ))}
       </div>
@@ -502,54 +438,8 @@ function HomepageTestimonialsCarouselSection({
   testimonials,
   googleBusinessProfileUrl,
 }: HomepageTestimonialsCarouselSectionProps) {
-  const prefersReducedMotion = usePrefersReducedMotion();
   const regionId = useId();
-  const [marqueePaused, setMarqueePaused] = useState(false);
-  const [isMdUp, setIsMdUp] = useState(false);
-  const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const pausedRef = useRef(false);
-
-  useLayoutEffect(() => {
-    if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(min-width: 768px)");
-    function apply() {
-      setIsMdUp(mq.matches);
-    }
-    apply();
-    mq.addEventListener("change", apply);
-    return () => {
-      mq.removeEventListener("change", apply);
-    };
-  }, []);
-
   const count = testimonials.length;
-
-  const testimonialIdsKey = useMemo(() => testimonials.map((t) => t.id).join("|"), [testimonials]);
-
-  useEffect(() => {
-    pausedRef.current = marqueePaused;
-  }, [marqueePaused]);
-
-  const onCardEnter = useCallback(() => {
-    if (leaveTimerRef.current != null) {
-      clearTimeout(leaveTimerRef.current);
-      leaveTimerRef.current = null;
-    }
-    setMarqueePaused(true);
-  }, []);
-
-  const onCardLeave = useCallback(() => {
-    leaveTimerRef.current = setTimeout(() => {
-      setMarqueePaused(false);
-      leaveTimerRef.current = null;
-    }, 100);
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      if (leaveTimerRef.current != null) clearTimeout(leaveTimerRef.current);
-    };
-  }, []);
 
   if (count === 0) return null;
 
@@ -566,34 +456,16 @@ function HomepageTestimonialsCarouselSection({
         Google reviews from clients
       </h2>
       <p id={`${regionId}-reviews-scroll-hint`} className="sr-only">
-        Reviews are in a horizontal row. Swipe sideways with one finger to see more.
+        Drag, swipe, or wait for the row to advance automatically. Pauses while you hover over the
+        reviews.
       </p>
       <div className="w-full min-w-0">
-        <HomepageTestimonialsMobileScroller
+        <HomepageTestimonialsScrollStrip
           sectionLabelId={`${regionId}-label`}
           describedById={`${regionId}-reviews-scroll-hint`}
           testimonials={testimonials}
           googleBusinessProfileUrl={googleBusinessProfileUrl}
-          onCardEnter={onCardEnter}
-          onCardLeave={onCardLeave}
         />
-        {isMdUp ? (
-          <div className="min-w-0">
-            <TestimonialMarqueeRow
-              key={testimonialIdsKey}
-              items={testimonials}
-              direction="left"
-              googleBusinessProfileUrl={googleBusinessProfileUrl}
-              onCardEnter={onCardEnter}
-              onCardLeave={onCardLeave}
-              pausedRef={pausedRef}
-              prefersReducedMotion={prefersReducedMotion}
-              enabled
-              rowIdsKey={testimonialIdsKey}
-              phaseRatio={0}
-            />
-          </div>
-        ) : null}
       </div>
     </section>
   );
