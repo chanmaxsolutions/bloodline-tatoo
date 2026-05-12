@@ -16,4 +16,12 @@ const motionDistance = {
   revealYFirm: 26,
 } as const;
 
-export { motionDistance, motionDurations, motionViewport };
+/** Horizontal marquee drift speed (px/s); used with delta-time RAF for consistent motion. */
+const marqueeSpeedPxPerSec = {
+  default: 86,
+  defaultReverseFactor: 0.92,
+  reduced: 24,
+  reducedReverseFactor: 0.94,
+} as const;
+
+export { marqueeSpeedPxPerSec, motionDistance, motionDurations, motionViewport };

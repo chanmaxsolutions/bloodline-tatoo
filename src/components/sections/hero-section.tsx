@@ -42,47 +42,53 @@ function HeroSection({
   ] as const;
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-surface-strong">
-      {!media.videoSrc && media.src ? (
-        <Image
-          src={media.src}
-          alt={media.alt}
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-      ) : null}
+    <section className="relative isolate min-h-[100svh] overflow-hidden bg-surface-strong supports-[height:100dvh]:min-h-[100dvh]">
+      <div className="pointer-events-none absolute inset-0 z-0 min-h-[100svh] w-full overflow-hidden supports-[height:100dvh]:min-h-[100dvh]">
+        {!media.videoSrc && media.src ? (
+          <Image
+            src={media.src}
+            alt={media.alt}
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        ) : null}
 
-      {media.videoSrc ? (
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={media.poster}
-        >
-          <source src={media.videoSrc} />
-        </video>
-      ) : null}
+        {media.videoSrc ? (
+          <video
+            className={cn(
+              "absolute object-cover object-center",
+              "left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 max-md:min-h-[100%] max-md:min-w-[100%]",
+              "md:inset-0 md:left-0 md:top-0 md:h-full md:w-full md:min-h-0 md:min-w-0 md:translate-x-0 md:translate-y-0",
+            )}
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={media.poster}
+          >
+            <source src={media.videoSrc} />
+          </video>
+        ) : null}
+      </div>
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.58)_64%,rgba(0,0,0,0.86)_100%)]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.58)_64%,rgba(0,0,0,0.86)_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.24)_0%,rgba(0,0,0,0.46)_45%,rgba(0,0,0,0.9)_100%)]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.24)_0%,rgba(0,0,0,0.46)_45%,rgba(0,0,0,0.9)_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.56)_0%,rgba(0,0,0,0.14)_28%,rgba(0,0,0,0.14)_72%,rgba(0,0,0,0.56)_100%)]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(to_right,rgba(0,0,0,0.56)_0%,rgba(0,0,0,0.14)_28%,rgba(0,0,0,0.14)_72%,rgba(0,0,0,0.56)_100%)]"
       />
 
       <Container
         size="wide"
-        className="relative z-10 flex min-h-[100svh] items-center justify-center py-12 md:py-16 lg:py-20"
+        className="relative z-10 flex min-h-[100svh] items-center justify-center py-12 max-md:pb-[max(3rem,calc(3rem+env(safe-area-inset-bottom,0px)))] md:py-16 lg:py-20"
       >
         <div className="grid max-w-4xl justify-items-center gap-8 text-center md:gap-10">
           <Reveal mode="default">

@@ -13,7 +13,7 @@ import {
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { cinematicEase } from "@/components/shared/motion/easing";
-import { motionDurations } from "@/components/shared/motion/motion-tokens";
+import { marqueeSpeedPxPerSec, motionDurations } from "@/components/shared/motion/motion-tokens";
 import { revealFirmVariants } from "@/components/shared/motion/variants";
 import { cn } from "@/lib/utils";
 import type { HomepageTestimonial } from "@/types/homepage-testimonial";
@@ -85,6 +85,8 @@ interface GoogleReviewCardDarkProps {
   businessProfileUrl: string;
   onPointerEnterCard: () => void;
   onPointerLeaveCard: () => void;
+  /** When true, card participates in horizontal scroll snap (mobile strip). */
+  snapStart?: boolean;
 }
 
 /** One row; from `md` each card is 1/5 of the viewport minus gaps (`gap-5` × 4) and horizontal inset. */
@@ -104,6 +106,7 @@ function GoogleReviewCardDark({
   businessProfileUrl,
   onPointerEnterCard,
   onPointerLeaveCard,
+  snapStart = false,
 }: GoogleReviewCardDarkProps) {
   const avatarSrc = item.profilePhotoUrl;
   const showAvatar = isRemotePhotoUrl(avatarSrc);
@@ -121,6 +124,7 @@ function GoogleReviewCardDark({
         "rounded-xl border border-white/5 bg-surface-strong/95 p-3 shadow-md shadow-black/35 md:p-4",
         "motion-fast transition-[border-color,box-shadow]",
         "hover:border-white/15 hover:shadow-md hover:shadow-black/42",
+        snapStart && "snap-start",
         carouselCardWidthClassName,
       )}
       onPointerEnter={onPointerEnterCard}
@@ -210,6 +214,8 @@ interface TestimonialMarqueeRowProps {
   onCardLeave: () => void;
   pausedRef: MutableRefObject<boolean>;
   prefersReducedMotion: boolean | null;
+  /** When false, RAF marquee is disabled (e.g. small viewports use manual scroll instead). */
+  enabled: boolean;
   /** Row-specific key so translate resets when this row’s reviews change. */
   rowIdsKey: string;
   /**
@@ -254,6 +260,7 @@ function TestimonialMarqueeRow({
   onCardLeave,
   pausedRef,
   prefersReducedMotion,
+  enabled,
   rowIdsKey,
   phaseRatio,
 }: TestimonialMarqueeRowProps) {
@@ -304,22 +311,29 @@ function TestimonialMarqueeRow({
   }, [rowIdsKey]);
 
   useEffect(() => {
-    if (count === 0) return;
+    if (count === 0 || !enabled) return;
 
-    const base = prefersReducedMotion ? 0.56 : 2.1;
-    const pxPerFrame = direction === "right" ? base * 0.92 : base;
+    const mag = prefersReducedMotion ? marqueeSpeedPxPerSec.reduced : marqueeSpeedPxPerSec.default;
+    const dirFactor = prefersReducedMotion
+      ? marqueeSpeedPxPerSec.reducedReverseFactor
+      : marqueeSpeedPxPerSec.defaultReverseFactor;
+    const signedSpeedPxPerSec = direction === "left" ? -mag : mag * dirFactor;
 
-    function tick() {
+    let last = performance.now();
+
+    function tick(now: number) {
       const track = trackRef.current;
+      const dtMs = Math.min(48, now - last);
+      last = now;
+
       if (track && !pausedRef.current && !document.hidden) {
         const half = track.scrollWidth / 2;
         if (half > 32) {
+          translateXRef.current += (signedSpeedPxPerSec * dtMs) / 1000;
           if (direction === "right") {
-            translateXRef.current += pxPerFrame;
             if (translateXRef.current >= 0) translateXRef.current -= half;
-          } else {
-            translateXRef.current -= pxPerFrame;
-            if (-translateXRef.current >= half) translateXRef.current += half;
+          } else if (-translateXRef.current >= half) {
+            translateXRef.current += half;
           }
           track.style.transform = `translate3d(${translateXRef.current}px,0,0)`;
         }
@@ -331,7 +345,7 @@ function TestimonialMarqueeRow({
     return () => {
       cancelAnimationFrame(rafRef.current);
     };
-  }, [count, direction, prefersReducedMotion, rowIdsKey, pausedRef]);
+  }, [count, direction, enabled, prefersReducedMotion, rowIdsKey, pausedRef]);
 
   if (count === 0) return null;
 
@@ -355,6 +369,135 @@ function TestimonialMarqueeRow({
   );
 }
 
+interface HomepageTestimonialsMobileScrollerProps {
+  sectionLabelId: string;
+  testimonials: readonly HomepageTestimonial[];
+  googleBusinessProfileUrl: string;
+  onCardEnter: () => void;
+  onCardLeave: () => void;
+  prefersReducedMotion: boolean | null;
+}
+
+function HomepageTestimonialsMobileScroller({
+  sectionLabelId,
+  testimonials,
+  googleBusinessProfileUrl,
+  onCardEnter,
+  onCardLeave,
+  prefersReducedMotion,
+}: HomepageTestimonialsMobileScrollerProps) {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const scrollRafRef = useRef(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const count = testimonials.length;
+
+  const updateActiveFromScroll = useCallback(() => {
+    const el = scrollerRef.current;
+    if (!el || count === 0) return;
+    const center = el.scrollLeft + el.clientWidth / 2;
+    const { children } = el;
+    let best = 0;
+    let bestDist = Infinity;
+    for (let i = 0; i < children.length; i += 1) {
+      const child = children[i] as HTMLElement;
+      const mid = child.offsetLeft + child.offsetWidth / 2;
+      const d = Math.abs(mid - center);
+      if (d < bestDist) {
+        bestDist = d;
+        best = i;
+      }
+    }
+    setActiveIndex((prev) => (prev === best ? prev : best));
+  }, [count]);
+
+  const onScrollerScroll = useCallback(() => {
+    if (scrollRafRef.current !== 0) return;
+    scrollRafRef.current = requestAnimationFrame(() => {
+      scrollRafRef.current = 0;
+      updateActiveFromScroll();
+    });
+  }, [updateActiveFromScroll]);
+
+  useLayoutEffect(() => {
+    updateActiveFromScroll();
+  }, [updateActiveFromScroll, testimonials]);
+
+  useEffect(
+    () => () => {
+      if (scrollRafRef.current !== 0) {
+        cancelAnimationFrame(scrollRafRef.current);
+        scrollRafRef.current = 0;
+      }
+    },
+    [],
+  );
+
+  const scrollToSlide = useCallback(
+    (index: number) => {
+      const el = scrollerRef.current;
+      if (!el) return;
+      const child = el.children[index] as HTMLElement | undefined;
+      if (!child) return;
+      const reduce = prefersReducedMotion === true;
+      child.scrollIntoView({
+        inline: "start",
+        block: "nearest",
+        behavior: reduce ? "auto" : "smooth",
+      });
+    },
+    [prefersReducedMotion],
+  );
+
+  if (count === 0) return null;
+
+  return (
+    <div className="w-full min-w-0 md:hidden">
+      <div
+        ref={scrollerRef}
+        aria-labelledby={sectionLabelId}
+        onScroll={onScrollerScroll}
+        className={cn(
+          "flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain px-6 pb-1",
+          "scroll-smooth motion-reduce:scroll-auto",
+          "scroll-pl-6 scroll-pr-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
+        )}
+      >
+        {testimonials.map((item) => (
+          <GoogleReviewCardDark
+            key={item.id}
+            item={item}
+            businessProfileUrl={googleBusinessProfileUrl}
+            onPointerEnterCard={onCardEnter}
+            onPointerLeaveCard={onCardLeave}
+            snapStart
+          />
+        ))}
+      </div>
+      <nav aria-label="Review slides" className="mt-4 flex justify-center gap-2.5 px-6 pb-1">
+        {testimonials.map((item, index) => (
+          <button
+            key={item.id}
+            type="button"
+            className={cn(
+              "size-2.5 shrink-0 rounded-full border outline-none transition-[background-color,border-color] motion-fast",
+              "border-border/70 focus-visible:ring-2 focus-visible:ring-ring/60",
+              index === activeIndex
+                ? "border-accent/80 bg-accent"
+                : "bg-muted-foreground/30 hover:bg-muted-foreground/50",
+            )}
+            aria-label={`Show review ${index + 1} of ${count}`}
+            {...(index === activeIndex ? { "aria-current": "true" as const } : {})}
+            onClick={() => {
+              scrollToSlide(index);
+            }}
+          />
+        ))}
+      </nav>
+    </div>
+  );
+}
+
 function HomepageTestimonialsCarouselSection({
   testimonials,
   googleBusinessProfileUrl,
@@ -362,8 +505,22 @@ function HomepageTestimonialsCarouselSection({
   const prefersReducedMotion = useReducedMotion();
   const regionId = useId();
   const [marqueePaused, setMarqueePaused] = useState(false);
+  const [isMdUp, setIsMdUp] = useState(false);
   const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pausedRef = useRef(false);
+
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(min-width: 768px)");
+    function apply() {
+      setIsMdUp(mq.matches);
+    }
+    apply();
+    mq.addEventListener("change", apply);
+    return () => {
+      mq.removeEventListener("change", apply);
+    };
+  }, []);
 
   const count = testimonials.length;
 
@@ -421,18 +578,29 @@ function HomepageTestimonialsCarouselSection({
         variants={revealFirmVariants}
         transition={{ duration: entranceDuration, ease: cinematicEase }}
       >
-        <TestimonialMarqueeRow
-          key={testimonialIdsKey}
-          items={testimonials}
-          direction="left"
+        <HomepageTestimonialsMobileScroller
+          sectionLabelId={`${regionId}-label`}
+          testimonials={testimonials}
           googleBusinessProfileUrl={googleBusinessProfileUrl}
           onCardEnter={onCardEnter}
           onCardLeave={onCardLeave}
-          pausedRef={pausedRef}
           prefersReducedMotion={prefersReducedMotion}
-          rowIdsKey={testimonialIdsKey}
-          phaseRatio={0}
         />
+        <div className="hidden min-w-0 md:block">
+          <TestimonialMarqueeRow
+            key={testimonialIdsKey}
+            items={testimonials}
+            direction="left"
+            googleBusinessProfileUrl={googleBusinessProfileUrl}
+            onCardEnter={onCardEnter}
+            onCardLeave={onCardLeave}
+            pausedRef={pausedRef}
+            prefersReducedMotion={prefersReducedMotion}
+            enabled={isMdUp}
+            rowIdsKey={testimonialIdsKey}
+            phaseRatio={0}
+          />
+        </div>
       </motion.div>
     </section>
   );
