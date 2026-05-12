@@ -9,10 +9,12 @@ import {
   useRef,
   useState,
   type MutableRefObject,
-  type ReactNode,
 } from "react";
 import Image from "next/image";
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { cinematicEase } from "@/components/shared/motion/easing";
+import { motionDurations } from "@/components/shared/motion/motion-tokens";
+import { revealFirmVariants } from "@/components/shared/motion/variants";
 import { cn } from "@/lib/utils";
 import type { HomepageTestimonial } from "@/types/homepage-testimonial";
 
@@ -126,12 +128,12 @@ function GoogleReviewCardDark({
     >
       <div className="flex shrink-0 gap-3">
         {showAvatar ? (
-          <div className="relative size-11 shrink-0 overflow-hidden rounded-full border border-white/10 bg-muted/20">
-            <Image src={avatarSrc} alt="" fill sizes="44px" className="object-cover" />
+          <div className="relative size-12 shrink-0 overflow-hidden rounded-full border border-white/10 bg-muted/20">
+            <Image src={avatarSrc} alt="" fill sizes="48px" className="object-cover" />
           </div>
         ) : (
           <div
-            className="flex size-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-muted/25 font-sans text-sm font-semibold tracking-tight text-foreground"
+            className="flex size-12 shrink-0 items-center justify-center rounded-full border border-white/10 bg-muted/25 font-sans text-sm font-semibold tracking-tight text-foreground"
             aria-hidden
           >
             {getInitials(item.author)}
@@ -139,7 +141,7 @@ function GoogleReviewCardDark({
         )}
         <div className="min-w-0 flex-1">
           <div className="flex items-start justify-between gap-2">
-            <p className="truncate font-sans text-sm font-medium leading-tight text-foreground">
+            <p className="truncate font-heading text-base font-semibold uppercase leading-tight tracking-tight text-foreground md:text-lg">
               {item.author}
             </p>
             {item.dateIso ? (
@@ -156,7 +158,9 @@ function GoogleReviewCardDark({
             )}
           </div>
           <div className="mt-1.5">
-            <GoogleStarRow rating={item.rating} />
+            <div className="shrink-0">
+              <GoogleStarRow rating={item.rating} />
+            </div>
           </div>
         </div>
       </div>
@@ -392,35 +396,45 @@ function HomepageTestimonialsCarouselSection({
 
   if (count === 0) return null;
 
-  const sectionShell = (children: ReactNode) => (
+  const entranceDuration =
+    prefersReducedMotion === true
+      ? Math.min(0.06, motionDurations.fast * 0.25)
+      : motionDurations.cinematicSlow;
+
+  return (
     <section
       id="homepage-testimonials"
       aria-labelledby={`${regionId}-label`}
       className={cn(
-        "w-full min-w-0 max-w-none overflow-hidden bg-band-charcoal text-foreground",
+        "w-full min-w-0 max-w-none overflow-x-hidden bg-band-charcoal text-foreground",
         "py-8 md:py-10",
       )}
     >
       <h2 id={`${regionId}-label`} className="sr-only">
         Google reviews from clients
       </h2>
-      {children}
+      <motion.div
+        className="w-full min-w-0"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.08, margin: "0px 0px 22% 0px" }}
+        variants={revealFirmVariants}
+        transition={{ duration: entranceDuration, ease: cinematicEase }}
+      >
+        <TestimonialMarqueeRow
+          key={testimonialIdsKey}
+          items={testimonials}
+          direction="left"
+          googleBusinessProfileUrl={googleBusinessProfileUrl}
+          onCardEnter={onCardEnter}
+          onCardLeave={onCardLeave}
+          pausedRef={pausedRef}
+          prefersReducedMotion={prefersReducedMotion}
+          rowIdsKey={testimonialIdsKey}
+          phaseRatio={0}
+        />
+      </motion.div>
     </section>
-  );
-
-  return sectionShell(
-    <TestimonialMarqueeRow
-      key={testimonialIdsKey}
-      items={testimonials}
-      direction="left"
-      googleBusinessProfileUrl={googleBusinessProfileUrl}
-      onCardEnter={onCardEnter}
-      onCardLeave={onCardLeave}
-      pausedRef={pausedRef}
-      prefersReducedMotion={prefersReducedMotion}
-      rowIdsKey={testimonialIdsKey}
-      phaseRatio={0}
-    />,
   );
 }
 
