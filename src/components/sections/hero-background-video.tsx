@@ -6,16 +6,29 @@ import { useEffect, useRef, useState } from "react";
 interface HeroBackgroundVideoProps {
   src: string;
   poster?: string;
-  /** Shown when autoplay is blocked (e.g. Low Power Mode) or the file fails — avoids native paused-video UI. */
+  /** Shown when autoplay is blocked or the file fails — avoids native paused-video UI. */
   stillSrc: string;
   stillAlt: string;
   className: string;
 }
 
+function isAbortError(error: unknown): boolean {
+  return error instanceof DOMException && error.name === "AbortError";
+}
+
+function applyIosFriendlyVideoAttrs(el: HTMLVideoElement) {
+  el.muted = true;
+  el.defaultMuted = true;
+  el.setAttribute("muted", "");
+  el.playsInline = true;
+  el.setAttribute("playsinline", "");
+  el.setAttribute("webkit-playsinline", "true");
+}
+
 /**
- * Hero background clip: mobile Safari often ignores `autoplay` unless the muted **property**
- * is set in JS and `play()` is called after media is ready. When playback cannot start, we swap
- * to a still image so users never see the system play affordance on a dark rectangle.
+ * Hero background clip: mobile Safari needs muted/playsinline set reliably and `play()` after
+ * the element can decode frames. Avoid overlapping `play()` calls (they reject with AbortError
+ * and must not swap to still). Prefer `preload="auto"` so cellular devices buffer enough to start.
  *
  * @see https://developer.apple.com/documentation/webkit/delivering-video-content-for-safari
  */
@@ -28,6 +41,7 @@ function HeroBackgroundVideo({
 }: HeroBackgroundVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
   const [useStillOnly, setUseStillOnly] = useState(false);
+  const playGenerationRef = useRef(0);
 
   useEffect(() => {
     if (useStillOnly) return;
@@ -35,41 +49,51 @@ function HeroBackgroundVideo({
     const el = ref.current;
     if (!el) return;
 
-    const markStill = () => setUseStillOnly(true);
+    let cancelled = false;
 
-    const syncMutedAndPlay = () => {
-      el.muted = true;
-      el.defaultMuted = true;
-      el.setAttribute("muted", "");
-      el.playsInline = true;
-      el.setAttribute("playsinline", "");
-      el.setAttribute("webkit-playsinline", "true");
-      void el
-        .play()
-        .then(() => {
-          requestAnimationFrame(() => {
-            if (ref.current !== el) return;
-            if (el.paused) markStill();
-          });
-        })
-        .catch(markStill);
+    const markStill = () => {
+      if (cancelled) return;
+      setUseStillOnly(true);
+    };
+
+    const tryPlay = () => {
+      if (cancelled) return;
+      applyIosFriendlyVideoAttrs(el);
+      const gen = ++playGenerationRef.current;
+      const playResult = el.play();
+      if (playResult === undefined) return;
+
+      void playResult.catch((error: unknown) => {
+        if (cancelled || playGenerationRef.current !== gen) return;
+        if (isAbortError(error)) return;
+        markStill();
+      });
     };
 
     const onVideoError = () => markStill();
 
-    syncMutedAndPlay();
+    tryPlay();
 
-    el.addEventListener("loadeddata", syncMutedAndPlay);
+    /** One retry after enough data is buffered (critical on iOS + `preload` heuristics). */
+    const onCanPlayOnce = () => tryPlay();
+    el.addEventListener("canplay", onCanPlayOnce, { once: true });
+    /** If media is already cached, `canplay` may not fire again — retry on next tick. */
+    if (el.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      queueMicrotask(() => tryPlay());
+    }
+
     el.addEventListener("error", onVideoError);
 
     function onDocumentVisible() {
       if (document.visibilityState !== "visible") return;
-      syncMutedAndPlay();
+      tryPlay();
     }
     document.addEventListener("visibilitychange", onDocumentVisible);
 
     return () => {
-      el.removeEventListener("loadeddata", syncMutedAndPlay);
+      cancelled = true;
+      playGenerationRef.current += 1;
+      el.removeEventListener("canplay", onCanPlayOnce);
       el.removeEventListener("error", onVideoError);
       document.removeEventListener("visibilitychange", onDocumentVisible);
     };
@@ -98,7 +122,7 @@ function HeroBackgroundVideo({
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="auto"
       poster={poster}
       aria-hidden
     >

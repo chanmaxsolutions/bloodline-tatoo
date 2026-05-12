@@ -6,7 +6,7 @@
 @keyframes hero-reveal-fade-up {
   from {
     opacity: 0;
-    transform: translate3d(0, 8px, 0);
+    transform: translate3d(0, 18px, 0);
   }
   to {
     opacity: 1;
@@ -217,15 +217,15 @@
 
   .hero-reveal-motion {
     opacity: 0;
-    animation: hero-reveal-fade-up 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: hero-reveal-fade-up var(--motion-reveal) var(--motion-ease) forwards;
   }
 
   .hero-reveal-motion-delay-sm {
-    animation-delay: 0.04s;
+    animation-delay: 0.12s;
   }
 
   .hero-reveal-motion-delay-md {
-    animation-delay: 0.08s;
+    animation-delay: 0.26s;
   }
 
 }
