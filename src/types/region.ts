@@ -1,4 +1,5 @@
 import type { RegionHomepageAuthorityConfig } from "@/types/homepage-authority";
+import type { RegionHomepageStandardsSplitConfig } from "@/types/homepage-standards-split";
 import type { RegionHomepageTattooStylesConfig } from "@/types/tattoo-style";
 
 export type RegionSlug = "global" | "bangkok" | "bali" | "phuket";
@@ -40,4 +41,7 @@ export interface RegionConfig {
   seo: RegionSeoConfig;
   homepageAuthority: RegionHomepageAuthorityConfig;
   homepageTattooStyles: RegionHomepageTattooStylesConfig;
+  homepageStandardsSplit: RegionHomepageStandardsSplitConfig;
+  /** Mirrored split: journey / booking clarity (text left, image right on large screens). */
+  homepageSessionPathSplit: RegionHomepageStandardsSplitConfig;
 }

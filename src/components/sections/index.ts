@@ -1,4 +1,5 @@
 export { AuthoritySection } from "@/components/sections/authority-section";
+export { HomepageStandardsSplitSection } from "@/components/sections/homepage-standards-split-section";
 export { HomepageTestimonialsCarouselSection } from "@/components/sections/homepage-testimonials-carousel-section";
 export { HeroSection } from "@/components/sections/hero-section";
 export { SectionShell } from "@/components/sections/section-shell";

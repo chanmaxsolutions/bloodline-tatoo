@@ -8,6 +8,7 @@
     opacity: 0;
     transform: translate3d(0, 18px, 0);
   }
+
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -60,6 +61,12 @@
   --duration-slow: var(--motion-slow);
   --ease-standard: var(--motion-ease);
 
+  /* Review cards: theme shadow — bottom-right cast; tighter spread than prior pass. */
+  --shadow-review-card:
+    4px 8px 20px -5px rgb(0 0 0 / 0.18), 2px 4px 12px -4px rgb(0 0 0 / 0.05);
+  --shadow-review-card-hover:
+    5px 9px 24px -4px rgb(0 0 0 / 0.26), 3px 5px 14px -3px rgb(0 0 0 / 0.10);
+
   /* Spacing rhythm */
   --space-section-y: var(--section-space-y);
   --space-section-y-tight: var(--section-space-y-tight);
@@ -81,6 +88,9 @@
   --border-strong: #34343d;
   --danger: #ff6b6b;
   --ring: #c6ff3b;
+
+  /** Homepage authority / testimonials band seam (matches legacy #1C1B1D). */
+  --band-charcoal: #1c1b1d;
 
   /* Radius: restrained/tactical */
   --radius: 0.5rem;
@@ -106,6 +116,10 @@
   --section-space-y-tight: var(--space-3xl);
   --section-space-y: var(--space-4xl);
   --content-gap: var(--space-xl);
+
+  /** Homepage authority + tattoo-styles band: vertical padding (mobile / desktop). */
+  --homepage-section-band-padding-y-mobile: 100px;
+  --homepage-section-band-padding-y-desktop: 150px;
 }
 
 .dark {
@@ -122,15 +136,20 @@
   --border-strong: #34343d;
   --danger: #ff6b6b;
   --ring: #c6ff3b;
+  --band-charcoal: #1c1b1d;
+  --homepage-section-band-padding-y-mobile: 100px;
+  --homepage-section-band-padding-y-desktop: 150px;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   html {
     @apply h-full font-sans;
   }
+
   body {
     @apply min-h-full bg-background text-foreground;
   }
@@ -146,9 +165,20 @@
 }
 
 @layer utilities {
+
   /** Line-height comes from paired `text-*` / `leading-*` utilities (avoids tailwind-merge dropping this when custom leading is used). */
   .text-heading-display {
     @apply font-heading font-bold uppercase tracking-tight;
+  }
+
+  /**
+   * Authority (and similar) display: fluid scale so long region titles do not overpower mobile,
+   * without arbitrary per-component font sizes.
+   */
+  .text-heading-authority-display {
+    @apply font-heading font-bold uppercase tracking-tight text-foreground;
+    font-size: clamp(2rem, 1.2rem + 3.4vw, 4.5rem);
+    line-height: 0.92;
   }
 
   .text-heading-section {
@@ -171,19 +201,9 @@
     @apply bg-surface-strong border border-border-strong;
   }
 
-  /** Authority band: `--background` (#0B0B0D) at top → #1C1B1D at bottom */
-  .bg-gradient-authority {
-    background-image: linear-gradient(180deg, var(--background) 0%, #1c1b1d 100%);
-  }
-
-  /** Tattoo styles gateway: continues from authority tone into page background */
-  .bg-gradient-tattoo-styles {
-    background-image: linear-gradient(180deg, #1c1b1d 0%, var(--background) 100%);
-  }
-
-  /** Seamless strip with authority gradient end (#1C1B1D) — e.g. testimonial bridge */
+  /** Seamless strip with authority gradient end — e.g. testimonial bridge */
   .bg-band-charcoal {
-    background-color: #1c1b1d;
+    background-color: var(--band-charcoal);
   }
 
   .section-space {
@@ -228,9 +248,14 @@
     animation-delay: 0.26s;
   }
 
+  .hero-reveal-motion-delay-lg {
+    animation-delay: 0.38s;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .motion-standard,
   .motion-fast,
   .motion-reveal {

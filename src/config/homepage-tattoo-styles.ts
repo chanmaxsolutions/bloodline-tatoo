@@ -25,6 +25,10 @@ function homepageTattooStylesForRegion(
       description: `${place} treats style as craft identity—not a menu label. Each direction below opens a dedicated lane: how we think, how we stage the body, and what disciplined execution looks like in that language.`,
     },
     featuredSlugs: defaultFeaturedSlugs,
+    catalogCta: {
+      label: "View all tattoo styles",
+      href: "/tattoo-styles",
+    },
   };
 }
 

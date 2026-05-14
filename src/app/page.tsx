@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import {
   AuthoritySection,
   HeroSection,
+  HomepageStandardsSplitSection,
   TattooStylesSection,
   TrustProofBarSection,
   type TrustProofItem,
@@ -52,7 +53,7 @@ export default async function Home() {
   return (
     <div className="min-w-0 bg-background">
       <HeroSection
-        eyebrow="Premium Tattoo Culture"
+        googleBusinessProfileUrl={regionConfig.googleBusinessProfileUrl}
         title={
           <>
             WORLD CLASS TATTOO ART STUDIO IN <span className="text-accent">{heroRegionWord}</span>
@@ -76,13 +77,18 @@ export default async function Home() {
       />
       <TrustProofBarSection items={defaultTrustProofItems} />
       <AuthoritySection content={regionConfig.homepageAuthority} />
-      <HomepageTestimonialsCarouselSection
-        testimonials={homepageTestimonials}
-        googleBusinessProfileUrl={regionConfig.googleBusinessProfileUrl}
-      />
       <TattooStylesSection
         config={regionConfig.homepageTattooStyles}
         tiles={homepageTattooStyleTiles}
+      />
+      <HomepageStandardsSplitSection content={regionConfig.homepageStandardsSplit} />
+      <HomepageStandardsSplitSection
+        sectionId="homepage-session-path"
+        content={regionConfig.homepageSessionPathSplit}
+      />
+      <HomepageTestimonialsCarouselSection
+        testimonials={homepageTestimonials}
+        googleBusinessProfileUrl={regionConfig.googleBusinessProfileUrl}
       />
     </div>
   );

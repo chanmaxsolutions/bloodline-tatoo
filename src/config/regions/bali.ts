@@ -1,4 +1,8 @@
 import { homepageAuthorityForRegion } from "@/config/homepage-authority";
+import {
+  homepageSessionPathSplitForRegion,
+  homepageStandardsSplitForRegion,
+} from "@/config/homepage-standards-split";
 import { homepageTattooStylesForRegion } from "@/config/homepage-tattoo-styles";
 import type { RegionConfig } from "@/types";
 
@@ -31,4 +35,6 @@ export const baliRegionConfig: RegionConfig = {
   },
   homepageAuthority: homepageAuthorityForRegion("bali", "Bali"),
   homepageTattooStyles: homepageTattooStylesForRegion("bali", "Bali"),
+  homepageStandardsSplit: homepageStandardsSplitForRegion("bali", "Bali"),
+  homepageSessionPathSplit: homepageSessionPathSplitForRegion("bali", "Bali"),
 };

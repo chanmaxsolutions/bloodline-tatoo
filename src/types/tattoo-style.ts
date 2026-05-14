@@ -30,4 +30,9 @@ export interface RegionHomepageTattooStylesConfig {
   intro: RegionHomepageTattooStylesIntro;
   /** Ordered list; each slug must exist in the global catalog. */
   featuredSlugs: readonly TattooStyleSlug[];
+  /** Under-grid link to the full styles index (SEO + discovery). */
+  catalogCta: {
+    label: string;
+    href: string;
+  };
 }

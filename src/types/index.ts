@@ -1,4 +1,6 @@
+export * from "@/types/global-hero-trust-proof";
 export * from "@/types/homepage-authority";
+export * from "@/types/homepage-standards-split";
 export * from "@/types/homepage-testimonial";
 export * from "@/types/region";
 export * from "@/types/tattoo-style";

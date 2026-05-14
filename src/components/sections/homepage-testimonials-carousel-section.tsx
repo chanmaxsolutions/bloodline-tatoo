@@ -112,9 +112,9 @@ function GoogleReviewCardDark({ item, businessProfileUrl }: GoogleReviewCardDark
     <article
       className={cn(
         "group flex h-full min-h-[216px] flex-col md:min-h-[232px]",
-        "rounded-xl border border-white/5 bg-surface-strong/95 p-3 shadow-md shadow-black/35 md:p-4",
+        "rounded-xl border border-white/5 bg-surface-strong/95 p-3 shadow-review-card md:p-4",
         "motion-fast transition-[border-color,box-shadow]",
-        "hover:border-white/15 hover:shadow-md hover:shadow-black/42",
+        "hover:border-white/10 hover:shadow-review-card-hover",
         "snap-center touch-pan-x",
         carouselCardWidthClassName,
       )}
@@ -416,7 +416,9 @@ function HomepageTestimonialsScrollStrip({
           scrollPaddingInline: padInline,
         }}
         className={cn(
-          "flex snap-x snap-proximity gap-5 overflow-x-auto overscroll-x-contain pb-0",
+          /* `overflow-x-auto` uses a scrollport that clips Y as well; reserve space so card
+           * `box-shadow` is not sheared off at the bottom (was `pb-0`). */
+          "flex snap-x snap-proximity gap-5 overflow-x-auto overscroll-x-contain pb-8",
           "touch-pan-x [-webkit-overflow-scrolling:touch] cursor-grab active:cursor-grabbing",
           "scroll-smooth motion-reduce:scroll-auto",
           "[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
