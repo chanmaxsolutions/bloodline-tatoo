@@ -1,3 +1,4 @@
+export * from "@/types/booking-modal";
 export * from "@/types/global-hero-trust-proof";
 export * from "@/types/homepage-authority";
 export * from "@/types/homepage-standards-split";

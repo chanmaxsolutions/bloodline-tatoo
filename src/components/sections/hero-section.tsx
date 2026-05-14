@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/container";
 import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { HeroTrustBrandMark } from "@/components/shared/hero-trust-brand-mark";
+import { BookAppointmentTrigger } from "@/components/cta";
 import { buttonVariants } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -30,6 +31,8 @@ interface HeroSectionProps {
     label: string;
     href: string;
   };
+  /** Optional line under CTAs (from region config; scarcity / booking channel). */
+  ctaUrgencyNote?: string;
 }
 
 function HeroSection({
@@ -40,6 +43,7 @@ function HeroSection({
   media,
   primaryCta,
   secondaryCta,
+  ctaUrgencyNote,
 }: HeroSectionProps) {
   const trustChips = buildGlobalHeroTrustProofChips(googleBusinessProfileUrl);
 
@@ -171,17 +175,11 @@ function HeroSection({
             </div>
           </div>
 
-          <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-6">
+          <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-5">
             <div className="hero-reveal-motion hero-reveal-motion-delay-md flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
-              <Link
-                href={primaryCta.href}
-                className={buttonVariants({
-                  variant: "primary",
-                  size: "lg",
-                })}
-              >
+              <BookAppointmentTrigger variant="primary" size="lg">
                 {primaryCta.label}
-              </Link>
+              </BookAppointmentTrigger>
               {secondaryCta ? (
                 <Link
                   href={secondaryCta.href}
@@ -194,6 +192,14 @@ function HeroSection({
                 </Link>
               ) : null}
             </div>
+            {ctaUrgencyNote ? (
+              <p className="hero-reveal-motion hero-reveal-motion-delay-lg max-w-lg text-balance px-2 font-sans text-sm leading-snug tracking-wide text-muted-foreground">
+                <span aria-hidden="true" className="mr-0.5 inline">
+                  *
+                </span>
+                {ctaUrgencyNote}
+              </p>
+            ) : null}
           </div>
         </div>
       </Container>

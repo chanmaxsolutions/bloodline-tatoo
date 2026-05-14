@@ -1,3 +1,4 @@
+import { defaultHeroCtaUrgencyNote } from "@/config/hero-cta-urgency";
 import { homepageAuthorityForRegion } from "@/config/homepage-authority";
 import {
   homepageSessionPathSplitForRegion,
@@ -23,6 +24,7 @@ export const baliRegionConfig: RegionConfig = {
     label: "BOOK APPOINTMENT",
     href: "#",
   },
+  heroCtaUrgencyNote: defaultHeroCtaUrgencyNote,
   contact: {
     whatsappNumber: "",
     instagramUrl: "",

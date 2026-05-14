@@ -1,3 +1,4 @@
+import { defaultHeroCtaUrgencyNote } from "@/config/hero-cta-urgency";
 import { homepageAuthorityForRegion } from "@/config/homepage-authority";
 import {
   homepageSessionPathSplitForRegion,
@@ -23,10 +24,15 @@ export const bangkokRegionConfig: RegionConfig = {
     label: "BOOK APPOINTMENT",
     href: "#",
   },
+  heroCtaUrgencyNote: defaultHeroCtaUrgencyNote,
+  /**
+   * Dummy booking channels for Bangkok UI testing only.
+   * Replace with real studio WhatsApp / IG / Messenger before production.
+   */
   contact: {
-    whatsappNumber: "",
-    instagramUrl: "",
-    messengerUrl: "",
+    whatsappNumber: "+66 99 000 0000",
+    instagramUrl: "https://www.instagram.com/bloodlinetattoobangkok/",
+    messengerUrl: "https://m.me/bloodlinetattoobangkok",
   },
   seo: {
     siteName: "Bloodline Tattoo Bangkok",

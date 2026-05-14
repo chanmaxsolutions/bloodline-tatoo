@@ -74,6 +74,7 @@ export default async function Home() {
           label: "VIEW PORTFOLIO",
           href: "/gallery",
         }}
+        ctaUrgencyNote={regionConfig.heroCtaUrgencyNote}
       />
       <TrustProofBarSection items={defaultTrustProofItems} />
       <AuthoritySection content={regionConfig.homepageAuthority} />

@@ -8,6 +8,8 @@ export interface RegionContactConfig {
   whatsappNumber: string;
   instagramUrl: string;
   messengerUrl: string;
+  /** Facebook Page or Messenger link for the booking modal “Facebook” action. */
+  facebookBookUrl?: string;
 }
 
 export interface RegionSeoConfig {
@@ -37,6 +39,8 @@ export interface RegionConfig {
   googleBusinessProfileUrl: string;
   branding: RegionBrandingConfig;
   headerCta: RegionHeaderCtaConfig;
+  /** Optional urgency line rendered under hero CTAs (config-driven, honest tone). */
+  heroCtaUrgencyNote?: string;
   contact: RegionContactConfig;
   seo: RegionSeoConfig;
   homepageAuthority: RegionHomepageAuthorityConfig;

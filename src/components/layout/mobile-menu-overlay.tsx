@@ -15,9 +15,16 @@ interface MobileMenuOverlayProps {
     href: string;
   };
   onClose: () => void;
+  onBookAppointment: () => void;
 }
 
-function MobileMenuOverlay({ isOpen, navigationItems, cta, onClose }: MobileMenuOverlayProps) {
+function MobileMenuOverlay({
+  isOpen,
+  navigationItems,
+  cta,
+  onClose,
+  onBookAppointment,
+}: MobileMenuOverlayProps) {
   const [isStylesOpen, setIsStylesOpen] = useState(false);
 
   if (!isOpen) return null;
@@ -94,13 +101,16 @@ function MobileMenuOverlay({ isOpen, navigationItems, cta, onClose }: MobileMenu
           </ul>
 
           <div className="pt-10">
-            <Link
-              href={cta.href}
-              onClick={onClose}
+            <button
+              type="button"
               className={buttonVariants({ variant: "primary", size: "lg", className: "w-full" })}
+              onClick={() => {
+                onBookAppointment();
+                onClose();
+              }}
             >
               {cta.label}
-            </Link>
+            </button>
           </div>
         </nav>
       </div>

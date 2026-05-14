@@ -15,6 +15,24 @@
   }
 }
 
+/** Primary UI buttons: single left-to-right shine on hover (no loop). */
+@keyframes button-shine-sweep {
+  0% {
+    transform: translate3d(-165%, 0, 0) skewX(-18deg);
+    opacity: 1;
+  }
+
+  88% {
+    opacity: 1;
+  }
+
+  100% {
+    /* Skew widens the band — push past the right edge, then fade so nothing “hangs”. */
+    transform: translate3d(300%, 0, 0) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -101,6 +119,9 @@
   --motion-reveal: 0.55s;
   --motion-slow: 0.7s;
   --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /** Button hover shine: slower than `--motion-reveal` so the sweep reads clearly. */
+  --duration-button-shine: 1.28s;
 
   /* Spacing scale + section rhythm */
   --space-2xs: 0.25rem;
@@ -252,6 +273,55 @@
     animation-delay: 0.38s;
   }
 
+  /**
+   * Applied via `buttonVariants` base so `<Button>` and `<Link className={buttonVariants()}>`
+   * share the same hover shine. Pseudo sits under in-flow label/icons.
+   */
+  .button-shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .button-shine::before {
+    content: "";
+    position: absolute;
+    inset-block: -2px;
+    inset-inline-start: 0;
+    width: min(92%, 28rem);
+    pointer-events: none;
+    background: linear-gradient(
+      100deg,
+      rgb(255 255 255 / 0) 0%,
+      rgb(255 255 255 / 0.05) 28%,
+      rgb(255 255 255 / 0.2) 42%,
+      rgb(255 255 255 / 0.3) 50%,
+      rgb(255 255 255 / 0.2) 58%,
+      rgb(255 255 255 / 0.05) 72%,
+      rgb(255 255 255 / 0) 100%
+    );
+    transform: translate3d(-165%, 0, 0) skewX(-18deg);
+    opacity: 0;
+  }
+
+  /**
+   * Lime primary: standard alpha composite over `bg-accent` (no blend mode) so the flare stays visible.
+   */
+  .button-shine-accent::before {
+    background: linear-gradient(
+      100deg,
+      rgb(255 255 255 / 0) 4%,
+      rgb(255 255 255 / 0.28) 32%,
+      rgb(255 255 255 / 0.72) 50%,
+      rgb(255 255 255 / 0.28) 68%,
+      rgb(255 255 255 / 0) 96%
+    );
+  }
+
+  .button-shine:hover::before {
+    animation: button-shine-sweep var(--duration-button-shine) var(--motion-ease) forwards;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -266,5 +336,9 @@
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .button-shine::before {
+    content: none;
   }
 }

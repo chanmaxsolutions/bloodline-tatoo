@@ -3,11 +3,11 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-xs border border-transparent font-heading text-2xl leading-none font-semibold uppercase tracking-tight motion-fast outline-none select-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 md:text-2xl [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "button-shine inline-flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-xs border border-transparent font-heading text-2xl leading-none font-semibold uppercase tracking-tight motion-fast outline-none select-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 md:text-2xl [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        primary: "bg-accent text-accent-foreground hover:brightness-95",
+        primary: "bg-accent text-accent-foreground hover:brightness-95 button-shine-accent",
         secondary: "bg-surface-elevated text-foreground border-border hover:bg-surface-strong",
         outline: "bg-background text-foreground border-border hover:bg-surface",
         ghost: "bg-transparent text-foreground hover:bg-surface",
@@ -26,6 +26,13 @@ const buttonVariants = cva(
   },
 );
 
+/** Same ghost + icon sizing as `buttonVariants`, without `.button-shine` (no sweep pseudo). */
+const dialogCloseButtonClass = cn(
+  "inline-flex shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-xs border border-transparent font-heading text-2xl leading-none font-semibold uppercase tracking-tight motion-fast outline-none select-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 md:text-2xl [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "bg-transparent text-foreground hover:bg-surface",
+  "size-10 md:size-12",
+);
+
 function Button({
   className,
   variant,
@@ -35,10 +42,10 @@ function Button({
   return (
     <ButtonPrimitive
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size }), className)}
       {...props}
     />
   );
 }
 
-export { Button, buttonVariants };
+export { Button, buttonVariants, dialogCloseButtonClass };

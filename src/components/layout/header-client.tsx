@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ChevronDownIcon, MenuIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui";
+import { useBookingAppointmentModal } from "@/components/cta";
 import { Container } from "@/components/layout/container";
 import { MobileMenuOverlay } from "@/components/layout/mobile-menu-overlay";
 import type { HeaderNavItem } from "@/config/navigation";
@@ -32,6 +33,7 @@ function HeaderClient({
 }: HeaderClientProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { open: openBookingModal } = useBookingAppointmentModal();
 
   useEffect(() => {
     function onScroll(): void {
@@ -137,9 +139,13 @@ function HeaderClient({
                   );
                 })}
               </nav>
-              <Link href={cta.href} className={buttonVariants({ variant: "primary", size: "sm" })}>
+              <button
+                type="button"
+                className={buttonVariants({ variant: "primary", size: "sm" })}
+                onClick={openBookingModal}
+              >
                 {cta.label}
-              </Link>
+              </button>
             </div>
 
             <Button
@@ -164,6 +170,7 @@ function HeaderClient({
           navigationItems={mobileNavigationItems}
           cta={cta}
           onClose={() => setIsMenuOpen(false)}
+          onBookAppointment={openBookingModal}
         />
       </div>
     </>

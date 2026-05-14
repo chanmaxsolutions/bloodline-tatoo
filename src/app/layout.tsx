@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Plus_Jakarta_Sans } from "next/font/google";
+import { BookingAppointmentProvider } from "@/components/cta";
 import { SiteFooter, SiteHeader } from "@/components/layout";
+import { buildBookingModalPayload } from "@/lib/booking-modal";
 import { getRequestRegionContext } from "@/lib/request-region";
 import "./globals.css";
 
@@ -14,11 +16,6 @@ const bodyFont = Plus_Jakarta_Sans({
   variable: "--font-body",
   subsets: ["latin"],
 });
-
-async function getRequestRegion() {
-  const { region } = await getRequestRegionContext();
-  return region;
-}
 
 export async function generateMetadata(): Promise<Metadata> {
   const { regionConfig } = await getRequestRegionContext();
@@ -39,14 +36,17 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const region = await getRequestRegion();
+  const { region, regionConfig } = await getRequestRegionContext();
+  const bookingModalPayload = buildBookingModalPayload(regionConfig);
 
   return (
     <html lang="en" className={`${headingFont.variable} ${bodyFont.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <SiteHeader region={region} />
-        <main className="min-w-0 flex-1">{children}</main>
-        <SiteFooter />
+        <BookingAppointmentProvider payload={bookingModalPayload}>
+          <SiteHeader region={region} />
+          <main className="min-w-0 flex-1">{children}</main>
+          <SiteFooter />
+        </BookingAppointmentProvider>
       </body>
     </html>
   );
