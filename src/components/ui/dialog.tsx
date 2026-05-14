@@ -27,7 +27,7 @@ function DialogOverlay({ className, ...props }: DialogPrimitive.Backdrop.Props) 
     <DialogPrimitive.Backdrop
       data-slot="dialog-overlay"
       className={cn(
-        "fixed inset-0 z-50 bg-background/80 motion-fast data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        "fixed inset-0 z-50 bg-background/80 motion-fast outline-none data-open:animate-in data-open:fade-in-0 data-open:duration-200 data-closed:animate-out data-closed:fade-out-0 data-closed:duration-300 data-open:ease-[cubic-bezier(0.16,1,0.3,1)] data-closed:ease-[cubic-bezier(0.16,1,0.3,1)]",
         className,
       )}
       {...props}
@@ -65,7 +65,7 @@ function DialogContent({
       <DialogPrimitive.Popup
         data-slot="dialog-content"
         className={cn(
-          "fixed top-1/2 left-1/2 z-[51] flex w-[min(calc(100vw-1.5rem),100%)] max-w-lg -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-lg border border-border bg-surface-elevated p-6 text-foreground motion-standard outline-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-[0.99] data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-[0.99]",
+          "fixed top-1/2 left-1/2 z-[51] flex w-[min(calc(100vw-1.5rem),100%)] max-w-lg -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-lg border border-border bg-surface-elevated p-6 text-foreground motion-standard outline-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-[0.99] data-open:duration-200 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-[0.99] data-closed:duration-300 data-open:ease-[cubic-bezier(0.16,1,0.3,1)] data-closed:ease-[cubic-bezier(0.16,1,0.3,1)]",
           mobileBottomSheet &&
             cn(
               "max-sm:inset-x-0 max-sm:bottom-0 max-sm:top-auto max-sm:left-0 max-sm:right-0 max-sm:translate-x-0 max-sm:translate-y-0 max-sm:max-h-[min(92dvh,900px)] max-sm:pb-[max(0px,env(safe-area-inset-bottom))]",

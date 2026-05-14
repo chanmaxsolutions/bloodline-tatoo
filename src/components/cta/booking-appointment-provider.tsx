@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import Link from "next/link";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -19,6 +20,23 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import type { BookingModalChannelLink, BookingModalPayload } from "@/types/booking-modal";
+
+function bookingNoteBodySegments(text: string): ReactNode {
+  return text.split(/(WhatsApp)/i).map((segment, index) => {
+    if (/^whatsapp$/i.test(segment)) {
+      return (
+        <strong key={index} className="font-bold text-muted-foreground/70">
+          {segment}
+        </strong>
+      );
+    }
+    return (
+      <span key={index} className="text-muted-foreground/70">
+        {segment}
+      </span>
+    );
+  });
+}
 
 interface BookingAppointmentContextValue {
   open: () => void;
@@ -54,9 +72,15 @@ const packageBase = cn(channelCardSkin, channelLinkLayout);
 function ChannelPackage({
   channel,
   channelVariant,
+  channelBadge,
+  channelBadgeDesktop,
 }: {
   channel: BookingModalChannelLink | null;
   channelVariant: ChannelVariant;
+  /** Narrow viewports: inline badge before arrow (e.g. WhatsApp). */
+  channelBadge?: string;
+  /** `sm+`: pill straddling top border (e.g. WhatsApp). */
+  channelBadgeDesktop?: string;
 }) {
   const icon =
     channelVariant === "facebook" ? (
@@ -81,12 +105,53 @@ function ChannelPackage({
     );
   }
 
+  const showMobileBadge = Boolean(channelBadge?.trim());
+  const showDesktopBadge = Boolean(channelBadgeDesktop?.trim());
+  const mobileBadgeText = channelBadge?.trim() ?? "";
+  const desktopBadgeText = channelBadgeDesktop?.trim() ?? "";
+
+  const mobileBadgeEl = showMobileBadge ? (
+    <span className="max-sm:inline-flex max-sm:shrink-0 rounded-full bg-accent px-2 py-0.5 font-heading text-xs font-semibold uppercase leading-tight tracking-normal text-background shadow-sm sm:hidden">
+      {mobileBadgeText}
+    </span>
+  ) : null;
+
+  const desktopBadgeEl = showDesktopBadge ? (
+    <span className="pointer-events-none absolute left-1/2 top-0 z-10 hidden -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-accent px-2 py-0.5 font-heading text-sm font-semibold uppercase leading-tight tracking-normal text-background shadow-sm sm:inline-flex">
+      {desktopBadgeText}
+    </span>
+  ) : null;
+
   return (
-    <Link href={channel.href} target="_blank" rel="noopener noreferrer" className={packageBase}>
+    <Link
+      href={channel.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn(packageBase, showDesktopBadge && "sm:relative sm:overflow-visible sm:pt-3")}
+    >
       <span className="flex shrink-0 items-center justify-center">{icon}</span>
-      <span className="min-w-0 flex-1 wrap-break-word text-left font-heading text-sm font-bold uppercase leading-snug tracking-tight text-foreground sm:flex-none sm:text-center sm:text-base md:text-lg">
-        {channel.label}
-      </span>
+      <div
+        className={cn(
+          "flex min-w-0 flex-1 flex-row items-center gap-2",
+          "sm:flex-col sm:flex-none sm:items-center sm:justify-center sm:gap-2",
+        )}
+      >
+        <span
+          className={cn(
+            "wrap-break-word text-left font-heading max-sm:text-2xl sm:text-xl md:text-2xl font-bold uppercase leading-snug tracking-tight text-foreground/88 sm:text-center",
+            "min-w-0 sm:flex-none",
+            showMobileBadge ? "min-w-0 shrink sm:shrink-0" : "min-w-0 max-sm:flex-1",
+          )}
+        >
+          {channel.label}
+        </span>
+        {mobileBadgeEl}
+      </div>
+      <ArrowUpRight
+        className="size-5 shrink-0 text-muted-foreground motion-fast group-hover:text-foreground sm:hidden"
+        aria-hidden
+      />
+      {desktopBadgeEl}
     </Link>
   );
 }
@@ -146,6 +211,15 @@ interface BookingAppointmentProviderProps {
 
 function BookingAppointmentProvider({ children, payload }: BookingAppointmentProviderProps) {
   const [open, setOpen] = useState(false);
+  const [isBookingNoteOpen, setIsBookingNoteOpen] = useState(false);
+  const bookingNotePanelId = useId();
+  const bookingNoteTriggerId = useId();
+
+  const handleDialogOpenChange = useCallback((next: boolean) => {
+    setOpen(next);
+    if (!next) setIsBookingNoteOpen(false);
+  }, []);
+
   const openModal = useCallback(() => setOpen(true), []);
 
   const ctx = useMemo(
@@ -160,10 +234,12 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
     Boolean(payload.channels.instagram) ||
     Boolean(payload.channels.whatsapp);
 
+  const noteBodyContent = bookingNoteBodySegments(payload.copy.noteBody);
+
   return (
     <BookingAppointmentContext.Provider value={ctx}>
       {children}
-      <Dialog open={open} onOpenChange={setOpen}>
+      <Dialog open={open} onOpenChange={handleDialogOpenChange} modal="trap-focus">
         <DialogContent
           showCloseButton
           mobileBottomSheet
@@ -174,10 +250,10 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
           )}
         >
           <DialogHeader className="items-center gap-3 px-0 text-center sm:gap-4 sm:px-2 md:px-4">
-            <DialogTitle className="font-heading text-3xl font-bold uppercase leading-[0.95] tracking-tight text-foreground sm:text-4xl md:text-5xl md:leading-[0.92]">
+            <DialogTitle className="font-heading text-3xl font-bold uppercase leading-[0.95] tracking-tight text-foreground/90 sm:text-4xl md:text-5xl md:leading-[0.92]">
               {payload.copy.title}
             </DialogTitle>
-            <DialogDescription className="mx-auto max-w-3xl font-sans text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed">
+            <DialogDescription className="mx-auto max-w-3xl font-sans text-base leading-relaxed text-muted-foreground/90 md:text-lg md:leading-relaxed">
               {payload.copy.body}
             </DialogDescription>
           </DialogHeader>
@@ -195,7 +271,12 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
                 <ChannelPackage channel={payload.channels.facebook} channelVariant="facebook" />
               </div>
               <div role="listitem" className="min-w-0">
-                <ChannelPackage channel={payload.channels.whatsapp} channelVariant="whatsapp" />
+                <ChannelPackage
+                  channel={payload.channels.whatsapp}
+                  channelVariant="whatsapp"
+                  channelBadge={payload.copy.whatsappChannelBadge}
+                  channelBadgeDesktop={payload.copy.whatsappChannelBadgeDesktop}
+                />
               </div>
             </div>
           ) : (
@@ -204,13 +285,37 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
             </p>
           )}
 
-          <div className="mt-8 border-t border-border pt-7 text-center">
-            <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
-              {payload.copy.noteLabel}
-            </p>
-            <p className="mx-auto mt-3 max-w-3xl font-sans text-sm leading-relaxed text-muted-foreground md:text-base">
-              {payload.copy.noteBody}
-            </p>
+          <div className="mt-8 border-t border-border pt-7 text-center max-sm:pt-0">
+            <div className="max-sm:flex max-sm:justify-end sm:hidden">
+              <button
+                type="button"
+                id={bookingNoteTriggerId}
+                aria-label={isBookingNoteOpen ? "Hide booking note" : "Show booking note"}
+                className="inline-flex rounded-xs p-0 text-foreground/80 outline-none transition-colors motion-fast hover:text-foreground/90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated motion-reduce:transition-none"
+                aria-expanded={isBookingNoteOpen}
+                aria-controls={bookingNotePanelId}
+                onClick={() => setIsBookingNoteOpen((v) => !v)}
+              >
+                <ChevronDown
+                  className={cn(
+                    "size-5 shrink-0 motion-fast motion-reduce:transition-none",
+                    isBookingNoteOpen && "rotate-180",
+                  )}
+                  aria-hidden
+                />
+              </button>
+            </div>
+            <div
+              id={bookingNotePanelId}
+              className={cn("text-center", "max-sm:mt-3", !isBookingNoteOpen && "max-sm:hidden")}
+            >
+              <p className="font-heading text-sm font-bold uppercase tracking-normal text-foreground/80 md:text-base">
+                {payload.copy.noteLabel}
+              </p>
+              <p className="mx-auto mt-3 max-w-3xl px-2 text-balance font-sans text-sm leading-snug tracking-wide max-sm:pb-3">
+                {noteBodyContent}
+              </p>
+            </div>
           </div>
         </DialogContent>
       </Dialog>

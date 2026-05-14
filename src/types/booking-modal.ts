@@ -14,6 +14,10 @@ export interface BookingModalCopy {
   body: string;
   noteLabel: string;
   noteBody: string;
+  /** WhatsApp tile: short badge on narrow viewports (inline before arrow). */
+  whatsappChannelBadge: string;
+  /** WhatsApp tile: pill on top border from `sm` up (longer copy). */
+  whatsappChannelBadgeDesktop: string;
 }
 
 export interface BookingModalPayload {

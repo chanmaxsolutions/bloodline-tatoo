@@ -169,6 +169,8 @@
 
   html {
     @apply h-full font-sans;
+    /* Reserve scrollbar width so scroll-lock unlock (dialog close) does not shift layout / “double blink”. */
+    scrollbar-gutter: stable;
   }
 
   body {
