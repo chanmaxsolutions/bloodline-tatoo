@@ -53,7 +53,6 @@ export default async function Home() {
   return (
     <div className="min-w-0 bg-background">
       <HeroSection
-        googleBusinessProfileUrl={regionConfig.googleBusinessProfileUrl}
         title={
           <>
             WORLD CLASS TATTOO ART STUDIO IN <span className="text-accent">{heroRegionWord}</span>

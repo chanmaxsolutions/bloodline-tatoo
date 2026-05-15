@@ -15,8 +15,6 @@ interface HeroSectionProps {
   eyebrow?: string;
   title: ReactNode;
   description: string;
-  /** Regional Google Maps / Business listing URL for the Google trust chip. */
-  googleBusinessProfileUrl: string;
   media: {
     src?: string;
     videoSrc?: string;
@@ -39,18 +37,12 @@ function HeroSection({
   eyebrow,
   title,
   description,
-  googleBusinessProfileUrl,
   media,
   primaryCta,
   secondaryCta,
   ctaUrgencyNote,
 }: HeroSectionProps) {
-  const trustChips = buildGlobalHeroTrustProofChips(googleBusinessProfileUrl);
-
-  const trustLinkClassName = cn(
-    "inline-flex max-w-none rounded-md outline-offset-4 transition-opacity duration-300 ease-out",
-    "hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface-strong",
-  );
+  const trustChips = buildGlobalHeroTrustProofChips();
 
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden bg-surface-strong supports-[height:100dvh]:min-h-[100dvh]">
@@ -111,13 +103,18 @@ function HeroSection({
             >
               {trustChips.map((chip) => {
                 const metrics = (
-                  <span className="whitespace-nowrap font-sans text-sm leading-snug text-foreground sm:text-[0.9375rem] md:text-base md:leading-snug">
+                  <span className="whitespace-nowrap font-sans text-base leading-snug text-foreground md:leading-snug">
                     <span className="inline-flex items-center gap-1">
                       <span className="font-heading font-semibold text-foreground">
                         {chip.accent}
                       </span>
                       {chip.rest ? (
-                        <span className="font-heading font-semibold text-foreground">
+                        <span
+                          className={cn(
+                            "font-heading font-semibold",
+                            chip.rest === "★" ? "text-amber-400" : "text-foreground",
+                          )}
+                        >
                           {chip.rest}
                         </span>
                       ) : null}
@@ -143,19 +140,7 @@ function HeroSection({
                       chip.id === "google" ? "flex" : "hidden md:flex",
                     )}
                   >
-                    {chip.href && chip.linkAriaLabel ? (
-                      <Link
-                        href={chip.href}
-                        aria-label={chip.linkAriaLabel}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        className={trustLinkClassName}
-                      >
-                        {cluster}
-                      </Link>
-                    ) : (
-                      cluster
-                    )}
+                    {cluster}
                   </li>
                 );
               })}

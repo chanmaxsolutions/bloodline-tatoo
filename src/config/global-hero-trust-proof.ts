@@ -1,20 +1,10 @@
 import type { GlobalHeroTrustProofChip } from "@/types/global-hero-trust-proof";
 
-function isNavigableExternalHref(href: string): boolean {
-  return href.startsWith("https://") || href.startsWith("http://");
-}
-
 /**
  * House-level proof shown in the hero on every regional domain.
  * Update counts here when marketing refreshes verified figures.
  */
-function buildGlobalHeroTrustProofChips(
-  googleBusinessProfileUrl: string,
-): GlobalHeroTrustProofChip[] {
-  const googleHref = isNavigableExternalHref(googleBusinessProfileUrl)
-    ? googleBusinessProfileUrl
-    : undefined;
-
+function buildGlobalHeroTrustProofChips(): GlobalHeroTrustProofChip[] {
   return [
     {
       id: "google",
@@ -22,8 +12,6 @@ function buildGlobalHeroTrustProofChips(
       accent: "4.9",
       rest: "★",
       suffix: " · 2,500+ on Google",
-      href: googleHref,
-      linkAriaLabel: "View Bloodline on Google Maps",
     },
     {
       id: "social-combined",
@@ -35,7 +23,7 @@ function buildGlobalHeroTrustProofChips(
     {
       id: "youtube",
       brand: "youtube",
-      accent: "41K",
+      accent: "41K+",
       rest: "",
       suffix: " on YouTube",
     },

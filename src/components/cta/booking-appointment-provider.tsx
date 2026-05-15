@@ -10,7 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import Link from "next/link";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -84,11 +84,11 @@ function ChannelPackage({
 }) {
   const icon =
     channelVariant === "facebook" ? (
-      <FacebookGlyph className="size-8 sm:size-10 md:size-11" />
+      <FacebookGlyph className="size-6 min-[375px]:size-8 sm:size-10 md:size-11" />
     ) : channelVariant === "instagram" ? (
-      <InstagramGlyph className="size-8 sm:size-10 md:size-11" />
+      <InstagramGlyph className="size-6 min-[375px]:size-8 sm:size-10 md:size-11" />
     ) : (
-      <WhatsAppGlyph className="size-8 sm:size-10 md:size-11" />
+      <WhatsAppGlyph className="size-6 min-[375px]:size-8 sm:size-10 md:size-11" />
     );
 
   if (!channel) {
@@ -138,7 +138,7 @@ function ChannelPackage({
       >
         <span
           className={cn(
-            "wrap-break-word text-left font-heading max-sm:text-2xl sm:text-xl md:text-2xl font-bold uppercase leading-snug tracking-tight text-foreground/88 sm:text-center",
+            "wrap-break-word text-left font-heading text-lg font-bold uppercase leading-snug tracking-tight text-foreground/88 max-[374px]:leading-tight min-[375px]:text-2xl sm:text-center sm:text-xl md:text-2xl",
             "min-w-0 sm:flex-none",
             showMobileBadge ? "min-w-0 shrink sm:shrink-0" : "min-w-0 max-sm:flex-1",
           )}
@@ -211,14 +211,6 @@ interface BookingAppointmentProviderProps {
 
 function BookingAppointmentProvider({ children, payload }: BookingAppointmentProviderProps) {
   const [open, setOpen] = useState(false);
-  const [isBookingNoteOpen, setIsBookingNoteOpen] = useState(false);
-  const bookingNotePanelId = useId();
-  const bookingNoteTriggerId = useId();
-
-  const handleDialogOpenChange = useCallback((next: boolean) => {
-    setOpen(next);
-    if (!next) setIsBookingNoteOpen(false);
-  }, []);
 
   const openModal = useCallback(() => setOpen(true), []);
 
@@ -239,7 +231,7 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
   return (
     <BookingAppointmentContext.Provider value={ctx}>
       {children}
-      <Dialog open={open} onOpenChange={handleDialogOpenChange} modal="trap-focus">
+      <Dialog open={open} onOpenChange={setOpen} modal="trap-focus">
         <DialogContent
           showCloseButton
           mobileBottomSheet
@@ -285,37 +277,13 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
             </p>
           )}
 
-          <div className="mt-8 border-t border-border pt-7 text-center max-sm:pt-0">
-            <div className="max-sm:flex max-sm:justify-end sm:hidden">
-              <button
-                type="button"
-                id={bookingNoteTriggerId}
-                aria-label={isBookingNoteOpen ? "Hide booking note" : "Show booking note"}
-                className="inline-flex rounded-xs p-0 text-foreground/80 outline-none transition-colors motion-fast hover:text-foreground/90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated motion-reduce:transition-none"
-                aria-expanded={isBookingNoteOpen}
-                aria-controls={bookingNotePanelId}
-                onClick={() => setIsBookingNoteOpen((v) => !v)}
-              >
-                <ChevronDown
-                  className={cn(
-                    "size-5 shrink-0 motion-fast motion-reduce:transition-none",
-                    isBookingNoteOpen && "rotate-180",
-                  )}
-                  aria-hidden
-                />
-              </button>
-            </div>
-            <div
-              id={bookingNotePanelId}
-              className={cn("text-center", "max-sm:mt-3", !isBookingNoteOpen && "max-sm:hidden")}
-            >
-              <p className="font-heading text-sm font-bold uppercase tracking-normal text-foreground/80 md:text-base">
-                {payload.copy.noteLabel}
-              </p>
-              <p className="mx-auto mt-3 max-w-3xl px-2 text-balance font-sans text-sm leading-snug tracking-wide max-sm:pb-3">
-                {noteBodyContent}
-              </p>
-            </div>
+          <div className="mt-8 border-t border-border pt-7 text-center">
+            <p className="font-heading text-sm font-bold uppercase tracking-normal text-foreground/80 md:text-base">
+              {payload.copy.noteLabel}
+            </p>
+            <p className="mx-auto mt-3 max-w-3xl px-2 text-balance font-sans text-sm leading-snug tracking-wide max-sm:pb-3">
+              {noteBodyContent}
+            </p>
           </div>
         </DialogContent>
       </Dialog>

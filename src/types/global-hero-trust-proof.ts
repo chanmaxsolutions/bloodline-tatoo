@@ -9,8 +9,4 @@ export interface GlobalHeroTrustProofChip {
   rest: string;
   /** Muted suffix (include leading space or “ · ” as needed). */
   suffix: string;
-  /** When set and navigable, the cluster is wrapped in a link. */
-  href?: string;
-  /** Short label for assistive tech when `href` is used. */
-  linkAriaLabel?: string;
 }
