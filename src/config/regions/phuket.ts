@@ -26,9 +26,10 @@ export const phuketRegionConfig: RegionConfig = {
   },
   heroCtaUrgencyNote: defaultHeroCtaUrgencyNote,
   contact: {
-    whatsappNumber: "",
-    instagramUrl: "",
-    messengerUrl: "",
+    whatsappNumber: "+66954289430",
+    instagramUrl: "https://www.instagram.com/bloodlinetattoophuket/",
+    facebookBookUrl: "https://www.facebook.com/bloodlinetattoophuket/",
+    messengerUrl: "https://www.facebook.com/bloodlinetattoophuket/",
   },
   seo: {
     siteName: "Bloodline Tattoo Phuket",

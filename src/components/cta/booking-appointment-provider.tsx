@@ -10,7 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -19,7 +19,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import type { BookingModalChannelLink, BookingModalPayload } from "@/types/booking-modal";
+import type {
+  BookingModalChannelLink,
+  BookingModalPayload,
+  BookingModalStudioLink,
+} from "@/types/booking-modal";
 
 function bookingNoteBodySegments(text: string): ReactNode {
   return text.split(/(WhatsApp)/i).map((segment, index) => {
@@ -156,6 +160,30 @@ function ChannelPackage({
   );
 }
 
+function StudioRegionPackage({ studio }: { studio: BookingModalStudioLink }) {
+  return (
+    <Link href={studio.href} target="_blank" rel="noopener noreferrer" className={packageBase}>
+      <span className="flex shrink-0 items-center justify-center text-accent">
+        <MapPin className="size-6 min-[375px]:size-8 sm:size-10 md:size-11" aria-hidden />
+      </span>
+      <div className="flex min-w-0 flex-1 flex-row items-center gap-2 sm:flex-col sm:flex-none sm:items-center sm:justify-center sm:gap-2">
+        <span
+          className={cn(
+            "wrap-break-word text-left font-heading text-lg font-bold uppercase leading-snug tracking-tight text-foreground/88 max-[374px]:leading-tight min-[375px]:text-2xl sm:text-center sm:text-xl md:text-2xl",
+            "min-w-0 max-sm:flex-1 sm:flex-none",
+          )}
+        >
+          {studio.label}
+        </span>
+      </div>
+      <ArrowUpRight
+        className="size-5 shrink-0 text-muted-foreground motion-fast group-hover:text-foreground sm:hidden"
+        aria-hidden
+      />
+    </Link>
+  );
+}
+
 /** Meta / Facebook brand blue */
 function FacebookGlyph({ className }: { className?: string }) {
   return (
@@ -221,10 +249,13 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
     [openModal],
   );
 
-  const hasAnyChannel =
+  const isStudioLayout = payload.layout === "studio-regions";
+  const hasSocialChannels =
     Boolean(payload.channels.facebook) ||
     Boolean(payload.channels.instagram) ||
     Boolean(payload.channels.whatsapp);
+  const hasStudioRegions = payload.studioRegions.length > 0;
+  const hasBookingOptions = isStudioLayout ? hasStudioRegions : hasSocialChannels;
 
   const noteBodyContent = bookingNoteBodySegments(payload.copy.noteBody);
 
@@ -250,26 +281,39 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
             </DialogDescription>
           </DialogHeader>
 
-          {hasAnyChannel ? (
+          {hasBookingOptions ? (
             <div
               className="mt-7 grid grid-cols-1 gap-3 sm:mt-9 sm:grid-cols-3 sm:gap-4 md:gap-6"
               role="list"
-              aria-label="Booking channels"
+              aria-label={isStudioLayout ? "Bloodline studios" : "Booking channels"}
             >
-              <div role="listitem" className="min-w-0">
-                <ChannelPackage channel={payload.channels.instagram} channelVariant="instagram" />
-              </div>
-              <div role="listitem" className="min-w-0">
-                <ChannelPackage channel={payload.channels.facebook} channelVariant="facebook" />
-              </div>
-              <div role="listitem" className="min-w-0">
-                <ChannelPackage
-                  channel={payload.channels.whatsapp}
-                  channelVariant="whatsapp"
-                  channelBadge={payload.copy.whatsappChannelBadge}
-                  channelBadgeDesktop={payload.copy.whatsappChannelBadgeDesktop}
-                />
-              </div>
+              {isStudioLayout ? (
+                payload.studioRegions.map((studio) => (
+                  <div key={studio.id} role="listitem" className="min-w-0">
+                    <StudioRegionPackage studio={studio} />
+                  </div>
+                ))
+              ) : (
+                <>
+                  <div role="listitem" className="min-w-0">
+                    <ChannelPackage
+                      channel={payload.channels.instagram}
+                      channelVariant="instagram"
+                    />
+                  </div>
+                  <div role="listitem" className="min-w-0">
+                    <ChannelPackage channel={payload.channels.facebook} channelVariant="facebook" />
+                  </div>
+                  <div role="listitem" className="min-w-0">
+                    <ChannelPackage
+                      channel={payload.channels.whatsapp}
+                      channelVariant="whatsapp"
+                      channelBadge={payload.copy.whatsappChannelBadge}
+                      channelBadgeDesktop={payload.copy.whatsappChannelBadgeDesktop}
+                    />
+                  </div>
+                </>
+              )}
             </div>
           ) : (
             <p className="mt-9 rounded-xl border border-dashed border-border bg-surface-strong/80 px-4 py-8 text-center font-sans text-sm leading-relaxed text-muted-foreground">

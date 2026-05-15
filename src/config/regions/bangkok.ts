@@ -25,14 +25,11 @@ export const bangkokRegionConfig: RegionConfig = {
     href: "#",
   },
   heroCtaUrgencyNote: defaultHeroCtaUrgencyNote,
-  /**
-   * Dummy booking channels for Bangkok UI testing only.
-   * Replace with real studio WhatsApp / IG / Messenger before production.
-   */
   contact: {
-    whatsappNumber: "+66 99 000 0000",
+    whatsappNumber: "+66820450006",
     instagramUrl: "https://www.instagram.com/bloodlinetattoobangkok/",
-    messengerUrl: "https://m.me/bloodlinetattoobangkok",
+    facebookBookUrl: "https://www.facebook.com/bloodlinetattoobangkok",
+    messengerUrl: "https://www.facebook.com/bloodlinetattoobangkok",
   },
   seo: {
     siteName: "Bloodline Tattoo Bangkok",

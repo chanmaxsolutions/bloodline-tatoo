@@ -1,6 +1,13 @@
-import { defaultBookingModalCopy } from "@/config/booking-modal";
-import type { BookingModalChannelLink, BookingModalPayload } from "@/types/booking-modal";
-import type { RegionConfig } from "@/types/region";
+import { globalBookingModalCopy, regionalBookingModalCopy } from "@/config/booking-modal";
+import { regionsBySlug } from "@/config/regions";
+import type {
+  BookingModalChannelLink,
+  BookingModalPayload,
+  BookingModalStudioLink,
+} from "@/types/booking-modal";
+import type { RegionConfig, RegionSlug } from "@/types/region";
+
+const studioRegionOrder: RegionSlug[] = ["bangkok", "phuket", "bali"];
 
 function isUsableHttpUrl(value: string): boolean {
   const t = value.trim();
@@ -18,7 +25,7 @@ function channelOrNull(href: string | null, label: string): BookingModalChannelL
   return { href: href.trim(), label };
 }
 
-export function buildBookingModalPayload(regionConfig: RegionConfig): BookingModalPayload {
+function buildSocialChannelsPayload(regionConfig: RegionConfig): BookingModalPayload {
   const { contact } = regionConfig;
 
   const ig = contact.instagramUrl.trim();
@@ -33,11 +40,43 @@ export function buildBookingModalPayload(regionConfig: RegionConfig): BookingMod
   const whatsappHref = normalizeWhatsAppHref(contact.whatsappNumber);
 
   return {
-    copy: defaultBookingModalCopy,
+    layout: "social-channels",
+    copy: regionalBookingModalCopy,
+    studioRegions: [],
     channels: {
       facebook: channelOrNull(facebookHref, "BOOK ON FACEBOOK"),
       instagram: channelOrNull(ig && isUsableHttpUrl(ig) ? ig : null, "BOOK ON INSTAGRAM"),
       whatsapp: channelOrNull(whatsappHref, "BOOK ON WHATSAPP"),
     },
   };
+}
+
+function buildGlobalStudioRegionsPayload(): BookingModalPayload {
+  const studioRegions: BookingModalStudioLink[] = studioRegionOrder.map((slug) => {
+    const config = regionsBySlug[slug];
+    return {
+      id: slug,
+      href: `https://${config.domain}`,
+      label: `BOOK ON ${config.regionName.toUpperCase()}`,
+    };
+  });
+
+  return {
+    layout: "studio-regions",
+    copy: globalBookingModalCopy,
+    studioRegions,
+    channels: {
+      facebook: null,
+      instagram: null,
+      whatsapp: null,
+    },
+  };
+}
+
+export function buildBookingModalPayload(regionConfig: RegionConfig): BookingModalPayload {
+  if (regionConfig.slug === "global") {
+    return buildGlobalStudioRegionsPayload();
+  }
+
+  return buildSocialChannelsPayload(regionConfig);
 }

@@ -26,9 +26,10 @@ export const baliRegionConfig: RegionConfig = {
   },
   heroCtaUrgencyNote: defaultHeroCtaUrgencyNote,
   contact: {
-    whatsappNumber: "",
-    instagramUrl: "",
-    messengerUrl: "",
+    whatsappNumber: "+6281138801222",
+    instagramUrl: "https://www.instagram.com/bloodlinetattoobali/",
+    facebookBookUrl: "https://www.facebook.com/Bloodlinetattoobali/",
+    messengerUrl: "https://www.facebook.com/Bloodlinetattoobali/",
   },
   seo: {
     siteName: "Bloodline Tattoo Bali",

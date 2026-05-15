@@ -9,6 +9,14 @@ export interface BookingModalChannels {
   whatsapp: BookingModalChannelLink | null;
 }
 
+export interface BookingModalStudioLink {
+  id: string;
+  href: string;
+  label: string;
+}
+
+export type BookingModalLayout = "social-channels" | "studio-regions";
+
 export interface BookingModalCopy {
   title: string;
   body: string;
@@ -21,6 +29,8 @@ export interface BookingModalCopy {
 }
 
 export interface BookingModalPayload {
+  layout: BookingModalLayout;
   channels: BookingModalChannels;
+  studioRegions: BookingModalStudioLink[];
   copy: BookingModalCopy;
 }
