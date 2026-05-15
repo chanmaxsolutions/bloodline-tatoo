@@ -56,7 +56,7 @@ function buildGlobalStudioRegionsPayload(): BookingModalPayload {
     const config = regionsBySlug[slug];
     return {
       id: slug,
-      href: `https://${config.domain}`,
+      href: `https://${config.studioBookingHost ?? config.domain}`,
       label: `BOOK ON ${config.regionName.toUpperCase()}`,
     };
   });

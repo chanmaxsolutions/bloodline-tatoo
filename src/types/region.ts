@@ -33,6 +33,11 @@ export interface RegionHeaderCtaConfig {
 export interface RegionConfig {
   slug: RegionSlug;
   domain: string;
+  /**
+   * Host used by the global-site booking modal studio tiles (e.g. staging subdomain).
+   * Falls back to `domain` when omitted.
+   */
+  studioBookingHost?: string;
   regionName: string;
   heroHeading: string;
   /** Public Google Maps / Business listing for this studio (homepage review “View more”). */

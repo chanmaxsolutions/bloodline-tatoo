@@ -10,6 +10,7 @@ import type { RegionConfig } from "@/types";
 export const baliRegionConfig: RegionConfig = {
   slug: "bali",
   domain: "bloodlinetattoobali.com",
+  studioBookingHost: "bali.prashanchandrapalan.com",
   regionName: "Bali",
   heroHeading: "PREMIUM TATTOO STUDIO IN BALI",
   googleBusinessProfileUrl:
