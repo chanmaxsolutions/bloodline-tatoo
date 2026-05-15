@@ -13,6 +13,8 @@ export const phuketRegionConfig: RegionConfig = {
   studioBookingHost: "phuket.prashanchandrapalan.com",
   regionName: "Phuket",
   heroHeading: "PREMIUM TATTOO STUDIO IN PHUKET",
+  heroDescription:
+    "Refined artistry and high-trust studio standards for clients seeking premium tattoo experiences in Phuket.",
   googleBusinessProfileUrl:
     "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Phuket",
   branding: {

@@ -40,6 +40,8 @@ export interface RegionConfig {
   studioBookingHost?: string;
   regionName: string;
   heroHeading: string;
+  /** Homepage hero subcopy below the main title. */
+  heroDescription: string;
   /** Public Google Maps / Business listing for this studio (homepage review “View more”). */
   googleBusinessProfileUrl: string;
   branding: RegionBrandingConfig;

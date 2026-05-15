@@ -13,6 +13,8 @@ export const baliRegionConfig: RegionConfig = {
   studioBookingHost: "bali.prashanchandrapalan.com",
   regionName: "Bali",
   heroHeading: "PREMIUM TATTOO STUDIO IN BALI",
+  heroDescription:
+    "Creative artistry and elevated studio standards for clients seeking premium tattoo experiences throughout Bali.",
   googleBusinessProfileUrl:
     "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bali",
   branding: {

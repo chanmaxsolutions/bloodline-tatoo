@@ -12,6 +12,8 @@ export const globalRegionConfig: RegionConfig = {
   domain: "bloodlinetattoo.com",
   regionName: "Global",
   heroHeading: "BLOODLINE TATTOO",
+  heroDescription:
+    "Precision artistry and elevated studio standards for clients seeking premium tattoo experiences across modern Asia.",
   googleBusinessProfileUrl:
     "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bangkok",
   branding: {

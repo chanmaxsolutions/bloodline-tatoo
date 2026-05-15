@@ -13,6 +13,8 @@ export const bangkokRegionConfig: RegionConfig = {
   studioBookingHost: "bangkok.prashanchandrapalan.com",
   regionName: "Bangkok",
   heroHeading: "PREMIUM TATTOO STUDIO IN BANGKOK",
+  heroDescription:
+    "Disciplined artistry and elevated studio standards for clients seeking premium tattoo work in Bangkok.",
   googleBusinessProfileUrl:
     "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bangkok",
   branding: {

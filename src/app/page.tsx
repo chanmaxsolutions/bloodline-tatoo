@@ -36,11 +36,6 @@ export default async function Home() {
   );
   const homepageTestimonials = getHomepageTestimonials(region);
 
-  const heroDescription =
-    region === "global"
-      ? "Controlled atmosphere, disciplined artistry, and tactical consultation systems designed for premium tattoo journeys."
-      : `Disciplined artistry and high-trust studio standards for clients seeking premium tattoo work in ${regionConfig.regionName}.`;
-
   const heroRegionWord = region === "global" ? "ASIA" : regionConfig.regionName.toUpperCase();
 
   const heroVideoByRegion: Record<typeof region, string> = {
@@ -58,7 +53,7 @@ export default async function Home() {
             WORLD CLASS TATTOO ART STUDIO IN <span className="text-accent">{heroRegionWord}</span>
           </>
         }
-        description={heroDescription}
+        description={regionConfig.heroDescription}
         media={{
           src: "/hero-poster.jpg",
           videoSrc: heroVideoByRegion[region],
