@@ -19,8 +19,10 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import { bookingModalPayloadForOpen } from "@/lib/booking-modal";
 import type {
   BookingModalChannelLink,
+  BookingModalOpenOptions,
   BookingModalPayload,
   BookingModalStudioLink,
 } from "@/types/booking-modal";
@@ -43,7 +45,7 @@ function bookingNoteBodySegments(text: string): ReactNode {
 }
 
 interface BookingAppointmentContextValue {
-  open: () => void;
+  open: (options?: BookingModalOpenOptions) => void;
 }
 
 const BookingAppointmentContext = createContext<BookingAppointmentContextValue | null>(null);
@@ -160,26 +162,103 @@ function ChannelPackage({
   );
 }
 
-function StudioRegionPackage({ studio }: { studio: BookingModalStudioLink }) {
+function StudioRegionTileContent({
+  studio,
+  isAvailable,
+}: {
+  studio: BookingModalStudioLink;
+  isAvailable: boolean;
+}) {
   return (
-    <Link href={studio.href} target="_blank" rel="noopener noreferrer" className={packageBase}>
-      <span className="flex shrink-0 items-center justify-center text-accent">
+    <>
+      <span
+        className={cn(
+          "flex shrink-0 items-center justify-center",
+          isAvailable ? "text-accent" : "text-muted-foreground/50",
+        )}
+      >
         <MapPin className="size-6 min-[375px]:size-8 sm:size-10 md:size-11" aria-hidden />
       </span>
       <div className="flex min-w-0 flex-1 flex-row items-center gap-2 sm:flex-col sm:flex-none sm:items-center sm:justify-center sm:gap-2">
         <span
           className={cn(
-            "wrap-break-word text-left font-heading text-lg font-bold uppercase leading-snug tracking-tight text-foreground/88 max-[374px]:leading-tight min-[375px]:text-2xl sm:text-center sm:text-xl md:text-2xl",
+            "wrap-break-word text-left font-heading text-lg font-bold uppercase leading-snug tracking-tight max-[374px]:leading-tight min-[375px]:text-2xl sm:text-center sm:text-xl md:text-2xl",
             "min-w-0 max-sm:flex-1 sm:flex-none",
+            isAvailable ? "text-foreground/88" : "text-muted-foreground",
           )}
         >
           {studio.label}
         </span>
       </div>
-      <ArrowUpRight
-        className="size-5 shrink-0 text-muted-foreground motion-fast group-hover:text-foreground sm:hidden"
-        aria-hidden
-      />
+      {isAvailable ? (
+        <ArrowUpRight
+          className="size-5 shrink-0 text-muted-foreground motion-fast group-hover:text-foreground sm:hidden"
+          aria-hidden
+        />
+      ) : null}
+    </>
+  );
+}
+
+function DisabledStudioRegionPackage({
+  studio,
+  unavailableReason,
+}: {
+  studio: BookingModalStudioLink;
+  unavailableReason: string;
+}) {
+  const tooltipId = useId();
+  const captionId = useId();
+
+  return (
+    <div className="flex min-w-0 flex-col gap-2">
+      <div className="group relative min-w-0">
+        <div
+          className={cn(
+            packageBase,
+            "cursor-not-allowed border-dashed border-border/70 bg-surface-strong/45 outline-none",
+            "hover:border-border/70 hover:bg-surface-strong/45",
+            "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated",
+          )}
+          tabIndex={0}
+          aria-disabled="true"
+          aria-describedby={captionId}
+        >
+          <StudioRegionTileContent studio={studio} isAvailable={false} />
+        </div>
+        <div
+          id={tooltipId}
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute left-1/2 top-3 z-10 w-max max-w-[min(100%,14rem)] -translate-x-1/2 rounded-md border border-border/80 bg-surface-elevated px-2.5 py-1.5 text-center font-sans text-xs leading-snug text-muted-foreground shadow-sm",
+            "invisible opacity-0 transition-[opacity,visibility] motion-fast group-hover:visible group-hover:opacity-100",
+            "motion-reduce:transition-none",
+          )}
+        >
+          {unavailableReason}
+        </div>
+      </div>
+      <p
+        id={captionId}
+        className="text-center font-sans text-xs leading-snug text-muted-foreground/50 md:text-sm"
+      >
+        {unavailableReason}
+      </p>
+    </div>
+  );
+}
+
+function StudioRegionPackage({ studio }: { studio: BookingModalStudioLink }) {
+  const isAvailable = studio.isAvailable !== false;
+  const unavailableReason = studio.unavailableReason?.trim();
+
+  if (!isAvailable && unavailableReason) {
+    return <DisabledStudioRegionPackage studio={studio} unavailableReason={unavailableReason} />;
+  }
+
+  return (
+    <Link href={studio.href} target="_blank" rel="noopener noreferrer" className={packageBase}>
+      <StudioRegionTileContent studio={studio} isAvailable />
     </Link>
   );
 }
@@ -239,8 +318,19 @@ interface BookingAppointmentProviderProps {
 
 function BookingAppointmentProvider({ children, payload }: BookingAppointmentProviderProps) {
   const [open, setOpen] = useState(false);
+  const [openOptions, setOpenOptions] = useState<BookingModalOpenOptions | undefined>();
 
-  const openModal = useCallback(() => setOpen(true), []);
+  const openModal = useCallback((options?: BookingModalOpenOptions) => {
+    setOpenOptions(options);
+    setOpen(true);
+  }, []);
+
+  const handleOpenChange = useCallback((next: boolean) => {
+    setOpen(next);
+    if (!next) {
+      setOpenOptions(undefined);
+    }
+  }, []);
 
   const ctx = useMemo(
     () => ({
@@ -249,20 +339,25 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
     [openModal],
   );
 
-  const isStudioLayout = payload.layout === "studio-regions";
+  const activePayload = useMemo(
+    () => bookingModalPayloadForOpen(payload, openOptions?.tattooStyleSlug),
+    [payload, openOptions?.tattooStyleSlug],
+  );
+
+  const isStudioLayout = activePayload.layout === "studio-regions";
   const hasSocialChannels =
-    Boolean(payload.channels.facebook) ||
-    Boolean(payload.channels.instagram) ||
-    Boolean(payload.channels.whatsapp);
-  const hasStudioRegions = payload.studioRegions.length > 0;
+    Boolean(activePayload.channels.facebook) ||
+    Boolean(activePayload.channels.instagram) ||
+    Boolean(activePayload.channels.whatsapp);
+  const hasStudioRegions = activePayload.studioRegions.length > 0;
   const hasBookingOptions = isStudioLayout ? hasStudioRegions : hasSocialChannels;
 
-  const noteBodyContent = bookingNoteBodySegments(payload.copy.noteBody);
+  const noteBodyContent = bookingNoteBodySegments(activePayload.copy.noteBody);
 
   return (
     <BookingAppointmentContext.Provider value={ctx}>
       {children}
-      <Dialog open={open} onOpenChange={setOpen} modal="trap-focus">
+      <Dialog open={open} onOpenChange={handleOpenChange} modal="trap-focus">
         <DialogContent
           showCloseButton
           mobileBottomSheet
@@ -274,10 +369,10 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
         >
           <DialogHeader className="items-center gap-3 px-0 text-center sm:gap-4 sm:px-2 md:px-4">
             <DialogTitle className="font-heading text-3xl font-bold uppercase leading-[0.95] tracking-tight text-foreground/90 sm:text-4xl md:text-5xl md:leading-[0.92]">
-              {payload.copy.title}
+              {activePayload.copy.title}
             </DialogTitle>
             <DialogDescription className="mx-auto max-w-3xl font-sans text-base leading-relaxed text-muted-foreground/90 md:text-lg md:leading-relaxed">
-              {payload.copy.body}
+              {activePayload.copy.body}
             </DialogDescription>
           </DialogHeader>
 
@@ -288,7 +383,7 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
               aria-label={isStudioLayout ? "Bloodline studios" : "Booking channels"}
             >
               {isStudioLayout ? (
-                payload.studioRegions.map((studio) => (
+                activePayload.studioRegions.map((studio) => (
                   <div key={studio.id} role="listitem" className="min-w-0">
                     <StudioRegionPackage studio={studio} />
                   </div>
@@ -297,19 +392,22 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
                 <>
                   <div role="listitem" className="min-w-0">
                     <ChannelPackage
-                      channel={payload.channels.instagram}
+                      channel={activePayload.channels.instagram}
                       channelVariant="instagram"
                     />
                   </div>
                   <div role="listitem" className="min-w-0">
-                    <ChannelPackage channel={payload.channels.facebook} channelVariant="facebook" />
+                    <ChannelPackage
+                      channel={activePayload.channels.facebook}
+                      channelVariant="facebook"
+                    />
                   </div>
                   <div role="listitem" className="min-w-0">
                     <ChannelPackage
-                      channel={payload.channels.whatsapp}
+                      channel={activePayload.channels.whatsapp}
                       channelVariant="whatsapp"
-                      channelBadge={payload.copy.whatsappChannelBadge}
-                      channelBadgeDesktop={payload.copy.whatsappChannelBadgeDesktop}
+                      channelBadge={activePayload.copy.whatsappChannelBadge}
+                      channelBadgeDesktop={activePayload.copy.whatsappChannelBadgeDesktop}
                     />
                   </div>
                 </>
@@ -323,7 +421,7 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
 
           <div className="mt-8 border-t border-border pt-7 text-center">
             <p className="font-heading text-sm font-bold uppercase tracking-normal text-foreground/80 md:text-base">
-              {payload.copy.noteLabel}
+              {activePayload.copy.noteLabel}
             </p>
             <p className="mx-auto mt-3 max-w-3xl px-2 text-balance font-sans text-sm leading-snug tracking-wide max-sm:pb-3">
               {noteBodyContent}

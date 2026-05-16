@@ -39,8 +39,8 @@ export const baliRegionConfig: RegionConfig = {
     defaultTitle: "Premium Tattoo Studio in Bali | Bloodline Tattoo",
     defaultDescription: "Regional Bloodline Tattoo foundation configuration for Bali.",
   },
-  homepageAuthority: homepageAuthorityForRegion("bali", "Bali"),
-  homepageTattooStyles: homepageTattooStylesForRegion("bali", "Bali"),
+  homepageAuthority: homepageAuthorityForRegion("bali"),
+  homepageTattooStyles: homepageTattooStylesForRegion("bali"),
   homepageStandardsSplit: homepageStandardsSplitForRegion("bali", "Bali"),
   homepageSessionPathSplit: homepageSessionPathSplitForRegion("bali", "Bali"),
 };

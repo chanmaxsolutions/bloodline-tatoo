@@ -1,4 +1,12 @@
-export type TattooStyleSlug = "japanese" | "realism" | "fine-line" | "blackwork";
+export type TattooStyleSlug =
+  | "realism"
+  | "portrait"
+  | "japanese"
+  | "colour"
+  | "mandala"
+  | "chicano"
+  | "bamboo"
+  | "healed";
 
 export interface TattooStyleCatalogEntry {
   slug: TattooStyleSlug;
@@ -28,7 +36,9 @@ export interface RegionHomepageTattooStylesIntro {
 
 export interface RegionHomepageTattooStylesConfig {
   intro: RegionHomepageTattooStylesIntro;
-  /** Ordered list; each slug must exist in the global catalog. */
+  /**
+   * Homepage teaser grid (max 4). Subset of regional availability; full list on `/tattoo-styles`.
+   */
   featuredSlugs: readonly TattooStyleSlug[];
   /** Under-grid link to the full styles index (SEO + discovery). */
   catalogCta: {

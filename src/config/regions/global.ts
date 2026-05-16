@@ -10,6 +10,7 @@ import type { RegionConfig } from "@/types";
 export const globalRegionConfig: RegionConfig = {
   slug: "global",
   domain: "bloodlinetattoo.com",
+  studioBookingHost: "prashanchandrapalan.com",
   regionName: "Global",
   heroHeading: "BLOODLINE TATTOO",
   heroDescription:
@@ -37,8 +38,8 @@ export const globalRegionConfig: RegionConfig = {
     defaultTitle: "Bloodline Tattoo",
     defaultDescription: "Global brand hub for Bloodline Tattoo.",
   },
-  homepageAuthority: homepageAuthorityForRegion("global", "Global"),
-  homepageTattooStyles: homepageTattooStylesForRegion("global", "Global"),
+  homepageAuthority: homepageAuthorityForRegion("global"),
+  homepageTattooStyles: homepageTattooStylesForRegion("global"),
   homepageStandardsSplit: homepageStandardsSplitForRegion("global", "Global"),
   homepageSessionPathSplit: homepageSessionPathSplitForRegion("global", "Global"),
 };

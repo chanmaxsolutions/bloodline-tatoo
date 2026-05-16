@@ -39,8 +39,8 @@ export const bangkokRegionConfig: RegionConfig = {
     defaultTitle: "Premium Tattoo Studio in Bangkok | Bloodline Tattoo",
     defaultDescription: "Regional Bloodline Tattoo foundation configuration for Bangkok.",
   },
-  homepageAuthority: homepageAuthorityForRegion("bangkok", "Bangkok"),
-  homepageTattooStyles: homepageTattooStylesForRegion("bangkok", "Bangkok"),
+  homepageAuthority: homepageAuthorityForRegion("bangkok"),
+  homepageTattooStyles: homepageTattooStylesForRegion("bangkok"),
   homepageStandardsSplit: homepageStandardsSplitForRegion("bangkok", "Bangkok"),
   homepageSessionPathSplit: homepageSessionPathSplitForRegion("bangkok", "Bangkok"),
 };

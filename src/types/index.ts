@@ -5,5 +5,6 @@ export * from "@/types/homepage-standards-split";
 export * from "@/types/homepage-testimonial";
 export * from "@/types/region";
 export * from "@/types/tattoo-style";
+export * from "@/types/tattoo-style-detail";
 export * from "@/types/review";
 export * from "@/types/seo";

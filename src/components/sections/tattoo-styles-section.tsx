@@ -2,7 +2,8 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { SectionShell } from "@/components/sections/section-shell";
 import { TattooStyleTile } from "@/components/sections/tattoo-style-tile";
-import { buttonVariants } from "@/components/ui/button";
+import { homepageGhostCtaClassName } from "@/lib/homepage-ghost-cta";
+import { homepageTattooStylesGridClassName } from "@/lib/homepage-tattoo-styles-grid";
 import { cn } from "@/lib/utils";
 import type {
   RegionHomepageTattooStylesConfig,
@@ -21,7 +22,7 @@ const tattooStylesEyebrowClassName =
 const tattooStylesTitleClassName = "text-heading-authority-display";
 
 const tattooStylesDescriptionClassName =
-  "font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug text-pretty";
+  "mx-auto max-w-xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug";
 
 function TattooStylesSection({ config, tiles }: TattooStylesSectionProps) {
   return (
@@ -57,7 +58,7 @@ function TattooStylesSection({ config, tiles }: TattooStylesSectionProps) {
         <div className="hero-reveal-motion hero-reveal-motion-delay-lg flex flex-col gap-8 md:gap-10">
           <ul
             aria-label="Featured tattoo styles"
-            className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6"
+            className={cn(homepageTattooStylesGridClassName(tiles.length), "lg:gap-6")}
           >
             {tiles.map((tile) => (
               <li key={tile.slug} className="min-w-0">
@@ -66,13 +67,7 @@ function TattooStylesSection({ config, tiles }: TattooStylesSectionProps) {
             ))}
           </ul>
           <div className="flex justify-center">
-            <Link
-              href={config.catalogCta.href}
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "w-full border-border-strong bg-transparent sm:w-auto",
-              )}
-            >
+            <Link href={config.catalogCta.href} className={homepageGhostCtaClassName()}>
               {config.catalogCta.label}
             </Link>
           </div>

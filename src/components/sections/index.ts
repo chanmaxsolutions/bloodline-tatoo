@@ -6,5 +6,6 @@ export { SectionShell } from "@/components/sections/section-shell";
 export type { SectionSpacingTier, SectionSurface } from "@/components/sections/section-shell";
 export { TattooStyleTile } from "@/components/sections/tattoo-style-tile";
 export { TattooStylesSection } from "@/components/sections/tattoo-styles-section";
+export { TattooStyleDetailPage } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-page";
 export { TrustProofBarSection } from "@/components/sections/trust-proof-bar-section";
 export type { TrustProofItem } from "@/components/sections/trust-proof-bar-section";

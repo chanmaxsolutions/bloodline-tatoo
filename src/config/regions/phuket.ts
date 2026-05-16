@@ -39,8 +39,8 @@ export const phuketRegionConfig: RegionConfig = {
     defaultTitle: "Premium Tattoo Studio in Phuket | Bloodline Tattoo",
     defaultDescription: "Regional Bloodline Tattoo foundation configuration for Phuket.",
   },
-  homepageAuthority: homepageAuthorityForRegion("phuket", "Phuket"),
-  homepageTattooStyles: homepageTattooStylesForRegion("phuket", "Phuket"),
+  homepageAuthority: homepageAuthorityForRegion("phuket"),
+  homepageTattooStyles: homepageTattooStylesForRegion("phuket"),
   homepageStandardsSplit: homepageStandardsSplitForRegion("phuket", "Phuket"),
   homepageSessionPathSplit: homepageSessionPathSplitForRegion("phuket", "Phuket"),
 };

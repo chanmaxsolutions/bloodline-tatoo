@@ -5,6 +5,8 @@ import type {
   BookingModalPayload,
   BookingModalStudioLink,
 } from "@/types/booking-modal";
+import { isTattooStyleAvailableInRegion } from "@/config/region-tattoo-style-availability";
+import type { TattooStyleSlug } from "@/types/tattoo-style";
 import type { RegionConfig, RegionSlug } from "@/types/region";
 
 const studioRegionOrder: RegionSlug[] = ["bangkok", "phuket", "bali"];
@@ -80,3 +82,46 @@ export function buildBookingModalPayload(regionConfig: RegionConfig): BookingMod
 
   return buildSocialChannelsPayload(regionConfig);
 }
+
+function studioUnavailableReason(regionSlug: RegionSlug): string {
+  return `Not offered at ${regionsBySlug[regionSlug].regionName}`;
+}
+
+function applyStudioAvailabilityForTattooStyle(
+  studioRegions: BookingModalStudioLink[],
+  tattooStyleSlug: TattooStyleSlug,
+): BookingModalStudioLink[] {
+  return studioRegions.map((studio) => {
+    const regionSlug = studio.id as RegionSlug;
+    const isAvailable = isTattooStyleAvailableInRegion(tattooStyleSlug, regionSlug);
+
+    return {
+      ...studio,
+      isAvailable,
+      unavailableReason: isAvailable ? undefined : studioUnavailableReason(regionSlug),
+    };
+  });
+}
+
+function bookingModalPayloadForOpen(
+  basePayload: BookingModalPayload,
+  tattooStyleSlug?: TattooStyleSlug,
+): BookingModalPayload {
+  if (!tattooStyleSlug || basePayload.layout !== "studio-regions") {
+    return basePayload;
+  }
+
+  return {
+    ...basePayload,
+    studioRegions: applyStudioAvailabilityForTattooStyle(
+      basePayload.studioRegions,
+      tattooStyleSlug,
+    ),
+  };
+}
+
+export {
+  bookingModalPayloadForOpen,
+  applyStudioAvailabilityForTattooStyle,
+  studioUnavailableReason,
+};

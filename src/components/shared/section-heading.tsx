@@ -16,6 +16,13 @@ const sectionHeadingVariants = cva("", {
   },
 });
 
+function splitSectionDescription(description: string): string[] {
+  return description
+    .split(/\n\n+/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+}
+
 interface SectionHeadingProps
   extends React.ComponentProps<"header">, VariantProps<typeof sectionHeadingVariants> {
   eyebrow?: string;
@@ -66,16 +73,29 @@ function SectionHeading({
       >
         {heading}
       </h2>
-      {description ? (
-        <p
-          className={cn(
-            "font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug",
-            descriptionClassName,
-          )}
-        >
-          {description}
-        </p>
-      ) : null}
+      {description
+        ? (() => {
+            const paragraphs = splitSectionDescription(description);
+            const paragraphClassName = cn(
+              "font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug text-pretty",
+              descriptionClassName,
+            );
+
+            if (paragraphs.length <= 1) {
+              return <p className={paragraphClassName}>{paragraphs[0] ?? description}</p>;
+            }
+
+            return (
+              <div className="flex w-full flex-col gap-4 md:gap-5">
+                {paragraphs.map((paragraph, index) => (
+                  <p key={index} className={paragraphClassName}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            );
+          })()
+        : null}
     </header>
   );
 }

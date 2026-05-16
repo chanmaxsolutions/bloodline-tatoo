@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
-import { buttonVariants } from "@/components/ui/button";
+import { homepageGhostCtaClassName } from "@/lib/homepage-ghost-cta";
 import { splitDescriptionEmphasis } from "@/lib/split-description-emphasis";
 import { cn } from "@/lib/utils";
 import type { RegionHomepageAuthorityConfig } from "@/types/homepage-authority";
@@ -38,15 +38,15 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
       )}
     >
       <Container size="wide" className="relative z-10">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center md:gap-5">
+        <div className="mx-auto flex w-full flex-col items-center gap-4 text-center md:gap-5">
           <p className={cn(authorityEyebrowClassName, "hero-reveal-motion")}>{content.eyebrow}</p>
           <h2
             id="homepage-authority-heading"
-            className="text-heading-authority-display hero-reveal-motion hero-reveal-motion-delay-sm"
+            className="text-heading-authority-display hero-reveal-motion hero-reveal-motion-delay-sm w-full max-w-4xl lg:max-w-5xl"
           >
             {content.heading}
           </h2>
-          <div className="hero-reveal-motion hero-reveal-motion-delay-md flex w-full flex-col gap-4 md:gap-5">
+          <div className="hero-reveal-motion hero-reveal-motion-delay-md flex w-full max-w-3xl flex-col gap-4 md:gap-5">
             {descriptionParagraphs.map((paragraph, index) => (
               <p key={index} className={descriptionClassName}>
                 {splitDescriptionEmphasis(paragraph).map((segment, segIndex) =>
@@ -64,9 +64,8 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
           <div className="flex justify-center">
             <Link
               href={content.ctaHref}
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "hero-reveal-motion hero-reveal-motion-delay-lg w-full border-border-strong bg-transparent sm:w-auto",
+              className={homepageGhostCtaClassName(
+                "hero-reveal-motion hero-reveal-motion-delay-lg",
               )}
             >
               {content.ctaLabel}

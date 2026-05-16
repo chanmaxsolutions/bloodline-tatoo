@@ -1,35 +1,61 @@
-import type { RegionHomepageTattooStylesConfig, TattooStyleSlug } from "@/types/tattoo-style";
+import { homepageFeaturedTattooStyleSlugsForRegion } from "@/config/region-tattoo-style-availability";
+import type { RegionHomepageTattooStylesConfig } from "@/types/tattoo-style";
 import type { RegionSlug } from "@/types/region";
 
-const defaultFeaturedSlugs: readonly TattooStyleSlug[] = [
-  "japanese",
-  "realism",
-  "fine-line",
-  "blackwork",
-];
+const catalogCta = {
+  label: "View all tattoo styles",
+  href: "/tattoo-styles",
+} as const;
 
 /**
- * Homepage tattoo-style band: intro copy + which catalog slugs to surface.
- * Regions can diverge later (reorder, omit, or swap slugs) without touching tile UI.
+ * Per-region homepage tattoo-style band.
+ * Homepage grid uses `homepageFeaturedTattooStyleSlugsForRegion` (4 max); full menu on `/tattoo-styles`.
  */
-function homepageTattooStylesForRegion(
-  slug: RegionSlug,
-  regionName: string,
-): RegionHomepageTattooStylesConfig {
-  const place = slug === "global" ? "Bloodline" : `Bloodline ${regionName}`;
-
-  return {
+const tattooStylesBySlug: Record<RegionSlug, RegionHomepageTattooStylesConfig> = {
+  global: {
     intro: {
-      eyebrow: "Tattoo styles",
-      heading: "CHOOSE THE LANGUAGE OF THE WORK.",
-      description: `${place} treats style as craft identity—not a menu label. Each direction below opens a dedicated lane: how we think, how we stage the body, and what disciplined execution looks like in that language.`,
+      eyebrow: "TATTOO STYLES",
+      heading: "STYLE AS CRAFT",
+      description:
+        "Style is craft, not a menu. Studios share a core set; some lanes are location-specific. Open any direction below.",
     },
-    featuredSlugs: defaultFeaturedSlugs,
-    catalogCta: {
-      label: "View all tattoo styles",
-      href: "/tattoo-styles",
+    featuredSlugs: homepageFeaturedTattooStyleSlugsForRegion("global"),
+    catalogCta,
+  },
+  bangkok: {
+    intro: {
+      eyebrow: "TATTOO STYLES",
+      heading: "STYLE AS CRAFT",
+      description:
+        "Style is craft, not a menu. Open any direction below for process, placement, and work to our Bangkok standard.",
     },
-  };
+    featuredSlugs: homepageFeaturedTattooStyleSlugsForRegion("bangkok"),
+    catalogCta,
+  },
+  bali: {
+    intro: {
+      eyebrow: "TATTOO STYLES",
+      heading: "STYLE AS CRAFT",
+      description:
+        "Style is craft, not a menu. Open any direction below for process, placement, and execution at our Bali studio.",
+    },
+    featuredSlugs: homepageFeaturedTattooStyleSlugsForRegion("bali"),
+    catalogCta,
+  },
+  phuket: {
+    intro: {
+      eyebrow: "TATTOO STYLES",
+      heading: "STYLE AS CRAFT",
+      description:
+        "Style is craft, not a menu. Open any direction below for process, placement, and work held to Phuket standard.",
+    },
+    featuredSlugs: homepageFeaturedTattooStyleSlugsForRegion("phuket"),
+    catalogCta,
+  },
+};
+
+function homepageTattooStylesForRegion(slug: RegionSlug): RegionHomepageTattooStylesConfig {
+  return tattooStylesBySlug[slug];
 }
 
-export { defaultFeaturedSlugs, homepageTattooStylesForRegion };
+export { homepageTattooStylesForRegion };

@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Container } from "@/components/layout/container";
-import {
-  getTattooStyleBySlug,
-  isTattooStyleSlug,
-  TATTOO_STYLE_SLUGS,
-} from "@/config/tattoo-style-catalog";
+import { TattooStyleDetailPage } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-page";
+import { isTattooStyleSlug, TATTOO_STYLE_SLUGS } from "@/config/tattoo-style-catalog";
+import { resolveTattooStyleDetailPage } from "@/lib/resolve-tattoo-style-detail";
+import { getRequestRegionContext } from "@/lib/request-region";
 
 interface TattooStylePageProps {
   params: Promise<{ slug: string }>;
@@ -20,37 +18,42 @@ export async function generateMetadata({ params }: TattooStylePageProps): Promis
   if (!isTattooStyleSlug(slug)) {
     return { title: "Tattoo style | Bloodline Tattoo" };
   }
-  const style = getTattooStyleBySlug(slug);
+
+  const { region, regionConfig } = await getRequestRegionContext();
+  const content = resolveTattooStyleDetailPage(slug, region);
+
+  if (!content) {
+    return { title: `Tattoo style | ${regionConfig.seo.siteName}` };
+  }
+
+  const title =
+    region === "global"
+      ? `${content.title} | ${regionConfig.seo.siteName}`
+      : `${content.title} in ${regionConfig.regionName} | ${regionConfig.seo.siteName}`;
+
   return {
-    title: `${style.title} tattoos | Bloodline Tattoo`,
-    description: style.shortDescription,
+    title,
+    description: content.metaDescription,
   };
 }
 
-export default async function TattooStylePage({ params }: TattooStylePageProps) {
+export default async function TattooStyleRoutePage({ params }: TattooStylePageProps) {
   const { slug } = await params;
+  const { region, regionConfig } = await getRequestRegionContext();
+
   if (!isTattooStyleSlug(slug)) {
     notFound();
   }
 
-  const style = getTattooStyleBySlug(slug);
+  const content = resolveTattooStyleDetailPage(slug, region);
+
+  if (!content) {
+    notFound();
+  }
 
   return (
-    <main className="bg-background section-space">
-      <Container size="narrow" className="flex flex-col gap-6">
-        <p className="font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg">
-          Tattoo style
-        </p>
-        <h1 className="text-heading-display text-4xl text-foreground md:text-5xl">{style.title}</h1>
-        <p className="font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug">
-          {style.shortDescription}
-        </p>
-        <p className="font-sans text-base leading-relaxed text-muted-foreground">
-          Dedicated editorial for{" "}
-          <span className="font-semibold text-foreground">{style.title}</span> is in progress—this
-          route is wired for SEO and internal linking from the homepage style gateway.
-        </p>
-      </Container>
+    <main className="min-w-0">
+      <TattooStyleDetailPage content={content} ctaUrgencyNote={regionConfig.heroCtaUrgencyNote} />
     </main>
   );
 }

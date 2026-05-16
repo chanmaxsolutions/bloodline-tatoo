@@ -44,6 +44,7 @@
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
   --color-surface-strong: var(--surface-strong);
+  --color-footer-legal: var(--footer-legal);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
@@ -97,6 +98,8 @@
   --foreground: #f4f4f5;
   --accent: #c6ff3b;
   --accent-foreground: #0b0b0d;
+  /** Deepest footer legal strip — darker than `--background`. */
+  --footer-legal: #040405;
   --surface: #0f0f12;
   --surface-elevated: #151518;
   --surface-strong: #1b1b20;
@@ -148,6 +151,8 @@
   --foreground: #f4f4f5;
   --accent: #c6ff3b;
   --accent-foreground: #0b0b0d;
+  /** Deepest footer legal strip — darker than `--background`. */
+  --footer-legal: #040405;
   --surface: #0f0f12;
   --surface-elevated: #151518;
   --surface-strong: #1b1b20;

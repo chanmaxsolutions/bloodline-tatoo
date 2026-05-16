@@ -1,3 +1,5 @@
+import type { TattooStyleSlug } from "@/types/tattoo-style";
+
 export interface BookingModalChannelLink {
   href: string;
   label: string;
@@ -13,6 +15,10 @@ export interface BookingModalStudioLink {
   id: string;
   href: string;
   label: string;
+  /** When false, tile is shown but not clickable (global site + style filter). */
+  isAvailable?: boolean;
+  /** Shown below the tile and in a hover tooltip when unavailable. */
+  unavailableReason?: string;
 }
 
 export type BookingModalLayout = "social-channels" | "studio-regions";
@@ -33,4 +39,9 @@ export interface BookingModalPayload {
   channels: BookingModalChannels;
   studioRegions: BookingModalStudioLink[];
   copy: BookingModalCopy;
+}
+
+export interface BookingModalOpenOptions {
+  /** On the global site, limits studio tiles to regions that offer this style. */
+  tattooStyleSlug?: TattooStyleSlug;
 }

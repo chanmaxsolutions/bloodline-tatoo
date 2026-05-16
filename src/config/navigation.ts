@@ -10,12 +10,8 @@ export const desktopNavigationItems: HeaderNavItem[] = [
     label: "Tattoo Styles",
     href: "/tattoo-styles",
     hasFutureDropdown: true,
-    children: [
-      { label: "Japanese", href: "/tattoo-styles/japanese" },
-      { label: "Realism", href: "/tattoo-styles/realism" },
-      { label: "Fine Line", href: "/tattoo-styles/fine-line" },
-      { label: "Blackwork", href: "/tattoo-styles/blackwork" },
-    ],
+    /** Populated per region in `navigationItemsForRegion`. */
+    children: [],
   },
   { label: "Portfolio", href: "/gallery" },
   { label: "Reviews", href: "/reviews" },

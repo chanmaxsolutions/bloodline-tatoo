@@ -1,5 +1,5 @@
 import { getRegionConfig } from "@/lib/region";
-import { desktopNavigationItems, mobileNavigationItems } from "@/config/navigation";
+import { navigationItemsForRegion } from "@/lib/tattoo-style-navigation";
 import type { RegionSlug } from "@/types";
 import { HeaderClient } from "@/components/layout/header-client";
 
@@ -9,14 +9,15 @@ interface SiteHeaderProps {
 
 function SiteHeader({ region = "global" }: SiteHeaderProps) {
   const regionConfig = getRegionConfig(region);
+  const navigationItems = navigationItemsForRegion(region);
 
   return (
     <HeaderClient
       logoWordmark={regionConfig.branding.logoWordmark}
       logoMonogram={regionConfig.branding.logoMonogram}
       logoPath={regionConfig.branding.logoPath}
-      desktopNavigationItems={desktopNavigationItems}
-      mobileNavigationItems={mobileNavigationItems}
+      desktopNavigationItems={navigationItems}
+      mobileNavigationItems={navigationItems}
       cta={regionConfig.headerCta}
     />
   );

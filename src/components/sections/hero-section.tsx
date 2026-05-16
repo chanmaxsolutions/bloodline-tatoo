@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { buildGlobalHeroTrustProofChips } from "@/config/global-hero-trust-proof";
 import { Container } from "@/components/layout/container";
 import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
+import { HeroTrustProofStrip } from "@/components/shared/hero-trust-proof-strip";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { HeroTrustBrandMark } from "@/components/shared/hero-trust-brand-mark";
 import { BookAppointmentTrigger } from "@/components/cta";
 import { buttonVariants } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -42,8 +41,6 @@ function HeroSection({
   secondaryCta,
   ctaUrgencyNote,
 }: HeroSectionProps) {
-  const trustChips = buildGlobalHeroTrustProofChips();
-
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden bg-surface-strong supports-[height:100dvh]:min-h-[100dvh]">
       <div className="pointer-events-none absolute inset-0 z-0 min-h-[100svh] w-full overflow-hidden supports-[height:100dvh]:min-h-[100dvh]">
@@ -93,58 +90,7 @@ function HeroSection({
       >
         <div className="grid w-full min-w-0 max-w-5xl justify-items-center gap-7 text-center md:gap-8">
           <div className="mx-auto flex w-full min-w-0 max-w-2xl flex-col items-center gap-3 text-center md:max-w-4xl md:gap-4">
-            <ul
-              aria-label="Trust and audience proof"
-              className={cn(
-                "hero-reveal-motion list-none",
-                "flex w-full max-w-full flex-nowrap items-center justify-center gap-4 overflow-x-auto py-0.5 sm:gap-6 md:gap-8",
-                "[scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
-              )}
-            >
-              {trustChips.map((chip) => {
-                const metrics = (
-                  <span className="whitespace-nowrap font-sans text-base leading-snug text-foreground md:leading-snug">
-                    <span className="inline-flex items-center gap-1">
-                      <span className="font-heading font-semibold text-foreground">
-                        {chip.accent}
-                      </span>
-                      {chip.rest ? (
-                        <span
-                          className={cn(
-                            "font-heading font-semibold",
-                            chip.rest === "★" ? "text-amber-400" : "text-foreground",
-                          )}
-                        >
-                          {chip.rest}
-                        </span>
-                      ) : null}
-                    </span>
-                    {chip.suffix ? (
-                      <span className="text-muted-foreground">{chip.suffix}</span>
-                    ) : null}
-                  </span>
-                );
-
-                const cluster = (
-                  <span className="flex items-center gap-2.5 sm:gap-3">
-                    <HeroTrustBrandMark brand={chip.brand} className="size-6 sm:size-7" />
-                    {metrics}
-                  </span>
-                );
-
-                return (
-                  <li
-                    key={chip.id}
-                    className={cn(
-                      "shrink-0 items-center",
-                      chip.id === "google" ? "flex" : "hidden md:flex",
-                    )}
-                  >
-                    {cluster}
-                  </li>
-                );
-              })}
-            </ul>
+            <HeroTrustProofStrip className="hero-reveal-motion" />
 
             <div className="hero-reveal-motion hero-reveal-motion-delay-sm w-full max-w-full">
               <SectionHeading

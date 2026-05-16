@@ -45,7 +45,7 @@ export default async function RootLayout({
         <BookingAppointmentProvider payload={bookingModalPayload}>
           <SiteHeader region={region} />
           <main className="min-w-0 flex-1">{children}</main>
-          <SiteFooter />
+          <SiteFooter region={region} />
         </BookingAppointmentProvider>
       </body>
     </html>
