@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { homepageGhostCtaClassName } from "@/lib/homepage-ghost-cta";
+import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { splitDescriptionEmphasis } from "@/lib/split-description-emphasis";
 import { cn } from "@/lib/utils";
 import type { RegionHomepageAuthorityConfig } from "@/types/homepage-authority";
@@ -38,15 +40,25 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
       )}
     >
       <Container size="wide" className="relative z-10">
-        <div className="mx-auto flex w-full flex-col items-center gap-4 text-center md:gap-5">
-          <p className={cn(authorityEyebrowClassName, "hero-reveal-motion")}>{content.eyebrow}</p>
+        <SectionReveal className="mx-auto flex w-full flex-col items-center gap-4 text-center md:gap-5">
+          <p className={sectionRevealItemClass("none", authorityEyebrowClassName)}>
+            {content.eyebrow}
+          </p>
           <h2
             id="homepage-authority-heading"
-            className="text-heading-authority-display hero-reveal-motion hero-reveal-motion-delay-sm w-full max-w-4xl lg:max-w-5xl"
+            className={sectionRevealItemClass(
+              "sm",
+              "text-heading-authority-display w-full max-w-4xl lg:max-w-5xl",
+            )}
           >
             {content.heading}
           </h2>
-          <div className="hero-reveal-motion hero-reveal-motion-delay-md flex w-full max-w-3xl flex-col gap-4 md:gap-5">
+          <div
+            className={sectionRevealItemClass(
+              "md",
+              "flex w-full max-w-3xl flex-col gap-4 md:gap-5",
+            )}
+          >
             {descriptionParagraphs.map((paragraph, index) => (
               <p key={index} className={descriptionClassName}>
                 {splitDescriptionEmphasis(paragraph).map((segment, segIndex) =>
@@ -61,17 +73,12 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
               </p>
             ))}
           </div>
-          <div className="flex justify-center">
-            <Link
-              href={content.ctaHref}
-              className={homepageGhostCtaClassName(
-                "hero-reveal-motion hero-reveal-motion-delay-lg",
-              )}
-            >
+          <div className={sectionRevealItemClass("lg", "flex justify-center")}>
+            <Link href={content.ctaHref} className={homepageGhostCtaClassName()}>
               {content.ctaLabel}
             </Link>
           </div>
-        </div>
+        </SectionReveal>
       </Container>
     </section>
   );

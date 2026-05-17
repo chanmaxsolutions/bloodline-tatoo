@@ -15,6 +15,19 @@
   }
 }
 
+/** Section scroll reveal — faster, tighter travel than hero */
+@keyframes section-reveal-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 /** Primary UI buttons: single left-to-right shine on hover (no loop). */
 @keyframes button-shine-sweep {
   0% {
@@ -120,6 +133,8 @@
   --motion-fast: 0.2s;
   --motion-base: 0.3s;
   --motion-reveal: 0.55s;
+  /** Faster band reveals on scroll (below-fold sections) */
+  --motion-section-reveal: 0.4s;
   --motion-slow: 0.7s;
   --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -280,6 +295,54 @@
     animation-delay: 0.38s;
   }
 
+  .section-reveal-item {
+    opacity: 0;
+  }
+
+  .section-reveal--visible .section-reveal-item {
+    animation: section-reveal-fade-up var(--motion-section-reveal) var(--motion-ease) forwards;
+  }
+
+  .section-reveal-delay-sm {
+    animation-delay: 0.05s;
+  }
+
+  .section-reveal-delay-md {
+    animation-delay: 0.1s;
+  }
+
+  .section-reveal-delay-lg {
+    animation-delay: 0.16s;
+  }
+
+  .section-reveal-delay-xl {
+    animation-delay: 0.22s;
+  }
+
+  .section-reveal-stagger-1 {
+    animation-delay: 0.03s;
+  }
+
+  .section-reveal-stagger-2 {
+    animation-delay: 0.07s;
+  }
+
+  .section-reveal-stagger-3 {
+    animation-delay: 0.11s;
+  }
+
+  .section-reveal-stagger-4 {
+    animation-delay: 0.15s;
+  }
+
+  .section-reveal-stagger-5 {
+    animation-delay: 0.19s;
+  }
+
+  .section-reveal-stagger-6 {
+    animation-delay: 0.23s;
+  }
+
   /**
    * Applied via `buttonVariants` base so `<Button>` and `<Link className={buttonVariants()}>`
    * share the same hover shine. Pseudo sits under in-flow label/icons.
@@ -342,6 +405,12 @@
   .hero-reveal-motion {
     animation: none;
     opacity: 1;
+    transform: none;
+  }
+
+  .section-reveal-item {
+    opacity: 1;
+    animation: none;
     transform: none;
   }
 

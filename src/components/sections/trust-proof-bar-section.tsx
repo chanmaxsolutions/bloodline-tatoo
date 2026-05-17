@@ -1,4 +1,6 @@
+import { SectionReveal } from "@/components/motion";
 import { SectionShell } from "@/components/sections/section-shell";
+import { sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
 
 interface TrustProofItem {
@@ -18,16 +20,19 @@ function TrustProofBarSection({ items }: TrustProofBarSectionProps) {
       className="border-t border-border/50 bg-surface-strong py-3 md:py-5"
       aria-label="Studio trust metrics"
     >
-      <ul
+      <SectionReveal
         className={cn(
           "mx-auto grid max-w-5xl divide-y divide-border/45 sm:grid-cols-3 sm:divide-x sm:divide-y-0",
           "gap-0",
         )}
       >
-        {items.map((item) => (
+        {items.map((item, index) => (
           <li
             key={item.label}
-            className="flex flex-col items-center justify-center gap-1 px-4 py-3.5 text-center sm:py-5 md:py-6"
+            className={sectionRevealStaggerClass(
+              index,
+              "flex flex-col items-center justify-center gap-1 px-4 py-3.5 text-center sm:py-5 md:py-6",
+            )}
             aria-label={`${item.label}: ${item.value}`}
           >
             <p
@@ -44,7 +49,7 @@ function TrustProofBarSection({ items }: TrustProofBarSectionProps) {
             </p>
           </li>
         ))}
-      </ul>
+      </SectionReveal>
     </SectionShell>
   );
 }

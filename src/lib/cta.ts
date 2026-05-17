@@ -3,8 +3,14 @@ interface BuildWhatsAppUrlInput {
   text?: string;
 }
 
+function normalizeWhatsAppPhoneDigits(raw: string): string | null {
+  const digits = raw.replace(/\D/g, "");
+  return digits.length > 0 ? digits : null;
+}
+
 export function buildWhatsAppUrl(input: BuildWhatsAppUrlInput): string {
-  const base = `https://wa.me/${input.phoneNumber}`;
+  const digits = normalizeWhatsAppPhoneDigits(input.phoneNumber) ?? input.phoneNumber;
+  const base = `https://wa.me/${digits}`;
   if (!input.text) return base;
 
   const encodedText = encodeURIComponent(input.text);

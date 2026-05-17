@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { buttonVariants } from "@/components/ui/button";
+import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
 import type { RegionHomepageStandardsSplitConfig } from "@/types/homepage-standards-split";
 
@@ -31,11 +33,14 @@ function HomepageStandardsSplitSection({
       )}
     >
       <Container size="wide">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+        <SectionReveal className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
           <div
-            className={cn(
-              "relative aspect-4/5 min-h-[min(52vh,420px)] w-full overflow-hidden rounded-xl border border-white/5 lg:min-h-[min(64vh,520px)]",
-              isMediaEnd ? "order-2" : "order-1",
+            className={sectionRevealItemClass(
+              "none",
+              cn(
+                "relative aspect-4/5 min-h-[min(52vh,420px)] w-full overflow-hidden rounded-xl border border-white/5 lg:min-h-[min(64vh,520px)]",
+                isMediaEnd ? "order-2" : "order-1",
+              ),
             )}
           >
             <Image
@@ -55,13 +60,22 @@ function HomepageStandardsSplitSection({
           >
             <h2
               id={headingId}
-              className="text-heading-display text-4xl leading-[0.95] tracking-tight text-foreground md:text-5xl md:leading-[0.93] lg:text-6xl lg:leading-[0.92]"
+              className={sectionRevealItemClass(
+                "sm",
+                "text-heading-display text-4xl leading-[0.95] tracking-tight text-foreground md:text-5xl md:leading-[0.93] lg:text-6xl lg:leading-[0.92]",
+              )}
             >
               {content.heading}
             </h2>
             <ul className="flex flex-col gap-4 md:gap-5">
               {content.bullets.map((line, index) => (
-                <li key={index} className="flex items-start gap-3 md:gap-4">
+                <li
+                  key={index}
+                  className={sectionRevealStaggerClass(
+                    index + 1,
+                    "flex items-start gap-3 md:gap-4",
+                  )}
+                >
                   <span
                     aria-hidden="true"
                     className="mt-0.5 shrink-0 font-heading text-3xl leading-none text-accent md:text-2xl"
@@ -74,7 +88,7 @@ function HomepageStandardsSplitSection({
                 </li>
               ))}
             </ul>
-            <div className="pt-1">
+            <div className={sectionRevealItemClass("lg", "pt-1")}>
               <Link
                 href={content.cta.href}
                 className={cn(
@@ -86,7 +100,7 @@ function HomepageStandardsSplitSection({
               </Link>
             </div>
           </div>
-        </div>
+        </SectionReveal>
       </Container>
     </section>
   );

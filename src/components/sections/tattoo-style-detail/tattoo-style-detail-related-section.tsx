@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
+import { SectionReveal } from "@/components/motion";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
 import { getTattooStyleBySlug } from "@/config/tattoo-style-catalog";
 import { cn } from "@/lib/utils";
 import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
@@ -40,27 +42,31 @@ function TattooStyleDetailRelatedSection({ content }: TattooStyleDetailRelatedSe
       )}
     >
       <Container size="wide" className="flex flex-col gap-8 md:gap-10">
-        <SectionHeading
-          align="center"
-          eyebrow="Related styles"
-          heading="EXPLORE OTHER LANES"
-          headingId="tattoo-style-related-heading"
-          titleClassName={relatedTitleClassName}
-          className="w-full"
-        />
-        <ul className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
-          {content.relatedSlugs.map((slug) => {
-            const style = getTattooStyleBySlug(slug);
-            return (
-              <li key={slug} className="flex min-h-0">
-                <Link href={`/tattoo-styles/${slug}`} className={relatedCardClassName}>
-                  <span className={relatedCardTitleClassName}>{style.title}</span>
-                  <span className={relatedCardDescriptionClassName}>{style.shortDescription}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <SectionReveal className="flex flex-col gap-8 md:gap-10">
+          <SectionHeading
+            align="center"
+            eyebrow="Related styles"
+            heading="EXPLORE OTHER LANES"
+            headingId="tattoo-style-related-heading"
+            titleClassName={relatedTitleClassName}
+            className={sectionRevealItemClass("none", "w-full")}
+          />
+          <ul className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+            {content.relatedSlugs.map((slug, index) => {
+              const style = getTattooStyleBySlug(slug);
+              return (
+                <li key={slug} className={sectionRevealStaggerClass(index, "flex min-h-0")}>
+                  <Link href={`/tattoo-styles/${slug}`} className={relatedCardClassName}>
+                    <span className={relatedCardTitleClassName}>{style.title}</span>
+                    <span className={relatedCardDescriptionClassName}>
+                      {style.shortDescription}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </SectionReveal>
       </Container>
     </section>
   );

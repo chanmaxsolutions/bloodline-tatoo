@@ -1,6 +1,8 @@
 import { Container } from "@/components/layout/container";
+import { SectionReveal } from "@/components/motion";
 import { TattooStyleDetailFaqAccordion } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-faq-accordion";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
 import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
 
@@ -28,17 +30,21 @@ function TattooStyleDetailFaqSection({ content }: TattooStyleDetailFaqSectionPro
       )}
     >
       <Container size="wide" className="flex flex-col gap-8 md:gap-10">
-        <SectionHeading
-          align="center"
-          eyebrow="Frequently asked questions"
-          heading="COMMON QUESTIONS"
-          description="Straight answers on planning, healing, and booking this work."
-          headingId="tattoo-style-faq-heading"
-          titleClassName={faqTitleClassName}
-          descriptionClassName={faqDescriptionClassName}
-          className="w-full"
-        />
-        <TattooStyleDetailFaqAccordion items={content.faqItems} />
+        <SectionReveal className="flex flex-col gap-8 md:gap-10">
+          <SectionHeading
+            align="center"
+            eyebrow="Guidance"
+            heading="WHAT CLIENTS USUALLY ASK"
+            description="Clear guidance on planning, healing, placement, and preparing for the work."
+            headingId="tattoo-style-faq-heading"
+            titleClassName={faqTitleClassName}
+            descriptionClassName={faqDescriptionClassName}
+            className={sectionRevealItemClass("none", "w-full")}
+          />
+          <div className={sectionRevealItemClass("sm")}>
+            <TattooStyleDetailFaqAccordion items={content.faqItems} />
+          </div>
+        </SectionReveal>
       </Container>
     </section>
   );

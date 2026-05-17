@@ -1,33 +1,39 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/layout/container";
+import { ContactPageSection } from "@/components/sections/contact-page-section";
+import { getContactPageContent } from "@/lib/contact-page";
+import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { regionConfig } = await getRequestRegionContext();
-  return {
-    title: `Contact | ${regionConfig.seo.siteName}`,
-    description: `Book and reach Bloodline in ${regionConfig.regionName}.`,
-  };
+  const { region, regionConfig } = await getRequestRegionContext();
+
+  const title =
+    region === "global"
+      ? `Contact & Book | ${regionConfig.seo.siteName}`
+      : `Contact & Book in ${regionConfig.regionName} | ${regionConfig.seo.siteName}`;
+
+  const description =
+    region === "global"
+      ? "Book Bloodline Tattoo across Bangkok, Bali, and Phuket. Message us on WhatsApp, Instagram, or Facebook—appointments confirmed in DMs only."
+      : `Book Bloodline Tattoo in ${regionConfig.regionName}. Message the studio on WhatsApp, Instagram, or Facebook to plan your session.`;
+
+  return buildMetadata(
+    {
+      title,
+      description,
+      canonicalPath: "/contact",
+    },
+    regionConfig,
+  );
 }
 
 export default async function ContactPage() {
-  const { regionConfig } = await getRequestRegionContext();
+  const { region } = await getRequestRegionContext();
+  const content = getContactPageContent(region);
 
   return (
-    <div className="bg-background section-space">
-      <Container size="narrow" className="flex flex-col gap-6">
-        <p className="font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg">
-          Contact
-        </p>
-        <h1 className="text-heading-display text-4xl text-foreground md:text-5xl">
-          Book the studio
-        </h1>
-        <p className="font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug">
-          The dedicated contact flow for {regionConfig.regionName} is being finalized. Use the
-          header WhatsApp CTA for immediate booking; this route exists so links and prefetch
-          succeed.
-        </p>
-      </Container>
+    <div className="min-w-0 bg-background">
+      <ContactPageSection content={content} />
     </div>
   );
 }

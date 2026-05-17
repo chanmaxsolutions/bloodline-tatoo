@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { BookAppointmentTrigger } from "@/components/cta";
 import { Container } from "@/components/layout/container";
+import { SectionReveal } from "@/components/motion";
 import { HeroTrustProofStrip } from "@/components/shared/hero-trust-proof-strip";
+import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { tattooStyleBookingCtaLabel } from "@/lib/tattoo-style-booking-cta";
 import { cn } from "@/lib/utils";
 import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
@@ -63,8 +65,13 @@ function TattooStyleDetailCtaSection({
       <div aria-hidden className={ctaBandAccentOverlayClassName} />
 
       <Container size="wide" className="relative z-10 flex flex-col justify-center">
-        <div className="mx-auto grid w-full min-w-0 max-w-5xl justify-items-center gap-7 text-center md:gap-8">
-          <div className="mx-auto flex w-full min-w-0 max-w-2xl flex-col items-center gap-5 text-center md:max-w-4xl md:gap-6">
+        <SectionReveal className="mx-auto grid w-full min-w-0 max-w-5xl justify-items-center gap-7 text-center md:gap-8">
+          <div
+            className={sectionRevealItemClass(
+              "none",
+              "mx-auto flex w-full min-w-0 max-w-2xl flex-col items-center gap-5 text-center md:max-w-4xl md:gap-6",
+            )}
+          >
             <HeroTrustProofStrip tone="on-accent" />
 
             <div className="flex w-full flex-col items-center gap-4 md:gap-5">
@@ -78,7 +85,12 @@ function TattooStyleDetailCtaSection({
             </div>
           </div>
 
-          <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-5">
+          <div
+            className={sectionRevealItemClass(
+              "sm",
+              "mx-auto flex w-full max-w-3xl flex-col items-center gap-5",
+            )}
+          >
             <BookAppointmentTrigger
               variant="outline"
               size="lg"
@@ -96,7 +108,7 @@ function TattooStyleDetailCtaSection({
               </p>
             ) : null}
           </div>
-        </div>
+        </SectionReveal>
       </Container>
     </section>
   );

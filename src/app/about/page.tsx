@@ -1,33 +1,46 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/layout/container";
+import { AboutPageClosingSection } from "@/components/sections/about-page-closing-section";
+import { AboutPageIntroSection } from "@/components/sections/about-page-intro-section";
+import { HomepageStandardsSplitSection } from "@/components/sections/homepage-standards-split-section";
+import { getAboutPageContent } from "@/lib/about-page";
+import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { regionConfig } = await getRequestRegionContext();
-  return {
-    title: `About | ${regionConfig.seo.siteName}`,
-    description: `Studio standards, hygiene, and craft positioning for Bloodline in ${regionConfig.regionName}.`,
-  };
+  const { region, regionConfig } = await getRequestRegionContext();
+
+  const title =
+    region === "global"
+      ? `About Bloodline Tattoo | ${regionConfig.seo.siteName}`
+      : `About Bloodline Tattoo ${regionConfig.regionName} | ${regionConfig.seo.siteName}`;
+
+  const description =
+    region === "global"
+      ? "Learn how Bloodline Tattoo operates across Bangkok, Bali, and Phuket: consultation-first process, sterile discipline, and premium custom work."
+      : `Learn how Bloodline Tattoo in ${regionConfig.regionName} runs: consultation-first process, sterile discipline, and premium custom work.`;
+
+  return buildMetadata(
+    {
+      title,
+      description,
+      canonicalPath: "/about",
+    },
+    regionConfig,
+  );
 }
 
 export default async function AboutPage() {
-  const { regionConfig } = await getRequestRegionContext();
+  const { region } = await getRequestRegionContext();
+  const content = getAboutPageContent(region);
 
   return (
-    <div className="bg-background section-space">
-      <Container size="narrow" className="flex flex-col gap-6">
-        <p className="font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg">
-          About
-        </p>
-        <h1 className="text-heading-display text-4xl text-foreground md:text-5xl">
-          Inside the studio
-        </h1>
-        <p className="font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug">
-          Long-form about content for {regionConfig.regionName} is in editorial. This placeholder
-          keeps the approved route live for navigation, SEO structure, and prefetch without 404
-          noise.
-        </p>
-      </Container>
+    <div className="min-w-0 bg-background">
+      <AboutPageIntroSection intro={content.intro} />
+      <HomepageStandardsSplitSection
+        sectionId="about-standards-split"
+        content={content.standardsSplit}
+      />
+      <AboutPageClosingSection closing={content.closing} headerCtaLabel={content.headerCtaLabel} />
     </div>
   );
 }

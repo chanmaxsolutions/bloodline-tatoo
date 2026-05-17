@@ -1,33 +1,41 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/layout/container";
+import { ReviewsGoogleCtaSection } from "@/components/sections/reviews-google-cta-section";
+import { ReviewsPageSection } from "@/components/sections/reviews-page-section";
+import { getReviewsPageContent } from "@/lib/reviews-page";
+import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { regionConfig } = await getRequestRegionContext();
-  return {
-    title: `Reviews | ${regionConfig.seo.siteName}`,
-    description: `Google reviews and client proof for Bloodline in ${regionConfig.regionName}.`,
-  };
+  const { region, regionConfig } = await getRequestRegionContext();
+
+  const title =
+    region === "global"
+      ? `Google Reviews | ${regionConfig.seo.siteName}`
+      : `Google Reviews in ${regionConfig.regionName} | ${regionConfig.seo.siteName}`;
+
+  const description =
+    region === "global"
+      ? "Read verified Google reviews from Bloodline Tattoo clients across Bangkok, Bali, and Phuket. Open each studio’s Google Business Profile for the full timeline."
+      : `Read verified Google reviews from Bloodline Tattoo clients in ${regionConfig.regionName}. Browse curated feedback and open our Google Business Profile for the complete history.`;
+
+  return buildMetadata(
+    {
+      title,
+      description,
+      canonicalPath: "/reviews",
+    },
+    regionConfig,
+  );
 }
 
 export default async function ReviewsPage() {
-  const { regionConfig } = await getRequestRegionContext();
+  const { region } = await getRequestRegionContext();
+  const content = getReviewsPageContent(region);
 
   return (
-    <div className="bg-background section-space">
-      <Container size="narrow" className="flex flex-col gap-6">
-        <p className="font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg">
-          Reviews
-        </p>
-        <h1 className="text-heading-display text-4xl text-foreground md:text-5xl">
-          Trust, verified
-        </h1>
-        <p className="font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug">
-          Regional review surfaces for {regionConfig.regionName} are being wired to the live Google
-          dataset. Use the homepage carousel for now; this page keeps routing and RSC prefetch
-          clean.
-        </p>
-      </Container>
+    <div className="min-w-0 bg-background">
+      <ReviewsPageSection content={content} region={region} />
+      <ReviewsGoogleCtaSection studioLinks={content.studioLinks} isGlobal={region === "global"} />
     </div>
   );
 }

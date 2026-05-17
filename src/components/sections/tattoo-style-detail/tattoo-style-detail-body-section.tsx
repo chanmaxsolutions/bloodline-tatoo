@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BookAppointmentTrigger } from "@/components/cta";
+import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
+import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { buttonVariants } from "@/components/ui/button";
 import { homepageGhostCtaSurfaceClassName } from "@/lib/homepage-ghost-cta";
@@ -82,8 +84,13 @@ function TattooStyleDetailBodySection({ content }: TattooStyleDetailBodySectionP
       />
 
       <Container size="wide" className="relative flex flex-col gap-12 md:gap-14 lg:gap-16">
-        <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,1.12fr)_minmax(280px,0.88fr)] lg:gap-12 xl:gap-16">
-          <div className="flex flex-col items-center gap-6 text-center lg:items-start lg:gap-8 lg:py-2 lg:pr-6 lg:text-left xl:pr-10">
+        <SectionReveal className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.12fr)_minmax(280px,0.88fr)] lg:gap-12 xl:gap-16">
+          <div
+            className={sectionRevealItemClass(
+              "none",
+              "flex flex-col items-start justify-center gap-6 self-center text-left lg:gap-8 lg:pr-6 xl:pr-10",
+            )}
+          >
             <SectionHeading
               align="left"
               eyebrow="Approach"
@@ -92,9 +99,14 @@ function TattooStyleDetailBodySection({ content }: TattooStyleDetailBodySectionP
               headingId="tattoo-style-approach-heading"
               titleClassName={approachTitleClassName}
               descriptionClassName={approachIntroClassName}
-              className="w-full gap-4 text-center justify-items-center md:gap-5 lg:justify-items-start lg:text-left"
+              className="w-full gap-4 justify-items-start text-left md:gap-5"
             />
-            <div className="flex w-full flex-wrap items-center justify-center gap-3 sm:gap-4 lg:justify-start">
+            <div
+              className={sectionRevealItemClass(
+                "md",
+                "flex w-full flex-wrap items-center justify-start gap-3 sm:gap-4",
+              )}
+            >
               <BookAppointmentTrigger
                 variant="primary"
                 size="sm"
@@ -116,7 +128,12 @@ function TattooStyleDetailBodySection({ content }: TattooStyleDetailBodySectionP
             </div>
           </div>
 
-          <div className="relative min-h-[min(52vh,400px)] w-full overflow-hidden rounded-md border border-white/5 lg:min-h-[min(60vh,520px)]">
+          <div
+            className={sectionRevealItemClass(
+              "sm",
+              "relative min-h-[min(52vh,400px)] w-full overflow-hidden rounded-md border border-white/5 lg:min-h-[min(60vh,520px)]",
+            )}
+          >
             <Image
               src={approachImage.src}
               alt={approachImage.alt}
@@ -130,15 +147,19 @@ function TattooStyleDetailBodySection({ content }: TattooStyleDetailBodySectionP
               className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/30 via-transparent to-transparent"
             />
           </div>
-        </div>
+        </SectionReveal>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
-          <ApproachPointerCard label="Philosophy" items={content.philosophyBullets} />
-          <ApproachPointerCard label="Ideal for" items={content.idealForBullets} />
-          <div className="sm:col-span-2 lg:col-span-1">
+        <SectionReveal className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+          <div className={sectionRevealStaggerClass(0)}>
+            <ApproachPointerCard label="Philosophy" items={content.philosophyBullets} />
+          </div>
+          <div className={sectionRevealStaggerClass(1)}>
+            <ApproachPointerCard label="Ideal for" items={content.idealForBullets} />
+          </div>
+          <div className={sectionRevealStaggerClass(2, "sm:col-span-2 lg:col-span-1")}>
             <ApproachPointerCard label="Session structure" items={content.sessionBullets} />
           </div>
-        </div>
+        </SectionReveal>
       </Container>
     </section>
   );
