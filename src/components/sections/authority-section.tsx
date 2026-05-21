@@ -1,31 +1,97 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { homepageGhostCtaClassName } from "@/lib/homepage-ghost-cta";
 import { sectionDisplayHeadingWithPresetClassName } from "@/lib/section-display-heading";
-import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
+import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
 import { splitDescriptionEmphasis } from "@/lib/split-description-emphasis";
 import { cn } from "@/lib/utils";
-import type { RegionHomepageAuthorityConfig } from "@/types/homepage-authority";
+import type {
+  HomepageAuthorityProofOverlay,
+  HomepageAuthorityProofPanel,
+  RegionHomepageAuthorityConfig,
+} from "@/types/homepage-authority";
 
 interface AuthoritySectionProps {
   content: RegionHomepageAuthorityConfig;
 }
 
-/** Matches `SectionHeading` eyebrow treatment */
+const authorityGridClassName =
+  "grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-[1.8fr_1.1fr_1.1fr] lg:items-stretch lg:gap-6";
+
 const authorityEyebrowClassName =
   "font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg";
 
+const authorityHeadingClassName = cn(
+  sectionDisplayHeadingWithPresetClassName,
+  "w-full max-w-none text-balance text-left",
+);
+
 const descriptionClassName =
-  "font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug";
+  "font-sans text-base leading-relaxed text-muted-foreground text-pretty md:text-lg md:leading-snug";
 
 const emphasisClassName = "font-semibold text-foreground";
+
+const authorityProofPanelClassName =
+  "relative h-full min-h-[min(58vh,420px)] w-full overflow-hidden rounded-xl sm:min-h-[340px] lg:min-h-[min(56vh,520px)]";
+
+/** Matches `TattooStyleTile` title scale. */
+const authorityProofTitleClassName =
+  "font-heading text-2xl font-bold uppercase leading-none tracking-tight md:text-3xl";
+
+/** Matches `TattooStyleTile` description scale. */
+const authorityProofLineClassName = "line-clamp-2 font-sans text-base leading-relaxed text-pretty";
+
+/** Stronger wash at top, solid at bottom for caption contrast. */
+const authorityProofOverlayClassName: Record<HomepageAuthorityProofOverlay, string> = {
+  accent:
+    "pointer-events-none absolute inset-0 bg-linear-to-b from-accent/55 via-accent/88 to-accent",
+  light: "pointer-events-none absolute inset-0 bg-linear-to-b from-white/50 via-white/92 to-white",
+};
+
+const authorityProofTitleClassNameByOverlay: Record<HomepageAuthorityProofOverlay, string> = {
+  accent: cn(authorityProofTitleClassName, "text-accent-foreground"),
+  light: cn(authorityProofTitleClassName, "text-background"),
+};
+
+const authorityProofLineClassNameByOverlay: Record<HomepageAuthorityProofOverlay, string> = {
+  accent: cn(authorityProofLineClassName, "text-accent-foreground/70"),
+  light: cn(authorityProofLineClassName, "text-background/75"),
+};
 
 function splitAuthorityDescription(description: string): string[] {
   return description
     .split(/\n\n+/)
     .map((block) => block.trim())
     .filter(Boolean);
+}
+
+interface AuthorityProofPanelProps {
+  panel: HomepageAuthorityProofPanel;
+  staggerIndex: number;
+}
+
+function AuthorityProofPanel({ panel, staggerIndex }: AuthorityProofPanelProps) {
+  return (
+    <div className={sectionRevealStaggerClass(staggerIndex, "min-w-0")}>
+      <figure className={authorityProofPanelClassName}>
+        <Image
+          src={panel.src}
+          alt={panel.alt}
+          fill
+          sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+          quality={78}
+          className="object-cover object-center"
+        />
+        <div aria-hidden className={authorityProofOverlayClassName[panel.overlay]} />
+        <figcaption className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 p-5 md:gap-2.5 md:p-6">
+          <p className={authorityProofTitleClassNameByOverlay[panel.overlay]}>{panel.tag}</p>
+          <p className={authorityProofLineClassNameByOverlay[panel.overlay]}>{panel.line}</p>
+        </figcaption>
+      </figure>
+    </div>
+  );
 }
 
 function AuthoritySection({ content }: AuthoritySectionProps) {
@@ -36,49 +102,47 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
       id="homepage-authority"
       aria-labelledby="homepage-authority-heading"
       className={cn(
-        "relative overflow-hidden bg-background text-foreground",
+        "relative overflow-hidden border-t border-border/50 bg-surface text-foreground",
         "py-(--homepage-section-band-padding-y-mobile) lg:py-(--homepage-section-band-padding-y-desktop)",
       )}
     >
       <Container size="wide" className="relative z-10">
-        <SectionReveal className="mx-auto flex w-full flex-col items-center gap-4 text-center md:gap-5">
-          <p className={sectionRevealItemClass("none", authorityEyebrowClassName)}>
-            {content.eyebrow}
-          </p>
-          <h2
-            id="homepage-authority-heading"
-            className={sectionRevealItemClass(
-              "sm",
-              `${sectionDisplayHeadingWithPresetClassName} max-w-4xl lg:max-w-5xl`,
-            )}
-          >
-            {content.heading}
-          </h2>
+        <SectionReveal className={authorityGridClassName}>
           <div
             className={sectionRevealItemClass(
-              "md",
-              "flex w-full max-w-3xl flex-col gap-4 md:gap-5",
+              "none",
+              "flex min-w-0 flex-col items-start justify-center gap-5 text-left sm:col-span-2 lg:col-span-1 lg:gap-6 lg:pr-2 xl:pr-4",
             )}
           >
-            {descriptionParagraphs.map((paragraph, index) => (
-              <p key={index} className={descriptionClassName}>
-                {splitDescriptionEmphasis(paragraph).map((segment, segIndex) =>
-                  segment.emphasis ? (
-                    <strong key={segIndex} className={emphasisClassName}>
-                      {segment.text}
-                    </strong>
-                  ) : (
-                    <span key={segIndex}>{segment.text}</span>
-                  ),
-                )}
-              </p>
-            ))}
+            <p className={authorityEyebrowClassName}>{content.eyebrow}</p>
+            <h2 id="homepage-authority-heading" className={authorityHeadingClassName}>
+              {content.heading}
+            </h2>
+            <div className="flex w-full flex-col gap-4 md:gap-5">
+              {descriptionParagraphs.map((paragraph, index) => (
+                <p key={index} className={descriptionClassName}>
+                  {splitDescriptionEmphasis(paragraph).map((segment, segIndex) =>
+                    segment.emphasis ? (
+                      <strong key={segIndex} className={emphasisClassName}>
+                        {segment.text}
+                      </strong>
+                    ) : (
+                      <span key={segIndex}>{segment.text}</span>
+                    ),
+                  )}
+                </p>
+              ))}
+            </div>
+            <div className="pt-1">
+              <Link href={content.ctaHref} className={homepageGhostCtaClassName()}>
+                {content.ctaLabel}
+              </Link>
+            </div>
           </div>
-          <div className={sectionRevealItemClass("lg", "flex justify-center")}>
-            <Link href={content.ctaHref} className={homepageGhostCtaClassName()}>
-              {content.ctaLabel}
-            </Link>
-          </div>
+
+          {content.proofPanels.map((panel, index) => (
+            <AuthorityProofPanel key={panel.src} panel={panel} staggerIndex={index + 1} />
+          ))}
         </SectionReveal>
       </Container>
     </section>

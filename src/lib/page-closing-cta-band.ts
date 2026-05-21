@@ -4,7 +4,7 @@ const pageClosingCtaBandSectionClassName =
 
 /** Sizes only — pair with `text-heading-display` via `clsx`, not `cn` (merge drops the display preset). */
 const pageClosingCtaBandTitleClassName =
-  "w-full max-w-4xl text-balance text-5xl leading-[0.95] tracking-tight text-foreground md:text-7xl md:leading-[0.9] lg:text-8xl";
+  "w-full text-balance text-5xl leading-[0.95] tracking-tight text-foreground md:text-7xl md:leading-[0.9] lg:text-8xl";
 
 const pageClosingCtaBandDescriptionClassName =
   "mx-auto max-w-2xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug";

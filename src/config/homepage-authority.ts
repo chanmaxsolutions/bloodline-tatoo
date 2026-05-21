@@ -6,37 +6,93 @@ const authorityCta = {
   ctaHref: "/about",
 } as const;
 
+const craftPanelBase = {
+  src: "/images/homepage-authority/institution-craft.jpg",
+  alt: "Close detail of tattoo work in a controlled Bloodline studio session",
+  overlay: "accent" as const,
+};
+
+const studioPanelBase = {
+  src: "/hero-poster.jpg",
+  alt: "Bloodline studio atmosphere and controlled lighting for premium tattoo sessions",
+  overlay: "light" as const,
+};
+
 const authorityBySlug: Record<RegionSlug, RegionHomepageAuthorityConfig> = {
   global: {
     eyebrow: "CRAFT DISCIPLINE",
     heading: "THE GLOBAL STUDIO STANDARD",
-    description: `Bloodline was built for clients seeking more than trend-driven tattoo culture. Every studio operates through disciplined consultation, measured execution, and standards designed to protect the integrity of the work.
-
-Across Bangkok, Bali, and Phuket, the expectation remains the same: calm rooms, precise process, sterile practice, and artistry treated with long-term seriousness. The location changes. The baseline does not.`,
+    description:
+      "Bloodline runs as a studio house—not a trend shop. **Consultation, sterile discipline, and measured execution** stay consistent across Bangkok, Bali, and Phuket.",
+    proofPanels: [
+      {
+        ...craftPanelBase,
+        tag: "Sterile field",
+        line: "Field prep and pacing held to the same baseline in every city.",
+      },
+      {
+        ...studioPanelBase,
+        tag: "House standard",
+        line: "Calm rooms built for focus—from first message to healed work.",
+      },
+    ],
     ...authorityCta,
   },
   bangkok: {
     eyebrow: "CRAFT DISCIPLINE",
     heading: "THE BANGKOK STUDIO STANDARD",
-    description: `Bloodline Bangkok operates with the same disciplined approach carried across the wider house: structured consultation, measured execution, sterile practice, and premium artistry handled with long-term precision.
-
-Clients come for the work, but return for the consistency — calm process, serious standards, and an environment designed to keep the experience focused from first consultation to final detail.`,
+    description:
+      "Bloodline Bangkok carries the wider house baseline: **structured consultation**, sterile practice, and premium work paced for permanence—not hype.",
+    proofPanels: [
+      {
+        ...craftPanelBase,
+        tag: "Sterile field",
+        line: "Gloves, prep, and session discipline kept non-negotiable in-room.",
+      },
+      {
+        ...studioPanelBase,
+        tag: "Consultation first",
+        line: "Scope, timing, and expectations locked before needles are staged.",
+      },
+    ],
     ...authorityCta,
   },
   bali: {
     eyebrow: "CRAFT DISCIPLINE",
     heading: "THE BALI STUDIO STANDARD",
-    description: `Bloodline Bali maintains the same disciplined studio foundation trusted across the wider house: structured consultation, measured execution, sterile practice, and premium artistry approached with intention.
-
-Beyond the atmosphere is a process built for clarity, consistency, and long-term quality — where every session is handled with patience, precision, and respect for permanence.`,
+    description:
+      "Bloodline Bali holds the same house process: **clear consultation**, sterile habits, and execution that respects how ink lives on skin long-term.",
+    proofPanels: [
+      {
+        ...craftPanelBase,
+        tag: "Measured execution",
+        line: "Stencil integrity and tonal control on every pass.",
+      },
+      {
+        ...studioPanelBase,
+        tag: "Calm room",
+        line: "A focused environment—no chaos, no rushed decisions.",
+      },
+    ],
     ...authorityCta,
   },
   phuket: {
     eyebrow: "CRAFT DISCIPLINE",
     heading: "THE PHUKET STUDIO STANDARD",
-    description: `Bloodline Phuket follows the same disciplined studio standards carried across the wider house: structured consultation, measured execution, sterile practice, and premium artistry treated with serious care.
-
-The experience is designed to feel calm, focused, and controlled — allowing every piece to be approached with precision, consistency, and long-term confidence.`,
+    description:
+      "Bloodline Phuket follows the house standard: **consultation-first** sessions, sterile practice, and craft handled with long-term seriousness.",
+    proofPanels: [
+      {
+        ...craftPanelBase,
+        tag: "Sterile practice",
+        line: "Controlled field habits from setup through close-out.",
+      },
+      {
+        ...studioPanelBase,
+        tag: "Focused session",
+        line: "Readable pacing so the piece stays exact under restraint.",
+      },
+    ],
     ...authorityCta,
   },
 };

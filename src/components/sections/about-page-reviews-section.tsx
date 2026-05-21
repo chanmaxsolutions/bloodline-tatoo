@@ -5,11 +5,14 @@ import { AboutPageReviewsCarousel } from "@/components/sections/about-page-revie
 import { SectionHeading } from "@/components/shared/section-heading";
 import { buttonVariants } from "@/components/ui/button";
 import { homepageGhostCtaSurfaceClassName } from "@/lib/homepage-ghost-cta";
+import { reviewsPreviewCopy } from "@/lib/reviews-preview-copy";
 import { sortReviewsByTextLengthDescending } from "@/lib/reviews-cache";
 import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
 import type { ReviewsPageTestimonial } from "@/types/reviews-page";
 import type { RegionSlug } from "@/types/region";
+
+const aboutReviewsHeadingId = "about-reviews-preview-heading";
 
 const reviewsEyebrowClassName =
   "font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg";
@@ -20,27 +23,8 @@ const reviewsTitleClassName =
 const reviewsDescriptionClassName =
   "mx-auto max-w-2xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug";
 
-/** Matches reviews grid → Google CTA band spacing. */
 const aboutReviewsBottomSpacingClassName =
   "pb-(--homepage-section-band-padding-y-mobile) lg:pb-(--homepage-section-band-padding-y-desktop)";
-
-function aboutReviewsPreviewCopy(region: RegionSlug, regionName: string) {
-  if (region === "global") {
-    return {
-      eyebrow: "Client proof",
-      heading: "WHAT CLIENTS REPORT",
-      description:
-        "A sample from live Google reviews across our studios. Open any review on Google for the full thread.",
-    };
-  }
-
-  return {
-    eyebrow: "Client proof",
-    heading: `GOOGLE REVIEWS IN ${regionName.toUpperCase()}`,
-    description:
-      "A curated selection from our live Google Business Profile. Open any review on Google to read the full thread.",
-  };
-}
 
 interface AboutPageReviewsSectionProps {
   region: RegionSlug;
@@ -55,7 +39,7 @@ function AboutPageReviewsSection({
   testimonials,
   googleBusinessProfileUrl,
 }: AboutPageReviewsSectionProps) {
-  const reviewsCopy = aboutReviewsPreviewCopy(region, regionName);
+  const reviewsCopy = reviewsPreviewCopy(region, regionName);
   const carouselItems = sortReviewsByTextLengthDescending(testimonials);
   const showStudioName = region === "global";
 
@@ -63,7 +47,7 @@ function AboutPageReviewsSection({
 
   return (
     <section
-      aria-labelledby="about-reviews-preview-heading"
+      aria-labelledby={aboutReviewsHeadingId}
       className={cn(
         "border-t border-border/50 bg-surface text-foreground",
         "pt-16 md:pt-20 lg:pt-24",
@@ -77,7 +61,7 @@ function AboutPageReviewsSection({
             eyebrow={reviewsCopy.eyebrow}
             heading={reviewsCopy.heading}
             description={reviewsCopy.description}
-            headingId="about-reviews-preview-heading"
+            headingId={aboutReviewsHeadingId}
             className="mx-auto w-full max-w-4xl"
             eyebrowClassName={sectionRevealItemClass("none", reviewsEyebrowClassName)}
             titleClassName={sectionRevealItemClass("sm", reviewsTitleClassName)}
@@ -86,6 +70,7 @@ function AboutPageReviewsSection({
 
           <div className={sectionRevealItemClass("lg", "flex flex-col gap-4 md:gap-5")}>
             <AboutPageReviewsCarousel
+              sectionLabelId={aboutReviewsHeadingId}
               testimonials={carouselItems}
               googleBusinessProfileUrl={googleBusinessProfileUrl}
               showStudioName={showStudioName}

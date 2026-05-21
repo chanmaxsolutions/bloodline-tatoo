@@ -3,11 +3,13 @@ import {
   AuthoritySection,
   HeroSection,
   HomepageStandardsSplitSection,
+  PageClosingCtaSection,
   TattooStylesSection,
   TrustProofBarSection,
   type TrustProofItem,
 } from "@/components/sections";
-import { getHomepageTestimonials } from "@/config/homepage-testimonials";
+import { homepageClosingForRegion } from "@/config/homepage-closing-cta";
+import { getReviewsPageContent } from "@/lib/reviews-page";
 import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
 import { getRequestRegionContext } from "@/lib/request-region";
 
@@ -18,7 +20,10 @@ const HomepageTestimonialsCarouselSection = dynamic(
     })),
   {
     loading: () => (
-      <section className="w-full min-h-[min(42vh,360px)] bg-band-charcoal" aria-hidden />
+      <section
+        className="w-full min-h-[min(42vh,360px)] border-t border-border/50 bg-surface"
+        aria-hidden
+      />
     ),
   },
 );
@@ -34,7 +39,7 @@ export default async function Home() {
   const homepageTattooStyleTiles = resolveHomepageTattooStyleTiles(
     regionConfig.homepageTattooStyles.featuredSlugs,
   );
-  const homepageTestimonials = getHomepageTestimonials(region);
+  const reviewsPreview = getReviewsPageContent(region);
 
   const heroRegionWord = region === "global" ? "ASIA" : regionConfig.regionName.toUpperCase();
 
@@ -76,14 +81,26 @@ export default async function Home() {
         config={regionConfig.homepageTattooStyles}
         tiles={homepageTattooStyleTiles}
       />
-      <HomepageStandardsSplitSection content={regionConfig.homepageStandardsSplit} />
+      <HomepageStandardsSplitSection
+        content={regionConfig.homepageStandardsSplit}
+        layout="approach"
+      />
       <HomepageStandardsSplitSection
         sectionId="homepage-session-path"
         content={regionConfig.homepageSessionPathSplit}
+        layout="approach"
       />
       <HomepageTestimonialsCarouselSection
-        testimonials={homepageTestimonials}
-        googleBusinessProfileUrl={regionConfig.googleBusinessProfileUrl}
+        region={region}
+        regionName={regionConfig.regionName}
+        testimonials={reviewsPreview.testimonials}
+        googleBusinessProfileUrl={reviewsPreview.googleBusinessProfileUrl}
+      />
+      <PageClosingCtaSection
+        content={homepageClosingForRegion(region, regionConfig.regionName)}
+        headerCtaLabel={regionConfig.headerCta.label}
+        headingId="homepage-closing-cta-heading"
+        showTrustProofStrip
       />
     </div>
   );

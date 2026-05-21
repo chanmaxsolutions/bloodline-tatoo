@@ -4,64 +4,23 @@ import { BookAppointmentTrigger } from "@/components/cta";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
+import {
+  ApproachPointerCard,
+  approachSectionMediaClassName,
+  approachSectionRadialClassName,
+  approachSectionTitleClassName,
+} from "@/components/shared/approach-pointer-card";
+import { tattooStyleDetailApproachGridClassName } from "@/lib/standards-split-layout";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { buttonVariants } from "@/components/ui/button";
 import { homepageGhostCtaSurfaceClassName } from "@/lib/homepage-ghost-cta";
 import { tattooStyleBookingCtaLabel } from "@/lib/tattoo-style-booking-cta";
 import { cn } from "@/lib/utils";
 import { TATTOO_STYLE_PROOF_SECTION_ID } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-proof-section";
-import type {
-  ApproachPointerTriplet,
-  ResolvedTattooStyleDetailPage,
-} from "@/types/tattoo-style-detail";
+import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
 
 interface TattooStyleDetailBodySectionProps {
   content: ResolvedTattooStyleDetailPage;
-}
-
-/** Matches `HomepageStandardsSplitSection` display title scale. */
-const approachTitleClassName =
-  "w-full max-w-none text-balance text-4xl leading-[0.95] tracking-tight text-foreground md:text-5xl md:leading-[0.93] lg:text-6xl lg:leading-[0.92]";
-
-/** Full-width intro within the approach text column. */
-const approachIntroClassName = "w-full max-w-none";
-
-/** Matches `TattooStyleTile` overlay title on the homepage styles grid. */
-const cardHeadingClassName =
-  "font-heading text-2xl font-bold uppercase leading-none tracking-tight text-foreground";
-
-const approachBoxClassName =
-  "flex h-full flex-col gap-5 rounded-xl border border-border/50 bg-surface-elevated p-6 md:gap-6 md:p-7";
-
-/** Matches `HomepageStandardsSplitSection` proof-line list item text. */
-const standardsBulletTextClassName =
-  "font-sans text-base leading-relaxed text-foreground/90 md:text-lg md:leading-relaxed";
-
-/** Matches `HomepageStandardsSplitSection` accent checkmark. */
-const standardsCheckmarkClassName =
-  "mt-0.5 shrink-0 font-heading text-3xl leading-none text-accent md:text-2xl";
-
-interface ApproachPointerCardProps {
-  label: string;
-  items: ApproachPointerTriplet;
-}
-
-function ApproachPointerCard({ label, items }: ApproachPointerCardProps) {
-  return (
-    <article className={approachBoxClassName}>
-      <h3 className={cardHeadingClassName}>{label}</h3>
-      <ul className="m-0 flex flex-1 list-none flex-col gap-4 p-0 md:gap-5">
-        {items.map((line, index) => (
-          <li key={index} className="flex items-start gap-3 md:gap-4">
-            <span aria-hidden className={standardsCheckmarkClassName}>
-              ✓
-            </span>
-            <span className={cn(standardsBulletTextClassName, "text-pretty")}>{line}</span>
-          </li>
-        ))}
-      </ul>
-    </article>
-  );
 }
 
 function TattooStyleDetailBodySection({ content }: TattooStyleDetailBodySectionProps) {
@@ -78,13 +37,10 @@ function TattooStyleDetailBodySection({ content }: TattooStyleDetailBodySectionP
         "py-(--homepage-section-band-padding-y-mobile) lg:py-(--homepage-section-band-padding-y-desktop)",
       )}
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_12%_0%,color-mix(in_oklab,var(--surface-elevated)_55%,transparent),transparent_72%)]"
-      />
+      <div aria-hidden className={approachSectionRadialClassName} />
 
       <Container size="wide" className="relative flex flex-col gap-12 md:gap-14 lg:gap-16">
-        <SectionReveal className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.12fr)_minmax(280px,0.88fr)] lg:gap-12 xl:gap-16">
+        <SectionReveal className={tattooStyleDetailApproachGridClassName}>
           <div
             className={sectionRevealItemClass(
               "none",
@@ -97,8 +53,8 @@ function TattooStyleDetailBodySection({ content }: TattooStyleDetailBodySectionP
               heading={content.approachHeadline}
               description={content.approachIntro}
               headingId="tattoo-style-approach-heading"
-              titleClassName={approachTitleClassName}
-              descriptionClassName={approachIntroClassName}
+              titleClassName={approachSectionTitleClassName}
+              descriptionClassName="w-full max-w-none"
               className="w-full gap-4 justify-items-start text-left md:gap-5"
             />
             <div
@@ -128,12 +84,7 @@ function TattooStyleDetailBodySection({ content }: TattooStyleDetailBodySectionP
             </div>
           </div>
 
-          <div
-            className={sectionRevealItemClass(
-              "sm",
-              "relative min-h-[min(52vh,400px)] w-full overflow-hidden rounded-md border border-white/5 lg:min-h-[min(60vh,520px)]",
-            )}
-          >
+          <div className={sectionRevealItemClass("sm", approachSectionMediaClassName)}>
             <Image
               src={approachImage.src}
               alt={approachImage.alt}

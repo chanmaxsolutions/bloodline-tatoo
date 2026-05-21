@@ -13,11 +13,11 @@ function TattooStyleTile({ tile }: TattooStyleTileProps) {
     <Link
       href={tile.href}
       className={cn(
-        "group relative isolate flex aspect-16/10 overflow-hidden rounded-xl border border-white/5 bg-surface-elevated shadow-none",
-        "md:aspect-3/4 md:min-h-[260px]",
-        "motion-fast outline-none transition-[border-color]",
-        "focus-visible:ring-2 focus-visible:ring-ring/50",
-        "hover:border-white/10",
+        "group relative isolate flex aspect-16/10 overflow-hidden rounded-xl border border-border/35 bg-surface-elevated/90 shadow-none",
+        "md:aspect-2/3 md:min-h-[280px]",
+        "motion-fast outline-none transition-[border-color,background-color]",
+        "hover:border-white/8 hover:bg-surface-elevated",
+        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
       )}
     >
       <Image
@@ -34,10 +34,10 @@ function TattooStyleTile({ tile }: TattooStyleTileProps) {
       />
       <TileLinkArrow className="pointer-events-none absolute right-3 top-3 z-20" />
       <div className="relative z-10 mt-auto flex flex-col gap-2 p-5 md:gap-2.5 md:p-6">
-        <p className="font-heading text-2xl font-bold uppercase leading-none tracking-tight text-foreground">
+        <p className="font-heading text-2xl font-bold uppercase leading-none tracking-tight text-foreground md:text-3xl">
           {tile.title}
         </p>
-        <p className="line-clamp-2 font-sans text-base leading-snug text-muted-foreground md:leading-relaxed">
+        <p className="line-clamp-2 font-sans text-base leading-relaxed text-muted-foreground">
           {tile.shortDescription}
         </p>
       </div>

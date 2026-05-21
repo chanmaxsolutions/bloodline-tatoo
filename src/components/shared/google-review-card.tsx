@@ -45,9 +45,9 @@ function GoogleReviewCard({
       className={cn(
         "group flex flex-col",
         isCarousel && "h-full",
-        "rounded-xl border border-white/5 bg-surface-strong/95 shadow-review-card",
+        "rounded-xl border border-white/3 bg-surface-strong/95 shadow-review-card",
         "motion-fast transition-[border-color,box-shadow]",
-        "hover:border-white/10 hover:shadow-review-card-hover",
+        "hover:border-white/8 hover:shadow-review-card-hover",
         isCarousel
           ? cn(
               "min-h-[240px] p-3 md:min-h-[260px] md:p-4",

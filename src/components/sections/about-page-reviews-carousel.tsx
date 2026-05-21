@@ -5,12 +5,14 @@ import { GoogleReviewsCarouselStrip } from "@/components/shared/google-reviews-c
 import type { ReviewsPageTestimonial } from "@/types/reviews-page";
 
 interface AboutPageReviewsCarouselProps {
+  sectionLabelId: string;
   testimonials: readonly ReviewsPageTestimonial[];
   googleBusinessProfileUrl: string;
   showStudioName: boolean;
 }
 
 function AboutPageReviewsCarousel({
+  sectionLabelId,
   testimonials,
   googleBusinessProfileUrl,
   showStudioName,
@@ -28,7 +30,7 @@ function AboutPageReviewsCarousel({
         reviews.
       </p>
       <GoogleReviewsCarouselStrip
-        sectionLabelId="about-reviews-preview-heading"
+        sectionLabelId={sectionLabelId}
         describedById={`${carouselId}-scroll-hint`}
         testimonials={testimonials}
         googleBusinessProfileUrl={googleBusinessProfileUrl}

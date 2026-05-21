@@ -68,7 +68,7 @@ function SiteFooter({ region }: SiteFooterProps) {
   const footerYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-surface text-foreground">
+    <footer className="border-t border-border/25 bg-surface-elevated text-foreground">
       <Container size="wide" className="pt-16 pb-10 md:pt-20 md:pb-14">
         <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:gap-x-10 sm:gap-y-12 lg:grid-cols-12 lg:gap-8 xl:gap-10">
           <div className="col-span-2 flex flex-col items-center gap-4 text-center lg:col-span-4 lg:items-start lg:text-left">
@@ -105,7 +105,7 @@ function SiteFooter({ region }: SiteFooterProps) {
         </div>
       </Container>
 
-      <div className="border-t border-border/30 bg-footer-legal">
+      <div className="border-t border-border/25 bg-background">
         <Container
           size="wide"
           className="flex flex-col items-center gap-2 py-3 text-center md:flex-row md:items-center md:justify-between md:py-3.5 md:text-left"
