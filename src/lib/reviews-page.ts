@@ -4,7 +4,11 @@ import {
   sortReviewsNewestFirst,
 } from "@/lib/reviews-cache";
 import { getRegionConfig } from "@/lib/region";
-import { reviewsPageIntroForRegion, reviewsPageTrustStatsForRegion } from "@/config/reviews-page";
+import {
+  reviewsPageIntroBackgroundImage,
+  reviewsPageIntroForRegion,
+  reviewsPageTrustStatsForRegion,
+} from "@/config/reviews-page";
 import type { ReviewsPageContent, ReviewsPageGoogleStudioLink } from "@/types/reviews-page";
 import type { RegionSlug } from "@/types/region";
 
@@ -48,6 +52,7 @@ function getReviewsPageContent(region: RegionSlug): ReviewsPageContent {
 
   return {
     intro: reviewsPageIntroForRegion(region),
+    introBackgroundImage: reviewsPageIntroBackgroundImage,
     trustStats: reviewsPageTrustStatsForRegion(region, testimonials.length),
     testimonials,
     googleBusinessProfileUrl: regionConfig.googleBusinessProfileUrl,

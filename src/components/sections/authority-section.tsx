@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { homepageGhostCtaClassName } from "@/lib/homepage-ghost-cta";
+import { sectionDisplayHeadingWithPresetClassName } from "@/lib/section-display-heading";
 import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { splitDescriptionEmphasis } from "@/lib/split-description-emphasis";
 import { cn } from "@/lib/utils";
@@ -48,7 +49,7 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
             id="homepage-authority-heading"
             className={sectionRevealItemClass(
               "sm",
-              "text-heading-authority-display w-full max-w-4xl lg:max-w-5xl",
+              `${sectionDisplayHeadingWithPresetClassName} max-w-4xl lg:max-w-5xl`,
             )}
           >
             {content.heading}

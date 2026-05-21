@@ -1,3 +1,4 @@
+import { pageIntroBandBackgroundImage } from "@/config/page-intro-band";
 import type { ReviewsPageIntro, ReviewsPageTrustStat } from "@/types/reviews-page";
 import type { RegionSlug } from "@/types/region";
 
@@ -32,4 +33,5 @@ function reviewsPageTrustStatsForRegion(
   ];
 }
 
+export { pageIntroBandBackgroundImage as reviewsPageIntroBackgroundImage };
 export { reviewsPageIntroForRegion, reviewsPageTrustStatsForRegion };

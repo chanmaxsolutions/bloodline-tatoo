@@ -1,30 +1,34 @@
-import type { RegionHomepageStandardsSplitConfig } from "@/types/homepage-standards-split";
+import type { PageIntroBandBackgroundImage } from "@/types/page-intro-band";
 
 export interface AboutPageIntro {
   eyebrow: string;
   heading: string;
-  /** Use double newlines for paragraph breaks. Supports `**emphasis**`. */
   description: string;
-  cta: {
-    label: string;
-    href: string;
-  };
 }
 
-export interface AboutPageExploreLink {
+export interface AboutPageTrustStat {
   label: string;
-  href: string;
+  value: string;
 }
 
-export interface AboutPageClosing {
+import type { PageClosingCtaContent } from "@/types/page-closing-cta";
+
+export type AboutPageClosing = PageClosingCtaContent;
+
+export interface AboutPageVideo {
+  eyebrow: string;
   heading: string;
   description: string;
-  exploreLinks: readonly AboutPageExploreLink[];
+  youtubeVideoId: string;
+  embedTitle: string;
 }
 
 export interface AboutPageContent {
   intro: AboutPageIntro;
-  standardsSplit: RegionHomepageStandardsSplitConfig;
+  introBackgroundImage: PageIntroBandBackgroundImage;
+  trustStats: readonly AboutPageTrustStat[];
+  storyParagraphs: readonly string[];
+  video: AboutPageVideo;
   closing: AboutPageClosing;
   headerCtaLabel: string;
 }

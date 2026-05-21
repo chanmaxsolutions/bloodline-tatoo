@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { TileLinkArrow } from "@/components/shared/tile-link-arrow";
 import { cn } from "@/lib/utils";
 import type { BookingModalChannelLink, BookingModalChannels } from "@/types/booking-modal";
 import type { ContactPageStudioLink } from "@/types/contact-page";
@@ -21,20 +21,6 @@ const tileBaseClassName = cn(
   "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
 );
 
-function ContactTileArrow() {
-  return (
-    <span
-      aria-hidden
-      className={cn(
-        "ml-auto flex size-10 shrink-0 items-center justify-center rounded-full border border-border/60 bg-surface-strong/80",
-        "transition-[border-color,background-color] group-hover:border-accent/40 group-hover:bg-accent group-hover:text-accent-foreground",
-      )}
-    >
-      <ArrowUpRight className="size-4.5" strokeWidth={2.25} />
-    </span>
-  );
-}
-
 interface ContactStudioTileProps {
   studio: ContactPageStudioLink;
 }
@@ -50,7 +36,7 @@ function ContactStudioTile({ studio }: ContactStudioTileProps) {
           WhatsApp, Instagram, and Facebook for this studio.
         </p>
       </div>
-      <ContactTileArrow />
+      <TileLinkArrow className="ml-auto" />
     </Link>
   );
 }
@@ -59,8 +45,12 @@ interface ContactChannelTileProps {
   channel: BookingModalChannelLink;
 }
 
-function channelTileDescription(label: string): string {
-  const channelName = label.replace(/^Book on /i, "");
+function contactChannelTileLabel(label: string): string {
+  return label.replace(/^BOOK ON /i, "CONTACT ON ");
+}
+
+function channelTileDescription(displayLabel: string): string {
+  const channelName = displayLabel.replace(/^CONTACT ON /i, "");
   return `Message the studio on ${channelName}.`;
 }
 
@@ -74,13 +64,13 @@ function ContactChannelTile({ channel }: ContactChannelTileProps) {
     >
       <div className="flex w-full flex-col gap-2">
         <p className="font-heading text-2xl font-bold uppercase leading-none tracking-tight text-foreground md:text-3xl">
-          {channel.label}
+          {contactChannelTileLabel(channel.label)}
         </p>
         <p className="font-sans text-base leading-relaxed text-muted-foreground">
-          {channelTileDescription(channel.label)}
+          {channelTileDescription(contactChannelTileLabel(channel.label))}
         </p>
       </div>
-      <ContactTileArrow />
+      <TileLinkArrow className="ml-auto" />
     </Link>
   );
 }

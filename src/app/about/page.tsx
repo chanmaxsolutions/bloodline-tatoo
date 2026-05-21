@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { AboutPageClosingSection } from "@/components/sections/about-page-closing-section";
 import { AboutPageIntroSection } from "@/components/sections/about-page-intro-section";
-import { HomepageStandardsSplitSection } from "@/components/sections/homepage-standards-split-section";
+import { AboutPageStorySection } from "@/components/sections/about-page-story-section";
+import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
+import { AboutPageReviewsSection } from "@/components/sections/about-page-reviews-section";
+import { AboutPageVideoSection } from "@/components/sections/about-page-video-section";
 import { getAboutPageContent } from "@/lib/about-page";
+import { getReviewsPageContent } from "@/lib/reviews-page";
 import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
 
@@ -30,17 +33,30 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AboutPage() {
-  const { region } = await getRequestRegionContext();
+  const { region, regionConfig } = await getRequestRegionContext();
   const content = getAboutPageContent(region);
+  const reviewsContent = getReviewsPageContent(region);
 
   return (
     <div className="min-w-0 bg-background">
-      <AboutPageIntroSection intro={content.intro} />
-      <HomepageStandardsSplitSection
-        sectionId="about-standards-split"
-        content={content.standardsSplit}
+      <AboutPageIntroSection
+        intro={content.intro}
+        introBackgroundImage={content.introBackgroundImage}
+        trustStats={content.trustStats}
       />
-      <AboutPageClosingSection closing={content.closing} headerCtaLabel={content.headerCtaLabel} />
+      <AboutPageStorySection storyParagraphs={content.storyParagraphs} />
+      <AboutPageVideoSection video={content.video} />
+      <AboutPageReviewsSection
+        region={region}
+        regionName={regionConfig.regionName}
+        testimonials={reviewsContent.testimonials}
+        googleBusinessProfileUrl={reviewsContent.googleBusinessProfileUrl}
+      />
+      <PageClosingCtaSection
+        content={content.closing}
+        headerCtaLabel={content.headerCtaLabel}
+        headingId="about-closing-heading"
+      />
     </div>
   );
 }

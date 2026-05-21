@@ -5,15 +5,15 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { pageIntroBandSurfaceGradientClassName } from "@/lib/page-intro-band-gradient";
 import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
-import type { AboutPageContent } from "@/types/about-page";
+import type { ReviewsPageContent, ReviewsPageIntroBackgroundImage } from "@/types/reviews-page";
 
-const aboutHeroEyebrowClassName =
+const reviewsHeroEyebrowClassName =
   "font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg";
 
-const aboutHeroTitleClassName =
+const reviewsHeroTitleClassName =
   "text-heading-authority-display w-full max-w-none text-balance text-4xl leading-[0.95] tracking-tight text-foreground md:text-5xl md:leading-[0.93] lg:text-6xl lg:leading-[0.92]";
 
-const aboutHeroDescriptionClassName =
+const reviewsHeroDescriptionClassName =
   "mx-auto max-w-2xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug";
 
 const statValueClassName =
@@ -22,32 +22,32 @@ const statValueClassName =
 const statLabelClassName =
   "text-balance font-heading text-base font-medium uppercase tracking-normal text-muted-foreground md:text-lg";
 
-/** Matches reviews/contact intro → next band spacing. */
-const aboutIntroBottomSpacingClassName = "pb-10 md:pb-12 lg:pb-14";
+/** Matches former single-section gap between stats row and review grid. */
+const reviewsIntroBottomSpacingClassName = "pb-10 md:pb-12 lg:pb-14";
 
-interface AboutPageIntroSectionProps {
-  intro: AboutPageContent["intro"];
-  introBackgroundImage: AboutPageContent["introBackgroundImage"];
-  trustStats: AboutPageContent["trustStats"];
+interface ReviewsPageIntroSectionProps {
+  intro: ReviewsPageContent["intro"];
+  trustStats: ReviewsPageContent["trustStats"];
+  backgroundImage: ReviewsPageIntroBackgroundImage;
 }
 
-function AboutPageIntroSection({
+function ReviewsPageIntroSection({
   intro,
-  introBackgroundImage,
   trustStats,
-}: AboutPageIntroSectionProps) {
+  backgroundImage,
+}: ReviewsPageIntroSectionProps) {
   return (
     <section
-      aria-labelledby="about-page-heading"
+      aria-labelledby="reviews-page-heading"
       className={cn(
         "relative isolate overflow-hidden border-t border-border/50 bg-surface text-foreground",
         "pt-28 md:pt-36",
-        aboutIntroBottomSpacingClassName,
+        reviewsIntroBottomSpacingClassName,
       )}
     >
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
-          src={introBackgroundImage.src}
+          src={backgroundImage.src}
           alt=""
           fill
           priority
@@ -65,15 +65,15 @@ function AboutPageIntroSection({
             eyebrow={intro.eyebrow}
             heading={intro.heading}
             description={intro.description}
-            headingId="about-page-heading"
+            headingId="reviews-page-heading"
             className="mx-auto w-full max-w-4xl"
-            eyebrowClassName={sectionRevealItemClass("none", aboutHeroEyebrowClassName)}
-            titleClassName={sectionRevealItemClass("sm", aboutHeroTitleClassName)}
-            descriptionClassName={sectionRevealItemClass("md", aboutHeroDescriptionClassName)}
+            eyebrowClassName={sectionRevealItemClass("none", reviewsHeroEyebrowClassName)}
+            titleClassName={sectionRevealItemClass("sm", reviewsHeroTitleClassName)}
+            descriptionClassName={sectionRevealItemClass("md", reviewsHeroDescriptionClassName)}
           />
 
           <ul
-            aria-label="Studio trust metrics"
+            aria-label="Review trust metrics"
             className={cn(
               "mx-auto grid w-full max-w-5xl divide-y divide-border/45",
               "sm:grid-cols-3 sm:divide-x sm:divide-y-0",
@@ -100,4 +100,4 @@ function AboutPageIntroSection({
   );
 }
 
-export { AboutPageIntroSection };
+export { ReviewsPageIntroSection };

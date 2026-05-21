@@ -1,4 +1,5 @@
 import type { BookingModalChannels } from "@/types/booking-modal";
+import type { PageIntroBandBackgroundImage } from "@/types/page-intro-band";
 import type { RegionSlug } from "@/types/region";
 
 export interface ContactPageIntro {
@@ -41,6 +42,7 @@ export interface ContactPageStudioLink {
 
 export interface ContactPageContent {
   intro: ContactPageIntro;
+  introBackgroundImage: PageIntroBandBackgroundImage;
   isGlobal: boolean;
   regionName: string;
   channels: BookingModalChannels;

@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 import type { HeaderNavItem } from "@/config/navigation";
 import type { RegionSlug } from "@/types/region";
 
-/** Matches site eyebrow rhythm (`AuthoritySection`, section headings). */
+/** Matches footer link scale; accent color only. */
 const footerColumnTitleClassName =
-  "font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg";
+  "font-heading text-lg font-bold uppercase leading-none tracking-tight text-accent md:text-xl";
 
 /** Matches related-style card titles, scaled for footer navigation. */
 const footerLinkClassName =

@@ -51,6 +51,7 @@ interface ContactPageWhatsAppFormProps {
   regionName: string;
   whatsappPhoneDigits: string | null;
   whatsappStudioOptions: readonly ContactPageWhatsAppStudioOption[];
+  headingId?: string;
   className?: string;
 }
 
@@ -106,6 +107,7 @@ function ContactPageWhatsAppForm({
   regionName,
   whatsappPhoneDigits,
   whatsappStudioOptions,
+  headingId = "contact-whatsapp-form-heading",
   className,
 }: ContactPageWhatsAppFormProps) {
   const formId = useId();
@@ -173,24 +175,12 @@ function ContactPageWhatsAppForm({
 
   return (
     <div className={cn("flex w-full flex-col gap-8 md:gap-10", className)}>
-      <div
-        className="flex items-center gap-4"
-        role="separator"
-        aria-label="Alternative booking path"
-      >
-        <div className="h-px flex-1 bg-border/50" aria-hidden />
-        <span className="font-heading text-base font-medium uppercase tracking-normal text-muted-foreground md:text-lg">
-          Or
-        </span>
-        <div className="h-px flex-1 bg-border/50" aria-hidden />
-      </div>
-
       <SectionHeading
         align="center"
         eyebrow={copy.eyebrow}
         heading={copy.heading}
         description={copy.description}
-        headingId={`${formId}-heading`}
+        headingId={headingId}
         className="mx-auto w-full max-w-4xl"
         titleClassName={formTitleClassName}
         descriptionClassName={formDescriptionClassName}
@@ -200,7 +190,7 @@ function ContactPageWhatsAppForm({
         className={formShellClassName}
         onSubmit={handleSubmit}
         noValidate
-        aria-labelledby={`${formId}-heading`}
+        aria-labelledby={headingId}
       >
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-7">
           {isGlobal ? (

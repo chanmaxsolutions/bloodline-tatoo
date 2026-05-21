@@ -1,8 +1,9 @@
+import Image from "next/image";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { ContactPageActions } from "@/components/sections/contact-page-actions";
-import { ContactPageWhatsAppForm } from "@/components/sections/contact-page-whatsapp-form";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { pageIntroBandSurfaceGradientClassName } from "@/lib/page-intro-band-gradient";
 import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
 import type { ContactPageContent } from "@/types/contact-page";
@@ -16,32 +17,53 @@ const contactHeroTitleClassName =
 const contactHeroDescriptionClassName =
   "mx-auto max-w-xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty sm:max-w-2xl md:text-xl md:leading-snug";
 
-interface ContactPageSectionProps {
-  content: ContactPageContent;
+/** Matches reviews intro → grid spacing between bands. */
+const contactIntroBottomSpacingClassName = "pb-10 md:pb-12 lg:pb-14";
+
+interface ContactPageIntroSectionProps {
+  intro: ContactPageContent["intro"];
+  introBackgroundImage: ContactPageContent["introBackgroundImage"];
+  isGlobal: ContactPageContent["isGlobal"];
+  channels: ContactPageContent["channels"];
+  studios: ContactPageContent["studios"];
 }
 
-function ContactPageSection({ content }: ContactPageSectionProps) {
+function ContactPageIntroSection({
+  intro,
+  introBackgroundImage,
+  isGlobal,
+  channels,
+  studios,
+}: ContactPageIntroSectionProps) {
   return (
     <section
       aria-labelledby="contact-page-heading"
       className={cn(
-        "relative overflow-hidden border-t border-border/50 bg-surface text-foreground",
-        "pt-28 pb-(--homepage-section-band-padding-y-mobile) md:pt-36",
-        "lg:pb-(--homepage-section-band-padding-y-desktop)",
+        "relative isolate overflow-hidden border-t border-border/50 bg-surface text-foreground",
+        "pt-28 md:pt-36",
+        contactIntroBottomSpacingClassName,
       )}
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-10%,color-mix(in_oklab,var(--surface-elevated)_55%,transparent),transparent_72%)]"
-      />
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <Image
+          src={introBackgroundImage.src}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={72}
+          className="object-cover object-center"
+        />
+      </div>
+      <div aria-hidden className={pageIntroBandSurfaceGradientClassName} />
 
-      <Container size="wide" className="relative">
+      <Container size="wide" className="relative z-10">
         <SectionReveal className="flex w-full flex-col gap-10 md:gap-12 lg:gap-14">
           <SectionHeading
             align="center"
-            eyebrow={content.intro.eyebrow}
-            heading={content.intro.heading}
-            description={content.intro.description}
+            eyebrow={intro.eyebrow}
+            heading={intro.heading}
+            description={intro.description}
             headingId="contact-page-heading"
             className="mx-auto w-full max-w-5xl"
             eyebrowClassName={sectionRevealItemClass("none", contactHeroEyebrowClassName)}
@@ -50,25 +72,12 @@ function ContactPageSection({ content }: ContactPageSectionProps) {
           />
 
           <div className={sectionRevealItemClass("lg", "w-full")}>
-            <ContactPageActions
-              isGlobal={content.isGlobal}
-              channels={content.channels}
-              studios={content.studios}
-            />
+            <ContactPageActions isGlobal={isGlobal} channels={channels} studios={studios} />
           </div>
-
-          <ContactPageWhatsAppForm
-            copy={content.whatsappForm}
-            isGlobal={content.isGlobal}
-            regionName={content.regionName}
-            whatsappPhoneDigits={content.whatsappPhoneDigits}
-            whatsappStudioOptions={content.whatsappStudioOptions}
-            className={sectionRevealItemClass("lg")}
-          />
         </SectionReveal>
       </Container>
     </section>
   );
 }
 
-export { ContactPageSection };
+export { ContactPageIntroSection };

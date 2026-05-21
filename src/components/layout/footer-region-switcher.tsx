@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import type { RegionSlug } from "@/types/region";
 
 const studioSwitcherTitleClassName =
-  "font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg";
+  "font-heading text-lg font-bold uppercase leading-none tracking-tight text-accent md:text-xl";
 
 const studioSwitcherTitleCenteredClassName = cn(studioSwitcherTitleClassName, "text-center");
 

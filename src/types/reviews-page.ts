@@ -7,6 +7,10 @@ export interface ReviewsPageIntro {
   description: string;
 }
 
+import type { PageIntroBandBackgroundImage } from "@/types/page-intro-band";
+
+export type ReviewsPageIntroBackgroundImage = PageIntroBandBackgroundImage;
+
 export interface ReviewsPageTrustStat {
   label: string;
   value: string;
@@ -26,6 +30,7 @@ export interface ReviewsPageTestimonial extends HomepageTestimonial {
 
 export interface ReviewsPageContent {
   intro: ReviewsPageIntro;
+  introBackgroundImage: ReviewsPageIntroBackgroundImage;
   trustStats: ReviewsPageTrustStat[];
   testimonials: readonly ReviewsPageTestimonial[];
   googleBusinessProfileUrl: string;

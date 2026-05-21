@@ -1,3 +1,4 @@
+import type { PageClosingCtaContent } from "@/types/page-closing-cta";
 import type { RegionSlug } from "@/types/region";
 
 export interface TattooStylesIndexIntro {
@@ -37,4 +38,22 @@ function tattooStylesIndexIntroForRegion(region: RegionSlug): TattooStylesIndexI
   return tattooStylesIndexByRegion[region];
 }
 
-export { tattooStylesIndexIntroForRegion };
+function tattooStylesIndexClosingForRegion(
+  region: RegionSlug,
+  regionName: string,
+): PageClosingCtaContent {
+  if (region === "global") {
+    return {
+      heading: "READY TO BOOK YOUR NEXT SESSION?",
+      description:
+        "Pick your studio lane, then message us on WhatsApp with placement, scale, and reference direction. We align before the session is locked in.",
+    };
+  }
+
+  return {
+    heading: `READY TO BOOK YOUR ${regionName.toUpperCase()} SESSION?`,
+    description: `Know your style direction? Message Bloodline ${regionName} on WhatsApp with placement, scale, and references. We align on timing before the room commits.`,
+  };
+}
+
+export { tattooStylesIndexClosingForRegion, tattooStylesIndexIntroForRegion };

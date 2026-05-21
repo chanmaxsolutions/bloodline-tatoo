@@ -1,12 +1,12 @@
+import Image from "next/image";
 import { SectionReveal } from "@/components/motion";
-import { SectionHeading } from "@/components/shared/section-heading";
-import { TattooStyleTile } from "@/components/sections/tattoo-style-tile";
 import { Container } from "@/components/layout/container";
-import { homepageTattooStylesGridClassName } from "@/lib/homepage-tattoo-styles-grid";
-import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
+import { SectionHeading } from "@/components/shared/section-heading";
+import { pageIntroBandSurfaceGradientClassName } from "@/lib/page-intro-band-gradient";
+import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
 import type { TattooStylesIndexIntro } from "@/config/tattoo-styles-index";
-import type { TattooStyleHomepageTile } from "@/types/tattoo-style";
+import type { PageIntroBandBackgroundImage } from "@/types/page-intro-band";
 
 const tattooStylesIndexEyebrowClassName =
   "font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg";
@@ -17,28 +17,42 @@ const tattooStylesIndexTitleClassName =
 const tattooStylesIndexDescriptionClassName =
   "mx-auto max-w-2xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug";
 
-interface TattooStylesIndexSectionProps {
+/** Matches reviews/contact intro → grid band spacing. */
+const tattooStylesIndexIntroBottomSpacingClassName = "pb-10 md:pb-12 lg:pb-14";
+
+interface TattooStylesIndexIntroSectionProps {
   intro: TattooStylesIndexIntro;
-  tiles: TattooStyleHomepageTile[];
+  introBackgroundImage: PageIntroBandBackgroundImage;
 }
 
-function TattooStylesIndexSection({ intro, tiles }: TattooStylesIndexSectionProps) {
+function TattooStylesIndexIntroSection({
+  intro,
+  introBackgroundImage,
+}: TattooStylesIndexIntroSectionProps) {
   return (
     <section
       aria-labelledby="tattoo-styles-index-heading"
       className={cn(
-        "relative overflow-hidden border-t border-border/50 bg-surface text-foreground",
-        "pt-28 pb-(--homepage-section-band-padding-y-mobile) md:pt-36",
-        "lg:pb-(--homepage-section-band-padding-y-desktop)",
+        "relative isolate overflow-hidden border-t border-border/50 bg-surface text-foreground",
+        "pt-28 md:pt-36",
+        tattooStylesIndexIntroBottomSpacingClassName,
       )}
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-10%,color-mix(in_oklab,var(--surface-elevated)_55%,transparent),transparent_72%)]"
-      />
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <Image
+          src={introBackgroundImage.src}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={72}
+          className="object-cover object-center"
+        />
+      </div>
+      <div aria-hidden className={pageIntroBandSurfaceGradientClassName} />
 
-      <Container size="wide" className="relative">
-        <SectionReveal className="flex flex-col gap-10 md:gap-12 lg:gap-14">
+      <Container size="wide" className="relative z-10">
+        <SectionReveal>
           <SectionHeading
             align="center"
             eyebrow={intro.eyebrow}
@@ -53,21 +67,10 @@ function TattooStylesIndexSection({ intro, tiles }: TattooStylesIndexSectionProp
               tattooStylesIndexDescriptionClassName,
             )}
           />
-
-          <ul
-            aria-label="Tattoo styles catalog"
-            className={cn(homepageTattooStylesGridClassName(tiles.length), "lg:gap-6")}
-          >
-            {tiles.map((tile, index) => (
-              <li key={tile.slug} className={sectionRevealStaggerClass(index, "min-w-0")}>
-                <TattooStyleTile tile={tile} />
-              </li>
-            ))}
-          </ul>
         </SectionReveal>
       </Container>
     </section>
   );
 }
 
-export { TattooStylesIndexSection };
+export { TattooStylesIndexIntroSection };

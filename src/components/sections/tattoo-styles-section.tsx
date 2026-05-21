@@ -5,6 +5,7 @@ import { SectionShell } from "@/components/sections/section-shell";
 import { TattooStyleTile } from "@/components/sections/tattoo-style-tile";
 import { homepageGhostCtaClassName } from "@/lib/homepage-ghost-cta";
 import { homepageTattooStylesGridClassName } from "@/lib/homepage-tattoo-styles-grid";
+import { sectionDisplayHeadingClassName } from "@/lib/section-display-heading";
 import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
 import type {
@@ -21,7 +22,7 @@ interface TattooStylesSectionProps {
 const tattooStylesEyebrowClassName =
   "font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg";
 
-const tattooStylesTitleClassName = "text-heading-authority-display";
+const tattooStylesTitleClassName = sectionDisplayHeadingClassName;
 
 const tattooStylesDescriptionClassName =
   "mx-auto max-w-xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug";

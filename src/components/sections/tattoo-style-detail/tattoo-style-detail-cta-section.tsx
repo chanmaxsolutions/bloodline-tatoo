@@ -10,7 +10,7 @@ import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail"
 
 /** Matches homepage hero title scale. */
 const ctaBandTitleClassName =
-  "text-heading-display w-full max-w-4xl text-balance text-5xl leading-[0.95] tracking-tight text-accent-foreground md:text-7xl md:leading-[0.9] lg:text-8xl";
+  "text-heading-display w-full max-w-3xl text-balance text-5xl leading-[0.95] tracking-tight text-accent-foreground md:text-7xl md:leading-[0.9] lg:max-w-4xl lg:text-8xl";
 
 /** Matches homepage hero description scale on the lime band. */
 const ctaBandDescriptionClassName =
@@ -76,7 +76,7 @@ function TattooStyleDetailCtaSection({
 
             <div className="flex w-full flex-col items-center gap-4 md:gap-5">
               <h2 id="tattoo-style-cta-heading" className={ctaBandTitleClassName}>
-                READY TO START?
+                READY TO BOOK YOUR {styleTitle.toUpperCase()}?
               </h2>
               <p className={ctaBandDescriptionClassName}>
                 Book a consultation for {styleTitle.toLowerCase()}. Share placement, scale, and

@@ -8,7 +8,7 @@ import {
 import { cn } from "@/lib/utils";
 import type { HomepageTestimonial } from "@/types/homepage-testimonial";
 
-const VIEW_MORE_CHAR_THRESHOLD = 92;
+const READ_MORE_CHAR_THRESHOLD = 92;
 
 const carouselCardWidthClassName =
   "w-[min(17.5rem,calc(100vw-2rem))] shrink-0 md:w-[calc((100vw-3rem-3.75rem)/4)]";
@@ -20,7 +20,7 @@ function isRemotePhotoUrl(url: string | undefined): url is string {
 
 interface GoogleReviewCardProps {
   item: HomepageTestimonial;
-  /** Google Business / Maps listing for “View more” when carousel copy is clamped. */
+  /** Google Business / Maps listing fallback for footer when a review has no direct URL. */
   googleBusinessProfileUrl: string;
   variant?: "carousel" | "page";
   studioName?: string;
@@ -37,7 +37,8 @@ function GoogleReviewCard({
   const avatarSrc = item.profilePhotoUrl;
   const showAvatar = isRemotePhotoUrl(avatarSrc);
   const isCarousel = variant === "carousel";
-  const showViewMoreLink = isCarousel && item.text.trim().length > VIEW_MORE_CHAR_THRESHOLD;
+  const showReadMoreLink =
+    isCarousel && item.text.trim().length > READ_MORE_CHAR_THRESHOLD && Boolean(item.reviewUrl);
 
   return (
     <article
@@ -49,7 +50,7 @@ function GoogleReviewCard({
         "hover:border-white/10 hover:shadow-review-card-hover",
         isCarousel
           ? cn(
-              "min-h-[216px] p-3 md:min-h-[232px] md:p-4",
+              "min-h-[240px] p-3 md:min-h-[260px] md:p-4",
               "snap-center touch-pan-x",
               carouselCardWidthClassName,
             )
@@ -100,21 +101,21 @@ function GoogleReviewCard({
       </div>
       <div className={cn("flex min-h-0 flex-1 flex-col gap-1.5", isCarousel ? "mt-3" : "mt-4")}>
         {isCarousel ? (
-          <p className="line-clamp-3 min-h-0 font-sans text-[13px] leading-relaxed text-foreground/88 md:text-sm">
+          <p className="line-clamp-4 min-h-0 font-sans text-sm leading-relaxed text-foreground/88 text-pretty md:text-base">
             {item.text}
           </p>
         ) : (
           <GoogleReviewCardExpandableText text={item.text} />
         )}
-        {showViewMoreLink ? (
+        {showReadMoreLink && item.reviewUrl ? (
           <a
-            href={googleBusinessProfileUrl}
+            href={item.reviewUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="w-fit font-sans text-xs font-medium text-muted-foreground underline decoration-white/25 underline-offset-2 outline-none transition-colors motion-fast hover:text-foreground hover:decoration-white/40 focus-visible:ring-2 focus-visible:ring-ring/60"
-            aria-label="View full review on Google Business Profile"
+            aria-label="Read this review on Google"
           >
-            View more
+            Read more
           </a>
         ) : null}
       </div>
@@ -140,4 +141,4 @@ function GoogleReviewCard({
   );
 }
 
-export { GoogleReviewCard, carouselCardWidthClassName, VIEW_MORE_CHAR_THRESHOLD };
+export { GoogleReviewCard, carouselCardWidthClassName, READ_MORE_CHAR_THRESHOLD };

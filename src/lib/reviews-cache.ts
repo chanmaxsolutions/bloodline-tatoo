@@ -72,10 +72,23 @@ function sortReviewsNewestFirst<T extends { dateIso?: string; timeLabel: string 
   });
 }
 
+function sortReviewsByTextLengthDescending<T extends { text: string }>(items: readonly T[]): T[] {
+  return [...items].sort((a, b) => b.text.trim().length - a.text.trim().length);
+}
+
+function reviewStudioName(item: HomepageTestimonial): string | undefined {
+  if ("studioName" in item && typeof item.studioName === "string") {
+    return item.studioName;
+  }
+  return undefined;
+}
+
 export {
   getCachedGoogleReviews,
   mapToHomepageTestimonials,
   mapToReviewsPageTestimonials,
   regionalPools,
+  reviewStudioName,
+  sortReviewsByTextLengthDescending,
   sortReviewsNewestFirst,
 };

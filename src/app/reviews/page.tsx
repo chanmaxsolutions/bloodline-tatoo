@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ReviewsGoogleCtaSection } from "@/components/sections/reviews-google-cta-section";
-import { ReviewsPageSection } from "@/components/sections/reviews-page-section";
+import { ReviewsPageGridSection } from "@/components/sections/reviews-page-grid-section";
+import { ReviewsPageIntroSection } from "@/components/sections/reviews-page-intro-section";
 import { getReviewsPageContent } from "@/lib/reviews-page";
 import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
@@ -34,7 +35,16 @@ export default async function ReviewsPage() {
 
   return (
     <div className="min-w-0 bg-background">
-      <ReviewsPageSection content={content} region={region} />
+      <ReviewsPageIntroSection
+        intro={content.intro}
+        trustStats={content.trustStats}
+        backgroundImage={content.introBackgroundImage}
+      />
+      <ReviewsPageGridSection
+        testimonials={content.testimonials}
+        googleBusinessProfileUrl={content.googleBusinessProfileUrl}
+        region={region}
+      />
       <ReviewsGoogleCtaSection studioLinks={content.studioLinks} isGlobal={region === "global"} />
     </div>
   );

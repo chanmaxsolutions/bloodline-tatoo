@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ContactPageSection } from "@/components/sections/contact-page-section";
+import { ContactPageFormSection } from "@/components/sections/contact-page-form-section";
+import { ContactPageIntroSection } from "@/components/sections/contact-page-intro-section";
 import { getContactPageContent } from "@/lib/contact-page";
 import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
@@ -33,7 +34,20 @@ export default async function ContactPage() {
 
   return (
     <div className="min-w-0 bg-background">
-      <ContactPageSection content={content} />
+      <ContactPageIntroSection
+        intro={content.intro}
+        introBackgroundImage={content.introBackgroundImage}
+        isGlobal={content.isGlobal}
+        channels={content.channels}
+        studios={content.studios}
+      />
+      <ContactPageFormSection
+        whatsappForm={content.whatsappForm}
+        isGlobal={content.isGlobal}
+        regionName={content.regionName}
+        whatsappPhoneDigits={content.whatsappPhoneDigits}
+        whatsappStudioOptions={content.whatsappStudioOptions}
+      />
     </div>
   );
 }
