@@ -112,6 +112,4 @@ function buildGalleryCatalog(): readonly GalleryItem[] {
   return z.array(galleryItemSchema).parse(items);
 }
 
-const galleryCatalogFromProofs = buildGalleryCatalog();
-
-export { buildGalleryCatalog, galleryCatalogFromProofs };
+export { buildGalleryCatalog };

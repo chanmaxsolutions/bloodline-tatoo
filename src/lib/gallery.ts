@@ -1,5 +1,5 @@
 import { GALLERY_CATEGORY_ORDER } from "@/config/gallery-catalog";
-import { galleryCatalogFromProofs } from "@/lib/build-gallery-catalog";
+import { galleryCatalogFromProofs } from "@/lib/gallery-catalog-data";
 import { galleryPageIntroForRegionAndCategory } from "@/config/gallery-page";
 import { sortGalleryItemsForPortfolio } from "@/lib/sort-gallery-items";
 import type { GalleryCategorySlug, GalleryItem, GalleryPageContent } from "@/types/gallery";

@@ -56,6 +56,7 @@ Matches which styles each regional **site** offers.
 1. Drop files into the correct `{style}/{studio}/` paths.
 2. We rename for SEO + write alt text.
 3. We register proof paths in `src/config/tattoo-style-proof-pools.ts` or style-specific media modules (e.g. `tattoo-style-bamboo-media.ts`, `tattoo-style-realism-media.ts`).
+4. Run `npm run generate:gallery-catalog` so portfolio/gallery use updated `src/data/gallery-catalog.json` (runs automatically on `npm run build`).
 
 ## First batch
 
