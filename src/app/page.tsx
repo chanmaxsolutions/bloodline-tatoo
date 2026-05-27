@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { getReviewsCarouselPreview } from "@/lib/reviews-page";
 import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
 import { resolveGoogleBusinessProofPresentation } from "@/lib/google-business-proof";
+import { homepageMediaPaths } from "@/config/homepage-media";
 import { getRequestRegionContext } from "@/lib/request-region";
 
 const HomepageTestimonialsCarouselSection = dynamic(
@@ -63,10 +64,10 @@ export default async function Home() {
         }
         description={regionConfig.heroDescription}
         media={{
-          src: "/hero-poster.jpg",
+          src: homepageMediaPaths.heroPoster(region),
           videoSrc: heroVideoByRegion[region],
           alt: `${regionConfig.seo.siteName} studio mark`,
-          poster: "/hero-poster.jpg",
+          poster: homepageMediaPaths.heroPoster(region),
         }}
         primaryCta={{
           label: regionConfig.headerCta.label,

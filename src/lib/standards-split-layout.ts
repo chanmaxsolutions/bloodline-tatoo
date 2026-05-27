@@ -14,10 +14,10 @@ const standardsSplitBalancedGridClassName =
   "grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16";
 
 const standardsSplitEditorialMediaClassName =
-  "relative min-h-[min(52vh,400px)] w-full overflow-hidden rounded-md border border-white/5 lg:min-h-[min(60vh,520px)]";
+  "relative min-h-[min(52vh,400px)] w-full overflow-hidden rounded-md border border-white/5 shadow-none lg:min-h-[min(60vh,520px)] [&_img]:shadow-none [&_img]:drop-shadow-none";
 
 const standardsSplitBalancedMediaClassName =
-  "relative aspect-4/5 min-h-[min(52vh,420px)] w-full overflow-hidden rounded-xl border border-white/5 lg:min-h-[min(64vh,520px)]";
+  "relative aspect-4/5 min-h-[min(52vh,420px)] w-full overflow-hidden rounded-xl border border-white/5 shadow-none lg:min-h-[min(64vh,520px)] [&_img]:shadow-none [&_img]:drop-shadow-none";
 
 /** Homepage session path only: image left ~60%, text right ~40%. */
 const homepageSessionPathApproachGridClassName =

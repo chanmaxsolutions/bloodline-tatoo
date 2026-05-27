@@ -1,6 +1,5 @@
 import { z } from "zod";
 import type { BlogCategorySlug, BlogPost } from "@/types/blog";
-import type { RegionSlug } from "@/types/region";
 
 const regionSlugSchema = z.enum(["global", "bangkok", "bali", "phuket"]);
 
@@ -72,8 +71,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-11-12",
     readingTimeMinutes: 7,
     featuredImage: {
-      src: "/images/tattoo-styles/realism.jpg",
-      alt: "Realistic tattoo work at Bloodline studio",
+      src: "/images/tattoo-styles/colour/phuket/hero.jpg",
+      alt: "Japanese colour leg sleeve with orange Hannya mask and black-and-grey waves at Bloodline Tattoo Phuket",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     featured: true,
@@ -85,8 +84,8 @@ const blogCatalogRaw: BlogPost[] = [
       {
         type: "image",
         image: {
-          src: "/images/tattoo-styles/fine-line.jpg",
-          alt: "Fine line tattoo session at Bloodline studio",
+          src: "/images/tattoo-styles/portrait/phuket/card.jpg",
+          alt: "Black and grey child portrait realism with braided hair on the inner upper arm at Bloodline Tattoo Phuket",
         },
         caption:
           "Fine line and single-needle work need placement and aftercare planned around your travel schedule.",
@@ -103,8 +102,8 @@ const blogCatalogRaw: BlogPost[] = [
       {
         type: "image",
         image: {
-          src: "/images/tattoo-styles/japanese.jpg",
-          alt: "Japanese tattoo composition with strong flow on the arm",
+          src: "/images/tattoo-styles/japanese/phuket/approach.jpg",
+          alt: "Japanese samurai and dragon arm sleeve against misty temple and pagoda backdrop at Bloodline Tattoo Phuket",
         },
         caption:
           "Large-scale styles such as Japanese and blackwork are often planned as multi-session projects.",
@@ -133,8 +132,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-10-28",
     readingTimeMinutes: 6,
     featuredImage: {
-      src: "/images/tattoo-styles/realism.jpg",
-      alt: "Healed realistic tattoo detail",
+      src: "/images/tattoo-styles/realism/phuket/proof/black-grey-realism-norse-odin-forest-bear-runes-sleeve-bloodline-phuket.jpg",
+      alt: "Black and grey realism full sleeve with Norse god portrait, forest, bear, and runes at Bloodline Tattoo Phuket",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     featured: true,
@@ -172,8 +171,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-09-15",
     readingTimeMinutes: 5,
     featuredImage: {
-      src: "/hero-poster.jpg",
-      alt: "Bloodline Bangkok studio atmosphere",
+      src: "/images/tattoo-styles/realism/bangkok/hero.jpg",
+      alt: "Black and grey realism back tattoo with Greek god portrait, winged angel, temple, and lightning at Bloodline Tattoo Bangkok",
     },
     regions: ["global", "bangkok"],
     body: [
@@ -206,8 +205,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-08-22",
     readingTimeMinutes: 6,
     featuredImage: {
-      src: "/images/tattoo-styles/fine-line.jpg",
-      alt: "Fine line tattoo session in Bali",
+      src: "/images/tattoo-styles/colour/bali/hero.jpg",
+      alt: "Japanese colour chest and arm tattoo with green dragon, red Hannya mask, and cherry blossoms at Bloodline Tattoo Bali",
     },
     regions: ["global", "bali"],
     body: [
@@ -239,8 +238,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-07-10",
     readingTimeMinutes: 5,
     featuredImage: {
-      src: "/images/tattoo-styles/blackwork.jpg",
-      alt: "Blackwork tattoo placement on arm",
+      src: "/images/tattoo-styles/colour/phuket/proof/colour-tattoo-green-tree-python-monstera-palm-upper-arm-bloodline-phuket.jpg",
+      alt: "Vibrant colour tattoo of a realistic green snake among tropical palm and monstera leaves on the upper arm at Bloodline Tattoo Phuket",
     },
     regions: ["global", "phuket"],
     body: [
@@ -269,8 +268,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-06-18",
     readingTimeMinutes: 4,
     featuredImage: {
-      src: "/images/tattoo-styles/fine-line.jpg",
-      alt: "Fine line tattoo healing detail",
+      src: "/images/tattoo-styles/bamboo/phuket/hero.jpg",
+      alt: "Sak Yant bamboo tattoo hero with twin tigers, embers, and spiritual atmosphere at Bloodline Tattoo Phuket",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [
@@ -294,8 +293,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-05-30",
     readingTimeMinutes: 5,
     featuredImage: {
-      src: "/images/tattoo-styles/japanese.jpg",
-      alt: "Japanese tattoo composition at Bloodline",
+      src: "/images/tattoo-styles/japanese/phuket/proof/japanese-tattoo-samurai-hannya-glowing-eyes-full-sleeve-bloodline-phuket.jpg",
+      alt: "Japanese full sleeve with samurai and Hannya mask with glowing eyes at Bloodline Tattoo Phuket",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [
@@ -324,8 +323,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-04-14",
     readingTimeMinutes: 5,
     featuredImage: {
-      src: "/images/tattoo-styles/blackwork.jpg",
-      alt: "Cover-up tattoo planning reference",
+      src: "/images/tattoo-styles/realism/phuket/proof/black-grey-realism-woman-demon-skull-spider-web-full-back-bloodline-phuket.jpg",
+      alt: "Detailed black and grey realism full back tattoo featuring a woman with barbed wire, a horned demonic figure, and a skull with a spider and web at Bloodline Tattoo Phuket.",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [
@@ -354,8 +353,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-03-28",
     readingTimeMinutes: 5,
     featuredImage: {
-      src: "/images/tattoo-styles/blackwork.jpg",
-      alt: "Healed blackwork tattoo with strong contrast",
+      src: "/images/tattoo-styles/mandala/phuket/proof/mandala-tattoo-full-sleeve-shoulder-mandala-geometric-triangles-bloodline-phuket.jpg",
+      alt: "Full arm mandala sleeve with shoulder lotus and crystalline triangle lattices at Bloodline Tattoo Phuket",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [
@@ -379,8 +378,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-03-15",
     readingTimeMinutes: 6,
     featuredImage: {
-      src: "/images/tattoo-styles/realism.jpg",
-      alt: "Realism tattoo reference planning",
+      src: "/images/tattoo-styles/portrait/phuket/proof/portrait-tattoo-jim-morrison-singer-hands-forearm-bloodline-phuket.jpg",
+      alt: "Portrait realism tattoo of Jim Morrison on the forearm at Bloodline Tattoo Phuket",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [
@@ -409,8 +408,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-03-02",
     readingTimeMinutes: 5,
     featuredImage: {
-      src: "/images/tattoo-styles/japanese.jpg",
-      alt: "Geometric ornamental tattoo composition",
+      src: "/images/tattoo-styles/mandala/bali/proof/mandala-tattoo-geometric-3d-cube-mandala-back-leg-sleeve-bloodline-bali.jpg",
+      alt: "Geometric 3D cube mandala back and leg sleeve with dotwork at Bloodline Tattoo Bali",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [
@@ -434,8 +433,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-02-20",
     readingTimeMinutes: 4,
     featuredImage: {
-      src: "/hero-poster.jpg",
-      alt: "Bloodline studio environment",
+      src: "/images/tattoo-styles/realism/phuket/approach.jpg",
+      alt: "Black and grey realism angel back tattoo with sword, roses, and classical columns at Bloodline Tattoo Phuket",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [
@@ -458,8 +457,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-02-08",
     readingTimeMinutes: 6,
     featuredImage: {
-      src: "/images/tattoo-styles/fine-line.jpg",
-      alt: "Tattoo session in a premium studio",
+      src: "/images/tattoo-styles/colour/bangkok/hero.jpg",
+      alt: "Japanese colour full-back samurai tattoo with pagoda and clouds at Bloodline Tattoo Bangkok",
     },
     regions: ["global", "bangkok", "bali"],
     body: [
@@ -482,8 +481,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-01-25",
     readingTimeMinutes: 5,
     featuredImage: {
-      src: "/images/tattoo-styles/blackwork.jpg",
-      alt: "Tattoo planning for Phuket travelers",
+      src: "/images/tattoo-styles/mandala/phuket/hero.jpg",
+      alt: "Full-back mandala tattoo with radial symmetry and ornamental structure at Bloodline Tattoo Phuket",
     },
     regions: ["global", "phuket"],
     body: [
@@ -506,8 +505,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2025-01-12",
     readingTimeMinutes: 4,
     featuredImage: {
-      src: "/images/tattoo-styles/realism.jpg",
-      alt: "Healed tattoo in daylight",
+      src: "/images/tattoo-styles/healed/bali/proof/healed-tattoo-dragon-hannya-samurai-full-back-glass-bloodline-bali.jpg",
+      alt: "Healed Japanese dragon, Hannya, and samurai full back tattoo at Bloodline Tattoo Bali",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [
@@ -530,8 +529,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2024-12-20",
     readingTimeMinutes: 5,
     featuredImage: {
-      src: "/images/tattoo-styles/fine-line.jpg",
-      alt: "Fine line tattoo detail",
+      src: "/images/tattoo-styles/portrait/phuket/card.jpg",
+      alt: "Black and grey child portrait realism with braided hair on the inner upper arm at Bloodline Tattoo Phuket",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [
@@ -555,8 +554,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2024-12-05",
     readingTimeMinutes: 4,
     featuredImage: {
-      src: "/hero-poster.jpg",
-      alt: "Booking a tattoo session via WhatsApp",
+      src: "/images/tattoo-styles/chicano/phuket/hero.jpg",
+      alt: "Chicano Loyalty script back tattoo with LA logo, payasa portrait, lowrider, and palm trees at Bloodline Tattoo Phuket",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [
@@ -580,8 +579,8 @@ const blogCatalogRaw: BlogPost[] = [
     publishedAt: "2024-11-18",
     readingTimeMinutes: 7,
     featuredImage: {
-      src: "/images/tattoo-styles/japanese.jpg",
-      alt: "Large scale Japanese tattoo session planning",
+      src: "/images/tattoo-styles/japanese/bali/proof/japanese-tattoo-samurai-mempo-shishi-cherry-blossoms-full-back-bloodline-bali.jpg",
+      alt: "Japanese full back tattoo with samurai mempo, shishi, and cherry blossoms at Bloodline Tattoo Bali",
     },
     regions: ["global", "bangkok", "bali", "phuket"],
     body: [

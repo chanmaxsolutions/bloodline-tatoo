@@ -5,29 +5,22 @@ import Image from "next/image";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import {
-  portfolioMasonryColumnsClassName,
+  portfolioMasonryContainerClassName,
+  portfolioMasonryImageClassName,
   portfolioMasonryItemClassName,
-  portfolioMasonryTileHeightClassName,
+  portfolioMasonryTileClassName,
 } from "@/lib/portfolio-masonry-tile";
-import { sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
+import {
+  PORTFOLIO_MASONRY_INITIAL_VISIBLE_COUNT,
+  PORTFOLIO_MASONRY_VISIBLE_COUNT_STEP,
+} from "@/lib/portfolio-masonry-layout";
 import { cn } from "@/lib/utils";
 import type { GalleryItem } from "@/types/gallery";
 
-const PORTFOLIO_PAGE_BATCH_SIZE = 12;
-
-const portfolioTileShellClassName =
-  "relative w-full overflow-hidden rounded-md border border-border/50 bg-surface-elevated";
-
 const portfolioTileButtonClassName = cn(
-  "group relative block w-full cursor-zoom-in overflow-hidden",
+  "group block w-full cursor-zoom-in",
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
 );
-
-const portfolioTileImageClassName =
-  "object-cover object-center motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-[1.02] motion-safe:group-focus-visible:scale-[1.02]";
-
-const lightboxFigureClassName =
-  "relative mx-auto w-full min-h-[min(52vh,420px)] max-h-[min(85dvh,880px)] aspect-3/4 sm:aspect-4/3 lg:aspect-video";
 
 interface PortfolioMasonryGalleryProps {
   items: readonly GalleryItem[];
@@ -35,10 +28,17 @@ interface PortfolioMasonryGalleryProps {
 }
 
 function PortfolioMasonryGallery({ items, galleryLabel }: PortfolioMasonryGalleryProps) {
-  const [visibleCount, setVisibleCount] = useState(PORTFOLIO_PAGE_BATCH_SIZE);
+  const itemsKey = useMemo(() => items.map((item) => item.id).join("|"), [items]);
+
+  return <PortfolioMasonryGalleryInner key={itemsKey} items={items} galleryLabel={galleryLabel} />;
+}
+
+function PortfolioMasonryGalleryInner({ items, galleryLabel }: PortfolioMasonryGalleryProps) {
   const [activeItemId, setActiveItemId] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(PORTFOLIO_MASONRY_INITIAL_VISIBLE_COUNT);
 
   const visibleItems = useMemo(() => items.slice(0, visibleCount), [items, visibleCount]);
+
   const hasMore = visibleCount < items.length;
   const activeItem = activeItemId ? items.find((item) => item.id === activeItemId) : undefined;
 
@@ -48,52 +48,50 @@ function PortfolioMasonryGallery({ items, galleryLabel }: PortfolioMasonryGaller
     }
   }, []);
 
+  const handleShowMore = useCallback(() => {
+    setVisibleCount((count) =>
+      Math.min(count + PORTFOLIO_MASONRY_VISIBLE_COUNT_STEP, items.length),
+    );
+  }, [items.length]);
+
   if (items.length === 0) {
     return null;
   }
 
   return (
     <div className="flex flex-col gap-8 md:gap-10">
-      <ul className={portfolioMasonryColumnsClassName} aria-label={galleryLabel}>
+      <div className={portfolioMasonryContainerClassName} role="list" aria-label={galleryLabel}>
         {visibleItems.map((item, index) => (
-          <li
-            key={item.id}
-            className={sectionRevealStaggerClass(index, portfolioMasonryItemClassName)}
-          >
+          <div key={item.id} className={portfolioMasonryItemClassName} role="listitem">
             <button
               type="button"
-              className={cn(
-                portfolioTileButtonClassName,
-                portfolioTileShellClassName,
-                portfolioMasonryTileHeightClassName(item.layout),
-              )}
+              className={cn(portfolioTileButtonClassName, portfolioMasonryTileClassName)}
               aria-label={`View full size: ${item.alt}`}
               onClick={() => setActiveItemId(item.id)}
             >
               <Image
                 src={item.imageSrc}
                 alt={item.alt}
-                fill
+                width={item.imageWidth}
+                height={item.imageHeight}
                 sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw"
                 quality={88}
-                className={portfolioTileImageClassName}
+                className={cn(
+                  portfolioMasonryImageClassName,
+                  "motion-safe:transition-transform motion-safe:duration-300",
+                  "motion-safe:group-hover:scale-[1.02] motion-safe:group-focus-visible:scale-[1.02]",
+                )}
+                style={{ width: "100%", height: "auto" }}
                 priority={index < 4}
               />
             </button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
 
       {hasMore ? (
         <div className="flex justify-center">
-          <Button
-            type="button"
-            variant="outline"
-            size="lg"
-            onClick={() => {
-              setVisibleCount((count) => Math.min(count + PORTFOLIO_PAGE_BATCH_SIZE, items.length));
-            }}
-          >
+          <Button type="button" variant="outline" size="lg" onClick={handleShowMore}>
             Show more work
           </Button>
         </div>
@@ -114,15 +112,16 @@ function PortfolioMasonryGallery({ items, galleryLabel }: PortfolioMasonryGaller
           </DialogTitle>
           {activeItem ? (
             <>
-              <figure className={lightboxFigureClassName}>
+              <figure className="relative mx-auto w-full max-h-[min(85dvh,880px)]">
                 <Image
                   src={activeItem.imageSrc}
                   alt={activeItem.alt}
-                  fill
+                  width={activeItem.imageWidth}
+                  height={activeItem.imageHeight}
                   sizes="(min-width: 1280px) 1200px, 96vw"
                   quality={92}
                   priority
-                  className="object-contain object-center"
+                  className="mx-auto h-auto max-h-[min(85dvh,880px)] w-auto max-w-full object-contain"
                 />
               </figure>
               <DialogDescription
@@ -139,4 +138,8 @@ function PortfolioMasonryGallery({ items, galleryLabel }: PortfolioMasonryGaller
   );
 }
 
-export { PortfolioMasonryGallery, PORTFOLIO_PAGE_BATCH_SIZE };
+export {
+  PortfolioMasonryGallery,
+  PORTFOLIO_MASONRY_INITIAL_VISIBLE_COUNT,
+  PORTFOLIO_MASONRY_VISIBLE_COUNT_STEP,
+};

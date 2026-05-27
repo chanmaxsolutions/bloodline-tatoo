@@ -20,7 +20,7 @@ const approachSectionRadialClassName =
   "pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_12%_0%,color-mix(in_oklab,var(--surface-elevated)_55%,transparent),transparent_72%)]";
 
 const approachSectionMediaClassName =
-  "relative aspect-5/4 max-h-[min(40vh,280px)] w-full overflow-hidden rounded-md border border-border/50 lg:aspect-auto lg:max-h-none lg:min-h-[min(60vh,520px)]";
+  "relative aspect-5/4 max-h-[min(40vh,280px)] w-full overflow-hidden rounded-md border border-border/50 shadow-none lg:aspect-auto lg:max-h-none lg:min-h-[min(60vh,520px)] [&_img]:shadow-none [&_img]:drop-shadow-none";
 
 interface ApproachPointerCardProps {
   label: string;

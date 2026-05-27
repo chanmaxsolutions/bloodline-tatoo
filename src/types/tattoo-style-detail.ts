@@ -3,6 +3,10 @@ import type { TattooStyleSlug } from "@/types/tattoo-style";
 export interface TattooStyleDetailProofImage {
   src: string;
   alt: string;
+  /** Lower values surface first in portfolio (defaults to proof-pool array index). */
+  sortOrder?: number;
+  /** ISO-8601; defaults to JPEG file mtime when omitted. */
+  uploadedAt?: string;
 }
 
 /** Exactly three concise pointers for approach band cards and columns. */

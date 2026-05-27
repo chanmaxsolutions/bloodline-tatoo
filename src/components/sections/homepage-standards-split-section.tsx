@@ -71,7 +71,7 @@ function HomepageStandardsSplitApproachLayout({
 
   const mediaColumnClassName = cn(
     approachSectionMediaClassName,
-    "border-0",
+    "border-0 shadow-none drop-shadow-none [&_img]:shadow-none [&_img]:drop-shadow-none",
     isMediaStart ? "order-2 lg:order-1" : "order-2 lg:order-2",
   );
 
@@ -105,7 +105,7 @@ function HomepageStandardsSplitApproachLayout({
         fill
         sizes="(min-width: 1024px) 60vw, 92vw"
         quality={78}
-        className="object-cover object-center"
+        className="object-cover object-center shadow-none drop-shadow-none"
       />
     </div>
   );
@@ -198,7 +198,7 @@ function HomepageStandardsSplitSection({
                   isEditorial ? "(min-width: 1024px) 40vw, 92vw" : "(min-width: 1024px) 46vw, 100vw"
                 }
                 quality={isEditorial ? 78 : 75}
-                className="object-cover object-center"
+                className="object-cover object-center shadow-none drop-shadow-none"
               />
             </div>
             <div

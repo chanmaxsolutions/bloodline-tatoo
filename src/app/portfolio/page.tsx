@@ -4,7 +4,10 @@ import { GalleryPageIntroSection } from "@/components/sections/gallery-page-intr
 import { GalleryPageMasonrySection } from "@/components/sections/gallery-page-masonry-section";
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
 import { pageIntroBandBackgroundImage } from "@/config/page-intro-band";
-import { galleryPageClosingForRegion } from "@/config/gallery-page";
+import {
+  galleryPageClosingForRegion,
+  portfolioMetadataForRegionAndCategory,
+} from "@/config/gallery-page";
 import { portfolioClosingCtaSectionClassName } from "@/lib/gallery-page-layout";
 import { getGalleryPageContent, isValidGalleryCategoryParam } from "@/lib/gallery";
 import { buildMetadata } from "@/lib/seo";
@@ -14,24 +17,27 @@ interface PortfolioPageProps {
   searchParams: Promise<{ category?: string }>;
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ searchParams }: PortfolioPageProps): Promise<Metadata> {
+  const { category: categoryParam } = await searchParams;
+
+  if (!isValidGalleryCategoryParam(categoryParam)) {
+    return {};
+  }
+
   const { region, regionConfig } = await getRequestRegionContext();
-
-  const title =
-    region === "global"
-      ? `Tattoo Portfolio | ${regionConfig.seo.siteName}`
-      : `Tattoo Portfolio in ${regionConfig.regionName} | ${regionConfig.seo.siteName}`;
-
-  const description =
-    region === "global"
-      ? "Curated tattoo portfolio from Bloodline studios in Bangkok, Bali, and Phuket. Explore healed work and session frames before you book."
-      : `Curated tattoo portfolio and healed work from Bloodline ${regionConfig.regionName}. Explore proof on skin and book with confidence.`;
+  const content = getGalleryPageContent(region, regionConfig.regionName, categoryParam);
+  const meta = portfolioMetadataForRegionAndCategory(
+    region,
+    regionConfig.regionName,
+    regionConfig.seo.siteName,
+    content.activeCategory,
+  );
 
   return buildMetadata(
     {
-      title,
-      description,
-      canonicalPath: "/portfolio",
+      title: meta.title,
+      description: meta.description,
+      canonicalPath: meta.canonicalPath,
     },
     regionConfig,
   );
@@ -45,7 +51,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
   }
 
   const { region, regionConfig } = await getRequestRegionContext();
-  const content = getGalleryPageContent(region, categoryParam);
+  const content = getGalleryPageContent(region, regionConfig.regionName, categoryParam);
   const closing = galleryPageClosingForRegion(region, regionConfig.regionName);
 
   return (

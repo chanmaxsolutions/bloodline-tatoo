@@ -1,15 +1,26 @@
+import { homepageMediaPaths } from "@/config/homepage-media";
 import type { RegionHomepageStandardsSplitConfig } from "@/types/homepage-standards-split";
 import type { RegionSlug } from "@/types/region";
 
-const standardsMedia = {
-  src: "/images/homepage-authority/institution-craft.jpg",
-  alt: "Close detail of tattoo work in a controlled Bloodline studio session",
-} as const;
+const standardsSplitAltByRegion: Record<RegionSlug, string> = {
+  global:
+    "Close detail of premium tattoo execution in a controlled Bloodline studio session across Asia",
+  bangkok:
+    "Black and grey realism sleeve with Greek god, winged angel, cathedral architecture, and eye detail at Bloodline Tattoo Bangkok",
+  bali: "Black and grey realism portrait sleeve with roses and classical columns on a woman at Bloodline Tattoo Bali",
+  phuket:
+    "Black and grey realism angel back tattoo with sword, roses, and classical columns at Bloodline Tattoo Phuket",
+};
 
-const sessionPathMedia = {
-  src: "/hero-poster.jpg",
-  alt: "Bloodline studio atmosphere and controlled lighting for premium tattoo sessions",
-} as const;
+const sessionPathAltByRegion: Record<RegionSlug, string> = {
+  global:
+    "Bloodline studio atmosphere and controlled lighting for premium tattoo sessions across Bangkok, Bali, and Phuket",
+  bangkok:
+    "Black and grey realism back tattoo with Greek god portrait, winged angel, temple, and lightning at Bloodline Tattoo Bangkok",
+  bali: "Black and grey realism Spartan warrior and Parthenon full back tattoo in a moody studio at Bloodline Tattoo Bali",
+  phuket:
+    "Black and grey realism angel full back tattoo with cathedral columns in a cinematic studio at Bloodline Tattoo Phuket",
+};
 
 function homepageStandardsSplitForRegion(
   slug: RegionSlug,
@@ -32,7 +43,10 @@ function homepageStandardsSplitForRegion(
         "The same institutional floor in Bangkok, Bali, and Phuket: permanence treated with seriousness, not volume speed.",
       ],
       cta: { label: "About the studio", href: "/about" },
-      media: standardsMedia,
+      media: {
+        src: homepageMediaPaths.standardsSplit(slug),
+        alt: standardsSplitAltByRegion[slug],
+      },
     };
   }
 
@@ -49,7 +63,10 @@ function homepageStandardsSplitForRegion(
       "You should feel the same premium gravity here as the wider house—only the city changes.",
     ],
     cta: { label: "About the studio", href: "/about" },
-    media: standardsMedia,
+    media: {
+      src: homepageMediaPaths.standardsSplit(slug),
+      alt: standardsSplitAltByRegion[slug],
+    },
   };
 }
 
@@ -75,7 +92,10 @@ function homepageSessionPathSplitForRegion(
         "Aftercare ships as part of the work—clear steps so healing protects line weight and tonal control.",
       ],
       cta: { label: "Book consultation", href: "/contact" },
-      media: sessionPathMedia,
+      media: {
+        src: homepageMediaPaths.sessionPath(slug),
+        alt: sessionPathAltByRegion[slug],
+      },
     };
   }
 
@@ -101,7 +121,10 @@ function homepageSessionPathSplitForRegion(
       "Session day stays calm: disciplined field habits, controlled pacing, and a close-out brief that protects line weight and tone.",
     ],
     cta: { label: "Book consultation", href: "/contact" },
-    media: sessionPathMedia,
+    media: {
+      src: homepageMediaPaths.sessionPath(slug),
+      alt: sessionPathAltByRegion[slug],
+    },
   };
 }
 

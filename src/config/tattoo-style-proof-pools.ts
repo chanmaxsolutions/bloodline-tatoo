@@ -15,20 +15,6 @@ import {
   tattooStyleStudioRegionsForSlug,
 } from "@/config/tattoo-style-image-regions";
 
-type TattooStyleProofPoolByStudio = Partial<
-  Record<TattooStyleStudioRegion, readonly TattooStyleDetailProofImage[]>
->;
-
-/**
- * Proof libraries keyed by style → studio.
- * Register paths after files land in `public/images/tattoo-styles/{style}/{studio}/proof/`.
- */
-const tattooStyleProofPoolsByStudio: Partial<
-  Record<TattooStyleSlug, TattooStyleProofPoolByStudio>
-> = {
-  mandala: { bangkok: [], bali: [], phuket: [] },
-};
-
 function getTattooStyleProofPoolForStudio(
   slug: TattooStyleSlug,
   studio: TattooStyleStudioRegion,
@@ -65,7 +51,7 @@ function getTattooStyleProofPoolForStudio(
     return getMandalaProofPoolForStudio(studio);
   }
 
-  return tattooStyleProofPoolsByStudio[slug]?.[studio] ?? [];
+  return [];
 }
 
 function getTattooStyleProofPoolForRegion(
@@ -123,5 +109,4 @@ export {
   getTattooStyleProofPool,
   getTattooStyleProofPoolForRegion,
   getTattooStyleProofPoolForStudio,
-  tattooStyleProofPoolsByStudio,
 };

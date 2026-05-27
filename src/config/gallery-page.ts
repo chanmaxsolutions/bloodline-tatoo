@@ -1,5 +1,6 @@
+import { GALLERY_CATEGORY_LABELS } from "@/config/gallery-catalog";
 import type { PageClosingCtaContent } from "@/types/page-closing-cta";
-import type { GalleryPageIntro } from "@/types/gallery";
+import type { GalleryCategorySlug, GalleryPageIntro } from "@/types/gallery";
 import type { RegionSlug } from "@/types/region";
 
 const galleryPageIntroByRegion: Record<RegionSlug, GalleryPageIntro> = {
@@ -33,6 +34,78 @@ function galleryPageIntroForRegion(region: RegionSlug): GalleryPageIntro {
   return galleryPageIntroByRegion[region];
 }
 
+function galleryCategoryLabel(category: GalleryCategorySlug): string {
+  return GALLERY_CATEGORY_LABELS[category];
+}
+
+function galleryPageIntroForRegionAndCategory(
+  region: RegionSlug,
+  regionName: string,
+  category: GalleryCategorySlug | null,
+): GalleryPageIntro {
+  const base = galleryPageIntroByRegion[region];
+
+  if (!category) {
+    return base;
+  }
+
+  const label = galleryCategoryLabel(category);
+  const categoryHeading = label.toUpperCase();
+
+  if (region === "global") {
+    return {
+      eyebrow: "Portfolio",
+      heading: `${categoryHeading} PORTFOLIO`,
+      description: `Curated ${label.toLowerCase()} tattoo work from Bloodline studios in Bangkok, Bali, and Phuket. Explore proof on skin before you book.`,
+    };
+  }
+
+  return {
+    eyebrow: label,
+    heading: `${regionName.toUpperCase()} ${categoryHeading} PORTFOLIO`,
+    description: `Selected ${label.toLowerCase()} tattoo work from Bloodline ${regionName}. Explore proof on skin, then message us with placement and references.`,
+  };
+}
+
+function portfolioMetadataForRegionAndCategory(
+  region: RegionSlug,
+  regionName: string,
+  siteName: string,
+  category: GalleryCategorySlug | null,
+): { title: string; description: string; canonicalPath: string } {
+  if (!category) {
+    const title =
+      region === "global"
+        ? `Tattoo Portfolio | ${siteName}`
+        : `Tattoo Portfolio in ${regionName} | ${siteName}`;
+
+    const description =
+      region === "global"
+        ? "Curated tattoo portfolio from Bloodline studios in Bangkok, Bali, and Phuket. Explore healed work and session frames before you book."
+        : `Curated tattoo portfolio and healed work from Bloodline ${regionName}. Explore proof on skin and book with confidence.`;
+
+    return { title, description, canonicalPath: "/portfolio" };
+  }
+
+  const label = galleryCategoryLabel(category);
+
+  const title =
+    region === "global"
+      ? `${label} Tattoo Portfolio | ${siteName}`
+      : `${label} Tattoos in ${regionName} | ${siteName}`;
+
+  const description =
+    region === "global"
+      ? `Explore ${label.toLowerCase()} tattoo proof from Bloodline studios in Bangkok, Bali, and Phuket before you book.`
+      : `Explore ${label.toLowerCase()} tattoo proof from Bloodline ${regionName}. Filtered portfolio work on skin before you message us.`;
+
+  return {
+    title,
+    description,
+    canonicalPath: `/portfolio?category=${category}`,
+  };
+}
+
 function galleryPageClosingForRegion(
   region: RegionSlug,
   regionName: string,
@@ -51,4 +124,9 @@ function galleryPageClosingForRegion(
   };
 }
 
-export { galleryPageClosingForRegion, galleryPageIntroForRegion };
+export {
+  galleryPageClosingForRegion,
+  galleryPageIntroForRegion,
+  galleryPageIntroForRegionAndCategory,
+  portfolioMetadataForRegionAndCategory,
+};

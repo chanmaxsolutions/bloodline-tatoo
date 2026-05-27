@@ -1,5 +1,7 @@
-import { galleryCatalog, GALLERY_CATEGORY_ORDER } from "@/config/gallery-catalog";
-import { galleryPageIntroForRegion } from "@/config/gallery-page";
+import { GALLERY_CATEGORY_ORDER } from "@/config/gallery-catalog";
+import { galleryCatalogFromProofs } from "@/lib/build-gallery-catalog";
+import { galleryPageIntroForRegionAndCategory } from "@/config/gallery-page";
+import { sortGalleryItemsForPortfolio } from "@/lib/sort-gallery-items";
 import type { GalleryCategorySlug, GalleryItem, GalleryPageContent } from "@/types/gallery";
 import type { RegionSlug } from "@/types/region";
 
@@ -17,7 +19,7 @@ function parseCategoryFilter(value: string | undefined): GalleryCategorySlug | n
 }
 
 function itemsForRegion(region: RegionSlug): GalleryItem[] {
-  return galleryCatalog.filter((item) => isItemVisibleInRegion(item, region));
+  return galleryCatalogFromProofs.filter((item) => isItemVisibleInRegion(item, region));
 }
 
 function filterItemsByCategory(
@@ -32,21 +34,12 @@ function filterItemsByCategory(
 }
 
 function sortPortfolioItems(items: readonly GalleryItem[]): GalleryItem[] {
-  return [...items].sort((left, right) => {
-    if (left.featured && !right.featured) {
-      return -1;
-    }
-
-    if (!left.featured && right.featured) {
-      return 1;
-    }
-
-    return 0;
-  });
+  return sortGalleryItemsForPortfolio(items);
 }
 
 function getGalleryPageContent(
   region: RegionSlug,
+  regionName: string,
   categoryParam: string | undefined,
 ): GalleryPageContent {
   const activeCategory = parseCategoryFilter(categoryParam);
@@ -54,10 +47,15 @@ function getGalleryPageContent(
   const filtered = filterItemsByCategory(visible, activeCategory);
 
   return {
-    intro: galleryPageIntroForRegion(region),
+    intro: galleryPageIntroForRegionAndCategory(region, regionName, activeCategory),
     items: sortPortfolioItems(filtered),
     activeCategory,
   };
+}
+
+function galleryCategoriesForRegion(region: RegionSlug): GalleryCategorySlug[] {
+  const categories = new Set(itemsForRegion(region).map((item) => item.category));
+  return GALLERY_CATEGORY_ORDER.filter((category) => categories.has(category));
 }
 
 function isValidGalleryCategoryParam(value: string | undefined): boolean {
@@ -68,4 +66,9 @@ function isValidGalleryCategoryParam(value: string | undefined): boolean {
   return parseCategoryFilter(value) !== null;
 }
 
-export { getGalleryPageContent, isItemVisibleInRegion, isValidGalleryCategoryParam };
+export {
+  galleryCategoriesForRegion,
+  getGalleryPageContent,
+  isItemVisibleInRegion,
+  isValidGalleryCategoryParam,
+};

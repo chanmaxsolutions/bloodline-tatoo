@@ -20,10 +20,17 @@ export interface GalleryItem {
   title: string;
   alt: string;
   imageSrc: string;
+  imageWidth: number;
+  imageHeight: number;
   category: GalleryCategorySlug;
   regions: readonly RegionSlug[];
   styleSlug?: TattooStyleSlug;
   featured?: boolean;
+  /** Lower values surface first (after featured). */
+  sortOrder: number;
+  /** ISO-8601; newer dates sort earlier when sortOrder ties. */
+  uploadedAt: string;
+  /** Legacy masonry hint; portfolio uses intrinsic image dimensions instead. */
   layout?: GalleryItemLayout;
 }
 
