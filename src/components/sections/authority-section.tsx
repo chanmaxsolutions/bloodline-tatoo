@@ -48,11 +48,11 @@ const authorityProofTitleClassName =
 /** Matches `TattooStyleTile` description scale. */
 const authorityProofLineClassName = "line-clamp-2 font-sans text-base leading-relaxed text-pretty";
 
-/** Stronger wash at top, solid at bottom for caption contrast. */
+/** Softer top wash, solid bottom for caption contrast. */
 const authorityProofOverlayClassName: Record<HomepageAuthorityProofOverlay, string> = {
   accent:
-    "pointer-events-none absolute inset-0 bg-linear-to-b from-accent/55 via-accent/88 to-accent",
-  light: "pointer-events-none absolute inset-0 bg-linear-to-b from-white/50 via-white/92 to-white",
+    "pointer-events-none absolute inset-0 bg-linear-to-b from-accent/34 via-accent/84 to-accent",
+  light: "pointer-events-none absolute inset-0 bg-linear-to-b from-white/30 via-white/88 to-white",
 };
 
 const authorityProofTitleClassNameByOverlay: Record<HomepageAuthorityProofOverlay, string> = {
