@@ -4,8 +4,9 @@ import { AboutPageStorySection } from "@/components/sections/about-page-story-se
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
 import { AboutPageReviewsSection } from "@/components/sections/about-page-reviews-section";
 import { AboutPageVideoSection } from "@/components/sections/about-page-video-section";
+import { portfolioClosingCtaSectionClassName } from "@/lib/gallery-page-layout";
 import { getAboutPageContent } from "@/lib/about-page";
-import { getReviewsPageContent } from "@/lib/reviews-page";
+import { getReviewsCarouselPreview } from "@/lib/reviews-page";
 import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
 
@@ -35,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function AboutPage() {
   const { region, regionConfig } = await getRequestRegionContext();
   const content = getAboutPageContent(region);
-  const reviewsContent = getReviewsPageContent(region);
+  const reviewsContent = getReviewsCarouselPreview(region);
 
   return (
     <div className="min-w-0 bg-background">
@@ -56,6 +57,8 @@ export default async function AboutPage() {
         content={content.closing}
         headerCtaLabel={content.headerCtaLabel}
         headingId="about-closing-heading"
+        ctaUrgencyNote={regionConfig.heroCtaUrgencyNote}
+        sectionClassName={portfolioClosingCtaSectionClassName}
       />
     </div>
   );

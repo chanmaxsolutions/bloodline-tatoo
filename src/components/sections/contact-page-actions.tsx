@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ContactChannelTileMark } from "@/components/shared/contact-channel-tile-mark";
 import { TileLinkArrow } from "@/components/shared/tile-link-arrow";
 import { cn } from "@/lib/utils";
 import type { BookingModalChannelLink, BookingModalChannels } from "@/types/booking-modal";
@@ -12,14 +13,17 @@ interface ContactPageActionsProps {
   studios: readonly ContactPageStudioLink[];
 }
 
-const tileGridClassName = "grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5";
+const tileGridClassName =
+  "grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6";
 
-const tileBaseClassName = cn(
-  "group relative flex min-h-[9.5rem] flex-col justify-between gap-5 rounded-xl border border-border/50 bg-surface-elevated/90 p-6 text-left md:min-h-[10.5rem] md:p-7",
+const channelTileClassName = cn(
+  "group relative flex h-full flex-col gap-5 rounded-xl border border-border/50 bg-surface-elevated/90 p-6 text-left md:gap-6 md:p-7",
   "motion-fast outline-none transition-[border-color,background-color]",
-  "hover:border-white/15 hover:bg-surface-elevated",
+  "hover:border-white/8 hover:bg-surface-elevated",
   "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
 );
+
+const studioTileClassName = cn(channelTileClassName, "min-h-[9.5rem] md:min-h-[10.5rem]");
 
 interface ContactStudioTileProps {
   studio: ContactPageStudioLink;
@@ -27,8 +31,9 @@ interface ContactStudioTileProps {
 
 function ContactStudioTile({ studio }: ContactStudioTileProps) {
   return (
-    <Link href={studio.href} className={tileBaseClassName}>
-      <div className="flex w-full flex-col gap-2">
+    <Link href={studio.href} className={studioTileClassName}>
+      <TileLinkArrow className="pointer-events-none absolute right-6 top-6 z-10 md:right-7 md:top-7" />
+      <div className="flex w-full flex-col gap-2 pr-14 md:pr-16">
         <p className="font-heading text-3xl font-bold uppercase leading-none tracking-tight text-foreground md:text-4xl">
           {studio.studioName}
         </p>
@@ -36,7 +41,6 @@ function ContactStudioTile({ studio }: ContactStudioTileProps) {
           WhatsApp, Instagram, and Facebook for this studio.
         </p>
       </div>
-      <TileLinkArrow className="ml-auto" />
     </Link>
   );
 }
@@ -55,22 +59,24 @@ function channelTileDescription(displayLabel: string): string {
 }
 
 function ContactChannelTile({ channel }: ContactChannelTileProps) {
+  const displayLabel = contactChannelTileLabel(channel.label);
+
   return (
     <Link
       href={channel.href}
       target="_blank"
       rel="noopener noreferrer"
-      className={tileBaseClassName}
+      className={channelTileClassName}
     >
-      <div className="flex w-full flex-col gap-2">
+      <ContactChannelTileMark channelLabel={displayLabel} />
+      <div className="flex flex-col gap-2 md:gap-2.5">
         <p className="font-heading text-2xl font-bold uppercase leading-none tracking-tight text-foreground md:text-3xl">
-          {contactChannelTileLabel(channel.label)}
+          {displayLabel}
         </p>
-        <p className="font-sans text-base leading-relaxed text-muted-foreground">
-          {channelTileDescription(contactChannelTileLabel(channel.label))}
+        <p className="font-sans text-base leading-relaxed text-pretty text-muted-foreground">
+          {channelTileDescription(displayLabel)}
         </p>
       </div>
-      <TileLinkArrow className="ml-auto" />
     </Link>
   );
 }

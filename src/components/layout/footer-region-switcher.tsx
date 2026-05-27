@@ -7,28 +7,23 @@ import {
   buildFooterRegionSwitcherOptions,
   footerRegionSwitcherTitle,
 } from "@/config/footer-region-switcher";
+import {
+  footerColumnStackClassName,
+  footerColumnTitleClassName,
+  footerListClassName,
+  footerListItemClassName,
+  footerListRowClassName,
+  footerListRowIconShellClassName,
+  footerListRowLabelClassName,
+} from "@/lib/footer-styles";
 import { cn } from "@/lib/utils";
 import type { RegionSlug } from "@/types/region";
 
-const studioSwitcherTitleClassName =
-  "font-heading text-lg font-bold uppercase leading-none tracking-tight text-accent md:text-xl";
+const studioSwitcherTitleCenteredClassName = cn(footerColumnTitleClassName, "text-center");
 
-const studioSwitcherTitleCenteredClassName = cn(studioSwitcherTitleClassName, "text-center");
+const studioListItemClassName = footerListRowClassName;
 
-const studioListItemClassName = cn(
-  "group flex w-full items-center gap-3 py-0.5 motion-fast outline-none",
-  "focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
-);
-
-const studioListFlagClassName = cn(
-  "size-7 shrink-0 sm:size-8",
-  "opacity-80 motion-fast group-hover:opacity-100 group-focus-visible:opacity-100",
-);
-
-const studioListLabelClassName = cn(
-  "font-heading text-lg font-bold uppercase leading-none tracking-tight text-muted-foreground motion-fast md:text-xl",
-  "group-hover:text-foreground group-focus-visible:text-foreground",
-);
+const studioListLabelClassName = footerListRowLabelClassName;
 
 const studioChipSharedClassName = cn(
   "flex flex-col items-center justify-center gap-1.5 rounded-lg border px-1.5 py-2 motion-fast outline-none",
@@ -65,12 +60,14 @@ function FooterRegionSwitcher({ currentRegion, layout = "column" }: FooterRegion
     <div
       className={cn(
         "flex flex-col",
-        isColumnLayout ? "items-start gap-4 md:gap-6" : "items-center gap-3 md:gap-4",
+        isColumnLayout
+          ? cn(footerColumnStackClassName, "items-start")
+          : "flex flex-col items-center gap-3 md:gap-4",
       )}
     >
       <p
         className={
-          isColumnLayout ? studioSwitcherTitleClassName : studioSwitcherTitleCenteredClassName
+          isColumnLayout ? footerColumnTitleClassName : studioSwitcherTitleCenteredClassName
         }
       >
         {footerRegionSwitcherTitle()}
@@ -78,18 +75,16 @@ function FooterRegionSwitcher({ currentRegion, layout = "column" }: FooterRegion
       <ul
         className={cn(
           "m-0 list-none p-0",
-          isColumnLayout
-            ? "flex w-full flex-col gap-2.5 md:gap-4"
-            : "flex flex-wrap justify-center gap-2.5 sm:gap-3",
+          isColumnLayout ? footerListClassName : "flex flex-wrap justify-center gap-2.5 sm:gap-3",
         )}
         aria-label="Visit another Bloodline regional site"
       >
         {options.map((option) => {
           if (isColumnLayout) {
             return (
-              <li key={option.slug} className="w-full">
+              <li key={option.slug} className={footerListItemClassName}>
                 <Link href={option.href} className={studioListItemClassName}>
-                  <RegionFlagMark flag={option.flag} className={studioListFlagClassName} />
+                  <RegionFlagMark flag={option.flag} className={footerListRowIconShellClassName} />
                   <span className={studioListLabelClassName}>{option.label}</span>
                 </Link>
               </li>

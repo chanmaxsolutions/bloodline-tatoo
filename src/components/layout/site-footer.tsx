@@ -2,19 +2,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { FooterRegionSwitcher } from "@/components/layout/footer-region-switcher";
+import { FooterSocialConnect } from "@/components/layout/footer-social-connect";
 import { getRegionConfig } from "@/lib/region";
+import {
+  footerColumnStackClassName,
+  footerColumnTitleClassName,
+  footerListClassName,
+  footerListItemClassName,
+  footerListRowClassName,
+  footerListRowLabelClassName,
+} from "@/lib/footer-styles";
 import { navigationItemsForRegion } from "@/lib/tattoo-style-navigation";
 import { cn } from "@/lib/utils";
 import type { HeaderNavItem } from "@/config/navigation";
 import type { RegionSlug } from "@/types/region";
-
-/** Matches footer link scale; accent color only. */
-const footerColumnTitleClassName =
-  "font-heading text-lg font-bold uppercase leading-none tracking-tight text-accent md:text-xl";
-
-/** Matches related-style card titles, scaled for footer navigation. */
-const footerLinkClassName =
-  "font-heading text-lg font-bold uppercase leading-none tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:text-xl";
 
 const footerLegalClassName =
   "font-sans text-sm leading-snug text-muted-foreground/85 md:text-base md:leading-relaxed";
@@ -46,13 +47,13 @@ function FooterNavColumn({ title, items }: { title: string; items: HeaderNavItem
   if (items.length === 0) return null;
 
   return (
-    <div className="flex flex-col gap-4 md:gap-6">
+    <div className={footerColumnStackClassName}>
       <p className={footerColumnTitleClassName}>{title}</p>
-      <ul className="m-0 flex list-none flex-col gap-3 p-0 md:gap-5">
+      <ul className={footerListClassName}>
         {items.map((item) => (
-          <li key={item.href}>
-            <Link href={item.href} className={footerLinkClassName}>
-              {item.label}
+          <li key={item.href} className={footerListItemClassName}>
+            <Link href={item.href} className={footerListRowClassName}>
+              <span className={footerListRowLabelClassName}>{item.label}</span>
             </Link>
           </li>
         ))}
@@ -70,8 +71,8 @@ function SiteFooter({ region }: SiteFooterProps) {
   return (
     <footer className="border-t border-border/25 bg-surface-elevated text-foreground">
       <Container size="wide" className="pt-16 pb-10 md:pt-20 md:pb-14">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:gap-x-10 sm:gap-y-12 lg:grid-cols-12 lg:gap-8 xl:gap-10">
-          <div className="col-span-2 flex flex-col items-center gap-4 text-center lg:col-span-4 lg:items-start lg:text-left">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:gap-x-10 sm:gap-y-12 lg:grid-cols-[40fr_15fr_15fr_15fr_15fr] lg:gap-8 xl:gap-10">
+          <div className="col-span-2 flex flex-col items-center gap-4 text-center lg:col-span-1 lg:items-start lg:text-left">
             <Link
               href="/"
               aria-label={`${regionConfig.branding.logoWordmark} home`}
@@ -91,15 +92,19 @@ function SiteFooter({ region }: SiteFooterProps) {
             </p>
           </div>
 
-          <div className="min-w-0 lg:col-span-2">
+          <div className="min-w-0">
             <FooterNavColumn title="Explore" items={explore} />
           </div>
 
-          <div className="min-w-0 lg:col-span-2">
+          <div className="min-w-0">
             <FooterNavColumn title="Studio" items={studio} />
           </div>
 
-          <div className="col-span-2 border-t border-border/50 pt-8 sm:border-0 sm:pt-0 lg:col-span-4 lg:border-0 lg:pt-0">
+          <div className="min-w-0">
+            <FooterSocialConnect currentRegion={region} />
+          </div>
+
+          <div className="min-w-0">
             <FooterRegionSwitcher currentRegion={region} layout="column" />
           </div>
         </div>

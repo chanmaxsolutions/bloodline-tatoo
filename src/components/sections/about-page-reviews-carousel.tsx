@@ -1,7 +1,10 @@
 "use client";
 
 import { useId } from "react";
-import { GoogleReviewsCarouselStrip } from "@/components/shared/google-reviews-carousel-strip";
+import {
+  GoogleReviewsCarouselStrip,
+  type GoogleReviewsCarouselEdgeFade,
+} from "@/components/shared/google-reviews-carousel-strip";
 import type { ReviewsPageTestimonial } from "@/types/reviews-page";
 
 interface AboutPageReviewsCarouselProps {
@@ -9,6 +12,7 @@ interface AboutPageReviewsCarouselProps {
   testimonials: readonly ReviewsPageTestimonial[];
   googleBusinessProfileUrl: string;
   showStudioName: boolean;
+  edgeFade?: GoogleReviewsCarouselEdgeFade;
 }
 
 function AboutPageReviewsCarousel({
@@ -16,6 +20,7 @@ function AboutPageReviewsCarousel({
   testimonials,
   googleBusinessProfileUrl,
   showStudioName,
+  edgeFade = "surface",
 }: AboutPageReviewsCarouselProps) {
   const carouselId = useId();
 
@@ -35,7 +40,7 @@ function AboutPageReviewsCarousel({
         testimonials={testimonials}
         googleBusinessProfileUrl={googleBusinessProfileUrl}
         showStudioName={showStudioName}
-        edgeFade="surface"
+        edgeFade={edgeFade}
       />
     </div>
   );

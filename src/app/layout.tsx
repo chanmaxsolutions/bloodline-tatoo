@@ -9,7 +9,7 @@ import "./globals.css";
 const headingFont = Barlow_Condensed({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const bodyFont = Plus_Jakarta_Sans({

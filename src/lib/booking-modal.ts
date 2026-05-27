@@ -2,6 +2,7 @@ import { globalBookingModalCopy, regionalBookingModalCopy } from "@/config/booki
 import { regionsBySlug } from "@/config/regions";
 import type {
   BookingModalChannelLink,
+  BookingModalChannels,
   BookingModalPayload,
   BookingModalStudioLink,
 } from "@/types/booking-modal";
@@ -9,7 +10,13 @@ import { isTattooStyleAvailableInRegion } from "@/config/region-tattoo-style-ava
 import type { TattooStyleSlug } from "@/types/tattoo-style";
 import type { RegionConfig, RegionSlug } from "@/types/region";
 
-const studioRegionOrder: RegionSlug[] = ["bangkok", "phuket", "bali"];
+const studioRegionOrder: Exclude<RegionSlug, "global">[] = ["bangkok", "phuket", "bali"];
+
+function buildSocialChannelsForRegionSlug(
+  slug: Exclude<RegionSlug, "global">,
+): BookingModalChannels {
+  return buildSocialChannelsPayload(regionsBySlug[slug]).channels;
+}
 
 function isUsableHttpUrl(value: string): boolean {
   const t = value.trim();
@@ -123,5 +130,7 @@ function bookingModalPayloadForOpen(
 export {
   bookingModalPayloadForOpen,
   applyStudioAvailabilityForTattooStyle,
+  buildSocialChannelsForRegionSlug,
+  studioRegionOrder,
   studioUnavailableReason,
 };

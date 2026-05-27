@@ -44,7 +44,7 @@ function TattooStyleDetailHero({ content }: TattooStyleDetailHeroProps) {
         className="relative z-10 flex min-h-[min(52vh,440px)] flex-col items-center justify-end pb-10 pt-28 text-center md:min-h-[min(58vh,520px)] md:pb-14 md:pt-36"
       >
         <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 md:gap-5">
-          <nav aria-label="Breadcrumb">
+          <nav aria-label="Breadcrumb" className="hero-reveal-motion w-full">
             <ol className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 font-heading text-base font-medium uppercase tracking-normal text-muted-foreground md:text-lg">
               <li>
                 <Link
@@ -65,11 +65,11 @@ function TattooStyleDetailHero({ content }: TattooStyleDetailHeroProps) {
 
           <h1
             id="tattoo-style-detail-heading"
-            className="text-heading-authority-display w-full max-w-4xl"
+            className="hero-reveal-motion hero-reveal-motion-delay-sm text-heading-authority-display w-full max-w-4xl"
           >
             {content.title}
           </h1>
-          <p className="mx-auto max-w-xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug">
+          <p className="hero-reveal-motion hero-reveal-motion-delay-md mx-auto max-w-xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug">
             {content.lead}
           </p>
         </div>

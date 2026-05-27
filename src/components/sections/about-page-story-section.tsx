@@ -29,7 +29,7 @@ function AboutPageStorySection({ storyParagraphs }: AboutPageStorySectionProps) 
           <div
             className={sectionRevealItemClass(
               "lg",
-              "mx-auto flex w-full max-w-2xl flex-col gap-4 border-t border-border/45 pt-10 text-center md:gap-5 md:pt-12",
+              "mx-auto flex w-full max-w-2xl flex-col gap-4 pt-10 text-center md:gap-5 md:pt-12",
             )}
           >
             {storyParagraphs.map((paragraph, index) => (

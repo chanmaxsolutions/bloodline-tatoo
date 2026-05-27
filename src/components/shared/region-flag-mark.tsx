@@ -19,8 +19,15 @@ function ThailandFlagSvg() {
 function IndonesiaFlagSvg() {
   return (
     <svg viewBox="0 0 24 24" className="size-full" aria-hidden>
-      <circle cx="12" cy="12" r="12" fill="#FFFFFF" />
-      <path d="M0 0h24v12H0z" fill="#CE1126" />
+      <defs>
+        <clipPath id="bloodline-indonesia-flag-clip">
+          <circle cx="12" cy="12" r="12" />
+        </clipPath>
+      </defs>
+      <g clipPath="url(#bloodline-indonesia-flag-clip)">
+        <rect x="0" y="0" width="24" height="12" fill="#CE1126" />
+        <rect x="0" y="12" width="24" height="12" fill="#FFFFFF" />
+      </g>
     </svg>
   );
 }

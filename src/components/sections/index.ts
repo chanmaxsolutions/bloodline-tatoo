@@ -23,3 +23,14 @@ export { ContactPageIntroSection } from "@/components/sections/contact-page-intr
 export { ContactPageFormSection } from "@/components/sections/contact-page-form-section";
 export { ContactPageActions } from "@/components/sections/contact-page-actions";
 export { ContactPageWhatsAppForm } from "@/components/sections/contact-page-whatsapp-form";
+export { BlogPageIntroSection } from "@/components/sections/blog-page-intro-section";
+export { BlogPageFiltersSection } from "@/components/sections/blog-page-filters-section";
+export { BlogPageFeaturedSection } from "@/components/sections/blog-page-featured-section";
+export { BlogPageGridSection } from "@/components/sections/blog-page-grid-section";
+export { BlogArticleSection } from "@/components/sections/blog-article-section";
+export { BlogArticleRelatedSection } from "@/components/sections/blog-article-related-section";
+export { GalleryPageIntroSection } from "@/components/sections/gallery-page-intro-section";
+export { GalleryPageFiltersSection } from "@/components/sections/gallery-page-filters-section";
+export { GalleryPageFeaturedSection } from "@/components/sections/gallery-page-featured-section";
+export { GalleryPageMasonrySection } from "@/components/sections/gallery-page-masonry-section";
+export { GalleryPageReviewsStripSection } from "@/components/sections/gallery-page-reviews-strip-section";

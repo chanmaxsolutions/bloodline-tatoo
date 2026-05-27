@@ -5,8 +5,8 @@ export type StandardsProofVariant = "accent" | "light" | "dark";
 export interface RegionHomepageStandardsSplitConfig {
   /** LTR: image column first (default) vs second (text left, image right). */
   mediaSide?: "start" | "end";
-  /** Slight band separation when two split sections stack. */
-  bandSurface?: "default" | "surface";
+  /** Solid band background when two split sections stack (see `homepage-section-surfaces`). */
+  bandSurface?: "default" | "surface" | "elevated" | "charcoal" | "strong";
   /** Eyebrow for `approach` layout (left-aligned `SectionHeading`). */
   eyebrow?: string;
   /** Display title (uppercase display stack). */

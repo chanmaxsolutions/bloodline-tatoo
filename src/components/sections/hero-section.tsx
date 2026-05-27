@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { BookAppointmentTrigger } from "@/components/cta";
 import { buttonVariants } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import type { GoogleBusinessProofPresentation } from "@/types/google-business-proof";
 
 interface HeroSectionProps {
   /** Optional small label above the title (omit when trust strip carries context). */
@@ -30,6 +31,8 @@ interface HeroSectionProps {
   };
   /** Optional line under CTAs (from region config; scarcity / booking channel). */
   ctaUrgencyNote?: string;
+  /** Region-aware Google rating strip (GMB link + verified counts). */
+  googleBusinessProof: GoogleBusinessProofPresentation;
 }
 
 function HeroSection({
@@ -40,6 +43,7 @@ function HeroSection({
   primaryCta,
   secondaryCta,
   ctaUrgencyNote,
+  googleBusinessProof,
 }: HeroSectionProps) {
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden bg-surface-strong supports-[height:100dvh]:min-h-[100dvh]">
@@ -90,7 +94,12 @@ function HeroSection({
       >
         <div className="grid w-full min-w-0 max-w-5xl justify-items-center gap-7 text-center md:gap-8">
           <div className="mx-auto flex w-full min-w-0 max-w-2xl flex-col items-center gap-3 text-center md:max-w-4xl md:gap-4">
-            <HeroTrustProofStrip className="hero-reveal-motion" />
+            <HeroTrustProofStrip
+              variant="compact"
+              chipsScope="google-only"
+              presentation={googleBusinessProof}
+              className="hero-reveal-motion"
+            />
 
             <div className="hero-reveal-motion hero-reveal-motion-delay-sm w-full max-w-full">
               <SectionHeading
@@ -116,7 +125,7 @@ function HeroSection({
                   href={secondaryCta.href}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "lg" }),
-                    "border border-border-strong bg-background/35 text-muted-foreground hover:bg-background/55 hover:text-foreground",
+                    "rounded-full border border-border-strong bg-background/35 text-muted-foreground hover:bg-background/55 hover:text-foreground",
                   )}
                 >
                   {secondaryCta.label}

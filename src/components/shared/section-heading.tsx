@@ -28,8 +28,10 @@ interface SectionHeadingProps
   eyebrow?: string;
   heading: React.ReactNode;
   description?: string;
-  /** When set, applied to the `h2` for `aria-labelledby` on the parent section. */
+  /** When set, applied to the heading for `aria-labelledby` on the parent section. */
   headingId?: string;
+  /** Page hero sections use `1`; in-page bands default to `2`; nested sub-bands may use `3`. */
+  headingLevel?: 1 | 2 | 3;
   eyebrowClassName?: string;
   titleClassName?: string;
   descriptionClassName?: string;
@@ -42,11 +44,14 @@ function SectionHeading({
   heading,
   description,
   headingId,
+  headingLevel = 2,
   eyebrowClassName,
   titleClassName,
   descriptionClassName,
   ...props
 }: SectionHeadingProps) {
+  const HeadingTag = headingLevel === 1 ? "h1" : headingLevel === 3 ? "h3" : "h2";
+
   return (
     <header
       data-slot="section-heading"
@@ -63,7 +68,7 @@ function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2
+      <HeadingTag
         id={headingId}
         className={clsx(
           "text-heading-display",
@@ -72,7 +77,7 @@ function SectionHeading({
         )}
       >
         {heading}
-      </h2>
+      </HeadingTag>
       {description
         ? (() => {
             const paragraphs = splitSectionDescription(description);

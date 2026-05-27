@@ -22,7 +22,7 @@ function AboutPageVideoSection({ video }: AboutPageVideoSectionProps) {
     <section
       aria-labelledby="about-video-heading"
       className={cn(
-        "border-t border-border/50 bg-background text-foreground",
+        "border-0 bg-background text-foreground",
         "py-(--homepage-section-band-padding-y-mobile) lg:py-(--homepage-section-band-padding-y-desktop)",
       )}
     >

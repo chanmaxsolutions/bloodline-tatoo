@@ -1,10 +1,17 @@
 import { getTattooStyleBySlug } from "@/config/tattoo-style-catalog";
 import { tattooStyleFaqBySlug } from "@/config/tattoo-style-detail-faq";
-import { tattooStyleDetailBySlug } from "@/config/tattoo-style-detail";
+import { getTattooStyleProofPool } from "@/config/tattoo-style-proof-pools";
+import { tattooStyleDetailBySlug, defaultApproachBandImage } from "@/config/tattoo-style-detail";
 import {
   isTattooStyleAvailableInRegion,
   tattooStyleSlugsForRegion,
 } from "@/config/region-tattoo-style-availability";
+import { getPortfolioHrefForTattooStyle } from "@/lib/tattoo-style-portfolio";
+import {
+  resolveTattooStyleApproachImage,
+  resolveTattooStyleHeroImage,
+  resolveTattooStyleProofGalleryImages,
+} from "@/lib/tattoo-style-media";
 import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
 import type { TattooStyleSlug } from "@/types/tattoo-style";
 import type { RegionSlug } from "@/types/region";
@@ -31,25 +38,43 @@ function resolveTattooStyleDetailPage(
   const catalog = getTattooStyleBySlug(slug);
   const detail = tattooStyleDetailBySlug[slug];
 
-  const proofImages =
-    detail.proofImages && detail.proofImages.length > 0
-      ? detail.proofImages
-      : [{ src: catalog.imageSrc, alt: catalog.imageAlt }];
+  const catalogFallback = { src: catalog.imageSrc, alt: catalog.imageAlt };
+
+  const proofPool = getTattooStyleProofPool(slug, region);
+
+  const proofImages = resolveTattooStyleProofGalleryImages(
+    proofPool.length > 0 ? proofPool : detail.proofPool,
+    detail.proofImages,
+    catalogFallback,
+  );
+
+  const heroImage = detail.heroImage ?? resolveTattooStyleHeroImage(slug, region, catalog.imageAlt);
+
+  const approachImage =
+    detail.approachImage ??
+    resolveTattooStyleApproachImage(slug, region, defaultApproachBandImage.alt);
 
   return {
     slug,
     title: catalog.title,
     shortDescription: catalog.shortDescription,
-    heroImageSrc: catalog.imageSrc,
-    heroImageAlt: catalog.imageAlt,
+    heroImageSrc: heroImage.src,
+    heroImageAlt: heroImage.alt,
     metaDescription: detail.metaDescription ?? detail.lead,
     lead: detail.lead,
+    overview: detail.overview,
     approachHeadline: detail.approachHeadline,
     approachIntro: detail.approachIntro,
     philosophyBullets: detail.philosophyBullets,
     idealForBullets: detail.idealForBullets,
     sessionBullets: detail.sessionBullets,
+    approachImageSrc: approachImage.src,
+    approachImageAlt: approachImage.alt,
+    proofEyebrow: detail.proofEyebrow,
+    proofHeading: detail.proofHeading,
+    proofDescription: detail.proofDescription,
     proofImages,
+    proofPortfolioHref: getPortfolioHrefForTattooStyle(slug),
     relatedSlugs: relatedStyleSlugsForRegion(slug, region),
     faqItems: tattooStyleFaqBySlug[slug],
   };

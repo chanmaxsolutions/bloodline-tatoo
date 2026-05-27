@@ -2,11 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
+import { approachSectionMediaClassName } from "@/components/shared/approach-pointer-card";
 import {
-  approachSectionMediaClassName,
-  approachSectionRadialClassName,
-  approachSectionTitleClassName,
-} from "@/components/shared/approach-pointer-card";
+  sectionDisplayHeadingClassName,
+  sectionDisplayHeadingPresetClassName,
+} from "@/lib/section-display-heading";
+import {
+  homepageApproachBandContainerClassName,
+  homepageApproachBandPaddingClassName,
+  resolveHomepageStandardsSplitBandClassName,
+} from "@/lib/homepage-section-surfaces";
 import {
   StandardsProofColumns,
   defaultPointerIcons,
@@ -54,27 +59,37 @@ function HomepageStandardsSplitApproachLayout({
   }));
   const isMediaStart = content.mediaSide === "start";
 
+  const headingColumnClassName = cn(
+    "flex flex-col items-center justify-center gap-6 self-center text-center lg:gap-8 lg:items-start lg:text-left",
+    isMediaStart ? "order-1 lg:order-2 lg:pl-6 xl:pl-10" : "order-1 lg:order-1 lg:pr-6 xl:pr-10",
+  );
+
+  const headingSectionClassName =
+    "w-full gap-4 justify-items-center text-center md:gap-5 lg:justify-items-start lg:text-left";
+
+  const headingTitleClassName = cn(sectionDisplayHeadingClassName, "text-center lg:text-left");
+
+  const mediaColumnClassName = cn(
+    approachSectionMediaClassName,
+    "border-0",
+    isMediaStart ? "order-2 lg:order-1" : "order-2 lg:order-2",
+  );
+
+  const mobileCtaRowClassName = "flex w-full justify-center lg:hidden";
+
   const headingColumn = (
-    <div
-      className={sectionRevealItemClass(
-        "none",
-        cn(
-          "flex flex-col items-start justify-center gap-6 self-center text-left lg:gap-8",
-          isMediaStart ? "lg:pl-6 xl:pl-10" : "lg:pr-6 xl:pr-10",
-        ),
-      )}
-    >
+    <div className={sectionRevealItemClass("none", headingColumnClassName)}>
       <SectionHeading
         align="left"
         eyebrow={content.eyebrow}
         heading={content.heading}
         description={content.intro}
         headingId={headingId}
-        titleClassName={approachSectionTitleClassName}
+        titleClassName={headingTitleClassName}
         descriptionClassName="w-full max-w-none"
-        className="w-full gap-4 justify-items-start text-left md:gap-5"
+        className={headingSectionClassName}
       />
-      <div className={sectionRevealItemClass("md", "pt-1")}>
+      <div className="hidden pt-1 lg:block">
         <Link href={content.cta.href} className={homepageGhostCtaClassName()}>
           {content.cta.label}
         </Link>
@@ -83,7 +98,7 @@ function HomepageStandardsSplitApproachLayout({
   );
 
   const mediaColumn = (
-    <div className={sectionRevealItemClass("sm", cn(approachSectionMediaClassName, "border-0"))}>
+    <div className={sectionRevealItemClass("sm", mediaColumnClassName)}>
       <Image
         src={content.media.src}
         alt={content.media.alt}
@@ -92,15 +107,11 @@ function HomepageStandardsSplitApproachLayout({
         quality={78}
         className="object-cover object-center"
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/30 via-transparent to-transparent"
-      />
     </div>
   );
 
   return (
-    <Container size="wide" className="relative flex flex-col gap-12 md:gap-14 lg:gap-16">
+    <Container size="wide" className={homepageApproachBandContainerClassName}>
       <SectionReveal
         className={
           isMediaStart
@@ -122,6 +133,12 @@ function HomepageStandardsSplitApproachLayout({
       </SectionReveal>
 
       <StandardsProofColumns columns={columns} proofVariants={content.proofVariants} />
+
+      <div className={sectionRevealItemClass("none", mobileCtaRowClassName)}>
+        <Link href={content.cta.href} className={homepageGhostCtaClassName()}>
+          {content.cta.label}
+        </Link>
+      </div>
     </Container>
   );
 }
@@ -133,7 +150,7 @@ function HomepageStandardsSplitSection({
 }: HomepageStandardsSplitSectionProps) {
   const headingId = `${sectionId}-heading`;
   const mediaSide = content.mediaSide ?? "start";
-  const bandSurface = content.bandSurface ?? "default";
+  const bandSurfaceClassName = resolveHomepageStandardsSplitBandClassName(content.bandSurface);
   const isMediaEnd = mediaSide === "end";
   const isEditorial = layout === "editorial";
   const isApproach = layout === "approach";
@@ -143,14 +160,14 @@ function HomepageStandardsSplitSection({
       id={sectionId}
       aria-labelledby={headingId}
       className={cn(
-        "scroll-mt-28 border-t border-border/50 text-foreground md:scroll-mt-32",
-        bandSurface === "surface" ? "bg-surface" : "bg-background",
+        "scroll-mt-28 text-foreground md:scroll-mt-32",
+        bandSurfaceClassName,
         isApproach && "relative overflow-hidden",
-        "py-(--homepage-section-band-padding-y-mobile) lg:py-(--homepage-section-band-padding-y-desktop)",
+        isApproach
+          ? homepageApproachBandPaddingClassName
+          : "py-(--homepage-section-band-padding-y-mobile) lg:py-(--homepage-section-band-padding-y-desktop)",
       )}
     >
-      {isApproach ? <div aria-hidden className={approachSectionRadialClassName} /> : null}
-
       {isApproach ? (
         <HomepageStandardsSplitApproachLayout content={content} headingId={headingId} />
       ) : (
@@ -183,12 +200,6 @@ function HomepageStandardsSplitSection({
                 quality={isEditorial ? 78 : 75}
                 className="object-cover object-center"
               />
-              {isEditorial ? (
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/30 via-transparent to-transparent"
-                />
-              ) : null}
             </div>
             <div
               className={cn(
@@ -199,10 +210,7 @@ function HomepageStandardsSplitSection({
             >
               <h2
                 id={headingId}
-                className={sectionRevealItemClass(
-                  "sm",
-                  "text-heading-display text-4xl leading-[0.95] tracking-tight text-foreground md:text-5xl md:leading-[0.93] lg:text-6xl lg:leading-[0.92]",
-                )}
+                className={sectionRevealItemClass("sm", sectionDisplayHeadingPresetClassName())}
               >
                 {content.heading}
               </h2>

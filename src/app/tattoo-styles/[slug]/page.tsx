@@ -53,7 +53,11 @@ export default async function TattooStyleRoutePage({ params }: TattooStylePagePr
 
   return (
     <main className="min-w-0">
-      <TattooStyleDetailPage content={content} ctaUrgencyNote={regionConfig.heroCtaUrgencyNote} />
+      <TattooStyleDetailPage
+        content={content}
+        headerCtaLabel={regionConfig.headerCta.label}
+        ctaUrgencyNote={regionConfig.heroCtaUrgencyNote}
+      />
     </main>
   );
 }

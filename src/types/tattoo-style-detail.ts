@@ -19,6 +19,8 @@ export interface TattooStyleDetailContent {
   /** SEO meta; falls back to lead when omitted. */
   metaDescription?: string;
   lead: string;
+  /** Two editorial paragraphs between hero and approach spec. */
+  overview: readonly [string, string];
   /** Approach band headline (single line). */
   approachHeadline: string;
   /** Approach band intro; target ~4–5 lines at desktop measure. */
@@ -26,7 +28,19 @@ export interface TattooStyleDetailContent {
   philosophyBullets: ApproachPointerTriplet;
   idealForBullets: ApproachPointerTriplet;
   sessionBullets: ApproachPointerTriplet;
-  /** Overrides catalog-only hero when more than one proof frame is needed. */
+  /** Page header cover; defaults to `/images/tattoo-styles/{slug}/hero.jpg`. */
+  heroImage?: TattooStyleDetailProofImage;
+  /** Approach statement background; defaults to `/images/tattoo-styles/{slug}/approach.jpg`. */
+  approachImage?: TattooStyleDetailProofImage;
+  proofEyebrow: string;
+  proofHeading: string;
+  proofDescription: string;
+  /**
+   * Full proof library for this style (portfolio + random gallery).
+   * When set, the detail grid shows 8 random picks per request.
+   */
+  proofPool?: readonly TattooStyleDetailProofImage[];
+  /** Legacy fixed set; used when `proofPool` is empty. */
   proofImages?: readonly TattooStyleDetailProofImage[];
 }
 
@@ -38,12 +52,19 @@ export interface ResolvedTattooStyleDetailPage {
   heroImageAlt: string;
   metaDescription: string;
   lead: string;
+  overview: readonly [string, string];
   approachHeadline: string;
   approachIntro: string;
   philosophyBullets: ApproachPointerTriplet;
   idealForBullets: ApproachPointerTriplet;
   sessionBullets: ApproachPointerTriplet;
+  approachImageSrc: string;
+  approachImageAlt: string;
+  proofEyebrow: string;
+  proofHeading: string;
+  proofDescription: string;
   proofImages: readonly TattooStyleDetailProofImage[];
+  proofPortfolioHref: string;
   relatedSlugs: readonly TattooStyleSlug[];
   faqItems: readonly TattooStyleFaqItem[];
 }

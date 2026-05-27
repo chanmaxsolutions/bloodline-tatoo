@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { GoogleReviewCard } from "@/components/shared/google-review-card";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
+import { REVIEWS_CAROUSEL_PREVIEW_LIMIT } from "@/config/reviews-carousel";
 import { reviewStudioName } from "@/lib/reviews-cache";
 import { cn } from "@/lib/utils";
 import type { HomepageTestimonial } from "@/types/homepage-testimonial";
@@ -16,10 +17,11 @@ const GOOGLE_REVIEWS_CAROUSEL_AUTO_SCROLL_MS = 3000;
  */
 const MOBILE_CAROUSEL_CENTER_PAD = "max(1rem, calc(50% - min(17.5rem, calc(100vw - 2rem)) / 2))";
 
-type GoogleReviewsCarouselEdgeFade = "surface" | "band-charcoal";
+type GoogleReviewsCarouselEdgeFade = "surface" | "surface-elevated" | "band-charcoal";
 
 const carouselEdgeFadeStartClassName: Record<GoogleReviewsCarouselEdgeFade, string> = {
   surface: "from-surface",
+  "surface-elevated": "from-surface-elevated",
   "band-charcoal": "from-[var(--band-charcoal)]",
 };
 
@@ -58,9 +60,17 @@ function GoogleReviewsCarouselStrip({
   const [stepPx, setStepPx] = useState(0);
   const [autoplayPaused, setAutoplayPaused] = useState(false);
 
-  const count = testimonials.length;
+  const visibleTestimonials = useMemo(
+    () => testimonials.slice(0, REVIEWS_CAROUSEL_PREVIEW_LIMIT),
+    [testimonials],
+  );
 
-  const testimonialIdsKey = useMemo(() => testimonials.map((t) => t.id).join("|"), [testimonials]);
+  const count = visibleTestimonials.length;
+
+  const testimonialIdsKey = useMemo(
+    () => visibleTestimonials.map((t) => t.id).join("|"),
+    [visibleTestimonials],
+  );
 
   useLayoutEffect(() => {
     if (typeof window === "undefined") return;
@@ -272,7 +282,7 @@ function GoogleReviewsCarouselStrip({
           "[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
         )}
       >
-        {testimonials.map((item) => (
+        {visibleTestimonials.map((item) => (
           <GoogleReviewCard
             key={item.id}
             item={item}
@@ -287,3 +297,4 @@ function GoogleReviewsCarouselStrip({
 }
 
 export { GoogleReviewsCarouselStrip, GOOGLE_REVIEWS_CAROUSEL_AUTO_SCROLL_MS };
+export type { GoogleReviewsCarouselEdgeFade };

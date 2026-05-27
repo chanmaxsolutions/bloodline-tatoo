@@ -23,7 +23,7 @@ function footerRegionSwitcherLabel(slug: RegionSlug): string {
 }
 
 function footerRegionSwitcherTitle(): string {
-  return "Other regional sites";
+  return "Regional sites";
 }
 
 function buildFooterRegionSwitcherOptions(
@@ -40,4 +40,10 @@ function buildFooterRegionSwitcherOptions(
     }));
 }
 
-export { buildFooterRegionSwitcherOptions, footerRegionSwitcherOrder, footerRegionSwitcherTitle };
+export {
+  buildFooterRegionSwitcherOptions,
+  footerRegionSwitcherOrder,
+  footerRegionSwitcherTitle,
+  footerRegionSwitcherLabel,
+  regionFlagBySlug,
+};

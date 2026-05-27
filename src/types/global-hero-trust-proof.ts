@@ -9,4 +9,6 @@ export interface GlobalHeroTrustProofChip {
   rest: string;
   /** Muted suffix (include leading space or “ · ” as needed). */
   suffix: string;
+  /** Optional body-font caption after {@link suffix} (e.g. “ reviews on Google”). */
+  suffixLabel?: string;
 }

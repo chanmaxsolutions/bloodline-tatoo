@@ -5,8 +5,8 @@ import { AboutPageReviewsCarousel } from "@/components/sections/about-page-revie
 import { SectionHeading } from "@/components/shared/section-heading";
 import { buttonVariants } from "@/components/ui/button";
 import { homepageGhostCtaSurfaceClassName } from "@/lib/homepage-ghost-cta";
+import { sectionDisplayHeadingClassName } from "@/lib/section-display-heading";
 import { reviewsPreviewCopy } from "@/lib/reviews-preview-copy";
-import { sortReviewsByTextLengthDescending } from "@/lib/reviews-cache";
 import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
 import type { ReviewsPageTestimonial } from "@/types/reviews-page";
@@ -16,9 +16,6 @@ const aboutReviewsHeadingId = "about-reviews-preview-heading";
 
 const reviewsEyebrowClassName =
   "font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg";
-
-const reviewsTitleClassName =
-  "text-heading-authority-display w-full max-w-none text-balance text-4xl leading-[0.95] tracking-tight text-foreground md:text-5xl md:leading-[0.93] lg:text-6xl lg:leading-[0.92]";
 
 const reviewsDescriptionClassName =
   "mx-auto max-w-2xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug";
@@ -40,7 +37,7 @@ function AboutPageReviewsSection({
   googleBusinessProfileUrl,
 }: AboutPageReviewsSectionProps) {
   const reviewsCopy = reviewsPreviewCopy(region, regionName);
-  const carouselItems = sortReviewsByTextLengthDescending(testimonials);
+  const carouselItems = testimonials;
   const showStudioName = region === "global";
 
   if (carouselItems.length === 0) return null;
@@ -49,7 +46,7 @@ function AboutPageReviewsSection({
     <section
       aria-labelledby={aboutReviewsHeadingId}
       className={cn(
-        "border-t border-border/50 bg-surface text-foreground",
+        "border-0 bg-surface text-foreground",
         "pt-16 md:pt-20 lg:pt-24",
         aboutReviewsBottomSpacingClassName,
       )}
@@ -64,7 +61,7 @@ function AboutPageReviewsSection({
             headingId={aboutReviewsHeadingId}
             className="mx-auto w-full max-w-4xl"
             eyebrowClassName={sectionRevealItemClass("none", reviewsEyebrowClassName)}
-            titleClassName={sectionRevealItemClass("sm", reviewsTitleClassName)}
+            titleClassName={sectionRevealItemClass("sm", sectionDisplayHeadingClassName)}
             descriptionClassName={sectionRevealItemClass("md", reviewsDescriptionClassName)}
           />
 

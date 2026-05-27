@@ -1,8 +1,8 @@
+import { sectionDisplayHeadingClassName } from "@/lib/section-display-heading";
 import { cn } from "@/lib/utils";
 
-/** Matches homepage standards / tattoo style approach display title scale. */
-const approachSectionTitleClassName =
-  "w-full max-w-none text-balance text-4xl leading-[0.95] tracking-tight text-foreground md:text-5xl md:leading-[0.93] lg:text-6xl lg:leading-[0.92]";
+/** Matches homepage section band H2 scale — use with `text-heading-display` on the `h2`. */
+const approachSectionTitleClassName = sectionDisplayHeadingClassName;
 
 const approachPointerCardHeadingClassName =
   "font-heading text-2xl font-bold uppercase leading-none tracking-tight text-foreground md:text-3xl";
@@ -20,7 +20,7 @@ const approachSectionRadialClassName =
   "pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_12%_0%,color-mix(in_oklab,var(--surface-elevated)_55%,transparent),transparent_72%)]";
 
 const approachSectionMediaClassName =
-  "relative min-h-[min(52vh,400px)] w-full overflow-hidden rounded-md border border-border/50 lg:min-h-[min(60vh,520px)]";
+  "relative aspect-5/4 max-h-[min(40vh,280px)] w-full overflow-hidden rounded-md border border-border/50 lg:aspect-auto lg:max-h-none lg:min-h-[min(60vh,520px)]";
 
 interface ApproachPointerCardProps {
   label: string;

@@ -1,8 +1,10 @@
+import { resolveTattooStyleCardImage } from "@/lib/tattoo-style-media";
 import type {
   TattooStyleCatalogEntry,
   TattooStyleHomepageTile,
   TattooStyleSlug,
 } from "@/types/tattoo-style";
+import type { RegionSlug } from "@/types/region";
 
 const TATTOO_STYLE_SLUGS = [
   "realism",
@@ -21,8 +23,9 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Realistic Tattoos",
     shortDescription:
       "Portrait depth, tonal control, and skin-aware pacing for work that reads at distance and up close.",
-    imageSrc: "/images/tattoo-styles/realism.jpg",
-    imageAlt: "Realistic black and grey tattoo portrait on skin",
+    imageSrc: "/images/tattoo-styles/realism/bangkok/hero.jpg",
+    imageAlt:
+      "Black and grey realism back tattoo with Greek god, angel, and temple at Bloodline Tattoo",
     featured: true,
   },
   portrait: {
@@ -30,8 +33,9 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Portrait Tattoos",
     shortDescription:
       "Likeness, expression, and tonal structure built with restraint so faces stay true on skin.",
-    imageSrc: "/images/tattoo-styles/realism.jpg",
-    imageAlt: "Portrait tattoo with refined black and grey tonal work",
+    imageSrc: "/images/tattoo-styles/portrait/bangkok/hero.jpg",
+    imageAlt:
+      "Memorial black and grey portrait tattoo of children Jackson and Olivia on the chest at Bloodline Tattoo Bangkok",
     featured: true,
   },
   japanese: {
@@ -39,8 +43,9 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Japanese Tattoos",
     shortDescription:
       "Bold irezumi discipline, negative space, and long-form composition held to studio standards.",
-    imageSrc: "/images/tattoo-styles/japanese.jpg",
-    imageAlt: "Japanese tattoo sleeve with dragon and wave motifs in high contrast",
+    imageSrc: "/images/tattoo-styles/japanese/bangkok/hero.jpg",
+    imageAlt:
+      "Japanese black and grey full-back tattoo with samurai, Hannya mask, and pagoda at Bloodline Tattoo Bangkok",
     featured: true,
   },
   colour: {
@@ -48,8 +53,9 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Colour Tattoos",
     shortDescription:
       "Saturated palettes, clean packing, and healed clarity for colour that holds over time.",
-    imageSrc: "/images/tattoo-styles/japanese.jpg",
-    imageAlt: "Colour tattoo work with saturated pigment and clean healed tones",
+    imageSrc: "/images/tattoo-styles/colour/bangkok/hero.jpg",
+    imageAlt:
+      "Japanese colour full-back samurai tattoo with saturated pigment at Bloodline Tattoo Bangkok",
     featured: true,
   },
   mandala: {
@@ -57,8 +63,9 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Mandala Tattoos",
     shortDescription:
       "Radial symmetry, precise geometry, and balance engineered for flow on arms, backs, and chest.",
-    imageSrc: "/images/tattoo-styles/blackwork.jpg",
-    imageAlt: "Mandala tattoo with precise geometric symmetry and dotwork",
+    imageSrc: "/images/tattoo-styles/mandala/bangkok/hero.jpg",
+    imageAlt:
+      "Full-back sacred geometry tattoo with all-seeing eye and radial mandala structure at Bloodline Tattoo Bangkok",
     featured: true,
   },
   chicano: {
@@ -66,8 +73,9 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Chicano Tattoos",
     shortDescription:
       "Lettering, script, and black-and-grey narrative built with classic West Coast discipline.",
-    imageSrc: "/images/tattoo-styles/realism.jpg",
-    imageAlt: "Chicano style black and grey tattoo with script and fine greywash",
+    imageSrc: "/images/tattoo-styles/chicano/bangkok/hero.jpg",
+    imageAlt:
+      "Chicano black and grey Familia script back tattoo with payasa and lowrider at Bloodline Tattoo",
     featured: true,
   },
   bamboo: {
@@ -75,8 +83,8 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Bamboo Tattoos",
     shortDescription:
       "Traditional hand-tap rhythm and cultural line weight for clients seeking an authentic ritual pace.",
-    imageSrc: "/images/tattoo-styles/japanese.jpg",
-    imageAlt: "Bamboo hand-tap tattoo session with traditional line work",
+    imageSrc: "/images/tattoo-styles/bamboo/bangkok/hero.jpg",
+    imageAlt: "Traditional bamboo hand-tap Sak Yant tattoo at Bloodline Tattoo",
     featured: true,
   },
   healed: {
@@ -84,8 +92,9 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Healed Tattoos",
     shortDescription:
       "Work documented after settle: line integrity, tone stability, and how craft reads once skin has healed.",
-    imageSrc: "/images/tattoo-styles/fine-line.jpg",
-    imageAlt: "Healed fine tattoo work showing clean settled lines on skin",
+    imageSrc: "/images/tattoo-styles/healed/bali/hero.jpg",
+    imageAlt:
+      "Healed black and grey full-back tattoo with woman portrait and motorcycle at Bloodline Tattoo Bali",
     featured: true,
   },
 };
@@ -100,15 +109,18 @@ function getTattooStyleBySlug(slug: TattooStyleSlug): TattooStyleCatalogEntry {
 
 function resolveHomepageTattooStyleTiles(
   slugs: readonly TattooStyleSlug[],
+  region: RegionSlug,
 ): TattooStyleHomepageTile[] {
   return slugs.map((slug) => {
     const entry = getTattooStyleBySlug(slug);
+    const card = resolveTattooStyleCardImage(slug, region, entry.imageAlt);
+
     return {
       slug: entry.slug,
       title: entry.title,
       shortDescription: entry.shortDescription,
-      imageSrc: entry.imageSrc,
-      imageAlt: entry.imageAlt,
+      imageSrc: card.src,
+      imageAlt: card.alt,
       href: `/tattoo-styles/${entry.slug}`,
     };
   });

@@ -11,7 +11,8 @@ function buildGlobalHeroTrustProofChips(): GlobalHeroTrustProofChip[] {
       brand: "google",
       accent: "4.9",
       rest: "★",
-      suffix: " · 2,500+ on Google",
+      suffix: " · 2,500+",
+      suffixLabel: " Reviews on Google",
     },
     {
       id: "social-combined",

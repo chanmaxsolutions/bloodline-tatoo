@@ -1,32 +1,88 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/layout/container";
+import { redirect } from "next/navigation";
+import { JsonLd } from "@/components/seo/json-ld";
+import { BlogPageFeaturedSection } from "@/components/sections/blog-page-featured-section";
+import { BlogPageFiltersSection } from "@/components/sections/blog-page-filters-section";
+import { BlogPageGridSection } from "@/components/sections/blog-page-grid-section";
+import { BlogPageIntroSection } from "@/components/sections/blog-page-intro-section";
+import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
+import { pageIntroBandBackgroundImage } from "@/config/page-intro-band";
+import { blogPageClosingForRegion } from "@/config/blog-page";
+import { pageClosingCtaBandBorderlessSectionClassName } from "@/lib/page-closing-cta-band";
+import { homepageClosingCtaBandClassName } from "@/lib/homepage-section-surfaces";
+import { cn } from "@/lib/utils";
+import { getBlogCategoryHref, isBlogCategorySlug } from "@/lib/blog-category";
+import { getBlogPageContent, parseCategoryFilter } from "@/lib/blog";
+import { buildBlogIndexMetadata } from "@/lib/blog-seo";
+import {
+  buildBlogCategoryItemListSchema,
+  buildBlogIndexBlogSchema,
+  buildBreadcrumbListSchema,
+} from "@/lib/schema";
 import { getRequestRegionContext } from "@/lib/request-region";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { regionConfig } = await getRequestRegionContext();
-  return {
-    title: `Tattoo blog | ${regionConfig.seo.siteName}`,
-    description: `Education, traveler intent, and topical authority for ${regionConfig.regionName}.`,
-  };
+interface TattooBlogPageProps {
+  searchParams: Promise<{ category?: string }>;
 }
 
-export default async function TattooBlogPage() {
-  const { regionConfig } = await getRequestRegionContext();
+export async function generateMetadata(): Promise<Metadata> {
+  const { region, regionConfig } = await getRequestRegionContext();
+  return buildBlogIndexMetadata(region, regionConfig);
+}
+
+export default async function TattooBlogPage({ searchParams }: TattooBlogPageProps) {
+  const { category: categoryParam } = await searchParams;
+  const activeCategory = parseCategoryFilter(categoryParam);
+
+  if (activeCategory && isBlogCategorySlug(activeCategory)) {
+    redirect(getBlogCategoryHref(activeCategory));
+  }
+
+  const { region, regionConfig } = await getRequestRegionContext();
+  const content = getBlogPageContent(region);
+  const closing = blogPageClosingForRegion(region, regionConfig.regionName);
+
+  const hasAnyPosts = content.featuredPosts.length > 0 || content.gridPosts.length > 0;
+  const showFeaturedBand = content.featuredPosts.length > 0;
+  const allListings = [...content.featuredPosts, ...content.gridPosts];
+  const structuredData: Record<string, unknown>[] = [
+    buildBreadcrumbListSchema(
+      [
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/tattoo-blog" },
+      ],
+      regionConfig,
+    ),
+    buildBlogIndexBlogSchema(content.intro, regionConfig),
+  ];
+
+  if (allListings.length > 0) {
+    structuredData.push(buildBlogCategoryItemListSchema(allListings, regionConfig));
+  }
 
   return (
-    <div className="bg-background section-space">
-      <Container size="narrow" className="flex flex-col gap-6">
-        <p className="font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg">
-          Blog
-        </p>
-        <h1 className="text-heading-display text-4xl text-foreground md:text-5xl">
-          Tattoo education
-        </h1>
-        <p className="font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug">
-          MDX articles for {regionConfig.regionName} will publish here. The route is active so
-          header navigation and RSC prefetch no longer hit 404 during audits or real sessions.
-        </p>
-      </Container>
+    <div className="min-w-0 bg-background">
+      <JsonLd data={structuredData} />
+      <BlogPageIntroSection
+        intro={content.intro}
+        introBackgroundImage={pageIntroBandBackgroundImage}
+      />
+      <BlogPageFiltersSection
+        categories={content.categories}
+        activeCategory={content.activeCategory}
+      />
+      {showFeaturedBand ? <BlogPageFeaturedSection posts={content.featuredPosts} /> : null}
+      <BlogPageGridSection posts={content.gridPosts} showEmptyState={!hasAnyPosts} />
+      <PageClosingCtaSection
+        content={closing}
+        headerCtaLabel={regionConfig.headerCta.label}
+        headingId="tattoo-blog-index-cta-heading"
+        ctaUrgencyNote={regionConfig.heroCtaUrgencyNote}
+        sectionClassName={cn(
+          pageClosingCtaBandBorderlessSectionClassName,
+          homepageClosingCtaBandClassName,
+        )}
+      />
     </div>
   );
 }

@@ -19,6 +19,7 @@ function homepageStandardsSplitForRegion(
 
   if (slug === "global") {
     return {
+      bandSurface: "elevated",
       eyebrow: "Studio standard",
       heading: "PREMIUM STANDARD. ZERO THEATRE.",
       intro:
@@ -36,6 +37,7 @@ function homepageStandardsSplitForRegion(
   }
 
   return {
+    bandSurface: "elevated",
     eyebrow: "Studio standard",
     heading: "PREMIUM WORK. DISCIPLINED ROOM.",
     intro: `How ${regionName} sessions are run: structured consultation, measured pacing, and craft discipline that does not flex for trends.`,
@@ -61,11 +63,10 @@ function homepageSessionPathSplitForRegion(
     return {
       mediaSide: "start",
       proofVariants: ["dark", "light", "accent"],
-      bandSurface: "surface",
-      eyebrow: "Session path",
-      heading: "FROM FIRST MESSAGE TO FINAL HEAL",
+      eyebrow: "SESSION PATH",
+      heading: "MESSAGE TO HEALED WORK",
       intro:
-        "One consultation architecture from first message through healing—expectations stay legible at every step.",
+        "One consultation architecture across Bangkok, Bali, and Phuket—legible from first message through final heal. No vague steps between studios.",
       pointerLabels: ["Cross-studio consult", "Timing on the desk", "Aftercare included"],
       pointerIcons: ["message-square", "clock", "heart-pulse"],
       bullets: [
@@ -78,19 +79,26 @@ function homepageSessionPathSplitForRegion(
     };
   }
 
+  const sessionPathIntroByRegion: Record<Exclude<RegionSlug, "global">, string> = {
+    bangkok:
+      "Consultation, locked scope, then execution in-chair—each stage readable before you commit. Placement, pacing, and recovery expectations are set early.",
+    bali: "Consult first, agreement on placement and session pacing, then measured work in-room. The path stays clear from first message through healing.",
+    phuket:
+      "Consultation, scope, and session day run in sequence—no deposit theatre, no surprises once you are in the chair. Expectations are locked before needles are staged.",
+  };
+
   return {
     mediaSide: "start",
     proofVariants: ["dark", "light", "accent"],
-    bandSurface: "surface",
-    eyebrow: "Session path",
-    heading: "A STRAIGHT LINE TO INK",
-    intro: "A straight line from first message to healed work—no vague steps, no deposit theatre.",
-    pointerLabels: ["Consult first", "Scope locked", "Calm session day"],
+    eyebrow: "SESSION PATH",
+    heading: "CONSULT TO HEALED WORK",
+    intro: sessionPathIntroByRegion[slug],
+    pointerLabels: ["Consult first", "Scope locked", "Session day"],
     pointerIcons: ["message-square", "clipboard-list", "shield-check"],
     bullets: [
-      `${studio} keeps the path readable: consult first, agreement on scope and time, then the room commits to execution.`,
-      "No vague deposit theatre—you understand placement, session cadence, and recovery before needles are staged.",
-      "Session day stays calm: controlled pacing, disciplined field habits, and a close-out brief that protects the piece.",
+      `${studio} runs consult first—scope, timing, and sterile-field prep agreed before the room commits to execution.`,
+      "You know placement, session cadence, and recovery expectations before needles are staged—no vague deposit games.",
+      "Session day stays calm: disciplined field habits, controlled pacing, and a close-out brief that protects line weight and tone.",
     ],
     cta: { label: "Book consultation", href: "/contact" },
     media: sessionPathMedia,

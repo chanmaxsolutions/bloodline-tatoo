@@ -3,7 +3,8 @@ import Link from "next/link";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { homepageGhostCtaClassName } from "@/lib/homepage-ghost-cta";
-import { sectionDisplayHeadingWithPresetClassName } from "@/lib/section-display-heading";
+import { homepageAuthorityBandClassName } from "@/lib/homepage-section-surfaces";
+import { sectionDisplayHeadingPresetClassName } from "@/lib/section-display-heading";
 import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
 import { splitDescriptionEmphasis } from "@/lib/split-description-emphasis";
 import { cn } from "@/lib/utils";
@@ -23,10 +24,14 @@ const authorityGridClassName =
 const authorityEyebrowClassName =
   "font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg";
 
-const authorityHeadingClassName = cn(
-  sectionDisplayHeadingWithPresetClassName,
-  "w-full max-w-none text-balance text-left",
+const authorityHeadingClassName = sectionDisplayHeadingPresetClassName("text-center lg:text-left");
+
+const authorityCopyColumnClassName = cn(
+  "flex min-w-0 flex-col items-center justify-center gap-5 text-center",
+  "sm:col-span-2 lg:col-span-1 lg:items-start lg:gap-6 lg:text-left lg:pr-2 xl:pr-4",
 );
+
+const authorityMobileCtaRowClassName = "flex w-full justify-center pt-1 sm:col-span-2 lg:hidden";
 
 const descriptionClassName =
   "font-sans text-base leading-relaxed text-muted-foreground text-pretty md:text-lg md:leading-snug";
@@ -34,7 +39,7 @@ const descriptionClassName =
 const emphasisClassName = "font-semibold text-foreground";
 
 const authorityProofPanelClassName =
-  "relative h-full min-h-[min(58vh,420px)] w-full overflow-hidden rounded-xl sm:min-h-[340px] lg:min-h-[min(56vh,520px)]";
+  "relative aspect-5/4 max-h-[min(40vh,280px)] w-full overflow-hidden rounded-xl sm:aspect-auto sm:max-h-none sm:min-h-[300px] lg:h-full lg:min-h-[min(56vh,520px)]";
 
 /** Matches `TattooStyleTile` title scale. */
 const authorityProofTitleClassName =
@@ -94,6 +99,14 @@ function AuthorityProofPanel({ panel, staggerIndex }: AuthorityProofPanelProps) 
   );
 }
 
+function AuthoritySectionCta({ href, label }: { href: string; label: string }) {
+  return (
+    <Link href={href} className={homepageGhostCtaClassName()}>
+      {label}
+    </Link>
+  );
+}
+
 function AuthoritySection({ content }: AuthoritySectionProps) {
   const descriptionParagraphs = splitAuthorityDescription(content.description);
 
@@ -102,18 +115,14 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
       id="homepage-authority"
       aria-labelledby="homepage-authority-heading"
       className={cn(
-        "relative overflow-hidden border-t border-border/50 bg-surface text-foreground",
+        "relative overflow-hidden text-foreground",
+        homepageAuthorityBandClassName,
         "py-(--homepage-section-band-padding-y-mobile) lg:py-(--homepage-section-band-padding-y-desktop)",
       )}
     >
       <Container size="wide" className="relative z-10">
         <SectionReveal className={authorityGridClassName}>
-          <div
-            className={sectionRevealItemClass(
-              "none",
-              "flex min-w-0 flex-col items-start justify-center gap-5 text-left sm:col-span-2 lg:col-span-1 lg:gap-6 lg:pr-2 xl:pr-4",
-            )}
-          >
+          <div className={sectionRevealItemClass("none", authorityCopyColumnClassName)}>
             <p className={authorityEyebrowClassName}>{content.eyebrow}</p>
             <h2 id="homepage-authority-heading" className={authorityHeadingClassName}>
               {content.heading}
@@ -133,16 +142,18 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
                 </p>
               ))}
             </div>
-            <div className="pt-1">
-              <Link href={content.ctaHref} className={homepageGhostCtaClassName()}>
-                {content.ctaLabel}
-              </Link>
+            <div className="hidden pt-1 lg:block">
+              <AuthoritySectionCta href={content.ctaHref} label={content.ctaLabel} />
             </div>
           </div>
 
           {content.proofPanels.map((panel, index) => (
             <AuthorityProofPanel key={panel.src} panel={panel} staggerIndex={index + 1} />
           ))}
+
+          <div className={sectionRevealItemClass("none", authorityMobileCtaRowClassName)}>
+            <AuthoritySectionCta href={content.ctaHref} label={content.ctaLabel} />
+          </div>
         </SectionReveal>
       </Container>
     </section>

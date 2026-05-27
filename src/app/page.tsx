@@ -9,8 +9,12 @@ import {
   type TrustProofItem,
 } from "@/components/sections";
 import { homepageClosingForRegion } from "@/config/homepage-closing-cta";
-import { getReviewsPageContent } from "@/lib/reviews-page";
+import { homepageClosingCtaBandClassName } from "@/lib/homepage-section-surfaces";
+import { pageClosingCtaBandBorderlessSectionClassName } from "@/lib/page-closing-cta-band";
+import { cn } from "@/lib/utils";
+import { getReviewsCarouselPreview } from "@/lib/reviews-page";
 import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
+import { resolveGoogleBusinessProofPresentation } from "@/lib/google-business-proof";
 import { getRequestRegionContext } from "@/lib/request-region";
 
 const HomepageTestimonialsCarouselSection = dynamic(
@@ -20,10 +24,7 @@ const HomepageTestimonialsCarouselSection = dynamic(
     })),
   {
     loading: () => (
-      <section
-        className="w-full min-h-[min(42vh,360px)] border-t border-border/50 bg-surface"
-        aria-hidden
-      />
+      <section className="w-full min-h-[min(42vh,360px)] bg-surface-elevated" aria-hidden />
     ),
   },
 );
@@ -38,8 +39,10 @@ export default async function Home() {
   const { region, regionConfig } = await getRequestRegionContext();
   const homepageTattooStyleTiles = resolveHomepageTattooStyleTiles(
     regionConfig.homepageTattooStyles.featuredSlugs,
+    region,
   );
-  const reviewsPreview = getReviewsPageContent(region);
+  const reviewsPreview = getReviewsCarouselPreview(region);
+  const googleBusinessProof = resolveGoogleBusinessProofPresentation(region);
 
   const heroRegionWord = region === "global" ? "ASIA" : regionConfig.regionName.toUpperCase();
 
@@ -71,9 +74,10 @@ export default async function Home() {
         }}
         secondaryCta={{
           label: "VIEW PORTFOLIO",
-          href: "/gallery",
+          href: "/portfolio",
         }}
         ctaUrgencyNote={regionConfig.heroCtaUrgencyNote}
+        googleBusinessProof={googleBusinessProof}
       />
       <TrustProofBarSection items={defaultTrustProofItems} />
       <AuthoritySection content={regionConfig.homepageAuthority} />
@@ -100,7 +104,11 @@ export default async function Home() {
         content={homepageClosingForRegion(region, regionConfig.regionName)}
         headerCtaLabel={regionConfig.headerCta.label}
         headingId="homepage-closing-cta-heading"
-        showTrustProofStrip
+        ctaUrgencyNote={regionConfig.heroCtaUrgencyNote}
+        sectionClassName={cn(
+          pageClosingCtaBandBorderlessSectionClassName,
+          homepageClosingCtaBandClassName,
+        )}
       />
     </div>
   );

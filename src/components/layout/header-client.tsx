@@ -74,9 +74,9 @@ function HeaderClient({
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-40 border-b motion-standard",
+          "fixed inset-x-0 top-0 z-40 border-b motion-standard transition-[background-color,border-color,backdrop-filter]",
           isScrolled || isMenuOpen
-            ? "border-border bg-surface/90 backdrop-blur-md"
+            ? "border-border/30 bg-surface/80 backdrop-blur-sm"
             : "border-transparent bg-transparent",
         )}
       >

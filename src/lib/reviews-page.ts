@@ -1,9 +1,11 @@
 import {
   getCachedGoogleReviews,
   mapToReviewsPageTestimonials,
+  sortReviewsByTextLengthDescending,
   sortReviewsNewestFirst,
 } from "@/lib/reviews-cache";
 import { getRegionConfig } from "@/lib/region";
+import { REVIEWS_CAROUSEL_PREVIEW_LIMIT } from "@/config/reviews-carousel";
 import {
   reviewsPageIntroBackgroundImage,
   reviewsPageIntroForRegion,
@@ -60,4 +62,23 @@ function getReviewsPageContent(region: RegionSlug): ReviewsPageContent {
   };
 }
 
-export { getReviewsPageContent, isDisplayableReviewText };
+interface ReviewsCarouselPreview {
+  testimonials: ReviewsPageContent["testimonials"];
+  googleBusinessProfileUrl: string;
+}
+
+/** Carousel bands only — avoids rendering hundreds of client cards on `/` and `/about`. */
+function getReviewsCarouselPreview(region: RegionSlug): ReviewsCarouselPreview {
+  const content = getReviewsPageContent(region);
+  const testimonials = sortReviewsByTextLengthDescending(content.testimonials).slice(
+    0,
+    REVIEWS_CAROUSEL_PREVIEW_LIMIT,
+  );
+
+  return {
+    testimonials,
+    googleBusinessProfileUrl: content.googleBusinessProfileUrl,
+  };
+}
+
+export { getReviewsCarouselPreview, getReviewsPageContent, isDisplayableReviewText };

@@ -9,8 +9,11 @@ import {
   tattooStylesIndexClosingForRegion,
   tattooStylesIndexIntroForRegion,
 } from "@/config/tattoo-styles-index";
+import { homepageClosingCtaBandClassName } from "@/lib/homepage-section-surfaces";
+import { pageClosingCtaBandBorderlessSectionClassName } from "@/lib/page-closing-cta-band";
 import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
+import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { region, regionConfig } = await getRequestRegionContext();
@@ -39,7 +42,7 @@ export default async function TattooStylesIndexPage() {
   const { region, regionConfig } = await getRequestRegionContext();
   const intro = tattooStylesIndexIntroForRegion(region);
   const closing = tattooStylesIndexClosingForRegion(region, regionConfig.regionName);
-  const tiles = resolveHomepageTattooStyleTiles(tattooStyleSlugsForRegion(region));
+  const tiles = resolveHomepageTattooStyleTiles(tattooStyleSlugsForRegion(region), region);
 
   return (
     <div className="min-w-0 bg-background">
@@ -52,6 +55,11 @@ export default async function TattooStylesIndexPage() {
         content={closing}
         headerCtaLabel={regionConfig.headerCta.label}
         headingId="tattoo-styles-index-cta-heading"
+        ctaUrgencyNote={regionConfig.heroCtaUrgencyNote}
+        sectionClassName={cn(
+          pageClosingCtaBandBorderlessSectionClassName,
+          homepageClosingCtaBandClassName,
+        )}
       />
     </div>
   );

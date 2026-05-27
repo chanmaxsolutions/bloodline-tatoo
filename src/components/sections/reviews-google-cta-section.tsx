@@ -4,8 +4,10 @@ import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { GoogleMark } from "@/components/shared/google-review-primitives";
 import { buttonVariants } from "@/components/ui/button";
+import { homepageClosingCtaBandClassName } from "@/lib/homepage-section-surfaces";
 import {
   pageClosingCtaBandActionsClassName,
+  pageClosingCtaBandBorderlessSectionClassName,
   pageClosingCtaBandDescriptionClassName,
   pageClosingCtaBandSectionClassName,
   pageClosingCtaBandTitleClassName,
@@ -23,7 +25,11 @@ function ReviewsGoogleCtaSection({ studioLinks, isGlobal }: ReviewsGoogleCtaSect
   return (
     <section
       aria-labelledby="reviews-google-cta-heading"
-      className={pageClosingCtaBandSectionClassName}
+      className={cn(
+        pageClosingCtaBandSectionClassName,
+        pageClosingCtaBandBorderlessSectionClassName,
+        homepageClosingCtaBandClassName,
+      )}
     >
       <Container size="wide">
         <SectionReveal className="mx-auto flex max-w-4xl flex-col items-center gap-8 text-center md:gap-10">

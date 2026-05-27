@@ -13,7 +13,7 @@ export const desktopNavigationItems: HeaderNavItem[] = [
     /** Populated per region in `navigationItemsForRegion`. */
     children: [],
   },
-  { label: "Portfolio", href: "/gallery" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Reviews", href: "/reviews" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/tattoo-blog" },

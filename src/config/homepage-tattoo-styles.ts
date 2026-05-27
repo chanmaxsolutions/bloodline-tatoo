@@ -15,9 +15,9 @@ const tattooStylesBySlug: Record<RegionSlug, RegionHomepageTattooStylesConfig> =
   global: {
     intro: {
       eyebrow: "TATTOO STYLES",
-      heading: "STYLE AS CRAFT",
+      heading: "DIRECTIONS ACROSS THE HOUSE",
       description:
-        "Style is craft, not a menu. Studios share a core set; some lanes are location-specific. Open any direction below.",
+        "Core styles run in every Bloodline studio; some lanes are city-specific. Open a direction for consultation flow, placement logic, and work held to house standard.",
     },
     featuredSlugs: homepageFeaturedTattooStyleSlugsForRegion("global"),
     catalogCta,
@@ -25,9 +25,9 @@ const tattooStylesBySlug: Record<RegionSlug, RegionHomepageTattooStylesConfig> =
   bangkok: {
     intro: {
       eyebrow: "TATTOO STYLES",
-      heading: "STYLE AS CRAFT",
+      heading: "BANGKOK STYLE DIRECTIONS",
       description:
-        "Style is craft, not a menu. Open any direction below for process, placement, and work to our Bangkok standard.",
+        "Each lane below runs on the same Bangkok baseline—consult first, sterile field, measured execution. See process, placement, and healed proof before you book.",
     },
     featuredSlugs: homepageFeaturedTattooStyleSlugsForRegion("bangkok"),
     catalogCta,
@@ -35,9 +35,9 @@ const tattooStylesBySlug: Record<RegionSlug, RegionHomepageTattooStylesConfig> =
   bali: {
     intro: {
       eyebrow: "TATTOO STYLES",
-      heading: "STYLE AS CRAFT",
+      heading: "BALI STYLE DIRECTIONS",
       description:
-        "Style is craft, not a menu. Open any direction below for process, placement, and execution at our Bali studio.",
+        "Realistic, portrait, Japanese, healed work—each lane runs on the same Bali baseline. Open a style for consultation, placement, pacing, and proof from the room.",
     },
     featuredSlugs: homepageFeaturedTattooStyleSlugsForRegion("bali"),
     catalogCta,
@@ -45,9 +45,9 @@ const tattooStylesBySlug: Record<RegionSlug, RegionHomepageTattooStylesConfig> =
   phuket: {
     intro: {
       eyebrow: "TATTOO STYLES",
-      heading: "STYLE AS CRAFT",
+      heading: "PHUKET STYLE DIRECTIONS",
       description:
-        "Style is craft, not a menu. Open any direction below for process, placement, and work held to Phuket standard.",
+        "Realistic, portrait, Japanese, colour—each held to the same Phuket room standard. Open a style for consultation, placement, pacing, and work from the studio.",
     },
     featuredSlugs: homepageFeaturedTattooStyleSlugsForRegion("phuket"),
     catalogCta,

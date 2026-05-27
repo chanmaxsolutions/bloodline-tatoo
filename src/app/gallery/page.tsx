@@ -1,32 +1,12 @@
-import type { Metadata } from "next";
-import { Container } from "@/components/layout/container";
-import { getRequestRegionContext } from "@/lib/request-region";
+import { redirect } from "next/navigation";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { regionConfig } = await getRequestRegionContext();
-  return {
-    title: `Portfolio | ${regionConfig.seo.siteName}`,
-    description: `Tattoo portfolio and healed work from Bloodline in ${regionConfig.regionName}.`,
-  };
+interface GalleryRedirectPageProps {
+  searchParams: Promise<{ category?: string }>;
 }
 
-export default async function GalleryPage() {
-  const { regionConfig } = await getRequestRegionContext();
-
-  return (
-    <div className="bg-background section-space">
-      <Container size="narrow" className="flex flex-col gap-6">
-        <p className="font-heading text-base font-medium uppercase tracking-normal text-accent md:text-lg">
-          Portfolio
-        </p>
-        <h1 className="text-heading-display text-4xl text-foreground md:text-5xl">
-          Proof-first work
-        </h1>
-        <p className="font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug">
-          The full curated gallery for {regionConfig.regionName} is being expanded. This route is
-          live so navigation and prefetch stay healthy while media pipelines are finalized.
-        </p>
-      </Container>
-    </div>
-  );
+/** Legacy route — portfolio lives at `/portfolio`. */
+export default async function GalleryRedirectPage({ searchParams }: GalleryRedirectPageProps) {
+  const { category } = await searchParams;
+  const query = category ? `?category=${encodeURIComponent(category)}` : "";
+  redirect(`/portfolio${query}`);
 }

@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { SectionShell } from "@/components/sections/section-shell";
 import { TattooStyleTile } from "@/components/sections/tattoo-style-tile";
 import { homepageGhostCtaClassName } from "@/lib/homepage-ghost-cta";
+import { homepageTattooStylesBandClassName } from "@/lib/homepage-section-surfaces";
 import { homepageTattooStylesGridClassName } from "@/lib/homepage-tattoo-styles-grid";
 import { sectionDisplayHeadingClassName } from "@/lib/section-display-heading";
 import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
@@ -36,7 +37,8 @@ function TattooStylesSection({ config, tiles }: TattooStylesSectionProps) {
       surface="transparent"
       containerSize="wide"
       className={cn(
-        "border-t border-border/50 bg-surface relative overflow-hidden text-foreground",
+        homepageTattooStylesBandClassName,
+        "relative overflow-hidden text-foreground",
         "py-(--homepage-section-band-padding-y-mobile) lg:py-(--homepage-section-band-padding-y-desktop)",
       )}
     >
