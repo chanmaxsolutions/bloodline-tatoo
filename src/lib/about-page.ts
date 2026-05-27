@@ -1,5 +1,5 @@
 import { aboutPageContentForRegion } from "@/config/about-page";
-import { pageIntroBandBackgroundImage } from "@/config/page-intro-band";
+import { pageIntroBackgroundFor } from "@/config/page-intro-band";
 import { getCachedGoogleReviews, mapToReviewsPageTestimonials } from "@/lib/reviews-cache";
 import { isDisplayableReviewText } from "@/lib/reviews-page";
 import { getRegionConfig } from "@/lib/region";
@@ -19,7 +19,7 @@ function getAboutPageContent(region: RegionSlug): AboutPageContent {
 
   return {
     ...base,
-    introBackgroundImage: pageIntroBandBackgroundImage,
+    introBackgroundImage: pageIntroBackgroundFor("about"),
     headerCtaLabel: regionConfig.headerCta.label,
   };
 }

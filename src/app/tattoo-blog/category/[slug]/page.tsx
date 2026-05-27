@@ -7,7 +7,7 @@ import { BlogPageGridSection } from "@/components/sections/blog-page-grid-sectio
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
 import { BLOG_CATEGORY_ORDER } from "@/config/blog-catalog";
 import { blogPageClosingForRegion, blogPageIntroForRegion } from "@/config/blog-page";
-import { pageIntroBandBackgroundImage } from "@/config/page-intro-band";
+import { pageIntroBackgroundFor } from "@/config/page-intro-band";
 import {
   getBlogCategoryBreadcrumbSteps,
   getBlogCategoryPageContent,
@@ -89,7 +89,7 @@ export default async function TattooBlogCategoryPage({ params }: TattooBlogCateg
         blogEyebrow={blogPageIntroForRegion(region).eyebrow}
         heading={content.intro.heading}
         description={content.intro.description}
-        introBackgroundImage={pageIntroBandBackgroundImage}
+        introBackgroundImage={pageIntroBackgroundFor("blog")}
         headingId={categoryHubHeadingId}
       />
       <BlogPageFiltersSection categories={content.categories} activeCategory={content.category} />

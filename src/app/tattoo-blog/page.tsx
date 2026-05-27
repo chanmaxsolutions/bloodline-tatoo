@@ -6,7 +6,7 @@ import { BlogPageFiltersSection } from "@/components/sections/blog-page-filters-
 import { BlogPageGridSection } from "@/components/sections/blog-page-grid-section";
 import { BlogPageIntroSection } from "@/components/sections/blog-page-intro-section";
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
-import { pageIntroBandBackgroundImage } from "@/config/page-intro-band";
+import { pageIntroBackgroundFor } from "@/config/page-intro-band";
 import { blogPageClosingForRegion } from "@/config/blog-page";
 import { pageClosingCtaBandBorderlessSectionClassName } from "@/lib/page-closing-cta-band";
 import { homepageClosingCtaBandClassName } from "@/lib/homepage-section-surfaces";
@@ -65,7 +65,7 @@ export default async function TattooBlogPage({ searchParams }: TattooBlogPagePro
       <JsonLd data={structuredData} />
       <BlogPageIntroSection
         intro={content.intro}
-        introBackgroundImage={pageIntroBandBackgroundImage}
+        introBackgroundImage={pageIntroBackgroundFor("blog")}
       />
       <BlogPageFiltersSection
         categories={content.categories}

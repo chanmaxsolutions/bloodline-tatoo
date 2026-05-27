@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { BlogCategoryHubIntro, BlogCategorySlug, BlogPageIntro, BlogPost } from "@/types/blog";
 import type { RegionConfig } from "@/types";
-import { pageIntroBandBackgroundImage } from "@/config/page-intro-band";
+import { pageIntroBackgroundFor } from "@/config/page-intro-band";
 import { BLOG_CATEGORY_LABELS } from "@/config/blog-catalog";
 import { getBlogCategoryPath } from "@/lib/blog-category";
 import { toIso8601ReadingDuration } from "@/lib/blog-reading-time";
@@ -25,9 +25,11 @@ function truncateMetaDescription(text: string, maxLength = META_DESCRIPTION_MAX_
 }
 
 function getBlogSocialImage(region: RegionConfig): { url: string; alt: string } {
+  const introBackground = pageIntroBackgroundFor("blog");
+
   return {
-    url: absoluteRegionalUrl(region, pageIntroBandBackgroundImage.src),
-    alt: pageIntroBandBackgroundImage.alt,
+    url: absoluteRegionalUrl(region, introBackground.src),
+    alt: introBackground.alt,
   };
 }
 

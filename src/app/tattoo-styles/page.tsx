@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
 import { TattooStylesIndexGridSection } from "@/components/sections/tattoo-styles-index-grid-section";
 import { TattooStylesIndexIntroSection } from "@/components/sections/tattoo-styles-index-intro-section";
-import { pageIntroBandBackgroundImage } from "@/config/page-intro-band";
+import { pageIntroBackgroundFor } from "@/config/page-intro-band";
 import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
 import { tattooStyleSlugsForRegion } from "@/config/region-tattoo-style-availability";
 import {
@@ -48,7 +48,7 @@ export default async function TattooStylesIndexPage() {
     <div className="min-w-0 bg-background">
       <TattooStylesIndexIntroSection
         intro={intro}
-        introBackgroundImage={pageIntroBandBackgroundImage}
+        introBackgroundImage={pageIntroBackgroundFor("tattoo-styles")}
       />
       <TattooStylesIndexGridSection tiles={tiles} />
       <PageClosingCtaSection

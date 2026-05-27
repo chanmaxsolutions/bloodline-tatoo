@@ -1,5 +1,5 @@
 import { contactPageContentForRegion } from "@/config/contact-page";
-import { pageIntroBandBackgroundImage } from "@/config/page-intro-band";
+import { pageIntroBackgroundFor } from "@/config/page-intro-band";
 import { buildBookingModalPayload } from "@/lib/booking-modal";
 import { getRegionConfig } from "@/lib/region";
 import { regionPublicUrl } from "@/lib/region-public-url";
@@ -54,7 +54,7 @@ function getContactPageContent(region: RegionSlug): ContactPageContent {
 
   return {
     ...base,
-    introBackgroundImage: pageIntroBandBackgroundImage,
+    introBackgroundImage: pageIntroBackgroundFor("contact"),
     isGlobal: region === "global",
     regionName: regionConfig.regionName,
     channels: bookingPayload.channels,
