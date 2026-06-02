@@ -36,15 +36,11 @@ function GalleryPageMasonrySection({
             </p>
           </SectionReveal>
         ) : (
-          <SectionReveal>
-            <div className="section-reveal-item">
-              <PortfolioMasonryGallery
-                key={items.map((item) => item.id).join("|")}
-                items={items}
-                galleryLabel="Bloodline tattoo portfolio"
-              />
-            </div>
-          </SectionReveal>
+          <PortfolioMasonryGallery
+            key={items.map((item) => item.id).join("|")}
+            items={items}
+            galleryLabel="Bloodline tattoo portfolio"
+          />
         )}
       </Container>
     </section>

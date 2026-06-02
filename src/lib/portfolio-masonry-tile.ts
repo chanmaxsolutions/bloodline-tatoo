@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/columns
  */
 const portfolioMasonryContainerClassName = cn(
-  "columns-1 gap-4 [column-fill:balance]",
+  "columns-2 gap-4 [column-fill:balance]",
   "sm:columns-2 lg:columns-3 xl:columns-4",
 );
 
