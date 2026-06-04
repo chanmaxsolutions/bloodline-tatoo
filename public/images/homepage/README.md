@@ -53,7 +53,15 @@ Authority proof columns (narrower on desktop).
 
 Full-width hero fallback (pairs with `/videos/hero/hero-{region}.mp4`).
 
-**Master:** **16:9** at **2400×1350 px** (or match your hero video frame).
+**Master:** **16:9** at **2400×1350 px** (match your hero video frame).
+
+Regenerate from the regional MP4 after a hero video swap:
+
+```bash
+node scripts/extract-hero-posters-from-video.mjs --at 3
+```
+
+(`--at` is the seek time in seconds; requires `ffmpeg`.)
 
 ## Workflow
 

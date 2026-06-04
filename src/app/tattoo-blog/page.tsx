@@ -67,12 +67,18 @@ export default async function TattooBlogPage({ searchParams }: TattooBlogPagePro
         intro={content.intro}
         introBackgroundImage={pageIntroBackgroundFor("blog")}
       />
-      <BlogPageFiltersSection
-        categories={content.categories}
-        activeCategory={content.activeCategory}
-      />
+      {content.categories.length > 0 ? (
+        <BlogPageFiltersSection
+          categories={content.categories}
+          activeCategory={content.activeCategory}
+        />
+      ) : null}
       {showFeaturedBand ? <BlogPageFeaturedSection posts={content.featuredPosts} /> : null}
-      <BlogPageGridSection posts={content.gridPosts} showEmptyState={!hasAnyPosts} />
+      <BlogPageGridSection
+        posts={content.gridPosts}
+        showEmptyState={!hasAnyPosts}
+        headerCtaLabel={regionConfig.headerCta.label}
+      />
       <PageClosingCtaSection
         content={closing}
         headerCtaLabel={regionConfig.headerCta.label}

@@ -5,7 +5,7 @@ import { BlogCategoryHubIntroSection } from "@/components/sections/blog-category
 import { BlogPageFiltersSection } from "@/components/sections/blog-page-filters-section";
 import { BlogPageGridSection } from "@/components/sections/blog-page-grid-section";
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
-import { BLOG_CATEGORY_ORDER } from "@/config/blog-catalog";
+import { BLOG_CATEGORY_LABELS, BLOG_CATEGORY_ORDER } from "@/config/blog-catalog";
 import { blogPageClosingForRegion, blogPageIntroForRegion } from "@/config/blog-page";
 import { pageIntroBackgroundFor } from "@/config/page-intro-band";
 import {
@@ -92,8 +92,15 @@ export default async function TattooBlogCategoryPage({ params }: TattooBlogCateg
         introBackgroundImage={pageIntroBackgroundFor("blog")}
         headingId={categoryHubHeadingId}
       />
-      <BlogPageFiltersSection categories={content.categories} activeCategory={content.category} />
-      <BlogPageGridSection posts={[...content.posts]} showEmptyState />
+      {content.categories.length > 0 ? (
+        <BlogPageFiltersSection categories={content.categories} activeCategory={content.category} />
+      ) : null}
+      <BlogPageGridSection
+        posts={[...content.posts]}
+        showEmptyState
+        headerCtaLabel={regionConfig.headerCta.label}
+        emptyStateCategoryLabel={BLOG_CATEGORY_LABELS[content.category]}
+      />
       <PageClosingCtaSection
         content={closing}
         headerCtaLabel={regionConfig.headerCta.label}
