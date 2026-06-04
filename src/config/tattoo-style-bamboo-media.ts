@@ -40,278 +40,206 @@ const bambooProofPoolsByStudio: Record<BambooStudioRegion, readonly TattooStyleD
       {
         src: bambooProofSrc(
           "bangkok",
-          "sak-yant-two-lines-script-left-shoulder-blade-bamboo-tattoo-bloodline-bangkok.jpg",
+          "bamboo-sak-yant-photo-2-6-2026-3-39-48-pm-1-bloodline-bangkok.jpg",
         ),
-        alt: "Fresh bamboo Sak Yant with two vertical lines of sacred script on a man's left shoulder blade at Bloodline Tattoo Bangkok.",
+        alt: "Black and grey realism portrait tattoo of a young child with curly hair and freckles on the arm at Bloodline Tattoo Bangkok.",
       },
       {
         src: bambooProofSrc(
           "bangkok",
-          "sak-yant-gao-yord-nine-peaks-neck-back-tattoos-bloodline-bangkok.jpg",
+          "bamboo-sak-yant-photo-2-6-2026-3-39-48-pm-2-bloodline-bangkok.jpg",
         ),
-        alt: "Traditional Sak Yant Gao Yord nine-peaks design on the back of the neck, with large black-and-grey back tattoos, at Bloodline Tattoo Bangkok.",
+        alt: "Traditional Sak Yant back piece with Gao Yord nine spires, Suea Koo twin tigers, and Hah Taew script columns at Bloodline Tattoo Bangkok.",
       },
       {
         src: bambooProofSrc(
           "bangkok",
-          "sak-yant-three-lines-script-inner-forearm-bamboo-bloodline-bangkok.jpg",
+          "bamboo-sak-yant-photo-2-6-2026-3-39-48-pm-3-1-bloodline-bangkok.jpg",
         ),
-        alt: "Bamboo Sak Yant with three horizontal lines of Khom script on the inner forearm at Bloodline Tattoo Bangkok.",
+        alt: "Black and grey upper-back tattoo with a compass rose and three realistic sharks with drop-shadow depth at Bloodline Tattoo Bangkok.",
       },
       {
         src: bambooProofSrc(
           "bangkok",
-          "bamboo-fine-line-woman-reaching-sun-ribs-side-bloodline-bangkok.jpg",
+          "bamboo-sak-yant-photo-2-6-2026-3-39-48-pm-3-bloodline-bangkok.jpg",
         ),
-        alt: "Fine-line bamboo tattoo of a woman reaching toward a sun on the ribs and side torso at Bloodline Tattoo Bangkok.",
+        alt: "Black and grey realism portrait tattoo of a woman with ornamental face patterns, floral hairpin, chrysanthemum, and Maia script at Bloodline Tattoo Bangkok.",
       },
       {
         src: bambooProofSrc(
           "bangkok",
-          "sak-yant-lotus-om-unalome-upper-back-shoulder-bamboo-bloodline-bangkok.jpg",
+          "bamboo-sak-yant-photo-2-6-2026-3-39-48-pm-4-bloodline-bangkok.jpg",
         ),
-        alt: "Sak Yant lotus flower with Om symbol and unalome script on the upper back and left shoulder at Bloodline Tattoo Bangkok.",
+        alt: "Ornamental upper-back tattoo with a realistic lion face centered in a patterned lotus mandala and hanging bead pendants at Bloodline Tattoo Bangkok.",
       },
       {
         src: bambooProofSrc(
           "bangkok",
-          "sak-yant-suea-koo-twin-tigers-red-black-upper-back-bamboo-bloodline-bangkok.jpg",
+          "bamboo-sak-yant-photo-2-6-2026-3-39-48-pm-bloodline-bangkok.jpg",
         ),
-        alt: "Suea Koo twin-tigers Sak Yant in red and black ink centered on the upper back, bamboo hand-tap style at Bloodline Tattoo Bangkok.",
-      },
-      {
-        src: bambooProofSrc(
-          "bangkok",
-          "sak-yant-hah-taew-five-lines-thigh-bamboo-hand-tap-bloodline-bangkok.jpg",
-        ),
-        alt: "Hah Taew five-lines Sak Yant on the upper thigh beside tribal tattoos, done with bamboo hand-tap at Bloodline Tattoo Bangkok.",
-      },
-      {
-        src: bambooProofSrc(
-          "bangkok",
-          "sak-yant-gao-yord-hah-taew-twin-tigers-upper-back-bamboo-bloodline-bangkok.jpg",
-        ),
-        alt: "Upper back collection of Sak Yant designs including Gao Yord, Hah Taew five lines, and twin tigers at Bloodline Tattoo Bangkok.",
-      },
-      {
-        src: bambooProofSrc(
-          "bangkok",
-          "sak-yant-hah-taew-five-lines-shoulder-blade-closeup-bamboo-bloodline-bangkok.jpg",
-        ),
-        alt: "Close-up of fresh Hah Taew five-lines Sak Yant on the right shoulder blade with Gao Yord and twin tiger nearby at Bloodline Tattoo Bangkok.",
-      },
-      {
-        src: bambooProofSrc(
-          "bangkok",
-          "sak-yant-three-lines-script-ribs-side-bamboo-bloodline-bangkok.jpg",
-        ),
-        alt: "Sak Yant with three horizontal lines of sacred script on the side ribs, bamboo tattoo at Bloodline Tattoo Bangkok.",
-      },
-      {
-        src: bambooProofSrc(
-          "bangkok",
-          "sak-yant-suea-koo-singha-hah-taew-full-back-bamboo-bloodline-bangkok.jpg",
-        ),
-        alt: "Full back Sak Yant featuring twin tigers, twin lions Singha, Hah Taew five lines, and name lettering, bamboo style at Bloodline Tattoo Bangkok.",
+        alt: "Sak Yant chest collar tattoo with Khom script arcs, central yantra spires, and symmetrical sacred geometry across the upper chest at Bloodline Tattoo Bangkok.",
       },
     ],
     phuket: [
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-paed-tidt-eight-directional-upper-back-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Paed Tidt eight-directional Sak Yant on the upper back with infinity symbol on the neck, bamboo tattoo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-final-bloodline-phuket.jpg"),
+        alt: "Traditional black ink Hah Taew (Five Lines) and Chat Petch (Diamond Armour) Sak Yant tattoos symmetrically placed on a man's upper back at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-tiger-leaping-shoulder-back-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Traditional Sak Yant leaping tiger surrounded by Khom script on the upper back and left shoulder at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-0088-bloodline-phuket.jpg"),
+        alt: "Paed Tidt (Eight-Directional Yant) Sak Yant with concentric Khom script and eight radiating unalome spires on the upper back, with a solid infinity symbol on the nape at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-hah-taew-lotus-inner-forearm-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Hah Taew five-lines Sak Yant with central lotus flower on the inner forearm, bamboo hand-tap at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-0120-bloodline-phuket.jpg"),
+        alt: "Traditional Suea (Tiger) Sak Yant of a leaping tiger surrounded by sacred Khom script and unalome symbols on the upper back at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-gao-yord-nine-peaks-upper-back-neck-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Gao Yord nine-peaks Sak Yant centered on the upper back below the hairline, bamboo tattoo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-0122-bloodline-phuket.jpg"),
+        alt: "Hah Taew (Five Lines) Sak Yant with five vertical Khom script columns and unalome flourishes framing a central blooming lotus on the upper arm at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-gao-yord-twin-tigers-script-grid-full-back-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Full back Sak Yant stack with Gao Yord, Suea Koo twin tigers, and script grid yant, bamboo style at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-0591-bloodline-phuket.jpg"),
+        alt: "Gao Yord (Nine Spires) Sak Yant with a geometric pyramid grid of Khom script and nine peaked unalomes centered on the upper back at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-hah-taew-five-lines-shoulder-tiger-gao-yord-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Hah Taew five-lines Sak Yant on the left shoulder blade with tiger and Gao Yord on the upper back at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-0602-bloodline-phuket.jpg"),
+        alt: "Upper-back Sak Yant composition with Gao Yord nine spires, Suea Koo twin tigers, and a lower geometric yantra grid with Khom script at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-hah-taew-five-lines-shoulder-blade-anchor-rose-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Fresh Hah Taew five-lines Sak Yant on the shoulder blade beside an anchor and rose tattoo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-0964-bloodline-phuket.jpg"),
+        alt: "Sak Yant with two parallel vertical columns of Khom script topped with unalome symbols on the left shoulder blade at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-twin-naga-snakes-upper-arm-bamboo-hand-tap-bloodline-phuket.jpg",
-        ),
-        alt: "Sak Yant twin intertwined Nagas with Khom script and unalomes on the upper arm, bamboo hand-tap at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-1060-bloodline-phuket.jpg"),
+        alt: "Gao Yord (Nine Spires) Sak Yant with nine peaked unalomes rising from a Khom script base on the back of the neck at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-tiger-forearm-khom-script-unalome-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Sak Yant tiger Suea design with Khom script and unalome symbols on the inner forearm, bamboo tattoo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-1061-bloodline-phuket.jpg"),
+        alt: "Sam Taew (Three Rows) Sak Yant with three vertical columns of sacred Khom script and unalome caps on the inner forearm at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-suea-koo-twin-tigers-upper-back-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Suea Koo twin-tigers Sak Yant centered on the upper back with sacred script border at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-1081-bloodline-phuket.jpg"),
+        alt: "Fine-line bamboo tattoo of a stylized woman reaching toward a radiant sun on the side ribs at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-tiger-thigh-khom-script-unalome-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Large Sak Yant tiger on the outer thigh with Khom script and unalomes, bamboo hand-tap at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-1086-bloodline-phuket.jpg"),
+        alt: "Hah Taew (Five Lines) Sak Yant with five Khom script columns, unalomes, and a central lotus flower bearing an Om symbol on the left shoulder blade at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-hah-taew-red-lotus-inner-arm-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Hah Taew five-lines Sak Yant with red lotus center on the inner upper arm, bamboo tattoo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-1158-bloodline-phuket.jpg"),
+        alt: "Suea Koo (Twin Tigers) Sak Yant with black-ink tigers and red Khom script in a circular yantra on the upper back at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-om-symbol-script-inner-forearm-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Sak Yant Om symbol with radiating Khom script lines and unalomes on the inner forearm, bamboo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-1196-bloodline-phuket.jpg"),
+        alt: "Hah Taew (Five Lines) Sak Yant with five vertical Khom script rows, unalomes, and a central diamond eye motif on the upper thigh at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-gao-yord-spine-script-full-back-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Gao Yord nine-peaks Sak Yant with long spine column of Khom script down the back, bamboo tattoo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-1706-bloodline-phuket.jpg"),
+        alt: "Full upper-back Sak Yant layout with Gao Yord nine spires, Suea Koo twin tigers, Hah Taew five lines, and geometric script yantras at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-tiger-roaring-upper-arm-shoulder-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Sak Yant roaring tiger in profile on the upper arm and shoulder with sacred script arcs at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-1707-bloodline-phuket.jpg"),
+        alt: "Close-up Hah Taew (Five Lines) Sak Yant on the right shoulder blade with Gao Yord and Suea Koo designs on the upper back at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-hah-taew-five-lines-inner-bicep-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Hah Taew five-lines Sak Yant with unalomes on the inner bicep, bamboo hand-tap at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-1708-bloodline-phuket.jpg"),
+        alt: "Hah Taew (Five Lines) Sak Yant with five Khom script columns and unalome flourishes on the left shoulder blade at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc("phuket", "sak-yant-garuda-chest-bamboo-hand-tap-bloodline-phuket.jpg"),
-        alt: "Large Sak Yant Garuda with spread wings across the chest, stippled bamboo hand-tap style at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-1710-bloodline-phuket.jpg"),
+        alt: "Three-line Sak Yant with diagonal Khom script columns and unalome symbols on the side ribcage at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-hah-taew-five-lines-upper-back-shoulder-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Hah Taew five-lines Sak Yant on the left upper back and shoulder blade at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-2292-bloodline-phuket.jpg"),
+        alt: "Large back Sak Yant with Suea Koo twin tigers, Yant Singha mythical lions, Hah Taew five lines, and MCKENZIE script lettering at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc("phuket", "sak-yant-tiger-ribs-side-bamboo-bloodline-phuket.jpg"),
-        alt: "Fresh Sak Yant tiger on the rib cage and side torso with Khom script, bamboo tattoo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-2544-bloodline-phuket.jpg"),
+        alt: "Hah Taew (Five Sacred Lines) Sak Yant with five vertical Khom script rows and unalome symbols on the ribcage at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-tiger-head-back-of-head-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Sak Yant tiger head surrounded by Khom script on the back of the head, bamboo hand-tap at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-3041-bloodline-phuket.jpg"),
+        alt: "Twin Naga snakes Sak Yant with intertwined serpents, Khom script bodies, and unalome spires on the upper arm at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-turtle-phaya-tao-ruean-upper-back-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Phaya Tao Ruean king turtle Sak Yant with script grid and unalomes on the upper back at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-3144-bloodline-phuket.jpg"),
+        alt: "Suea (Tiger) Sak Yant of a leaping tiger with Khom script arcs and unalomes on the inner forearm at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-khom-grid-roman-numeral-iv-inner-arm-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Sak Yant Khom script grid with Roman numeral IV on the inner arm, bamboo tattoo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-3401-bloodline-phuket.jpg"),
+        alt: "Suea Koo (Twin Tigers) Sak Yant with symmetrical tigers, Khom script crescent, and unalomes centered on the upper back at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-suea-koo-twin-tigers-upper-back-neck-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Suea Koo twin-tigers Sak Yant on the upper back below the neck with Khom script at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-3605-bloodline-phuket.jpg"),
+        alt: "Suea (Tiger) Sak Yant of a snarling tiger with Khom script border and multiple unalomes on the outer thigh at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-twin-tigers-paed-tidt-full-back-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Full back Sak Yant with twin tigers, lower Paed Tidt yant, and Latin shoulder text, bamboo style at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-3641-bloodline-phuket.jpg"),
+        alt: "Hah Taew (Five Lines) Sak Yant with five Khom script columns framing a vibrant red lotus flower on the inner forearm at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-lotus-om-spine-upper-back-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Sak Yant lotus with Om symbol and script lines down the spine on the upper back, bamboo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-4203-bloodline-phuket.jpg"),
+        alt: "Hah Taew (Five Rows) Sak Yant with five Khom script columns and a central Om symbol on the inner forearm at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-gao-yord-nape-skull-sombrero-head-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Fresh Gao Yord Sak Yant on the nape with skull sombrero head tattoo and dragon on the upper back at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-5243-bloodline-phuket.jpg"),
+        alt: "Gao Yord (Nine Spires) Sak Yant with a geometric yantra grid and a long vertical Khom script column down the spine at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-lotus-script-lower-back-spine-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Sak Yant lotus flower with Khom script lines above and below on the lower back and spine, bamboo at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-6464-bloodline-phuket.jpg"),
+        alt: "Suea (Tiger) Sak Yant of a snarling tiger surrounded by curved Khom script on the upper arm at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-lotus-hah-taew-calf-lower-leg-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Vertical Sak Yant lotus with Hah Taew five-lines script on the back of the calf, bamboo hand-tap at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-6468-bloodline-phuket.jpg"),
+        alt: "Hah Taew (Five Sacred Lines) Sak Yant with five vertical Khom script columns on the inner upper arm at Bloodline Tattoo Phuket.",
       },
       {
-        src: bambooProofSrc(
-          "phuket",
-          "sak-yant-hah-taew-dual-shoulder-blades-fresh-bamboo-bloodline-phuket.jpg",
-        ),
-        alt: "Fresh dual Hah Taew five-lines Sak Yant tattoos on both shoulder blades, bamboo hand-tap at Bloodline Tattoo Phuket.",
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-6735-bloodline-phuket.jpg"),
+        alt: "Garuda Sak Yant with outstretched wings, ornate headdress, and detailed feather shading centered on the chest at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-6806-bloodline-phuket.jpg"),
+        alt: "Hah Taew (Five Lines) Sak Yant with five vertical Khom script rows and unalome caps on the left shoulder blade at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-6956-bloodline-phuket.jpg"),
+        alt: "Suea (Tiger) Sak Yant of a snarling tiger with Khom script on the ribs beside an ornate cross tattoo at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-7038-bloodline-phuket.jpg"),
+        alt: "Yant Suea tiger-head Sak Yant with concentric Khom script rings and unalomes on the back of the head at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-7055-bloodline-phuket.jpg"),
+        alt: "Yant Tao Ruean (Turtle) Sak Yant with a script-filled shell grid, circular Khom borders, and unalome spires on the upper back at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-7056-bloodline-phuket.jpg"),
+        alt: "Sak Yant talismanic grid yantra with sixteen Khom script cells, tiered script design, unalomes, and Roman numeral IV on the inner arm at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-7306-bloodline-phuket.jpg"),
+        alt: "Suea Koo (Twin Tigers) Sak Yant in black and grey with symmetrical tigers, central unalomes, and Khom script crescent on the upper back at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-7914-bloodline-phuket.jpg"),
+        alt: "Full-back Sak Yant with Suea Koo twin tigers, Paed Tidt eight-directional yantra, and FORTIS FORTUNA ADIUVAT script across the shoulders at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-9882-bloodline-phuket.jpg"),
+        alt: "Lotus and Om Sak Yant with shaded lotus petals, five Khom script columns with unalomes, and a spine script line on the upper back at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-9941-bloodline-phuket.jpg"),
+        alt: "Fresh Gao Yord (Nine Spires) Sak Yant with nine peaked unalomes and Khom script on the nape of the neck at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-9946-bloodline-phuket.jpg"),
+        alt: "Hah Taew-style Sak Yant with a central lotus flower and five vertical Khom script columns along the lower back spine at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: bambooProofSrc("phuket", "bamboo-sak-yant-img-9947-bloodline-phuket.jpg"),
+        alt: "Hah Taew-style Sak Yant with a decorative lotus motif and five rows of Khom script above and below on the lower leg at Bloodline Tattoo Phuket.",
       },
     ],
   };

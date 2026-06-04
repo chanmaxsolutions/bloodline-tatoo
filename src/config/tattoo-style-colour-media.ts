@@ -49,447 +49,379 @@ const colourProofPoolsByStudio: Record<ColourStudioRegion, readonly TattooStyleD
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-japanese-pagoda-tiger-cherry-blossoms-full-leg-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-1-06-10-pm-3-bloodline-bangkok.jpg",
         ),
-        alt: "A full leg sleeve in black and grey with vivid red cherry blossoms, a Japanese pagoda, and a realistic tiger with a magnified eye detail, finished in a bold colour-accent style at Bloodline Tattoo Bangkok.",
+        alt: "Colour Japanese Irezumi full-back tattoo with a red Tengu, green dragon, Daruma doll, and katana swords at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-owl-eye-skull-gothic-tower-thigh-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-1-06-11-pm-3-bloodline-bangkok.jpg",
         ),
-        alt: "A vibrant colour realism thigh piece with a large owl eye, feathers, a human skull, and a gothic tower against warm flame-like tones, inked at Bloodline Tattoo Bangkok.",
+        alt: "Colour neo-traditional Japanese Hannya mask tattoo with yellow eyes and fangs on the upper arm at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-day-of-dead-portrait-gun-rose-devil-full-arm-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-10-50-30-am-1-bloodline-bangkok.jpg",
         ),
-        alt: "A saturated full arm sleeve pairing a Dia de los Muertos style portrait with a handgun, a colour rose, and a bold devil face plus sunburst background, crafted at Bloodline Tattoo Bangkok.",
+        alt: "Colour anime-style full sleeve tattoo of a horned woman with green hair above a purple Hannya mask on the arm at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-woman-profile-sun-quote-forearm-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-10-50-30-am-bloodline-bangkok.jpg",
         ),
-        alt: "A high-impact colour tattoo on the arm featuring a woman's profile beside a blazing sun motif and typography about fear versus courage in an illustrative palette, done at Bloodline Tattoo Bangkok.",
+        alt: "Colour Japanese Irezumi full leg sleeve tattoo with a samurai, green dragon, and lion dog among waves and clouds at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-dragon-ball-anime-cast-full-arm-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-1-bloodline-bangkok.jpg",
         ),
-        alt: "An anime-inspired full arm sleeve layering multiple Dragon Ball characters in punchy saturated colour and clean line work at Bloodline Tattoo Bangkok.",
+        alt: "Colour surreal forearm sleeve tattoo with cracked stone faces, a dark owl, red energy, and a silhouetted figure at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-dragon-ball-trunks-sword-dragon-ball-inner-forearm-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-2-bloodline-bangkok.jpg",
         ),
-        alt: "A manga-style inner forearm colour tattoo of Future Trunks with his sword and a four-star Dragon Ball amid lightning and aura effects, healed and photographed at Bloodline Tattoo Bangkok.",
+        alt: "Colour biomechanical full sleeve tattoo with dark metallic structures and glowing orange organic accents on the arm at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-cracked-marble-face-demon-fire-mandala-full-arm-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-3-bloodline-bangkok.jpg",
         ),
-        alt: "A dark surreal full sleeve mixing a cracked statue-like face, a snarling creature, swirling red-orange energy and a geometric mandala shoulder cap in cinematic colour realism at Bloodline Tattoo Bangkok.",
+        alt: "Colour dark fantasy thigh tattoo of an armoured knight with a sword before a glowing red sun at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-traditional-japanese-koi-peony-full-leg-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-4-bloodline-bangkok.jpg",
         ),
-        alt: "A classic irezumi full leg sleeve with bold outlines, saturated orange chrysanthemums or peonies and a vivid red koi against black-grey cloud filler, tattooed at Bloodline Tattoo Bangkok.",
+        alt: "Colour realistic forearm tattoo of a heart-shaped pocket watch inscribed Aria flanked by pink roses at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-zeus-lightning-snake-smiling-portrait-full-leg-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-5-bloodline-bangkok.jpg",
         ),
-        alt: "A dramatic full leg tattoo with glowing red lightning, a bearded deity portrait, coiled snake and sinister female face in black-and-grey with intense red colour pops at Bloodline Tattoo Bangkok.",
+        alt: "Colour arm tattoo of a black and grey snake winding through pink, purple, and blue flowers on a partial sleeve at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-japanese-glowing-hannya-snake-sword-grasp-full-leg-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-6-bloodline-bangkok.jpg",
         ),
-        alt: "A neo-Japanese colour leg sleeve centring an orange-lit Hannya mask with a descending snake and a realistically shaded hand gripping a sword hilt, completed at Bloodline Tattoo Bangkok.",
+        alt: "Colour Our Lady of Guadalupe forearm tattoo with blue star mantle, red roses, and lit candles on the hand at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-red-hannya-tiger-peony-rope-full-arm-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-7-bloodline-bangkok.jpg",
         ),
-        alt: "A cohesive full arm sleeve marrying deep purple blooms, rope accents, a fierce red Hannya or oni motif and a snarling tiger near the wrist in punchy japanese-inspired colour work at Bloodline Tattoo Bangkok.",
+        alt: "Colour trash polka arm sleeve tattoo with chess pieces, checkered patterns, and a snarling wolf in black, white, and red at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-cracked-noh-mask-rising-sun-disks-full-leg-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-7-1-bloodline-bangkok.jpg",
         ),
-        alt: "A full leg tattoo of twin cracked porcelain-inspired masks accented by stark red circular rising-sun motifs and orange cloud flourishes over heavy black swirl filler, tattooed at Bloodline Tattoo Bangkok.",
+        alt: "Colour realistic forearm tattoo of an eagle head with warm sun rays above a Roman numeral pocket watch at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-hannya-katana-calm-mask-orange-cloud-leg-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-8-bloodline-bangkok.jpg",
         ),
-        alt: "A Japanese narrative leg sleeve with a dominant Hannya, an upright katana held in hand and flowing orange clouds plus a quieter mask near the ankle, executed in saturated colour contrasts at Bloodline Tattoo Bangkok.",
+        alt: "Colour surreal forearm tattoo of a woman in profile with red tribal markings and a golden helmet above a cosmic nebula at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-armoured-japanese-samurai-waves-full-back-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-9-bloodline-bangkok.jpg",
         ),
-        alt: "A large full-back japanese armour piece bursting with reds, greens and metallics depicting a roaring samurai over stylised clouds and swirling waves below the waist, done at Bloodline Tattoo Bangkok.",
+        alt: "Colour forearm sleeve tattoo of teal ocean waves, an orange sun, bare tree branches, and a geometric mandala at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-woman-portrait-sunburst-mandala-red-orbit-leg-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-10-bloodline-bangkok.jpg",
         ),
-        alt: "A realism-led full leg tattoo with soft greyscale portraiture, honeycomb geometry, a radiating knee mandala and vivid red illustrative wings or energy arcs in a standout colour-accent style at Bloodline Tattoo Bangkok.",
+        alt: "Colour dark surreal full leg sleeve tattoo with skeletal figures, skulls, and glowing red and pink energy patterns at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-egyptian-queen-collar-anubis-full-arm-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-11-bloodline-bangkok.jpg",
         ),
-        alt: "A narrative full sleeve from ornate Egyptian royalty with jewelled collar and hieroglyphic motifs down to a detailed Anubis on the inner forearm, rendered with rich tonal colour at Bloodline Tattoo Bangkok.",
+        alt: "Colour matching calf tattoos with a chameleon, cosmic face, mandrill portrait, and African savanna sunset silhouettes at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-traditional-japanese-tiger-peony-wave-full-arm-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-12-bloodline-bangkok.jpg",
         ),
-        alt: "A bold irezumi full sleeve with a roaring striped tiger intertwined with saturated red blossoms and smoky wave filler showcasing classic colour japanese tattooing at Bloodline Tattoo Bangkok.",
+        alt: "Colour forearm tattoo of a French Bulldog in samurai armour with a red sun and pink peonies at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-dragon-foo-dog-orange-cloud-wave-arm-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-12-1-bloodline-bangkok.jpg",
         ),
-        alt: "A black-and-grey sleeve accented by luminous orange clouds, pairing an open-jaw dragon at the shoulder with a guardian lion or foo dog focal point on the forearm, inked at Bloodline Tattoo Bangkok.",
+        alt: "Colour space-themed full arm sleeve tattoo with astronauts, a launching shuttle, and cosmic nebulas at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-samurai-kabuto-woman-skull-oni-red-swirl-leg-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-13-bloodline-bangkok.jpg",
         ),
-        alt: "A twin-angle showcase of a full leg narrative melding ornate kabuto armour, expressive female portrait anatomy, skull study and fiery oni-mask energy in saturated red monochrome colour at Bloodline Tattoo Bangkok.",
+        alt: "Colour religious lower leg tattoos of Jesus as the Good Shepherd and the Virgin Mary holding the infant Jesus at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-surreal-woman-circular-eye-ribbon-stripes-arm-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-14-bloodline-bangkok.jpg",
         ),
-        alt: "An atmospheric surrealist full sleeve layering a woman's face with warm red highlights, a luminous circular eye motif and winding ribbon negatives for depth, healed at Bloodline Tattoo Bangkok.",
+        alt: "Colour sci-fi full arm sleeve tattoo with grey aliens, an Egyptian pyramid, a spaceship, and a colourful nebula at Bloodline Tattoo Bangkok.",
       },
       {
         src: colourProofSrc(
           "bangkok",
-          "colour-tattoo-biomech-skull-luminous-orange-hex-leg-sleeve-bloodline-bangkok.jpg",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-15-bloodline-bangkok.jpg",
         ),
-        alt: "A dark biomechanical-inspired full leg tattoo with anatomical skull, recessed realistic eye peeking from shadow skeletal forms and glowing orange honeycomb framing, finished at Bloodline Tattoo Bangkok.",
+        alt: "Colour portrait realism tattoo of Thomas Shelby in a flat cap with a cigarette on the forearm at Bloodline Tattoo Bangkok.",
+      },
+      {
+        src: colourProofSrc(
+          "bangkok",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-16-bloodline-bangkok.jpg",
+        ),
+        alt: "Colour portrait realism tattoo of battle-damaged Terminator with exposed endoskeleton and glowing red eye at Bloodline Tattoo Bangkok.",
+      },
+      {
+        src: colourProofSrc(
+          "bangkok",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-17-bloodline-bangkok.jpg",
+        ),
+        alt: "Colour portrait realism tattoo of John Wick with bruised face and bold SHOOT lettering below on the forearm at Bloodline Tattoo Bangkok.",
+      },
+      {
+        src: colourProofSrc(
+          "bangkok",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-18-bloodline-bangkok.jpg",
+        ),
+        alt: "Colour portrait realism tattoo of Arthur Shelby lighting a cigar in a suit and bow tie at Bloodline Tattoo Bangkok.",
+      },
+      {
+        src: colourProofSrc(
+          "bangkok",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-20-bloodline-bangkok.jpg",
+        ),
+        alt: "Colour portrait realism tattoo of a man in three-quarter profile with warm skin tones on the forearm at Bloodline Tattoo Bangkok.",
+      },
+      {
+        src: colourProofSrc(
+          "bangkok",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-21-bloodline-bangkok.jpg",
+        ),
+        alt: "Colour Japanese Irezumi tattoo of a lantern spirit and Hannya mask with orange flames on the ribs or upper arm at Bloodline Tattoo Bangkok.",
+      },
+      {
+        src: colourProofSrc(
+          "bangkok",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-22-bloodline-bangkok.jpg",
+        ),
+        alt: "Colour Japanese Irezumi matching full leg sleeve tattoos with a red dragon, koi fish, waves, and a red sun at Bloodline Tattoo Bangkok.",
+      },
+      {
+        src: colourProofSrc(
+          "bangkok",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-23-bloodline-bangkok.jpg",
+        ),
+        alt: "Colour surreal rib tattoo blending a woman's portrait with large red and pink roses on the side torso at Bloodline Tattoo Bangkok.",
+      },
+      {
+        src: colourProofSrc(
+          "bangkok",
+          "colour-tattoo-photo-19-5-2026-11-03-16-am-bloodline-bangkok.jpg",
+        ),
+        alt: "Colour underwater arm tattoo with a seal, sea turtle, orange octopus tentacle, and deep blue ocean background at Bloodline Tattoo Bangkok.",
+      },
+      {
+        src: colourProofSrc(
+          "bangkok",
+          "colour-tattoo-photo-19-5-2026-11-58-32-am-28-bloodline-bangkok.jpg",
+        ),
+        alt: "Colour portrait realism tattoo of Kobe Bryant biting his yellow Lakers jersey on the forearm at Bloodline Tattoo Bangkok.",
+      },
+      {
+        src: colourProofSrc(
+          "bangkok",
+          "colour-tattoo-photo-19-5-2026-11-58-32-am-29-bloodline-bangkok.jpg",
+        ),
+        alt: "Colour portrait realism tattoo of Kurt Cobain with blonde hair and signature script on the forearm at Bloodline Tattoo Bangkok.",
       },
     ],
     bali: [
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-myth-warrior-greek-key-glowing-accents-full-arm-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Dark realism colour tattoo sleeve with roaring warrior faces, a red Greek key band, and glowing orange-red energy sweeping from shoulder to hand at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-12-29-34-bloodline-bali.jpg"),
+        alt: "Colour surreal cyberpunk forearm sleeve tattoo with a glossy red face, grayscale portrait, and glowing blue circuit lines at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-realism-boy-portrait-burning-house-eye-full-leg-bloodline-bali.jpg",
-        ),
-        alt: "High-contrast colour realism leg piece with a shushing child portrait, a vivid red eye, and a house in flames from thigh to ankle at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-12-29-44-bloodline-bali.jpg"),
+        alt: "Colour full arm sleeve tattoo with a snarling tiger, realistic eyes, orange ribbon swirls, and a lotus flower at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-japanese-dragon-hannya-mask-waves-full-arm-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Bold Japanese colour sleeve pairing a blue dragon with a green Hannya mask, waves, and floral accents in saturated blues, greens, and reds at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-08-bloodline-bali.jpg"),
+        alt: "Colour biomechanical leg tattoo with metallic gears, pistons, and bright red coiled springs wrapping the limb at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-japanese-blue-dragon-purple-peony-full-arm-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Traditional Japanese colour tattoo sleeve with a bright blue scaled dragon, purple peony, and wind-and-wave background on the outer arm at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-15-bloodline-bali.jpg"),
+        alt: "Colour trash polka full sleeve tattoo with realistic female faces, red leaves, and a detailed skull on the arm at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-japanese-phoenix-sun-maple-full-leg-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Vibrant Japanese-style phoenix in teals, oranges, and reds wrapping a full leg from hip to ankle with cloud shading and maple touches at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-19-bloodline-bali.jpg"),
+        alt: "Colour Pennywise clown full sleeve tattoo with playing cards and dice on the arm at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-death-row-records-portraits-red-type-full-leg-bloodline-bali.jpg",
-        ),
-        alt: "Full-leg black-and-grey portrait work with bold red Death Row lettering and stacked hip-hop portraits from thigh to ankle at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-30-bloodline-bali.jpg"),
+        alt: "Colour Egyptian full arm sleeve tattoo with a queen portrait, ornate headdress, and Anubis in black and grey realism at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-samurai-warrior-hannya-red-clouds-full-leg-bloodline-bali.jpg",
-        ),
-        alt: "Japanese leg sleeve with a detailed samurai bust, a lower Hannya mask, and saturated red cloud fill against black-and-grey realism at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-48-bloodline-bali.jpg"),
+        alt: "Colour Japanese Irezumi full sleeve tattoo of a snarling tiger in black, grey, and red with traditional wind bars at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-japanese-snake-hannya-peony-full-leg-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Colour Japanese leg sleeve with a blue serpent, red Hannya mask, and peony blooms framed by black-and-grey wind bars at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-53-bloodline-bali.jpg"),
+        alt: "Colour Japanese full arm sleeve tattoo with a dragon head, Fu dog, and orange swirling clouds at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-split-portrait-circuit-lines-japanese-seal-full-arm-bloodline-bali.jpg",
-        ),
-        alt: "Colour realism arm sleeve with a dual-tone woman’s portrait, teal circuit-style lines, and a red seal with script on a solid black field at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-17-00-bloodline-bali.jpg"),
+        alt: "Colour Japanese full arm sleeve tattoo with a woman's face, samurai helmet, Hannya mask, skull, and red black patterns at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-biomech-robot-face-red-plating-teal-circuits-arm-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Biomechanical colour sleeve mixing a robotic skull, glossy red panels, and glowing teal circuit trails from shoulder to wrist at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-17-05-bloodline-bali.jpg"),
+        alt: "Colour surreal full sleeve tattoo of a woman's face with a glowing third eye, red light streaks, and pale bandage wraps at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-japanese-tengu-mask-tassels-calf-piece-bloodline-bali.jpg",
-        ),
-        alt: "Bold Japanese colour tattoo on the lower leg featuring a vivid red long-nose Tengu mask with blue accents and classic background shading at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-18-38-bloodline-bali.jpg"),
+        alt: "Colour Greek mythology full arm sleeve tattoo with Zeus, red lightning, Medusa, and a Greek key pattern at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-egyptian-anubis-blue-energy-tear-full-leg-bloodline-bali.jpg",
-        ),
-        alt: "Black-and-grey Egyptian realism leg sleeve with Anubis, a ripped blue-energy reveal, and mythic detailing from thigh to ankle at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-18-46-bloodline-bali.jpg"),
+        alt: "Colour Egyptian full leg sleeve tattoo with a queen portrait, Anubis, hieroglyphics, and electric blue shattered effects at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-woman-warrior-headdress-blue-feathers-full-leg-bloodline-bali.jpg",
-        ),
-        alt: "Colour realism full leg with an armoured portrait, striking blue helmet-metal highlights, and flowing feather motifs at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-18-54-bloodline-bali.jpg"),
+        alt: "Colour surreal full arm sleeve tattoo peeling between a ghostly white face and a realistic portrait with red leaves at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-classical-bearded-god-column-red-lightning-leg-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Mythological leg sleeve blending classical statue portraiture, column architecture, Greek key bands, and hot red lightning accents at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-26-24-bloodline-bali.jpg"),
+        alt: "Colour illustrative forearm tattoo of Ariel, Flounder, and Sebastian from The Little Mermaid underwater at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-dual-portrait-teal-data-lines-red-disk-full-arm-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Futuristic colour sleeve contrasting a luminous red portrait with greyscale realism, mint data lines, and a red medallion motif at Bloodline Tattoo Bali.",
-      },
-      {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-realistic-tiger-female-eyes-orange-ribbon-lotus-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Dynamic colour realism arm sleeve with an orange tiger head, haunting greyscale eyes on repeat, swirling orange ribbons, and a lotus at Bloodline Tattoo Bali.",
-      },
-      {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-biomech-leg-sleeve-red-coil-springs-three-views-bloodline-bali.jpg",
-        ),
-        alt: "Biomechanical lower-leg sleeve shown from multiple angles, with chrome machinery and vivid red coil springs for a 3D mechanical look at Bloodline Tattoo Bali.",
-      },
-      {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-surreal-woman-skull-red-leaf-fragment-eyes-arm-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Surreal black-and-grey sleeve with a detailed woman’s face, skull, red foliage, and fragmented eye portraits for a trash-polka feel at Bloodline Tattoo Bali.",
-      },
-      {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-pennywise-clown-playing-cards-dice-full-arm-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Horror colour realism full sleeve with a detailed evil clown portrait above falling aces, dice, and smoky filler on the forearm at Bloodline Tattoo Bali.",
-      },
-      {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-japanese-cobra-peony-red-clouds-full-arm-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Neo-Japanese colour sleeve with a striking hooded snake, large peony, and fiery red-orange cloud patterns from shoulder to wrist at Bloodline Tattoo Bali.",
-      },
-      {
-        src: colourProofSrc(
-          "bali",
-          "colour-tattoo-japanese-teal-snake-geisha-face-red-patterns-full-leg-bloodline-bali.jpg",
-        ),
-        alt: "Full-leg Japanese colour piece mixing a teal serpent, dramatic geisha-style portrait, and bold red patterning on deep black at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-26-28-bloodline-bali.jpg"),
+        alt: "Colour realistic forearm tattoo of a tiger's face with orange fur, black stripes, and green foliage at Bloodline Tattoo Bali.",
       },
     ],
     phuket: [
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-statue-faces-glowing-eyes-red-ornament-full-arm-hand-bloodline-phuket.jpg",
-        ),
-        alt: "Full arm and hand colour tattoo with stone-like faces, glowing orange eyes and deep red ornamental filigree in a high-contrast illustrative style, healed work from Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-0018-bloodline-phuket.jpg"),
+        alt: "Full-sleeve colour tattoo of a screaming warrior with glowing red lightning, a Spartan helmet figure, and a red Greek key band extending onto the hand at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-shark-sea-turtle-clownfish-scuba-diver-ocean-full-arm-bloodline-phuket.jpg",
-        ),
-        alt: "Full arm ocean colour realism sleeve with a shark, sea turtle, clownfish on coral, and a scuba diver in saturated blues, finished at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-0085-bloodline-phuket.jpg"),
+        alt: "Trash-polka colour leg tattoo with a boy portrait, AGAINST ALL ODDS script, a red crying eye, a burning house, and RISK TAKER lettering at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-jellyfish-clownfish-shipwreck-underwater-forearm-bloodline-phuket.jpg",
-        ),
-        alt: "Colour realism forearm tattoo of an underwater scene with a pink jellyfish, clownfish, and detailed shipwreck in rich blues, crafted at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-0524-bloodline-phuket.jpg"),
+        alt: "Japanese Irezumi colour sleeve with a blue dragon, a green Hannya mask, and swirling wave backgrounds at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-green-tree-python-monstera-palm-upper-arm-bloodline-phuket.jpg",
-        ),
-        alt: "Vibrant colour tattoo of a realistic green snake coiled among tropical palm and monstera leaves across the outer upper arm, by Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-0535-bloodline-phuket.jpg"),
+        alt: "Vibrant Japanese colour sleeve featuring a coiled blue dragon, a purple peony, and traditional black wind-bar shading at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-hooded-reaper-eclipse-oni-mask-full-arm-bloodline-phuket.jpg",
-        ),
-        alt: "Dark fantasy full sleeve colour tattoo with a hooded skeletal figure, glowing eclipse-like centre, and a horned oni-style mask with saturated red-orange highlights at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-0620-bloodline-phuket.jpg"),
+        alt: "Japanese colour phoenix full-leg tattoo with teal scales, red and yellow tail feathers, and dark cloud backgrounds at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-rainbow-lorikeets-bottlebrush-wattle-full-arm-bloodline-phuket.jpg",
-        ),
-        alt: "Full arm colour realism sleeve pairing two lorikeets with bottlebrush blooms, wattle, and teal foliage on a cohesive dark green backdrop, tattooed at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-2575-bloodline-phuket.jpg"),
+        alt: "Colour realism leg tattoo of Death Row Records with red block lettering and portraits of Snoop Dogg and Tupac Shakur at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-cracked-stone-face-glowing-orange-red-forearm-bloodline-phuket.jpg",
-        ),
-        alt: "Forearm tattoo mixing grey cracked stone realism with luminous orange and red abstract light, a bold colour-accented piece from Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-2837-bloodline-phuket.jpg"),
+        alt: "Japanese-inspired colour leg tattoo of an armored samurai with a katana and a Hannya mask amid red cloud accents at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-zeus-lightning-spartan-warrior-mask-hand-full-arm-bloodline-phuket.jpg",
-        ),
-        alt: "Greek mythology full sleeve extending onto the hand: Zeus with red lightning, Greek key band, armoured warrior, and a cracked mask with warm accents, in black, grey and colour pops at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-2839-bloodline-phuket.jpg"),
+        alt: "Japanese colour leg tattoo with a pagoda, red cherry blossoms, a tiger eye medallion, a realistic tiger portrait, and kanji at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-red-fox-magenta-flowers-scratch-marks-full-arm-bloodline-phuket.jpg",
-        ),
-        alt: "Full arm colour realism of a fox with vivid blue eyes, magenta florals and stylised claw marks slicing the composition, healed results from Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-3445-bloodline-phuket.jpg"),
+        alt: "Surrealist colour thigh tattoo of a large orange owl eye, a stylized skull, and a Gothic tower engulfed in flames at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-samurai-helmet-tiger-geisha-orange-ribbons-full-leg-bloodline-phuket.jpg",
-        ),
-        alt: "Full leg tattoo blending a samurai kabuto, a colour tiger portrait, layered female faces and sweeping orange ribbons in a dramatic colour-heavy leg sleeve at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-3627-bloodline-phuket.jpg"),
+        alt: "Colour sleeve with a Santa Muerte portrait, a pink rose, and a red demonic face on yellow and blue ornamental backgrounds at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-zeus-serpent-snake-eye-greek-pattern-full-arm-bloodline-phuket.jpg",
-        ),
-        alt: "Composite view of a full arm Greek mythology tattoo with thunder, serpentine forms, figurative portrait work and saturated red accents in a cinematic colour-realism mix at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-3638-bloodline-phuket.jpg"),
+        alt: "Colour forearm tattoo of a laurel-crowned woman profile with FEAR IS A REACTION and COURAGE IS A DECISION script beside a sunburst at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-egyptian-crown-sobek-crocodile-hieroglyphs-full-arm-bloodline-phuket.jpg",
-        ),
-        alt: "Full sleeve Egyptian-inspired colour realism with ornate headdress details, deity-like imagery, crocodilian forms and engraved stone texture, accented in electric blues at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-3651-bloodline-phuket.jpg"),
+        alt: "Dragon Ball anime colour full sleeve with Majin Vegeta, Majin Buu, and Super Saiyan characters in bold saturated tones at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-surreal-double-woman-portrait-red-flowers-full-arm-bloodline-phuket.jpg",
-        ),
-        alt: "Surreal full arm piece layering black-and-grey and full-colour sections of a woman’s portrait with crimson florals and ribbon-like whites, standout colour tattooing at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-3658-bloodline-phuket.jpg"),
+        alt: "Colour forearm tattoo of Super Saiyan Trunks wielding his sword beside a four-star Dragon Ball with blue energy effects at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-little-mermaid-ariel-flounder-sebastian-calf-leg-bloodline-phuket.jpg",
-        ),
-        alt: "Bright illustrative colour tattoo on the lower leg of Ariel underwater with Flounder, Sebastian and trident motifs, bubbly saturated animation-style ink from Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-3687-bloodline-phuket.jpg"),
+        alt: "Dark fantasy colour sleeve with a cracked stone face, a snarling demon in red flames, and a geometric mandala on the shoulder at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-realistic-tiger-face-jungle-forearm-bloodline-phuket.jpg",
-        ),
-        alt: "Detailed colour realism tiger portrait wrapping the forearm, with vivid orange stripes, soft pink accents and leafy greens, showcased work from Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-3749-bloodline-phuket.jpg"),
+        alt: "Colour sleeve and hand tattoo with realistic grey portraits, glowing yellow eyes, red ornamental patterns, and a shoulder mandala at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-geisha-fan-cherry-blossom-chrysanthemum-full-leg-japanese-bloodline-phuket.jpg",
-        ),
-        alt: "Japanese-style full leg colour tattoo with a kimono-clad woman, folding fan and dense sakura and kiku blooms amid wind bars and clouds, executed at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-4730-bloodline-phuket.jpg"),
+        alt: "Underwater colour sleeve with a shark, sea turtle, clownfish in anemone, and a scuba diver in deep blue water at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-glitch-woman-face-red-flowers-black-hand-full-leg-bloodline-phuket.jpg",
-        ),
-        alt: "Full leg surreal colour tattoo slicing a woman’s portrait into graphic planes with fiery oranges, red botanicals and a stylised clawed hand descending the shin, booked at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-4743-2-bloodline-phuket.jpg"),
+        alt: "Underwater colour sleeve with a pink jellyfish, a clownfish, and a detailed sunken shipwreck in saturated blue ocean tones at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-woman-portrait-pink-lotus-hannya-orange-swirls-full-leg-bloodline-phuket.jpg",
-        ),
-        alt: "Full leg composition pairing a soft portrait and lotus-like florals with a dramatic Hannya mask and sweeping orange graphic lines in refined colour realism at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-6324-bloodline-phuket.jpg"),
+        alt: "Colour realism shoulder tattoo of a green tree python coiled through lush tropical palm leaves and jungle foliage at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-tiger-helmet-women-faces-lotus-orange-swirls-arm-bloodline-phuket.jpg",
-        ),
-        alt: "Full sleeve colour tattoo centred on a helmeted tiger, multiple feminine portraits, a white lotus and energetic orange flourishes on a deep black field, from Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-9048-bloodline-phuket.jpg"),
+        alt: "Dark fantasy colour sleeve with a hooded wraith, a glowing eclipse portal, and a layered Oni demon mask in red and orange at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-red-hannya-woman-portrait-japanese-full-leg-bloodline-phuket.jpg",
-        ),
-        alt: "Bold red-and-black Japanese leg sleeve with a fierce Hannya mask, a realistic woman’s face and traditional cloud and pattern fills, saturated colour work at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-9061-bloodline-phuket.jpg"),
+        alt: "Australian colour sleeve with rainbow lorikeets, red bottlebrush flowers, and golden wattle on dark green foliage at Bloodline Tattoo Phuket.",
       },
       {
-        src: colourProofSrc(
-          "phuket",
-          "colour-tattoo-volcano-hooded-figure-wizard-portrait-full-leg-bloodline-phuket.jpg",
-        ),
-        alt: "Epic fantasy full leg colour tattoo with molten landscape, a silhouetted hooded figure before a glowing ring, and a long-bearded wizard portrait plus geometric ankle banding, done at Bloodline Tattoo Phuket.",
+        src: colourProofSrc("phuket", "colour-tattoo-img-9148-bloodline-phuket.jpg"),
+        alt: "Colour forearm tattoo of a cracked porcelain woman face with flame motifs and a glowing fiery eye symbol below at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: colourProofSrc("phuket", "colour-tattoo-img-9718-bloodline-phuket.jpg"),
+        alt: "Japanese colour full-leg tattoo with a coiled blue and pink snake, a red Hannya mask, and floral accents in black wind-bar shading at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: colourProofSrc("phuket", "colour-tattoo-img-9726-bloodline-phuket.jpg"),
+        alt: "Japanese colour leg tattoo with a large orange chrysanthemum, a descending red koi fish, and dark swirling cloud backgrounds at Bloodline Tattoo Phuket.",
+      },
+      {
+        src: colourProofSrc("phuket", "colour-tattoo-img-9982-bloodline-phuket.jpg"),
+        alt: "Colour full sleeve of a screaming warrior with red lightning bolts, a Spartan helmet portrait, and a red Greek key band on the hand at Bloodline Tattoo Phuket.",
       },
     ],
   };

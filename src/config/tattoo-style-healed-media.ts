@@ -96,13 +96,6 @@ const healedProofPoolsByStudio: Record<HealedStudioRegion, readonly TattooStyleD
       {
         src: healedProofSrc(
           "bali",
-          "healed-tattoo-pennywise-horror-full-leg-sleeve-bloodline-bali.jpg",
-        ),
-        alt: "Healed horror-themed full leg sleeve with Pennywise portrait and puppeteer imagery at Bloodline Tattoo Bali.",
-      },
-      {
-        src: healedProofSrc(
-          "bali",
           "healed-tattoo-female-portrait-sacred-geometry-leg-sleeve-bloodline-bali.jpg",
         ),
         alt: "Healed surreal leg sleeve with female portrait, sacred geometry, and red line accents at Bloodline Tattoo Bali.",
@@ -138,16 +131,16 @@ const healedProofPoolsByStudio: Record<HealedStudioRegion, readonly TattooStyleD
       {
         src: healedProofSrc(
           "bali",
-          "healed-tattoo-japanese-warrior-rope-tomoe-leg-sleeve-bloodline-bali.jpg",
+          "healed-tattoo-dragon-hannya-samurai-full-back-glass-bloodline-bali.jpg",
         ),
-        alt: "Healed Japanese warrior and tomoe emblem leg sleeve with smooth settled shading at Bloodline Tattoo Bali.",
+        alt: "Healed dragon, Hannya, and samurai full-back tattoo photographed at Bloodline Tattoo Bali storefront.",
       },
       {
         src: healedProofSrc(
           "bali",
-          "healed-tattoo-dragon-hannya-samurai-full-back-glass-bloodline-bali.jpg",
+          "healed-tattoo-japanese-warrior-rope-tomoe-leg-sleeve-bloodline-bali.jpg",
         ),
-        alt: "Healed dragon, Hannya, and samurai full-back tattoo photographed at Bloodline Tattoo Bali storefront.",
+        alt: "Healed Japanese warrior and tomoe emblem leg sleeve with smooth settled shading at Bloodline Tattoo Bali.",
       },
       {
         src: healedProofSrc(
@@ -169,6 +162,13 @@ const healedProofPoolsByStudio: Record<HealedStudioRegion, readonly TattooStyleD
           "healed-tattoo-snake-female-portrait-leg-sleeve-bloodline-bali.jpg",
         ),
         alt: "Healed leg sleeve combining snake heads and realistic female portrait sections at Bloodline Tattoo Bali.",
+      },
+      {
+        src: healedProofSrc(
+          "bali",
+          "healed-tattoo-pennywise-horror-full-leg-sleeve-bloodline-bali.jpg",
+        ),
+        alt: "Healed horror-themed full leg sleeve with Pennywise portrait and puppeteer imagery at Bloodline Tattoo Bali.",
       },
       {
         src: healedProofSrc("bali", "healed-tattoo-woman-skull-snake-full-back-bloodline-bali.jpg"),
@@ -268,16 +268,16 @@ const healedProofPoolsByStudio: Record<HealedStudioRegion, readonly TattooStyleD
       {
         src: healedProofSrc(
           "bali",
-          "healed-tattoo-surreal-eye-spiral-arm-sleeve-bloodline-bali.jpg",
+          "healed-tattoo-surreal-multi-eye-chest-arm-sleeve-bloodline-bali.jpg",
         ),
-        alt: "Healed surreal arm sleeve with multi-eye spiral geometry and hand tattoo at Bloodline Tattoo Bali.",
+        alt: "Healed surreal chest and arm tattoo with multi-eye patterns and geometric overlays at Bloodline Tattoo Bali.",
       },
       {
         src: healedProofSrc(
           "bali",
-          "healed-tattoo-surreal-multi-eye-chest-arm-sleeve-bloodline-bali.jpg",
+          "healed-tattoo-surreal-eye-spiral-arm-sleeve-bloodline-bali.jpg",
         ),
-        alt: "Healed surreal chest and arm tattoo with multi-eye patterns and geometric overlays at Bloodline Tattoo Bali.",
+        alt: "Healed surreal arm sleeve with multi-eye spiral geometry and hand tattoo at Bloodline Tattoo Bali.",
       },
     ],
   };

@@ -4,7 +4,15 @@ import path from "node:path";
 
 const root = path.resolve("public/images/tattoo-styles/portrait");
 const mappingsDir = path.resolve("scripts/portrait-mappings");
-const studios = ["bangkok", "bali", "phuket"];
+const allStudios = ["bangkok", "bali", "phuket"];
+const studios = process.env.STUDIO
+  ? allStudios.filter((s) => s === process.env.STUDIO)
+  : allStudios;
+
+if (studios.length === 0) {
+  console.error(`Unknown STUDIO="${process.env.STUDIO}"`);
+  process.exit(1);
+}
 
 for (const studio of studios) {
   const entries = JSON.parse(fs.readFileSync(path.join(mappingsDir, `${studio}.json`), "utf8"));

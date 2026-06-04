@@ -51,194 +51,207 @@ const chicanoProofPoolsByStudio: Record<
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-joker-clown-playing-cards-arm-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-10-35-40-am-bloodline-bangkok.jpg",
       ),
-      alt: "Black and grey Chicano arm sleeve with clown, Joker portrait, and playing cards at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey Chicano arm sleeve tattoo featuring a defiant woman portrait, bold Sinner script, and a layered payasa clown girl at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-payasa-mario-chainlink-arm-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-10-36-45-am-2-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano payasa portrait with Mario and chain-link fence arm sleeve at Bloodline Tattoo Bangkok.",
+      alt: "Detailed black and grey Chicano tattoo of a Louis Vuitton ski-mask portrait with cash rolls, playing-card aces, and Made in South London script at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-lowrider-roses-cholo-arm-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-10-44-23-am-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano lowrider, roses, and cholo character black and grey arm sleeve at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey Chicano full sleeve tattoo featuring a bandana payasa with a handgun, a cherub with LOVE and 999 script, and bold FAITH lettering at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-payasa-loyalty-barbed-wire-globe-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-07-30-am-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano payasa, Loyalty script, barbed wire, praying hands, and globe arm sleeve at Bloodline Tattoo Bangkok.",
+      alt: "Detailed black and grey Chicano sleeve tattoo with a beanie woman portrait, cash in hand, Chicano script, and a Smile Now drama mask at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-vegas-payasa-money-dice-leg-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-1-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano Las Vegas sign, payasa portrait, cash, dice, and handgun leg sleeve at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey Chicano twin sleeve designs featuring payasa portraits, a Harley-Davidson logo, stacked cash, a handgun, and roses at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-lv-gucci-payasa-chain-fence-chest-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-10-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano chest tattoo with LV and Gucci motifs, payasa portraits, and chain-link fence at Bloodline Tattoo Bangkok.",
+      alt: "Detailed black and grey Chicano sleeves with La Catrina, a revolver, skull and rose, Sacred Heart, Blessed script, payasa girl, and cry-later mask at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-payasa-rose-roulette-8ball-leg-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-11-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano payasa portrait with rose, roulette wheel, and 8-ball leg sleeve at Bloodline Tattoo Bangkok.",
+      alt: "High-contrast black and grey realism sleeve tattoo featuring a masked gunman with a rifle, ancient warrior portrait, samurai mask, and Native American chief at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-payasa-gun-wild-cash-leg-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-12-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano payasa, handgun, Wild script, and cash roll leg sleeve at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey Chicano sleeve tattoo with La Catrina holding a revolver, Sacred Heart, Blessed script, payasa portrait, drama mask, skull, and rose at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-graffiti-payasa-spray-cctv-leg-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-13-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano graffiti, payasa portrait, spray can, and CCTV camera leg sleeve at Bloodline Tattoo Bangkok.",
+      alt: "Detailed black and grey Chicano forearm tattoo of a hooded payasa Catrina portrait with ornate face paint and a rose on the hand at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-melbourne-clown-train-back-piece-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-14-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano Melbourne cityscape back tattoo with clown portrait, train, and graffiti script at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey Chicano tattoo featuring twin La Catrina payasa portraits with sugar-skull makeup, roses, and fine-line realism shading at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-payasa-gun-cityscape-chest-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-15-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano payasa chest tattoo pointing a handgun with city skyline and falling coins at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey Chicano forearm tattoos with a flying dove, lit candle, payasa woman portrait, dice, and Ace of Spades card at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-clown-money-love-leg-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-16-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano clown, rolled cash, and Love knuckle script leg sleeve at Bloodline Tattoo Bangkok.",
+      alt: "Detailed black and grey Chicano sleeve collage with urban portraits, graffiti script, a lowrider car, rolled hundred-dollar bills, and street motifs at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-payasa-crown-barbed-wire-gun-leg-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-17-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano payasa portraits with crown, barbed wire highlights, and handgun leg sleeve at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey Chicano twin sleeves with a money-blindfolded portrait, bound hands, all-seeing eye, rose, balaclava figure, and payasa girl at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-amor-king-mask-rifle-arm-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-18-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano Amor and King script arm sleeve with masked portrait and rifle at Bloodline Tattoo Bangkok.",
+      alt: "Detailed black and grey Chicano arm tattoo with a payasa portrait, bold LA lettering, palm trees, and a rolled hundred-dollar bill at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-king-von-otf-oblock-ski-mask-leg-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-19-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano leg sleeve with portrait, OTF chain, O Block lettering, ski mask, and handgun at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey Chicano sleeve design with payasa portraits, praying Virgin Mary, money-bag cherub, rose, and expressive face collage at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-self-made-scrooge-monopoly-leg-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-2-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano Self Made script leg sleeve with gangster Scrooge and Monopoly Man portraits at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey Chicano arm tattoo with a payasa portrait, flowing Loyalty script, Greek key emblem, and praying hands at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-laugh-cry-clown-payasa-leg-sleeve-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-20-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano laughing clown and payasa portrait leg sleeve in black and grey at Bloodline Tattoo Bangkok.",
+      alt: "Detailed black and grey Chicano sleeve with payasa portraits, chained bomb skull, and a smile-now cry-later drama mask at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-vegas-chain-fence-torso-collage-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-21-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano torso collage with Vegas sign, chain-link fence, bandaged faces, and cash at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey Chicano arm tattoo featuring a payasa clown-girl portrait, Never Stop script, and classic lowrider chrome grille at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-ride-or-die-balaclava-lion-torso-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-22-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano Ride or Die torso tattoo with balaclava portrait, lion, cash, and firearm at Bloodline Tattoo Bangkok.",
+      alt: "Massive black and grey Chicano back tattoo with praying and gangster cherubs, illuminated crucifix, Last Supper scene, roses, and cross at Bloodline Tattoo Bangkok.",
     },
     {
       src: chicanoProofSrc(
         "bangkok",
-        "chicano-tattoo-bandana-portrait-gun-lost-money-leg-bloodline-bangkok.jpg",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-3-bloodline-bangkok.jpg",
       ),
-      alt: "Chicano bandana portrait leg tattoo with handgun, Lost script, and hundred-dollar bills at Bloodline Tattoo Bangkok.",
+      alt: "Detailed black and grey Chicano twin sleeves with payasa portraits, Las Vegas sign, New York skyline, sports car, crown, and drama masks at Bloodline Tattoo Bangkok.",
+    },
+    {
+      src: chicanoProofSrc(
+        "bangkok",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-4-bloodline-bangkok.jpg",
+      ),
+      alt: "Black and grey Chicano forearm tattoo of a realistic payasa woman portrait with flowing hair and fine-line clown makeup at Bloodline Tattoo Bangkok.",
+    },
+    {
+      src: chicanoProofSrc(
+        "bangkok",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-5-bloodline-bangkok.jpg",
+      ),
+      alt: "Black and grey Chicano sleeve tattoo with a wrinkled nun portrait, handgun, bold Vengeance script, and balaclava street portrait at Bloodline Tattoo Bangkok.",
+    },
+    {
+      src: chicanoProofSrc(
+        "bangkok",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-6-bloodline-bangkok.jpg",
+      ),
+      alt: "Detailed black and grey Chicano twin sleeves with Catrina payasa, decorative skull, roses, lily, and ornate pocket watch at Bloodline Tattoo Bangkok.",
+    },
+    {
+      src: chicanoProofSrc(
+        "bangkok",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-7-bloodline-bangkok.jpg",
+      ),
+      alt: "Black and grey Chicano forearm tattoo close-up of a payasa woman portrait with sharp eye markings and smooth realism shading at Bloodline Tattoo Bangkok.",
+    },
+    {
+      src: chicanoProofSrc(
+        "bangkok",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-8-bloodline-bangkok.jpg",
+      ),
+      alt: "Black and grey Chicano sleeve tattoo with payasa portrait, praying cherub, LOST script, Sydney Opera House, lowrider grille, playing cards, and rose at Bloodline Tattoo Bangkok.",
+    },
+    {
+      src: chicanoProofSrc(
+        "bangkok",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-9-bloodline-bangkok.jpg",
+      ),
+      alt: "Detailed black and grey Chicano arm tattoo of a payasa woman biting a bullet above a Doberman holding a handgun at Bloodline Tattoo Bangkok.",
+    },
+    {
+      src: chicanoProofSrc(
+        "bangkok",
+        "chicano-tattoo-photo-19-5-2026-11-17-36-am-bloodline-bangkok.jpg",
+      ),
+      alt: "Black and grey Chicano forearm tattoo of a payasa woman with halo and cross holding hundred-dollar bills with clown-face Benjamin Franklin at Bloodline Tattoo Bangkok.",
+    },
+    {
+      src: chicanoProofSrc(
+        "bangkok",
+        "chicano-tattoo-photo-19-5-2026-11-38-30-am-19-bloodline-bangkok.jpg",
+      ),
+      alt: "Detailed black and grey Chicano sleeve tattoo with hooded Grim Reaper, ornate hourglass, payasa portrait, and drama mask at Bloodline Tattoo Bangkok.",
     },
   ],
   bali: [
     {
       src: chicanoProofSrc(
         "bali",
-        "chicano-tattoo-monopoly-man-dice-woman-clock-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Detailed black and grey Chicano full arm sleeve tattoo featuring the Monopoly man, dice, and a woman portrait with a clock eye at Bloodline Tattoo Bali.",
-    },
-    {
-      src: chicanoProofSrc("bali", "chicano-tattoo-payasa-mario-boo-leg-sleeve-bloodline-bali.jpg"),
-      alt: "Black and grey Chicano full leg sleeve tattoo featuring a payasa clown woman, theatrical mask, Mario, and Boo at Bloodline Tattoo Bali.",
-    },
-    {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-scrooge-mickey-gambling-leg-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Detailed black and grey Chicano full leg sleeve tattoo featuring Scrooge McDuck, Mickey Mouse, a roulette wheel, and gambling motifs at Bloodline Tattoo Bali.",
-    },
-    {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-masked-figure-gun-skull-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Black and grey Chicano full arm sleeve tattoo featuring a masked figure with a gun, bullet holes, script lettering, and a skull on the hand at Bloodline Tattoo Bali.",
-    },
-    {
-      src: chicanoProofSrc(
-        "bali",
         "chicano-tattoo-las-vegas-payasa-money-gun-sleeve-bloodline-bali.jpg",
       ),
       alt: "Detailed black and grey Chicano arm sleeve tattoo featuring the Las Vegas sign, a payasa woman portrait, money, and a handgun at Bloodline Tattoo Bali.",
-    },
-    {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-masked-torso-ride-die-lions-tigers-bloodline-bali.jpg",
-      ),
-      alt: "Intricate black and grey Chicano torso tattoo featuring a masked figure, Ride Die script, lion and tiger heads, money, and a rifle at Bloodline Tattoo Bali.",
-    },
-    {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-woman-gun-motorcycle-back-piece-bloodline-bali.jpg",
-      ),
-      alt: "Detailed black and grey Chicano back tattoo featuring a woman with dollar sign sunglasses holding a gun, a motorcycle, and city street signs at Bloodline Tattoo Bali.",
-    },
-    {
-      src: chicanoProofSrc("bali", "chicano-tattoo-payasa-clown-sleeve-collage-bloodline-bali.jpg"),
-      alt: "Black and grey Chicano arm sleeve collage featuring payasa clown women, an urban cityscape, and a clown mask with a gun at Bloodline Tattoo Bali.",
     },
     {
       src: chicanoProofSrc(
@@ -264,27 +277,20 @@ const chicanoProofPoolsByStudio: Record<
     {
       src: chicanoProofSrc(
         "bali",
-        "chicano-tattoo-boy-portrait-wanted-glasgow-leg-bloodline-bali.jpg",
+        "chicano-tattoo-masked-torso-ride-die-lions-tigers-bloodline-bali.jpg",
       ),
-      alt: "Detailed black and grey Chicano leg tattoo featuring a boy portrait with facial tattoos, a handgun, and a Glasgow wanted poster at Bloodline Tattoo Bali.",
+      alt: "Intricate black and grey Chicano torso tattoo featuring a masked figure, Ride Die script, lion and tiger heads, money, and a rifle at Bloodline Tattoo Bali.",
     },
     {
       src: chicanoProofSrc(
         "bali",
-        "chicano-tattoo-woman-heart-hands-clown-ice-cream-leg-bloodline-bali.jpg",
+        "chicano-tattoo-woman-gun-motorcycle-back-piece-bloodline-bali.jpg",
       ),
-      alt: "Black and grey Chicano full leg sleeve tattoo featuring a woman in sunglasses, heart hands, and a clown girl with an ice cream cone at Bloodline Tattoo Bali.",
+      alt: "Detailed black and grey Chicano back tattoo featuring a woman with dollar sign sunglasses holding a gun, a motorcycle, and city street signs at Bloodline Tattoo Bali.",
     },
     {
-      src: chicanoProofSrc("bali", "chicano-tattoo-heist-nun-crown-full-back-bloodline-bali.jpg"),
-      alt: "Intricate black and grey Chicano full back tattoo featuring a crowned masked figure, a nun with an assault rifle, a grand building, and a heist scene at Bloodline Tattoo Bali.",
-    },
-    {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-ski-mask-swag-graffiti-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Detailed black and grey Chicano arm sleeve tattoo featuring a ski mask portrait with SWAG lettering, gold grillz, and graffiti spray can art at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-payasa-clown-sleeve-collage-bloodline-bali.jpg"),
+      alt: "Black and grey Chicano arm sleeve collage featuring payasa clown women, an urban cityscape, and a clown mask with a gun at Bloodline Tattoo Bali.",
     },
     {
       src: chicanoProofSrc(
@@ -292,6 +298,13 @@ const chicanoProofPoolsByStudio: Record<
         "chicano-tattoo-woman-balaclava-gun-skull-sleeve-bloodline-bali.jpg",
       ),
       alt: "Black and grey Chicano full arm sleeve tattoo featuring a woman in a balaclava holding a gun, cracked glass effects, script lettering, and a wrist skull at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc(
+        "bali",
+        "chicano-tattoo-ski-mask-swag-graffiti-sleeve-bloodline-bali.jpg",
+      ),
+      alt: "Detailed black and grey Chicano arm sleeve tattoo featuring a ski mask portrait with SWAG lettering, gold grillz, and graffiti spray can art at Bloodline Tattoo Bali.",
     },
     {
       src: chicanoProofSrc(
@@ -308,6 +321,18 @@ const chicanoProofPoolsByStudio: Record<
         "chicano-tattoo-crown-skull-gun-drama-masks-leg-sleeve-bloodline-phuket.jpg",
       ),
       alt: "Chicano leg sleeve with crowned skull portrait, handgun, and laugh-now cry-later masks at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: chicanoProofSrc("phuket", "chicano-tattoo-img-0770-bloodline-phuket.jpg"),
+      alt: "Chicano black and grey sleeve with a Monopoly man in an LV-pattern vest, tumbling dice, and a woman portrait with a clock eye and shush gesture at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: chicanoProofSrc("phuket", "chicano-tattoo-img-1373-bloodline-phuket.jpg"),
+      alt: "Chicano leg tattoo with a woman in clown stitch makeup, a shushing hand, a cracked mask with Boo ghost, Mario, and a screaming face at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: chicanoProofSrc("phuket", "chicano-tattoo-img-1377-bloodline-phuket.jpg"),
+      alt: "Chicano leg tattoo with Scrooge McDuck, fedora Mickey Mouse, a roulette wheel, slot reels, money bags, and a cartoon bomb at Bloodline Tattoo Phuket.",
     },
     {
       src: chicanoProofSrc(

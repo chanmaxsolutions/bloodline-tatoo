@@ -51,446 +51,187 @@ const mandalaProofPoolsByStudio: Record<
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-geometric-dotwork-full-sleeve-flower-of-life-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-15-3-26-4-27-56-pm-bloodline-bangkok.jpg",
       ),
-      alt: "Black and grey full arm sleeve pairing large shoulder and forearm mandalas with dense Flower of Life hexagonal dotwork and negative-space bands, inked at Bloodline Tattoo Bangkok.",
+      alt: "Crown scalp mandala with layered lotus petals and stippled dotwork shading across the shaved head, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-multi-mandala-dotwork-full-arm-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-38-30-am-1-bloodline-bangkok.jpg",
       ),
-      alt: "Intricate full sleeve with three layered mandalas from shoulder to wrist, connected by stippled Flower of Life geometry and sharp blackwork contrast, at Bloodline Tattoo Bangkok.",
+      alt: "Dual forearm views of blackwork sleeves with Metatron's Cube, floral mandalas, and hexagonal star dotwork, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-chest-mandala-hexagon-geometric-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-38-30-am-2-bloodline-bangkok.jpg",
       ),
-      alt: "Large chest mandala flowing into a right full sleeve of floral filigree, interlocking hexagons, and wrist dotwork in black and grey, completed at Bloodline Tattoo Bangkok.",
+      alt: "Shoulder mandala flowing into a honeycomb hex grid, each cell with a miniature geometric star in fine dotwork, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-chest-honeycomb-mandala-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-38-30-am-21-bloodline-bangkok.jpg",
       ),
-      alt: "Left chest and full arm sleeve combining overlapping floral mandalas with honeycomb hexagon panels and precise dotwork shading, crafted at Bloodline Tattoo Bangkok.",
+      alt: "Dual-arm sacred geometry sleeves with Metatron's Cube, large floral mandalas, and Flower of Life hex patterns in stippled black and grey, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-skull-mandala-geometric-chest-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-38-30-am-35-bloodline-bangkok.jpg",
       ),
-      alt: "Realistic shoulder skull above a dark mandala and geometric honeycomb full sleeve extending onto the chest in black and grey dotwork, at Bloodline Tattoo Bangkok.",
+      alt: "Large leg tattoo with angular blackwork panels of Polynesian-inspired geometric patterns, scales, and fine-line tribal ornament, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-flower-of-life-scale-pattern-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-13-bloodline-bangkok.jpg",
       ),
-      alt: "Full arm sleeve anchored by a shoulder mandala and layered Flower of Life stars, semi-circular scale geometry, and wrist arch dotwork, at Bloodline Tattoo Bangkok.",
+      alt: "Triptych forearm sleeve with pointed-arch mandalas, peony florals, and dense dotwork shading in black and grey, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-skull-honeycomb-mandala-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-14-bloodline-bangkok.jpg",
       ),
-      alt: "Full sleeve blending a dotwork shoulder mandala with a forearm skull set inside honeycomb geometry and angular blackwork symbols, at Bloodline Tattoo Bangkok.",
+      alt: "Torso tattoo mixing chest mandala dotwork, geometric neck bands, and bold blackwork tribal patterns across both arms, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-elbow-mandala-kaleidoscope-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-16-bloodline-bangkok.jpg",
       ),
-      alt: "High-contrast full sleeve with a shoulder mandala, hexagonal grid bicep band, and elbow kaleidoscope mandala radiating diamond and triangle dotwork, at Bloodline Tattoo Bangkok.",
+      alt: "Dual full sleeves with overlapping mandalas, rose-window geometry, and honeycomb hex florals in stippled dotwork, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-3d-cubes-flower-of-life-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-18-bloodline-bangkok.jpg",
       ),
-      alt: "Geometric full arm sleeve featuring a shoulder mandala, Flower of Life elbow panel, 3D cube wrist motifs, and a bold upper-arm blackwork band, at Bloodline Tattoo Bangkok.",
+      alt: "Dual-angle arm sleeve with floral mandalas, Flower of Life circles, and hexagonal tessellations in precision dotwork, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-sunburst-lotus-full-leg-sleeve-foot-mandala-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-19-bloodline-bangkok.jpg",
       ),
-      alt: "Full leg sleeve with a thigh sunburst mandala, lotus-shaped knee geometry, dense shin dotwork bands, and a matching foot mandala in blackwork, at Bloodline Tattoo Bangkok.",
+      alt: "Black and grey realism sleeve with Zeus portrait, lightning, and armored Poseidon with trident in mythological shading, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-flower-of-life-honeycomb-full-leg-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-20-bloodline-bangkok.jpg",
       ),
-      alt: "Comprehensive leg sleeve layering Flower of Life circles, honeycomb hexagons, and overlapping arc geometry down to the ankle and foot, at Bloodline Tattoo Bangkok.",
+      alt: "Full-back tattoo with snarling bear biting a Flower of Life sphere, Metatron's Cube, and lower mandala dotwork in black and grey, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-thigh-mandala-skull-honeycomb-leg-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-21-bloodline-bangkok.jpg",
       ),
-      alt: "Full leg piece with a layered thigh mandala, geometric knot above the knee, realistic shin skull, and honeycomb dotwork tapering to an ankle band, at Bloodline Tattoo Bangkok.",
+      alt: "Full arm sleeve with shoulder lotus mandala, spiraling black bands, hex grids, and Flower of Life dotwork sections, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-shoulder-mandala-honeycomb-spiral-bands-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-22-bloodline-bangkok.jpg",
       ),
-      alt: "Shoulder mandala full sleeve divided by diagonal negative-space spirals over honeycomb hexagons and stippled star panels, at Bloodline Tattoo Bangkok.",
+      alt: "Full-leg sleeve with large geometric mandalas framed by bold blackwork curves and stippled dotwork gradients, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-crystalline-star-negative-space-curve-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-23-bloodline-bangkok.jpg",
       ),
-      alt: "Geometric full arm sleeve with crystalline six-point star lattices, a sweeping negative-space curve, and forearm hexagon dotwork panels, at Bloodline Tattoo Bangkok.",
+      alt: "Triptych limb views of a wraparound mandala with triangular geometry and wrist Flower of Life dotwork in black and grey, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-lotus-chrysanthemum-flower-of-life-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-24-bloodline-bangkok.jpg",
       ),
-      alt: "Full sleeve combining a dotwork shoulder mandala, realistic chrysanthemum forearm bloom, hexagonal bands, and a Flower of Life wrist panel, at Bloodline Tattoo Bangkok.",
+      alt: "Forearm mandala with eight dark petals, arched geometric layers, and smooth stippled dotwork shading, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-polynesian-tribal-geometric-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-25-bloodline-bangkok.jpg",
       ),
-      alt: "Bold Polynesian-inspired tribal full sleeve with shoulder mask motif, chevron shark-tooth bands, and flowing geometric blackwork from shoulder to wrist, at Bloodline Tattoo Bangkok.",
+      alt: "Triptych full-leg tattoo with Flower of Life panels, central lower-leg mandala, and architectural dotwork pathways, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-chrysanthemum-mandala-dotwork-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-26-bloodline-bangkok.jpg",
       ),
-      alt: "Black and grey full sleeve linking a stippled shoulder mandala to a large chrysanthemum and wrist mandala geometry in fine dotwork, at Bloodline Tattoo Bangkok.",
+      alt: "Full sleeve blending ancient deity portrait, elbow mandala knot, honeycomb hex grid, and realistic skull in dotwork black and grey, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-all-seeing-eye-hands-full-back-neck-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-27-bloodline-bangkok.jpg",
       ),
-      alt: "Massive back and neck piece centered on an all-seeing eye held by dark hands, framed by hexagonal stars and layered mandala dotwork, at Bloodline Tattoo Bangkok.",
+      alt: "Full sleeve with shoulder mandala, negative-space bands, and interlocking 3D cube and hex dotwork patterns, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-loyalty-respect-strength-script-geometric-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-30-bloodline-bangkok.jpg",
       ),
-      alt: "Full sleeve integrating bold Loyalty, Respect, and Strength script with ornamental geometric and dotwork mandala filler down to the hand, at Bloodline Tattoo Bangkok.",
+      alt: "Arm tattoo with realistic lion portrait, compass rose forehead detail, metal chain, and large nautical compass in black and grey realism, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-ornamental-geometric-polynesian-full-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-31-bloodline-bangkok.jpg",
       ),
-      alt: "Ornamental full sleeve wrapping the arm in Polynesian-inspired geometric arcs, triangular motifs, and mandala-like circular bands in blackwork, at Bloodline Tattoo Bangkok.",
+      alt: "Dual-view sleeve merging realistic surreal portraits with mandala circles, honeycomb geometry, and Flower of Life dotwork, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-skull-compass-mandala-geometric-calf-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-32-bloodline-bangkok.jpg",
       ),
-      alt: "Calf tattoo stacking a semi-circular mandala, ornate skull portrait, compass rose triangle, and Flower of Life dotwork tapering toward the ankle, at Bloodline Tattoo Bangkok.",
+      alt: "Forearm tattoo with realistic top and bottom roses framing a central eight-point mandala star in geometric dotwork, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-hannya-mask-flower-of-life-full-back-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-33-bloodline-bangkok.jpg",
       ),
-      alt: "Full back black and grey piece with a realistic Hannya mask tearing through lotus and Flower of Life mandala geometry across the shoulders and lower back, at Bloodline Tattoo Bangkok.",
+      alt: "High-contrast ornamental blackwork sleeve using negative-space geometric lines, sunburst motifs, and filigree on saturated black fill, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-geometric-tribal-neck-upper-back-blackwork-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-34-bloodline-bangkok.jpg",
       ),
-      alt: "Symmetrical neck and upper back blackwork with a diamond monogram, scaled triangle centerpiece, and tribal geometric chevron bands, at Bloodline Tattoo Bangkok.",
+      alt: "Diagonal full-arm sleeve with shoulder mandala, mid-arm hex florals, forearm Flower of Life grid, and wrist mandala accents in dotwork, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-hexagon-3d-cubes-shin-calf-geometric-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-4-bloodline-bangkok.jpg",
       ),
-      alt: "Lower leg geometric tattoo of interlocking hexagons filled with dotwork stars and 3D cube illusions running from knee to ankle, at Bloodline Tattoo Bangkok.",
+      alt: "Upper-leg mandala with layered geometric petals, stippled shading, and ornamental dotwork chandelier drops, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-mandala-3d-cubes-blackwork-full-back-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-5-1-bloodline-bangkok.jpg",
       ),
-      alt: "Full back blackwork vest framing a central spine mandala, isometric cube shoulder panels, and honeycomb dotwork across the lower back, at Bloodline Tattoo Bangkok.",
+      alt: "Front neck tattoo with central throat mandala flanked by Flower of Life grids across collarbones in dense dotwork, at Bloodline Tattoo Bangkok.",
     },
     {
       src: mandalaProofSrc(
         "bangkok",
-        "mandala-tattoo-polynesian-mandala-shoulder-chest-half-sleeve-bloodline-bangkok.jpg",
+        "mandala-tattoo-photo-19-5-2026-11-58-32-am-5-bloodline-bangkok.jpg",
       ),
-      alt: "Polynesian-inspired chest and shoulder piece with a circular mandala cap, sunburst core, and layered tribal geometric bands on the upper arm, at Bloodline Tattoo Bangkok.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bangkok",
-        "mandala-tattoo-polynesian-geometric-chest-shoulder-piece-side-bloodline-bangkok.jpg",
-      ),
-      alt: "Side-view Polynesian geometric tattoo spanning the left chest and shoulder with chevron, wave, and mandala-like circular motifs in bold blackwork, at Bloodline Tattoo Bangkok.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bangkok",
-        "mandala-tattoo-lotus-sacred-geometry-heart-full-back-blackwork-bloodline-bangkok.jpg",
-      ),
-      alt: "Symmetrical full back blackwork with a neck lotus, heart-shaped sacred geometry centerpiece, floral grid, and ornamental scrollwork tapering at the waist, at Bloodline Tattoo Bangkok.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bangkok",
-        "mandala-tattoo-chrysanthemum-hexagon-dotwork-mandala-sleeve-bloodline-bangkok.jpg",
-      ),
-      alt: "Full sleeve alternating a 12-point dotwork mandala and nested hexagons with realistic chrysanthemum blooms and geometric mesh forearm panels, at Bloodline Tattoo Bangkok.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bangkok",
-        "mandala-tattoo-dual-sleeve-chrysanthemum-hexagon-mandala-bloodline-bangkok.jpg",
-      ),
-      alt: "Matching dual full sleeves pairing large dotwork mandalas and hexagonal star grids with dark chrysanthemum florals in black and grey, at Bloodline Tattoo Bangkok.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bangkok",
-        "mandala-tattoo-flower-of-life-floral-mandala-full-sleeve-bloodline-bangkok.jpg",
-      ),
-      alt: "Full arm sleeve weaving a star mandala, Flower of Life dotwork band, and layered floral mandala petals with ornamental blackwork filler, at Bloodline Tattoo Bangkok.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bangkok",
-        "mandala-tattoo-mandala-3d-cubes-honeycomb-dotwork-full-back-bloodline-bangkok.jpg",
-      ),
-      alt: "Architectural full back tattoo with a central mandala, 3D cube shoulder grids, fan-shaped dotwork panels, and honeycomb lower-back geometry in blackwork, at Bloodline Tattoo Bangkok.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bangkok",
-        "mandala-tattoo-throat-chest-geometric-dotwork-mandala-bloodline-bangkok.jpg",
-      ),
-      alt: "Throat and chest geometric piece with a dotwork floral mandala, 3D cube neck panels, Flower of Life band, and bold chest mandala in black and grey, at Bloodline Tattoo Bangkok.",
+      alt: "Dual-limb black and grey piece with classical helmeted statue portrait, winged angel and shield, and flowing memorial script lettering, at Bloodline Tattoo Bangkok.",
     },
   ],
   bali: [
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-mandala-geometric-dotwork-full-arm-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Intricate black and grey mandala and geometric dotwork full arm sleeve with floral mandalas, star bands, and overlapping circular patterns, inked at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-back-floral-lotus-shield-mandala-bloodline-bali.jpg",
-      ),
-      alt: "Large symmetrical back piece combining a spine-centered shield mandala, peony-style florals, and dense dotwork ornamental patterns across both shoulder blades, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-snarling-tiger-mandala-geometric-leg-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Black and grey full leg sleeve pairing a realistic snarling tiger on the thigh with a knee mandala and hexagonal geometric dotwork down the shin, completed at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-leg-tiger-hexagon-flower-of-life-mandala-bloodline-bali.jpg",
-      ),
-      alt: "Complex full leg tattoo blending a tiger portrait, interlocking hexagon mandalas, Flower of Life geometry, and a bold calf mandala in dotwork blackwork, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-leg-sleeve-mandala-geometric-dotwork-bloodline-bali.jpg",
-      ),
-      alt: "Stacked mandala and geometric dotwork full leg sleeve with a diamond-framed knee lotus, thigh mandala layers, and a floral shin mandala tapering to the ankle, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-geometric-full-sleeve-spiral-dotwork-negative-space-bloodline-bali.jpg",
-      ),
-      alt: "Geometric full arm sleeve divided by bold negative-space bands, featuring a stippled shoulder spiral, hexagonal grids, and nested star and hexagon dotwork panels, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-geometric-full-sleeve-asanoha-hexagon-dotwork-bloodline-bali.jpg",
-      ),
-      alt: "Precision geometric full sleeve with a dotwork shoulder mandala, Asanoha star lattice on the upper arm, honeycomb hexagons on the forearm, and wrist star motifs, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-large-ornamental-upper-back-mandala-bloodline-bali.jpg",
-      ),
-      alt: "Expansive ornamental upper back mandala with layered floral cores, scrollwork, scalloped edges, and stippled dotwork shading spanning shoulder to shoulder, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-dual-leg-mandala-geometric-blackwork-knees-bloodline-bali.jpg",
-      ),
-      alt: "Bold dual-leg mandala work with saturated blackwork knee mandalas, geometric star bands, and triangular dotwork grids covering both shins, crafted at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-ornamental-blackwork-geometric-calf-bloodline-bali.jpg",
-      ),
-      alt: "Symmetrical ornamental blackwork tattoo on the back of the calf with a central diamond starburst, gothic curves, and sharp geometric negative-space flourishes, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-leg-mandala-honeycomb-flower-of-life-dotwork-bloodline-bali.jpg",
-      ),
-      alt: "Full leg sleeve anchored by an eight-point thigh mandala, flowing into dark scrollwork, 3D honeycomb geometry, and Flower of Life dotwork down to the ankle, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-egyptian-anubis-pyramid-geometric-full-leg-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Full back-of-leg sleeve fusing Egyptian Anubis portraiture, pyramid scenes, hieroglyphics, and dense Flower of Life mandala dotwork from thigh to ankle, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-leg-sacred-geometry-flower-of-life-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Comprehensive full leg sacred geometry sleeve with Flower of Life panels, tribal blackwork dividers, honeycomb hexagons, and ankle mandala dotwork, inked at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-head-neck-geometric-mandala-v-shape-bloodline-bali.jpg",
-      ),
-      alt: "Striking head and neck geometric mandala with stippled dotwork gradients framed by a bold V-shape extending from the occiput down the neck, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-leg-overlapping-mandala-geometric-dotwork-bloodline-bali.jpg",
-      ),
-      alt: "High-contrast full right leg mandala sleeve with overlapping circular motifs and a matching partial geometric dotwork design on the left shin, completed at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-ornate-collar-chest-geometric-dotwork-bloodline-bali.jpg",
-      ),
-      alt: "Symmetrical ornamental collar chest tattoo with concentric geometric mandala bands, diamond lattices, and fine dotwork framing the neck and collarbones, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-shoulder-mandala-honeycomb-geometric-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Outer arm geometric sleeve led by a bold shoulder mandala, transitioning through honeycomb hexagons and a Flower of Life band down the forearm, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-geometric-3d-cube-mandala-back-leg-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Posterior full leg sleeve with isometric 3D cube blackwork on the thigh, woven mid-leg geometry, and dense mandala star dotwork on the calf and ankle, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-leg-mandala-isometric-cube-pattern-bloodline-bali.jpg",
-      ),
-      alt: "Full leg mandala tattoo pairing a radial thigh mandala with an extended isometric cube geometric grid and ankle floral dotwork, performed at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-leg-mandala-3d-cube-geometric-front-bloodline-bali.jpg",
-      ),
-      alt: "Front-facing full leg sleeve combining a large thigh mandala, 3D stacked cube geometry, a knee floral mandala, and repeating dotwork patterns to the ankle, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-intricate-geometric-chest-waves-dotwork-bloodline-bali.jpg",
-      ),
-      alt: "Shield-shaped full chest blackwork piece mixing stylized wave motifs, hexagonal grids, Flower of Life geometry, and heavy dotwork shading, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-buddha-full-torso-mandala-lotus-dotwork-bloodline-bali.jpg",
-      ),
-      alt: "Massive full torso mandala composition centered on a serene Buddha face with Flower of Life crown geometry, side panels, and a lotus base in dotwork, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-snake-geometric-wings-upper-back-mandala-bloodline-bali.jpg",
-      ),
-      alt: "Upper back geometric mandala with a coiled snake in a diamond frame flanked by symmetrical wing panels of chevrons, triangles, and stippled dotwork, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-sleeve-mandala-geometric-hand-dotwork-bloodline-bali.jpg",
-      ),
-      alt: "Complete left arm mandala sleeve from shoulder to hand with eight-point stars, Flower of Life sections, hexagonal geometry, and a circular hand mandala, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-back-intricate-geometric-mandala-bloodline-bali.jpg",
-      ),
-      alt: "Full back mandala tattoo with a central floral sun motif, V-shaped geometric spine panel, and layered lotus scrollwork in bold blackwork and dotwork, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-foo-dog-chest-mandala-flower-of-life-bloodline-bali.jpg",
-      ),
-      alt: "Large chest piece featuring mirrored Foo Dog heads around a central dotwork mandala and Flower of Life geometric background across both pectorals, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-mandala-geometric-dotwork-lower-leg-shin-bloodline-bali.jpg",
-      ),
-      alt: "Lower leg mandala tattoo with a V-shaped knee frame, central star mandala, honeycomb dotwork grid, and ornamental filigree panels on the shin, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-celtic-cross-knotwork-spiral-full-sleeve-bloodline-bali.jpg",
-      ),
-      alt: "Black and grey full sleeve with a detailed Celtic cross on the shoulder, triple spiral motifs on the bicep, and bold interlocking knotwork wrapping the forearm, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-skull-gothic-arch-snake-geometric-full-leg-bloodline-bali.jpg",
-      ),
-      alt: "Full leg sleeve merging a gothic cathedral skull with a snake on the thigh into ornamental geometric mandala and Flower of Life dotwork down the calf, at Bloodline Tattoo Bali.",
-    },
-    {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-sleeve-mandala-floral-peony-geometric-bloodline-bali.jpg",
-      ),
-      alt: "Elegant full arm sleeve blending shoulder and wrist mandalas with shaded peony florals and a Flower of Life geometric forearm band in dotwork, at Bloodline Tattoo Bali.",
-    },
     {
       src: mandalaProofSrc(
         "bali",
@@ -501,16 +242,16 @@ const mandalaProofPoolsByStudio: Record<
     {
       src: mandalaProofSrc(
         "bali",
-        "mandala-tattoo-buddha-crown-mandala-lotus-full-torso-front-bloodline-bali.jpg",
+        "mandala-tattoo-full-back-lotus-ornamental-dotwork-mandala-bloodline-bali.jpg",
       ),
-      alt: "Front torso mandala tattoo centered on a serene Buddha portrait with crown geometry, sacred geometry panels, and a glowing lotus base in dotwork, at Bloodline Tattoo Bali.",
+      alt: "Symmetrical full-back ornamental mandala with neck mandala, lotus petal panels, and dense stippled dotwork tapering to the lower back, at Bloodline Tattoo Bali.",
     },
     {
       src: mandalaProofSrc(
         "bali",
-        "mandala-tattoo-full-back-lotus-ornamental-dotwork-mandala-bloodline-bali.jpg",
+        "mandala-tattoo-buddha-crown-mandala-lotus-full-torso-front-bloodline-bali.jpg",
       ),
-      alt: "Symmetrical full-back ornamental mandala with neck mandala, lotus petal panels, and dense stippled dotwork tapering to the lower back, at Bloodline Tattoo Bali.",
+      alt: "Front torso mandala tattoo centered on a serene Buddha portrait with crown geometry, sacred geometry panels, and a glowing lotus base in dotwork, at Bloodline Tattoo Bali.",
     },
     {
       src: mandalaProofSrc(
@@ -525,6 +266,46 @@ const mandalaProofPoolsByStudio: Record<
         "mandala-tattoo-flower-of-life-mandala-full-arm-sleeve-dual-view-bloodline-bali.jpg",
       ),
       alt: "Dual-angle full arm sleeve with Flower of Life geometry, hexagonal mandalas, and stippled dotwork bands in ornamental black and grey, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-48-bloodline-bali.jpg"),
+      alt: "Dual-angle full arm sleeves with layered mandalas, Flower of Life hex grids, and shaded chrysanthemum florals in black and grey dotwork, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-52-bloodline-bali.jpg"),
+      alt: "Full sleeve pairing hexagonal dotwork grids, sunburst mandalas, and a shaded chrysanthemum in ornamental black and grey, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-56-1-bloodline-bali.jpg"),
+      alt: "Symmetrical full-back mandala tattoo with upper floral geometry, isometric dotwork cubes on the shoulders, and a honeycomb hex grid across the lower back, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-56-bloodline-bali.jpg"),
+      alt: "Full arm sleeve with angular upper mandala, Flower of Life hex grid, and rounded elbow mandala in stippled dotwork, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-57-1-bloodline-bali.jpg"),
+      alt: "Neck and chest geometric tattoo with throat mandala, 3D cube dotwork bands, and a bold upper-chest mandala in black and grey stippling, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-57-bloodline-bali.jpg"),
+      alt: "Dual-arm geometric sleeves with layered mandalas, Flower of Life grids, and hexagonal floral dotwork in high-contrast black and grey, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-59-1-bloodline-bali.jpg"),
+      alt: "Triptych full sleeve with Hannya mask, sunburst mandalas, isometric cubes, and honeycomb dotwork in black and grey, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-59-bloodline-bali.jpg"),
+      alt: "Full-back tattoo with realistic central eye framed by shadowed hands, upper mandala, and hexagonal Flower of Life panels in dense dotwork, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-59-03-bloodline-bali.jpg"),
+      alt: "Full chest mandala integrating a surreal woman's portrait with concentric geometric petals and stippled dotwork shading, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-59-07-bloodline-bali.jpg"),
+      alt: "Full sleeve with layered mandalas, 3D cube optical patterns, and repeating hexagonal sacred geometry in black and grey dotwork, at Bloodline Tattoo Bali.",
     },
   ],
   phuket: [
@@ -627,6 +408,118 @@ const mandalaProofPoolsByStudio: Record<
       alt: "Side-of-head mandala work with a large lotus framing the ear, Flower of Life temple geometry, and dense neck blackwork dotwork panels, at Bloodline Tattoo Phuket.",
     },
     {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4166-bloodline-phuket.jpg"),
+      alt: "Black and grey mandala full sleeve with layered shoulder and forearm mandalas connected by Flower of Life dotwork grids at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4173-bloodline-phuket.jpg"),
+      alt: "Geometric mandala dotwork full sleeve with large elbow and wrist mandalas set in a repeating sacred-geometry star grid at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4232-bloodline-phuket.jpg"),
+      alt: "Chest and arm mandala tattoo with a large pectoral lotus mandala flowing into a honeycomb geometric forearm sleeve at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4238-bloodline-phuket.jpg"),
+      alt: "Chest mandala and full arm sleeve with dotwork lotus patterns, overlapping shoulder mandalas, and hexagonal forearm geometry at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4241-bloodline-phuket.jpg"),
+      alt: "Blackwork mandala sleeve with a realistic skull bearing a forehead mandala, chest filigree, and star geometric wrist patterns at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4296-bloodline-phuket.jpg"),
+      alt: "Dotwork mandala sleeve with a pointed shoulder mandala, Flower of Life mid-arm panels, and interlocking diamond forearm geometry at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4300-bloodline-phuket.jpg"),
+      alt: "Mandala and geometric sleeve with shoulder lotus mandalas, a framed forearm skull, and honeycomb wrist patterns in black ink at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4304-bloodline-phuket.jpg"),
+      alt: "Black ink geometric mandala sleeve with a pointed shoulder mandala, Flower of Life upper arm fill, and a sunburst elbow focal point at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4733-bloodline-phuket.jpg"),
+      alt: "Full mandala sleeve with shoulder and forearm lotus mandalas, Flower of Life bands, and 3D cube dotwork near the wrist at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4867-bloodline-phuket.jpg"),
+      alt: "Full leg mandala blackwork with a radiating knee mandala, pointed lotus panels, geometric shin bands, and a foot mandala at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4870-bloodline-phuket.jpg"),
+      alt: "Geometric mandala leg sleeve with thigh 3D cube patterns, circular dotwork mandalas, and a foot mandala in high-contrast blackwork at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4874-bloodline-phuket.jpg"),
+      alt: "Front leg mandala tattoo with a thigh lotus mandala, a 3D geometric knee knot, and a skull set in a honeycomb shin grid at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4974-bloodline-phuket.jpg"),
+      alt: "Mandala dotwork sleeve with a large shoulder lotus, diagonal negative-space bands, and a dense hexagonal forearm pattern at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4979-bloodline-phuket.jpg"),
+      alt: "Geometric mandala sleeve with star-shaped upper arm mandalas, a sweeping negative-space curve, and stippled hexagonal wrist fill at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-4980-bloodline-phuket.jpg"),
+      alt: "Black and grey mandala sleeve with dotwork shoulder and elbow mandalas separated by a hexagonal star band at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-6838-bloodline-phuket.jpg"),
+      alt: "Symmetrical ornamental back mandala with a diamond central motif, stippled dotwork shading, and large peony florals on the shoulder blades at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-8078-bloodline-phuket.jpg"),
+      alt: "Leg tattoo combining a snarling tiger portrait with light eyes, hexagonal filler, and large knee and shin lotus mandalas at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-8081-bloodline-phuket.jpg"),
+      alt: "Full leg mandala sleeve with a peeking tiger, honeycomb hexagon grids, Flower of Life panels, and a calf lotus mandala at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-8083-bloodline-phuket.jpg"),
+      alt: "Stacked blackwork leg mandalas with a thigh lotus, a diamond-framed knee floral, and a circular shin mandala with ankle geometry at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-8283-bloodline-phuket.jpg"),
+      alt: "Panelled geometric mandala sleeve with a dotwork spiral shoulder, hexagonal grids, Flower of Life sections, and honeycomb forearm fill at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-8285-bloodline-phuket.jpg"),
+      alt: "Geometric mandala sleeve with Asanoha triangle upper arm panels, a bold elbow band, and concentric 3D-shaded hexagons on the forearm at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-9433-bloodline-phuket.jpg"),
+      alt: "Upper-back symmetrical mandala with ornate swirling layers, bold black outlines, and fine stippled dotwork shading at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-9499-bloodline-phuket.jpg"),
+      alt: "Dual-leg mandala blackwork with radiating knee mandalas, interlocking star shin bands, and bold symmetrical lower-leg geometry at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-9500-bloodline-phuket.jpg"),
+      alt: "Ornamental blackwork calf tattoo with a symmetrical diamond sunburst and mirrored blade-like geometric panels at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-9738-bloodline-phuket.jpg"),
+      alt: "Full leg mandala sleeve with a thigh lotus mandala, ornamental scrollwork, 3D cube calf geometry, and Flower of Life ankle patterns at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-9743-bloodline-phuket.jpg"),
+      alt: "Egyptian-themed leg tattoo with blue-eyed Anubis, hieroglyphs, pyramid emblems, and Flower of Life geometric backgrounds at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-9745-bloodline-phuket.jpg"),
+      alt: "Full leg geometric mandala sleeve with Flower of Life panels, honeycomb grids, and bold ornamental blackwork separators at Bloodline Tattoo Phuket.",
+    },
+    {
+      src: mandalaProofSrc("phuket", "mandala-tattoo-img-9827-bloodline-phuket.jpg"),
+      alt: "Back-of-head occipital lotus mandala flowing into a triangular neck geometric panel with stippled dotwork at Bloodline Tattoo Phuket.",
+    },
+    {
       src: mandalaProofSrc(
         "phuket",
         "mandala-tattoo-celtic-triquetra-knotwork-full-arm-sleeve-bloodline-phuket.jpg",
@@ -639,139 +532,6 @@ const mandalaProofPoolsByStudio: Record<
         "mandala-tattoo-celtic-braid-knotwork-geometric-full-sleeve-bloodline-phuket.jpg",
       ),
       alt: "Intricate Celtic braid and geometric knotwork full sleeve with bold outlines and woven negative-space patterns from shoulder to wrist, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-hannya-snake-sacred-geometry-white-line-sleeve-bloodline-phuket.jpg",
-      ),
-      alt: "Full arm sleeve merging a detailed Hannya mask and coiled snake with white-line sacred geometry, Metatron's Cube motifs, and blackout negative space to the hand, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-dual-full-leg-sleeves-mandala-geometric-collage-bloodline-phuket.jpg",
-      ),
-      alt: "Collage view of dual full leg mandala sleeves packed with radiating lotus mandalas, honeycomb grids, and high-contrast geometric dotwork, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-back-eye-reaching-hands-mandala-bloodline-phuket.jpg",
-      ),
-      alt: "Large full back mandala piece centered on a realistic eye with stylized reaching hands, surrounded by Flower of Life geometry and layered dotwork lotus panels, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-hannya-geometric-mandala-full-leg-sleeve-bloodline-phuket.jpg",
-      ),
-      alt: "Full leg mandala sleeve integrating a Hannya mask on the thigh with radial sun mandalas, isometric cube geometry, and honeycomb dotwork wrapping the leg, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-geometric-face-chest-mandala-dotwork-bloodline-phuket.jpg",
-      ),
-      alt: "Surrealist chest mandala tattoo embedding a woman's face with closed eyes and shaded lips into a symmetrical geometric dotwork lattice across both pectorals, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-dual-leg-sleeves-3d-cube-mandala-dotwork-bloodline-phuket.jpg",
-      ),
-      alt: "Dual full leg mandala sleeves combining thigh lotus mandalas, isometric 3D cube panels, honeycomb grids, and stippled dotwork gradients on both legs, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-back-3d-cube-optical-mandala-bloodline-phuket.jpg",
-      ),
-      alt: "Expansive full back mandala tattoo with an isometric 3D cube optical-illusion field, central shoulder lotus, Flower of Life side panels, and a lower-back floral mandala, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-sleeve-shoulder-mandala-geometric-triangles-bloodline-phuket.jpg",
-      ),
-      alt: "Full arm mandala sleeve opening with a large shoulder lotus, cascading into crystalline triangle lattices and overlapping wrist mandalas in dotwork blackwork, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-neck-chest-flower-of-life-3d-cube-bloodline-phuket.jpg",
-      ),
-      alt: "Neck and chest geometric mandala tattoo with Flower of Life throat bands, isometric 3D cube panels on the neck sides, and a bold pectoral lotus mandala, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-leg-sleeve-mandala-geometric-front-bloodline-phuket.jpg",
-      ),
-      alt: "Front-facing full leg mandala sleeve with layered thigh lotus mandalas, architectural geometric linework, and a dense Flower of Life band down the shin, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-leg-sleeve-side-honeycomb-mandala-bloodline-phuket.jpg",
-      ),
-      alt: "Side-view full leg mandala sleeve led by honeycomb hexagon grids on the thigh and stacked lotus mandalas flowing down the shin in dotwork, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-leg-sleeve-back-mandala-flower-of-life-bloodline-phuket.jpg",
-      ),
-      alt: "Back-of-leg full mandala sleeve with an upper-thigh lotus mandala, Flower of Life geometry at the knee, and a radial calf mandala tapering to the ankle, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-leg-sleeve-geometric-mandala-knee-cube-bloodline-phuket.jpg",
-      ),
-      alt: "Right leg full geometric mandala sleeve with a radiating thigh mandala, isometric cube knee panel, honeycomb shin grids, and ankle floral dotwork, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-leg-sleeve-radiating-mandala-isometric-cube-bloodline-phuket.jpg",
-      ),
-      alt: "Left leg full mandala sleeve featuring a radiating thigh lotus, sacred geometry knee bands, and extended isometric cube dotwork down the calf, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-hannya-asanoha-seigaiha-kikkō-full-leg-sleeve-bloodline-phuket.jpg",
-      ),
-      alt: "Full leg sleeve blending a Hannya mask on the thigh with Asanoha stars, Seigaiha waves, Kikkō hexagons, and mandala geometry wrapping the leg, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-leg-sleeve-back-3d-hexagon-flower-of-life-bloodline-phuket.jpg",
-      ),
-      alt: "Posterior full leg mandala sleeve pairing upper-thigh 3D hexagon blackwork with a dense Flower of Life dotwork grid down the calf and ankle, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-leg-sleeve-front-mandala-knee-3d-cubes-bloodline-phuket.jpg",
-      ),
-      alt: "Front full leg mandala sleeve with bold thigh geometry, a stippled knee lotus mandala, and stacked isometric 3D cube panels on the lower shin, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-woman-face-surrealist-mandala-chest-peonies-bloodline-phuket.jpg",
-      ),
-      alt: "Surrealist chest mandala tattoo of a woman's serene face emerging from layered geometric dotwork, framed by dark peony florals on the collarbones, at Bloodline Tattoo Phuket.",
-    },
-    {
-      src: mandalaProofSrc(
-        "phuket",
-        "mandala-tattoo-full-arm-sleeve-mandala-floral-chrysanthemum-dotwork-bloodline-phuket.jpg",
-      ),
-      alt: "Full arm mandala sleeve for a woman combining a shoulder lotus mandala, shaded chrysanthemum florals at the elbow, and geometric wrist dotwork bands, at Bloodline Tattoo Phuket.",
     },
   ],
 };

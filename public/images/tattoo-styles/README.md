@@ -29,12 +29,12 @@ Matches which styles each regional **site** offers.
 
 ## Page roles
 
-| File           | Use                                                                     |
-| -------------- | ----------------------------------------------------------------------- |
-| `hero.jpg`     | Style **detail** page header only (`/tattoo-styles/realism`)            |
-| `approach.jpg` | Approach statement band background on the style page                    |
-| `card.jpg`     | Homepage + `/tattoo-styles` grid tiles (regional `card.jpg` per studio) |
-| `proof/*`      | Proof grid pool (8 random per load) + portfolio source                  |
+| File           | Use                                                                         |
+| -------------- | --------------------------------------------------------------------------- |
+| `hero.jpg`     | Style **detail** page header only (`/tattoo-styles/realism`)                |
+| `approach.jpg` | Approach statement band background on the style page                        |
+| `card.jpg`     | Homepage + `/tattoo-styles` grid tiles (regional `card.jpg` per studio)     |
+| `proof/*`      | Proof grid on style pages + `/portfolio` (registered in style media config) |
 
 ### Export ratios (from UI code)
 
@@ -56,7 +56,7 @@ Matches which styles each regional **site** offers.
 1. Drop files into the correct `{style}/{studio}/` paths.
 2. We rename for SEO + write alt text.
 3. We register proof paths in `src/config/tattoo-style-proof-pools.ts` or style-specific media modules (e.g. `tattoo-style-bamboo-media.ts`, `tattoo-style-realism-media.ts`).
-4. Run `npm run generate:gallery-catalog` so portfolio/gallery use updated `src/data/gallery-catalog.json` (runs automatically on `npm run build`).
+4. Register proof paths in style media modules (e.g. `tattoo-style-realism-media.ts`), then run `npm run generate:gallery-catalog` so `/portfolio` stays in sync.
 
 ## First batch
 
