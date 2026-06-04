@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { galleryPageIntroBottomSpacingClassName } from "@/lib/gallery-page-layout";
 import { pageIntroBandSurfaceGradientClassName } from "@/lib/page-intro-band-gradient";
@@ -19,9 +19,15 @@ const galleryPageDescriptionClassName =
 interface GalleryPageIntroSectionProps {
   intro: GalleryPageIntro;
   introBackgroundImage: PageIntroBandBackgroundImage;
+  /** Shared portfolio header clip (all regions). Poster/fallback uses introBackgroundImage. */
+  introBackgroundVideoSrc: string;
 }
 
-function GalleryPageIntroSection({ intro, introBackgroundImage }: GalleryPageIntroSectionProps) {
+function GalleryPageIntroSection({
+  intro,
+  introBackgroundImage,
+  introBackgroundVideoSrc,
+}: GalleryPageIntroSectionProps) {
   return (
     <section
       aria-labelledby="portfolio-index-heading"
@@ -31,15 +37,14 @@ function GalleryPageIntroSection({ intro, introBackgroundImage }: GalleryPageInt
         galleryPageIntroBottomSpacingClassName,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <Image
-          src={introBackgroundImage.src}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={70}
-          className="object-cover object-center"
+      <div className="pointer-events-none absolute inset-0 z-0 min-h-full w-full overflow-hidden">
+        <HeroBackgroundVideo
+          key={introBackgroundVideoSrc}
+          src={introBackgroundVideoSrc}
+          poster={introBackgroundImage.src}
+          stillSrc={introBackgroundImage.src}
+          stillAlt={introBackgroundImage.alt}
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </div>
       <div aria-hidden className={pageIntroBandSurfaceGradientClassName} />

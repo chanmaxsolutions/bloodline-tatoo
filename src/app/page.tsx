@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 import { getReviewsCarouselPreview } from "@/lib/reviews-page";
 import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
 import { resolveGoogleBusinessProofPresentation } from "@/lib/google-business-proof";
-import { homepageMediaPaths } from "@/config/homepage-media";
+import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
 import { getRequestRegionContext } from "@/lib/request-region";
 
 const HomepageTestimonialsCarouselSection = dynamic(
@@ -47,13 +47,6 @@ export default async function Home() {
 
   const heroRegionWord = region === "global" ? "ASIA" : regionConfig.regionName.toUpperCase();
 
-  const heroVideoByRegion: Record<typeof region, string> = {
-    global: "/videos/hero/hero-global.mp4",
-    bangkok: "/videos/hero/hero-bangkok.mp4",
-    bali: "/videos/hero/hero-bali.mp4",
-    phuket: "/videos/hero/hero-phuket.mp4",
-  };
-
   return (
     <div className="min-w-0 bg-background">
       <HeroSection
@@ -65,7 +58,7 @@ export default async function Home() {
         description={regionConfig.heroDescription}
         media={{
           src: homepageMediaPaths.heroPoster(region),
-          videoSrc: heroVideoByRegion[region],
+          videoSrc: homepageHeroVideoSrc(region),
           alt: `${regionConfig.seo.siteName} studio mark`,
           poster: homepageMediaPaths.heroPoster(region),
         }}

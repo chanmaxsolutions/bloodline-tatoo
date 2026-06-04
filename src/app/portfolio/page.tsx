@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { GalleryPageIntroSection } from "@/components/sections/gallery-page-intro-section";
 import { GalleryPageMasonrySection } from "@/components/sections/gallery-page-masonry-section";
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
-import { pageIntroBackgroundFor } from "@/config/page-intro-band";
+import { pageIntroBackgroundFor, portfolioPageIntroVideoSrc } from "@/config/page-intro-band";
 import {
   galleryPageClosingForRegion,
   portfolioMetadataForRegionAndCategory,
@@ -59,6 +59,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
       <GalleryPageIntroSection
         intro={content.intro}
         introBackgroundImage={pageIntroBackgroundFor("portfolio")}
+        introBackgroundVideoSrc={portfolioPageIntroVideoSrc()}
       />
       <GalleryPageMasonrySection
         items={content.items}
