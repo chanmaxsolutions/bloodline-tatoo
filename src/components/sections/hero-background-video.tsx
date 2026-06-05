@@ -11,10 +11,15 @@ interface HeroBackgroundVideoProps {
   stillAlt: string;
   className: string;
   /**
-   * High-priority poster fetch for above-the-fold heroes (homepage LCP).
+   * High-priority poster fetch for above-the-fold heroes without a server-rendered poster.
    * Omit on footer and below-fold bands so they do not compete with LCP.
    */
   priorityPoster?: boolean;
+  /**
+   * When a parent Server Component already renders the LCP poster, skip the client still layer
+   * and rely on that image if autoplay fails.
+   */
+  serverPosterLayer?: boolean;
 }
 
 function isAbortError(error: unknown): boolean {
@@ -33,8 +38,8 @@ function applyIosFriendlyVideoAttrs(el: HTMLVideoElement) {
 /**
  * Hero background clip: mobile Safari needs muted/playsinline set reliably and `play()` after
  * the element can decode frames. Avoid overlapping `play()` calls (they reject with AbortError
- * and must not swap to still). Poster `next/image` layer satisfies LCP; video uses `preload="metadata"`
- * so the MP4 does not race the poster on first paint.
+ * and must not swap to still). Homepage LCP poster is server-rendered in `HeroSection`; this
+ * component plays video on top with `preload="metadata"` so the MP4 does not race first paint.
  *
  * @see https://developer.apple.com/documentation/webkit/delivering-video-content-for-safari
  */
@@ -45,6 +50,7 @@ function HeroBackgroundVideo({
   stillAlt,
   className,
   priorityPoster = false,
+  serverPosterLayer = false,
 }: HeroBackgroundVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
   const [useStillOnly, setUseStillOnly] = useState(false);
@@ -121,7 +127,29 @@ function HeroBackgroundVideo({
   );
 
   if (useStillOnly) {
+    if (serverPosterLayer) {
+      return null;
+    }
+
     return <div className={className}>{posterImage}</div>;
+  }
+
+  if (serverPosterLayer) {
+    return (
+      <video
+        ref={ref}
+        className={className}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={poster}
+        aria-hidden
+      >
+        <source src={src} type="video/mp4" />
+      </video>
+    );
   }
 
   return (

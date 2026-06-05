@@ -60,19 +60,34 @@ function HeroSection({
         ) : null}
 
         {media.videoSrc ? (
-          <HeroBackgroundVideo
-            key={media.videoSrc}
-            src={media.videoSrc}
-            poster={media.poster}
-            stillSrc={media.poster ?? media.src ?? "/fallback.png"}
-            stillAlt={media.alt}
-            priorityPoster
-            className={cn(
-              "absolute object-cover object-center",
-              "left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 max-md:min-h-[100%] max-md:min-w-[100%]",
-              "md:inset-0 md:left-0 md:top-0 md:h-full md:w-full md:min-h-0 md:min-w-0 md:translate-x-0 md:translate-y-0",
-            )}
-          />
+          <>
+            {media.poster ? (
+              <Image
+                src={media.poster}
+                alt=""
+                aria-hidden
+                fill
+                priority
+                fetchPriority="high"
+                className="object-cover object-center"
+                sizes="100vw"
+              />
+            ) : null}
+            <HeroBackgroundVideo
+              key={media.videoSrc}
+              src={media.videoSrc}
+              poster={media.poster}
+              stillSrc={media.poster ?? media.src ?? "/fallback.png"}
+              stillAlt={media.alt}
+              serverPosterLayer={Boolean(media.poster)}
+              className={cn(
+                "absolute object-cover object-center",
+                media.poster ? "z-[1]" : undefined,
+                "left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 max-md:min-h-[100%] max-md:min-w-[100%]",
+                "md:inset-0 md:left-0 md:top-0 md:h-full md:w-full md:min-h-0 md:min-w-0 md:translate-x-0 md:translate-y-0",
+              )}
+            />
+          </>
         ) : null}
       </div>
 

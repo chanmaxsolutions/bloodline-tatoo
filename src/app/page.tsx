@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { getImageProps } from "next/image";
 import {
   AuthoritySection,
   HeroSection,
@@ -46,9 +47,32 @@ export default async function Home() {
   const googleBusinessProof = resolveGoogleBusinessProofPresentation(region);
 
   const heroRegionWord = region === "global" ? "ASIA" : regionConfig.regionName.toUpperCase();
+  const heroPosterSrc = homepageMediaPaths.heroPoster(region);
+  const {
+    props: {
+      src: heroPosterPreloadSrc,
+      srcSet: heroPosterPreloadSrcSet,
+      sizes: heroPosterPreloadSizes,
+    },
+  } = getImageProps({
+    alt: "",
+    src: heroPosterSrc,
+    width: 1920,
+    height: 1080,
+    sizes: "100vw",
+    priority: true,
+  });
 
   return (
     <div className="min-w-0 bg-background">
+      <link
+        rel="preload"
+        as="image"
+        href={heroPosterPreloadSrc}
+        imageSrcSet={heroPosterPreloadSrcSet}
+        imageSizes={heroPosterPreloadSizes}
+        fetchPriority="high"
+      />
       <HeroSection
         title={
           <>
