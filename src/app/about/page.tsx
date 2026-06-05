@@ -5,6 +5,7 @@ import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-se
 import { AboutPageReviewsSection } from "@/components/sections/about-page-reviews-section";
 import { AboutPageVideoSection } from "@/components/sections/about-page-video-section";
 import { portfolioClosingCtaSectionClassName } from "@/lib/gallery-page-layout";
+import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
 import { getAboutPageContent } from "@/lib/about-page";
 import { getReviewsCarouselPreview } from "@/lib/reviews-page";
 import { buildMetadata } from "@/lib/seo";
@@ -42,7 +43,11 @@ export default async function AboutPage() {
     <div className="min-w-0 bg-background">
       <AboutPageIntroSection
         intro={content.intro}
-        introBackgroundImage={content.introBackgroundImage}
+        introBackgroundVideoSrc={homepageHeroVideoSrc(region)}
+        introBackgroundPoster={{
+          src: homepageMediaPaths.heroPoster(region),
+          alt: `${regionConfig.seo.siteName} studio atmosphere`,
+        }}
         trustStats={content.trustStats}
       />
       <AboutPageStorySection storyParagraphs={content.storyParagraphs} />

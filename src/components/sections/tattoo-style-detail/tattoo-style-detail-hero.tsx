@@ -1,6 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
+import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
+import { tattooStyleHeroVideoSrc } from "@/config/tattoo-style-hero-video";
 import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
 
 interface TattooStyleDetailHeroProps {
@@ -20,14 +21,14 @@ function TattooStyleDetailHero({ content }: TattooStyleDetailHeroProps) {
       aria-labelledby="tattoo-style-detail-heading"
       className="relative isolate min-h-[min(52vh,440px)] overflow-hidden bg-surface-strong md:min-h-[min(58vh,520px)]"
     >
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <Image
-          src={content.heroImageSrc}
-          alt={content.heroImageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
+      <div className="pointer-events-none absolute inset-0 z-0 min-h-full w-full overflow-hidden">
+        <HeroBackgroundVideo
+          key={content.slug}
+          src={tattooStyleHeroVideoSrc(content.slug)}
+          poster={content.heroImageSrc}
+          stillSrc={content.heroImageSrc}
+          stillAlt={content.heroImageAlt}
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </div>
       <div

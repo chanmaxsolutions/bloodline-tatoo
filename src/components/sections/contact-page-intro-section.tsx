@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
+import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
 import { ContactPageActions } from "@/components/sections/contact-page-actions";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { pageIntroBandSurfaceGradientClassName } from "@/lib/page-intro-band-gradient";
@@ -22,7 +22,10 @@ const contactIntroBottomSpacingClassName = "pb-10 md:pb-12 lg:pb-14";
 
 interface ContactPageIntroSectionProps {
   intro: ContactPageContent["intro"];
-  introBackgroundImage: ContactPageContent["introBackgroundImage"];
+  /** Regional hero poster — pairs with homepage hero video fallback. */
+  introBackgroundPoster: ContactPageContent["introBackgroundImage"];
+  /** Regional homepage hero clip (same as site hero). */
+  introBackgroundVideoSrc: string;
   isGlobal: ContactPageContent["isGlobal"];
   channels: ContactPageContent["channels"];
   studios: ContactPageContent["studios"];
@@ -30,7 +33,8 @@ interface ContactPageIntroSectionProps {
 
 function ContactPageIntroSection({
   intro,
-  introBackgroundImage,
+  introBackgroundPoster,
+  introBackgroundVideoSrc,
   isGlobal,
   channels,
   studios,
@@ -44,15 +48,14 @@ function ContactPageIntroSection({
         contactIntroBottomSpacingClassName,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <Image
-          src={introBackgroundImage.src}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={72}
-          className="object-cover object-center"
+      <div className="pointer-events-none absolute inset-0 z-0 min-h-full w-full overflow-hidden">
+        <HeroBackgroundVideo
+          key={introBackgroundVideoSrc}
+          src={introBackgroundVideoSrc}
+          poster={introBackgroundPoster.src}
+          stillSrc={introBackgroundPoster.src}
+          stillAlt={introBackgroundPoster.alt}
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </div>
       <div aria-hidden className={pageIntroBandSurfaceGradientClassName} />

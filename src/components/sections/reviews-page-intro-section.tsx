@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
+import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { pageIntroBandSurfaceGradientClassName } from "@/lib/page-intro-band-gradient";
 import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
@@ -28,13 +28,17 @@ const reviewsIntroBottomSpacingClassName = "pb-10 md:pb-12 lg:pb-14";
 interface ReviewsPageIntroSectionProps {
   intro: ReviewsPageContent["intro"];
   trustStats: ReviewsPageContent["trustStats"];
-  backgroundImage: ReviewsPageIntroBackgroundImage;
+  /** Regional hero poster — pairs with homepage hero video fallback. */
+  introBackgroundPoster: ReviewsPageIntroBackgroundImage;
+  /** Regional homepage hero clip (same as site hero). */
+  introBackgroundVideoSrc: string;
 }
 
 function ReviewsPageIntroSection({
   intro,
   trustStats,
-  backgroundImage,
+  introBackgroundPoster,
+  introBackgroundVideoSrc,
 }: ReviewsPageIntroSectionProps) {
   return (
     <section
@@ -45,15 +49,14 @@ function ReviewsPageIntroSection({
         reviewsIntroBottomSpacingClassName,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <Image
-          src={backgroundImage.src}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={72}
-          className="object-cover object-center"
+      <div className="pointer-events-none absolute inset-0 z-0 min-h-full w-full overflow-hidden">
+        <HeroBackgroundVideo
+          key={introBackgroundVideoSrc}
+          src={introBackgroundVideoSrc}
+          poster={introBackgroundPoster.src}
+          stillSrc={introBackgroundPoster.src}
+          stillAlt={introBackgroundPoster.alt}
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </div>
       <div aria-hidden className={pageIntroBandSurfaceGradientClassName} />

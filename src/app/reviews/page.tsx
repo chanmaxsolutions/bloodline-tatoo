@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ReviewsGoogleCtaSection } from "@/components/sections/reviews-google-cta-section";
 import { ReviewsPageGridSection } from "@/components/sections/reviews-page-grid-section";
 import { ReviewsPageIntroSection } from "@/components/sections/reviews-page-intro-section";
+import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
 import { getReviewsPageContent } from "@/lib/reviews-page";
 import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
@@ -30,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ReviewsPage() {
-  const { region } = await getRequestRegionContext();
+  const { region, regionConfig } = await getRequestRegionContext();
   const content = getReviewsPageContent(region);
 
   return (
@@ -38,7 +39,11 @@ export default async function ReviewsPage() {
       <ReviewsPageIntroSection
         intro={content.intro}
         trustStats={content.trustStats}
-        backgroundImage={content.introBackgroundImage}
+        introBackgroundVideoSrc={homepageHeroVideoSrc(region)}
+        introBackgroundPoster={{
+          src: homepageMediaPaths.heroPoster(region),
+          alt: `${regionConfig.seo.siteName} studio atmosphere`,
+        }}
       />
       <ReviewsPageGridSection
         testimonials={content.testimonials}

@@ -7,6 +7,7 @@ import { BlogPageGridSection } from "@/components/sections/blog-page-grid-sectio
 import { BlogPageIntroSection } from "@/components/sections/blog-page-intro-section";
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
 import { pageIntroBackgroundFor } from "@/config/page-intro-band";
+import { pickRandomTattooStyleHeroVideoSrc } from "@/config/tattoo-style-hero-video";
 import { blogPageClosingForRegion } from "@/config/blog-page";
 import { pageClosingCtaBandBorderlessSectionClassName } from "@/lib/page-closing-cta-band";
 import { homepageClosingCtaBandClassName } from "@/lib/homepage-section-surfaces";
@@ -42,6 +43,7 @@ export default async function TattooBlogPage({ searchParams }: TattooBlogPagePro
   const content = getBlogPageContent(region);
   const closing = blogPageClosingForRegion(region, regionConfig.regionName);
 
+  const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc();
   const hasAnyPosts = content.featuredPosts.length > 0 || content.gridPosts.length > 0;
   const showFeaturedBand = content.featuredPosts.length > 0;
   const allListings = [...content.featuredPosts, ...content.gridPosts];
@@ -66,6 +68,7 @@ export default async function TattooBlogPage({ searchParams }: TattooBlogPagePro
       <BlogPageIntroSection
         intro={content.intro}
         introBackgroundImage={pageIntroBackgroundFor("blog")}
+        introBackgroundVideoSrc={introBackgroundVideoSrc}
       />
       {content.categories.length > 0 ? (
         <BlogPageFiltersSection

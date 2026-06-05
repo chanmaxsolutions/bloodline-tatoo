@@ -3,7 +3,8 @@ import { redirect } from "next/navigation";
 import { GalleryPageIntroSection } from "@/components/sections/gallery-page-intro-section";
 import { GalleryPageMasonrySection } from "@/components/sections/gallery-page-masonry-section";
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
-import { pageIntroBackgroundFor, portfolioPageIntroVideoSrc } from "@/config/page-intro-band";
+import { pageIntroBackgroundFor } from "@/config/page-intro-band";
+import { pickRandomTattooStyleHeroVideoSrc } from "@/config/tattoo-style-hero-video";
 import {
   galleryPageClosingForRegion,
   portfolioMetadataForRegionAndCategory,
@@ -53,13 +54,14 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
   const { region, regionConfig } = await getRequestRegionContext();
   const content = getGalleryPageContent(region, regionConfig.regionName, categoryParam);
   const closing = galleryPageClosingForRegion(region, regionConfig.regionName);
+  const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc();
 
   return (
     <div className="min-w-0 bg-background">
       <GalleryPageIntroSection
         intro={content.intro}
         introBackgroundImage={pageIntroBackgroundFor("portfolio")}
-        introBackgroundVideoSrc={portfolioPageIntroVideoSrc()}
+        introBackgroundVideoSrc={introBackgroundVideoSrc}
       />
       <GalleryPageMasonrySection
         items={content.items}

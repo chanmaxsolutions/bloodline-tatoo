@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
+import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { pageIntroBandSurfaceGradientClassName } from "@/lib/page-intro-band-gradient";
 import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
@@ -23,11 +23,14 @@ const tattooStylesIndexIntroBottomSpacingClassName = "pb-10 md:pb-12 lg:pb-14";
 interface TattooStylesIndexIntroSectionProps {
   intro: TattooStylesIndexIntro;
   introBackgroundImage: PageIntroBandBackgroundImage;
+  /** Random clip from `/videos/tattoo-styles/` (picked on the server per request). */
+  introBackgroundVideoSrc: string;
 }
 
 function TattooStylesIndexIntroSection({
   intro,
   introBackgroundImage,
+  introBackgroundVideoSrc,
 }: TattooStylesIndexIntroSectionProps) {
   return (
     <section
@@ -38,15 +41,14 @@ function TattooStylesIndexIntroSection({
         tattooStylesIndexIntroBottomSpacingClassName,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <Image
-          src={introBackgroundImage.src}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={72}
-          className="object-cover object-center"
+      <div className="pointer-events-none absolute inset-0 z-0 min-h-full w-full overflow-hidden">
+        <HeroBackgroundVideo
+          key={introBackgroundVideoSrc}
+          src={introBackgroundVideoSrc}
+          poster={introBackgroundImage.src}
+          stillSrc={introBackgroundImage.src}
+          stillAlt={introBackgroundImage.alt}
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </div>
       <div aria-hidden className={pageIntroBandSurfaceGradientClassName} />

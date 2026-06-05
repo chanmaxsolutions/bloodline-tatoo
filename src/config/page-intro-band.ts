@@ -42,12 +42,4 @@ function pageIntroBackgroundFor(page: PageIntroBandSlug): PageIntroBandBackgroun
   return pageIntroBackgroundByPage[page];
 }
 
-/** Portfolio index intro — same clip on every regional domain. */
-const portfolioIntroVideoPath = "/videos/hero/portfolio-header.mp4" as const;
-const portfolioIntroVideoVersion = "20250604-realistic" as const;
-
-function portfolioPageIntroVideoSrc(): string {
-  return `${portfolioIntroVideoPath}?v=${portfolioIntroVideoVersion}`;
-}
-
-export { pageIntroBackgroundByPage, pageIntroBackgroundFor, portfolioPageIntroVideoSrc };
+export { pageIntroBackgroundByPage, pageIntroBackgroundFor };

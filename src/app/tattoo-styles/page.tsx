@@ -3,6 +3,7 @@ import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-se
 import { TattooStylesIndexGridSection } from "@/components/sections/tattoo-styles-index-grid-section";
 import { TattooStylesIndexIntroSection } from "@/components/sections/tattoo-styles-index-intro-section";
 import { pageIntroBackgroundFor } from "@/config/page-intro-band";
+import { pickRandomTattooStyleHeroVideoSrc } from "@/config/tattoo-style-hero-video";
 import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
 import { tattooStyleSlugsForRegion } from "@/config/region-tattoo-style-availability";
 import {
@@ -43,12 +44,14 @@ export default async function TattooStylesIndexPage() {
   const intro = tattooStylesIndexIntroForRegion(region);
   const closing = tattooStylesIndexClosingForRegion(region, regionConfig.regionName);
   const tiles = resolveHomepageTattooStyleTiles(tattooStyleSlugsForRegion(region), region);
+  const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc();
 
   return (
     <div className="min-w-0 bg-background">
       <TattooStylesIndexIntroSection
         intro={intro}
         introBackgroundImage={pageIntroBackgroundFor("tattoo-styles")}
+        introBackgroundVideoSrc={introBackgroundVideoSrc}
       />
       <TattooStylesIndexGridSection tiles={tiles} />
       <PageClosingCtaSection
