@@ -66,6 +66,7 @@ function HeroSection({
             poster={media.poster}
             stillSrc={media.poster ?? media.src ?? "/fallback.png"}
             stillAlt={media.alt}
+            priorityPoster
             className={cn(
               "absolute object-cover object-center",
               "left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 max-md:min-h-[100%] max-md:min-w-[100%]",

@@ -10,6 +10,11 @@ interface HeroBackgroundVideoProps {
   stillSrc: string;
   stillAlt: string;
   className: string;
+  /**
+   * High-priority poster fetch for above-the-fold heroes (homepage LCP).
+   * Omit on footer and below-fold bands so they do not compete with LCP.
+   */
+  priorityPoster?: boolean;
 }
 
 function isAbortError(error: unknown): boolean {
@@ -28,7 +33,8 @@ function applyIosFriendlyVideoAttrs(el: HTMLVideoElement) {
 /**
  * Hero background clip: mobile Safari needs muted/playsinline set reliably and `play()` after
  * the element can decode frames. Avoid overlapping `play()` calls (they reject with AbortError
- * and must not swap to still). Prefer `preload="auto"` so cellular devices buffer enough to start.
+ * and must not swap to still). Poster `next/image` layer satisfies LCP; video uses `preload="metadata"`
+ * so the MP4 does not race the poster on first paint.
  *
  * @see https://developer.apple.com/documentation/webkit/delivering-video-content-for-safari
  */
@@ -38,6 +44,7 @@ function HeroBackgroundVideo({
   stillSrc,
   stillAlt,
   className,
+  priorityPoster = false,
 }: HeroBackgroundVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
   const [useStillOnly, setUseStillOnly] = useState(false);
@@ -99,35 +106,41 @@ function HeroBackgroundVideo({
     };
   }, [src, useStillOnly]);
 
+  const posterImage = (
+    <Image
+      src={stillSrc}
+      alt=""
+      aria-hidden
+      fill
+      priority={priorityPoster}
+      fetchPriority={priorityPoster ? "high" : undefined}
+      loading={priorityPoster ? undefined : "lazy"}
+      className="object-cover object-center"
+      sizes="100vw"
+    />
+  );
+
   if (useStillOnly) {
-    return (
-      <div className={className}>
-        <Image
-          src={stillSrc}
-          alt={stillAlt}
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-      </div>
-    );
+    return <div className={className}>{posterImage}</div>;
   }
 
   return (
-    <video
-      ref={ref}
-      className={className}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
-      poster={poster}
-      aria-hidden
-    >
-      <source src={src} type="video/mp4" />
-    </video>
+    <div className={className}>
+      {posterImage}
+      <video
+        ref={ref}
+        className="absolute inset-0 z-[1] h-full w-full object-cover object-center"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={poster}
+        aria-hidden
+      >
+        <source src={src} type="video/mp4" />
+      </video>
+    </div>
   );
 }
 
