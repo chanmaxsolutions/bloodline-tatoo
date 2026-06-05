@@ -32,7 +32,7 @@ const HomepageTestimonialsCarouselSection = dynamic(
 );
 
 const defaultTrustProofItems: TrustProofItem[] = [
-  { label: "Google Rating", value: "4.9" },
+  { label: "Google Rating", value: "5.0" },
   { label: "Customers served per year", value: "5000+" },
   { label: "Five-star Google reviews", value: "2500+" },
 ];

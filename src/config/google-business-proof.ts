@@ -6,9 +6,9 @@ const googleBusinessProofByStudio: Record<
   Exclude<RegionSlug, "global">,
   GoogleBusinessProofMetrics
 > = {
-  bangkok: { rating: 4.9, reviewCount: 850, approximateCount: true },
-  bali: { rating: 4.9, reviewCount: 820, approximateCount: true },
-  phuket: { rating: 4.9, reviewCount: 830, approximateCount: true },
+  bangkok: { rating: 5.0, reviewCount: 850, approximateCount: true },
+  bali: { rating: 5.0, reviewCount: 820, approximateCount: true },
+  phuket: { rating: 5.0, reviewCount: 830, approximateCount: true },
 };
 
 export { googleBusinessProofByStudio };

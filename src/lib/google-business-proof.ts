@@ -40,7 +40,7 @@ function aggregateGlobalGoogleBusinessProof(): GoogleBusinessProofMetrics {
   }
 
   return {
-    rating: reviewCount > 0 ? weightedRating / reviewCount : 4.9,
+    rating: reviewCount > 0 ? weightedRating / reviewCount : 5.0,
     reviewCount,
     approximateCount: true,
   };

@@ -27,13 +27,13 @@ function aboutTrustStatsForRegion(
   if (region === "global") {
     return [
       { label: "Studios across Asia", value: "3" },
-      { label: "Google rating", value: "4.9" },
+      { label: "Google rating", value: "5.0" },
       { label: "Five-star Google reviews", value: "2500+" },
     ];
   }
 
   return [
-    { label: "Google rating", value: "4.9" },
+    { label: "Google rating", value: "5.0" },
     { label: "Reviews on this page", value: String(curatedReviewCount) },
     { label: "Five-star Google reviews", value: "2500+" },
   ];

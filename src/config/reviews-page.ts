@@ -27,7 +27,7 @@ function reviewsPageTrustStatsForRegion(
   const curatedLabel = region === "global" ? "Reviews shown here" : `Curated on this page`;
 
   return [
-    { label: "Google rating", value: "4.9" },
+    { label: "Google rating", value: "5.0" },
     { label: curatedLabel, value: String(curatedCount) },
     { label: "Five-star Google reviews", value: "2500+" },
   ];
