@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Extract hero-poster.jpg from each regional homepage hero MP4.
+ * Extract hero-poster.webp from each regional homepage hero MP4.
  * Requires ffmpeg on PATH (brew install ffmpeg).
  *
  * Usage: node scripts/extract-hero-posters-from-video.mjs [--at 3]
@@ -44,7 +44,7 @@ const posterHeight = 1350;
 
 for (const { slug, video } of regions) {
   const input = path.join(root, "public/videos/hero", video);
-  const output = path.join(root, "public/images/homepage", slug, "hero-poster.jpg");
+  const output = path.join(root, "public/images/homepage", slug, "hero-poster.webp");
 
   if (!fs.existsSync(input)) {
     console.error(`Missing video: ${input}`);

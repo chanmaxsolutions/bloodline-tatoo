@@ -30,12 +30,12 @@ for (const name of fs.readdirSync(proofDir)) {
   const file = path.join(proofDir, name);
   if (!fs.statSync(file).isFile()) continue;
   const ext = path.extname(name).toLowerCase();
-  if (![".jpg", ".jpeg", ".heic"].includes(ext)) continue;
+  if (![".webp", ".webp", ".heic"].includes(ext)) continue;
 
   const base = file.slice(0, -ext.length);
   let target = file;
-  if (ext === ".heic" || ext === ".jpeg") {
-    target = `${base}.jpg`;
+  if (ext === ".heic" || ext === ".webp") {
+    target = `${base}.webp`;
     run(`sips -s format jpeg -s formatOptions ${JPEG_QUALITY} "${file}" --out "${target}"`);
     if (target !== file) fs.unlinkSync(file);
   }
@@ -47,7 +47,7 @@ for (const name of fs.readdirSync(proofDir)) {
   const h = Number(dims.match(/pixelHeight:\s*(\d+)/)?.[1] ?? 0);
   if (Math.max(w, h) > MAX_EDGE) run(`sips -Z ${MAX_EDGE} "${target}"`);
 
-  const tmp = `${target}.tmp.jpg`;
+  const tmp = `${target}.tmp.webp`;
   run(`sips -s format jpeg -s formatOptions ${JPEG_QUALITY} "${target}" --out "${tmp}"`);
   fs.renameSync(tmp, target);
 }

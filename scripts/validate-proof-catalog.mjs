@@ -30,7 +30,7 @@ for (const style of styles) {
     const mappingPath = path.join("scripts", `${style}-mappings`, `${studio}.json`);
 
     const onDisk = new Set(
-      fs.existsSync(proofDir) ? fs.readdirSync(proofDir).filter((f) => f.endsWith(".jpg")) : [],
+      fs.existsSync(proofDir) ? fs.readdirSync(proofDir).filter((f) => f.endsWith(".webp")) : [],
     );
 
     if (!fs.existsSync(mappingPath)) {
@@ -52,7 +52,7 @@ for (const style of styles) {
         console.error(`Missing file: ${filePath} (mapped from ${oldName})`);
         errors += 1;
       }
-      if (!newName.endsWith(`-bloodline-${studio}.jpg`)) {
+      if (!newName.endsWith(`-bloodline-${studio}.webp`)) {
         console.error(`Bad SEO suffix: ${newName}`);
         errors += 1;
       }

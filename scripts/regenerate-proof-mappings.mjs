@@ -66,7 +66,7 @@ function slugify(filename) {
 }
 
 function studioSuffix(studio) {
-  return `-bloodline-${studio}.jpg`;
+  return `-bloodline-${studio}.webp`;
 }
 
 function isFinalSeoName(filename, studio) {
@@ -84,10 +84,10 @@ function uniqueNewName(prefix, slug, studio, used) {
   if (base.length > 110) {
     base = `${prefix}-${slug.slice(0, 50)}-bloodline-${studio}`;
   }
-  let candidate = `${base}.jpg`;
+  let candidate = `${base}.webp`;
   let index = 2;
   while (used.has(candidate)) {
-    candidate = `${base}-${index}.jpg`;
+    candidate = `${base}-${index}.webp`;
     index += 1;
   }
   used.add(candidate);
@@ -100,7 +100,7 @@ function listProofFiles(proofDir) {
     .filter((name) => name !== ".gitkeep")
     .filter((name) => {
       const ext = path.extname(name).toLowerCase();
-      return ext === ".jpg" || ext === ".jpeg";
+      return ext === ".webp";
     })
     .sort((a, b) => a.localeCompare(b, "en"));
 }

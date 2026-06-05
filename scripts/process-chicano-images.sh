@@ -13,12 +13,12 @@ reencode_jpeg() {
 for studio in bangkok bali phuket; do
   dir="$ROOT/$studio"
   for master in hero approach card; do
-    file="$dir/$master.jpg"
+    file="$dir/$master.webp"
     if [[ -f "$file" ]]; then
-      tmp="${file%.jpg}.tmp.jpg"
+      tmp="${file%.webp}.tmp.webp"
       reencode_jpeg "$file" "$tmp"
       mv "$tmp" "$file"
-      echo "master $studio/$master.jpg"
+      echo "master $studio/$master.webp"
     fi
   done
 
@@ -29,7 +29,7 @@ for studio in bangkok bali phuket; do
     ext_lower="$(printf '%s' "$ext" | tr '[:upper:]' '[:lower:]')"
 
     if [[ "$ext_lower" == "heic" ]]; then
-      out="${base}.jpg"
+      out="${base}.webp"
       reencode_jpeg "$file" "$out"
       rm -f "$file"
       echo "heic→jpg ${out#$ROOT/}"
@@ -37,12 +37,12 @@ for studio in bangkok bali phuket; do
     fi
 
     if [[ "$ext_lower" == "jpg" || "$ext_lower" == "jpeg" ]]; then
-      tmp="${base}.tmp.jpg"
+      tmp="${base}.tmp.webp"
       reencode_jpeg "$file" "$tmp"
       mv "$tmp" "$file"
       echo "reencode ${file#$ROOT/}"
     fi
-  done < <(find "$proof_dir" -type f ! -name '.gitkeep' ! -name '*.tmp.jpg' -print0)
+  done < <(find "$proof_dir" -type f ! -name '.gitkeep' ! -name '*.tmp.webp' -print0)
 done
 
 echo "Done."

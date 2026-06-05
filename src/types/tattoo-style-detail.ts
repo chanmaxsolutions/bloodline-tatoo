@@ -32,9 +32,9 @@ export interface TattooStyleDetailContent {
   philosophyBullets: ApproachPointerTriplet;
   idealForBullets: ApproachPointerTriplet;
   sessionBullets: ApproachPointerTriplet;
-  /** Page header cover; defaults to `/images/tattoo-styles/{slug}/hero.jpg`. */
+  /** Page header cover; defaults to `/images/tattoo-styles/{slug}/hero.webp`. */
   heroImage?: TattooStyleDetailProofImage;
-  /** Approach statement background; defaults to `/images/tattoo-styles/{slug}/approach.jpg`. */
+  /** Approach statement background; defaults to `/images/tattoo-styles/{slug}/approach.webp`. */
   approachImage?: TattooStyleDetailProofImage;
   proofEyebrow: string;
   proofHeading: string;

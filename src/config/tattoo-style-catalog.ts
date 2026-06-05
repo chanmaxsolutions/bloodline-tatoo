@@ -23,7 +23,7 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Realistic Tattoos",
     shortDescription:
       "Portrait depth, tonal control, and skin-aware pacing for work that reads at distance and up close.",
-    imageSrc: "/images/tattoo-styles/realism/bangkok/hero.jpg",
+    imageSrc: "/images/tattoo-styles/realism/bangkok/hero.webp",
     imageAlt:
       "Black and grey realism back tattoo with Greek god, angel, and temple at Bloodline Tattoo",
     featured: true,
@@ -33,7 +33,7 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Portrait Tattoos",
     shortDescription:
       "Likeness, expression, and tonal structure built with restraint so faces stay true on skin.",
-    imageSrc: "/images/tattoo-styles/portrait/bangkok/hero.jpg",
+    imageSrc: "/images/tattoo-styles/portrait/bangkok/hero.webp",
     imageAlt:
       "Memorial black and grey portrait tattoo of children Jackson and Olivia on the chest at Bloodline Tattoo Bangkok",
     featured: true,
@@ -43,7 +43,7 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Japanese Tattoos",
     shortDescription:
       "Bold irezumi discipline, negative space, and long-form composition held to studio standards.",
-    imageSrc: "/images/tattoo-styles/japanese/bangkok/hero.jpg",
+    imageSrc: "/images/tattoo-styles/japanese/bangkok/hero.webp",
     imageAlt:
       "Japanese black and grey full-back tattoo with samurai, Hannya mask, and pagoda at Bloodline Tattoo Bangkok",
     featured: true,
@@ -53,7 +53,7 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Colour Tattoos",
     shortDescription:
       "Saturated palettes, clean packing, and healed clarity for colour that holds over time.",
-    imageSrc: "/images/tattoo-styles/colour/bangkok/hero.jpg",
+    imageSrc: "/images/tattoo-styles/colour/bangkok/hero.webp",
     imageAlt:
       "Japanese colour full-back samurai tattoo with saturated pigment at Bloodline Tattoo Bangkok",
     featured: true,
@@ -63,7 +63,7 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Mandala Tattoos",
     shortDescription:
       "Radial symmetry, precise geometry, and balance engineered for flow on arms, backs, and chest.",
-    imageSrc: "/images/tattoo-styles/mandala/bangkok/hero.jpg",
+    imageSrc: "/images/tattoo-styles/mandala/bangkok/hero.webp",
     imageAlt:
       "Full-back sacred geometry tattoo with all-seeing eye and radial mandala structure at Bloodline Tattoo Bangkok",
     featured: true,
@@ -73,7 +73,7 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Chicano Tattoos",
     shortDescription:
       "Lettering, script, and black-and-grey narrative built with classic West Coast discipline.",
-    imageSrc: "/images/tattoo-styles/chicano/bangkok/hero.jpg",
+    imageSrc: "/images/tattoo-styles/chicano/bangkok/hero.webp",
     imageAlt:
       "Chicano black and grey Familia script back tattoo with payasa and lowrider at Bloodline Tattoo",
     featured: true,
@@ -83,7 +83,7 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Bamboo Tattoos",
     shortDescription:
       "Traditional hand-tap rhythm and cultural line weight for clients seeking an authentic ritual pace.",
-    imageSrc: "/images/tattoo-styles/bamboo/bangkok/hero.jpg",
+    imageSrc: "/images/tattoo-styles/bamboo/bangkok/hero.webp",
     imageAlt: "Traditional bamboo hand-tap Sak Yant tattoo at Bloodline Tattoo",
     featured: true,
   },
@@ -92,7 +92,7 @@ const tattooStyleCatalog: Record<TattooStyleSlug, TattooStyleCatalogEntry> = {
     title: "Healed Tattoos",
     shortDescription:
       "Work documented after settle: line integrity, tone stability, and how craft reads once skin has healed.",
-    imageSrc: "/images/tattoo-styles/healed/bali/hero.jpg",
+    imageSrc: "/images/tattoo-styles/healed/bali/hero.webp",
     imageAlt:
       "Healed black and grey full-back tattoo with woman portrait and motorcycle at Bloodline Tattoo Bali",
     featured: true,

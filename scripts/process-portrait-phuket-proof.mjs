@@ -19,13 +19,13 @@ for (const name of execSync(`ls -1 "${proofDir}"`, { encoding: "utf8" })
   if (name === ".gitkeep") continue;
   const file = path.join(proofDir, name);
   const ext = path.extname(name).toLowerCase();
-  if (![".jpg", ".jpeg", ".heic"].includes(ext)) continue;
+  if (![".webp", ".webp", ".heic"].includes(ext)) continue;
 
   const base = file.slice(0, -ext.length);
   let target = file;
 
-  if (ext === ".heic" || ext === ".jpeg") {
-    target = `${base}.jpg`;
+  if (ext === ".heic" || ext === ".webp") {
+    target = `${base}.webp`;
     run(`sips -s format jpeg -s formatOptions ${JPEG_QUALITY} "${file}" --out "${target}"`);
     if (target !== file) {
       execSync(`rm -f "${file}"`);
@@ -41,7 +41,7 @@ for (const name of execSync(`ls -1 "${proofDir}"`, { encoding: "utf8" })
     run(`sips -Z ${MAX_EDGE} "${target}"`);
   }
 
-  const tmp = `${target}.tmp.jpg`;
+  const tmp = `${target}.tmp.webp`;
   run(`sips -s format jpeg -s formatOptions ${JPEG_QUALITY} "${target}" --out "${tmp}"`);
   execSync(`mv "${tmp}" "${target}"`);
 }

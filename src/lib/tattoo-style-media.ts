@@ -20,15 +20,15 @@ const TATTOO_STYLE_PROOF_GALLERY_TILE_COUNT = 8;
 const tattooStyleImageRoot = "/images/tattoo-styles";
 
 function tattooStyleHeroSrc(slug: TattooStyleSlug, studio: TattooStyleStudioRegion): string {
-  return `${tattooStyleImageRoot}/${slug}/${studio}/hero.jpg`;
+  return `${tattooStyleImageRoot}/${slug}/${studio}/hero.webp`;
 }
 
 function tattooStyleApproachSrc(slug: TattooStyleSlug, studio: TattooStyleStudioRegion): string {
-  return `${tattooStyleImageRoot}/${slug}/${studio}/approach.jpg`;
+  return `${tattooStyleImageRoot}/${slug}/${studio}/approach.webp`;
 }
 
 function tattooStyleCardSrc(slug: TattooStyleSlug, studio: TattooStyleStudioRegion): string {
-  return `${tattooStyleImageRoot}/${slug}/${studio}/card.jpg`;
+  return `${tattooStyleImageRoot}/${slug}/${studio}/card.webp`;
 }
 
 function resolvePrimaryTattooStyleStudio(

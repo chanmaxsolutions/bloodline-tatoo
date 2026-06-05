@@ -4,11 +4,11 @@ const homepageImageRoot = "/images/homepage" as const;
 
 /** Fixed filenames per homepage image slot (one set per region folder). */
 export const HOMEPAGE_IMAGE_FILES = {
-  standardsSplit: "standards-split.jpg",
-  authorityCraft: "authority-craft.jpg",
-  authorityStudio: "authority-studio.jpg",
-  sessionPath: "session-path.jpg",
-  heroPoster: "hero-poster.jpg",
+  standardsSplit: "standards-split.webp",
+  authorityCraft: "authority-craft.webp",
+  authorityStudio: "authority-studio.webp",
+  sessionPath: "session-path.webp",
+  heroPoster: "hero-poster.webp",
 } as const;
 
 export type HomepageImageSlot = keyof typeof HOMEPAGE_IMAGE_FILES;

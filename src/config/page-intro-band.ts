@@ -13,27 +13,27 @@ const pageIntroImageRoot = "/images/page-intro" as const;
 
 const pageIntroBackgroundByPage = {
   "tattoo-styles": {
-    src: `${pageIntroImageRoot}/tattoo-styles.jpg`,
+    src: `${pageIntroImageRoot}/tattoo-styles.webp`,
     alt: "Premium tattoo work at Bloodline Tattoo",
   },
   portfolio: {
-    src: `${pageIntroImageRoot}/portfolio.jpg`,
+    src: `${pageIntroImageRoot}/portfolio.webp`,
     alt: "Curated tattoo portfolio at Bloodline Tattoo",
   },
   reviews: {
-    src: `${pageIntroImageRoot}/reviews.jpg`,
+    src: `${pageIntroImageRoot}/reviews.webp`,
     alt: "Client reviews for Bloodline Tattoo studios",
   },
   about: {
-    src: `${pageIntroImageRoot}/about.jpg`,
+    src: `${pageIntroImageRoot}/about.webp`,
     alt: "Inside a Bloodline Tattoo studio",
   },
   blog: {
-    src: `${pageIntroImageRoot}/blog.jpg`,
+    src: `${pageIntroImageRoot}/blog.webp`,
     alt: "Tattoo guides and studio advice from Bloodline Tattoo",
   },
   contact: {
-    src: `${pageIntroImageRoot}/contact.jpg`,
+    src: `${pageIntroImageRoot}/contact.webp`,
     alt: "Book a tattoo session at Bloodline Tattoo",
   },
 } as const satisfies Record<PageIntroBandSlug, PageIntroBandBackgroundImage>;

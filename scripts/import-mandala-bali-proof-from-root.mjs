@@ -10,11 +10,11 @@ const mappings = JSON.parse(
 );
 
 const rootPhotos = [
-  "Photo 21-04-25 12.29.41.jpg",
-  "Photo 21-04-25 13.58.43.jpg",
-  "Photo 21-04-25 13.58.43 (1).jpg",
-  "Photo 21-04-25 13.58.45.jpg",
-  "Photo 21-04-25 13.58.46.jpg",
+  "Photo 21-04-25 12.29.41.webp",
+  "Photo 21-04-25 13.58.43.webp",
+  "Photo 21-04-25 13.58.43 (1).webp",
+  "Photo 21-04-25 13.58.45.webp",
+  "Photo 21-04-25 13.58.46.webp",
 ];
 
 const entries = mappings.filter((e) => rootPhotos.includes(e.old));

@@ -77,7 +77,7 @@ function HeroSection({
               key={media.videoSrc}
               src={media.videoSrc}
               poster={media.poster}
-              stillSrc={media.poster ?? media.src ?? "/fallback.png"}
+              stillSrc={media.poster ?? media.src ?? "/fallback.webp"}
               stillAlt={media.alt}
               serverPosterLayer={Boolean(media.poster)}
               className={cn(

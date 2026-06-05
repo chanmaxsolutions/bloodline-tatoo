@@ -30,7 +30,7 @@ function slugify(filename) {
 }
 
 function studioSuffix(studio) {
-  return `-bloodline-${studio}.jpg`;
+  return `-bloodline-${studio}.webp`;
 }
 
 function isFinalSeoName(filename, studio) {
@@ -38,7 +38,7 @@ function isFinalSeoName(filename, studio) {
 }
 
 function swapStudioInNewName(newName, studio) {
-  return newName.replace(/-bloodline-(bangkok|bali|phuket)\.jpg$/i, studioSuffix(studio));
+  return newName.replace(/-bloodline-(bangkok|bali|phuket)\.webp$/i, studioSuffix(studio));
 }
 
 function loadAllMappingsByOld() {
@@ -56,10 +56,10 @@ function loadAllMappingsByOld() {
 function uniqueNewName(slug, studio, used) {
   let base = `portrait-tattoo-${slug}-bloodline-${studio}`;
   if (base.length > 110) base = `portrait-tattoo-${slug.slice(0, 50)}-bloodline-${studio}`;
-  let candidate = `${base}.jpg`;
+  let candidate = `${base}.webp`;
   let index = 2;
   while (used.has(candidate)) {
-    candidate = `${base}-${index}.jpg`;
+    candidate = `${base}-${index}.webp`;
     index += 1;
   }
   used.add(candidate);
