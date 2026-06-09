@@ -43,6 +43,7 @@ next-env.d.ts
 
 # --- Local / IDE (not for GitHub) ---
 .cursor/
+.perf-reports/
 
 # AI assistant instructions (local dev only)
 AGENTS.md
