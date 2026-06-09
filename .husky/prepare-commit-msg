@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+# Strip unwanted co-author / tool trailers from commit messages.
+commit_msg_file=$1
+
+if [ -z "$commit_msg_file" ] || [ ! -f "$commit_msg_file" ]; then
+  exit 0
+fi
+
+perl -i -ne '
+  next if /^\s*Co-authored-by:\s*Cursor\s*</i;
+  next if /^\s*Made-with:\s*Cursor\b/i;
+  print;
+' "$commit_msg_file"
