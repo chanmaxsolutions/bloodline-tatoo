@@ -26,7 +26,7 @@ export async function generateMetadata({ searchParams }: PortfolioPageProps): Pr
   }
 
   const { region, regionConfig } = await getRequestRegionContext();
-  const content = getGalleryPageContent(region, regionConfig.regionName, categoryParam);
+  const content = await getGalleryPageContent(region, regionConfig.regionName, categoryParam);
   const meta = portfolioMetadataForRegionAndCategory(
     region,
     regionConfig.regionName,
@@ -52,7 +52,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
   }
 
   const { region, regionConfig } = await getRequestRegionContext();
-  const content = getGalleryPageContent(region, regionConfig.regionName, categoryParam);
+  const content = await getGalleryPageContent(region, regionConfig.regionName, categoryParam);
   const closing = galleryPageClosingForRegion(region, regionConfig.regionName);
   const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc();
 

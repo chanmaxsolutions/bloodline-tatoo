@@ -43,7 +43,7 @@ export default async function Home() {
     regionConfig.homepageTattooStyles.featuredSlugs,
     region,
   );
-  const reviewsPreview = getReviewsCarouselPreview(region);
+  const reviewsPreview = await getReviewsCarouselPreview(region);
   const googleBusinessProof = resolveGoogleBusinessProofPresentation(region);
 
   const heroRegionWord = region === "global" ? "ASIA" : regionConfig.regionName.toUpperCase();

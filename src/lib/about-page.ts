@@ -6,15 +6,15 @@ import { getRegionConfig } from "@/lib/region";
 import type { AboutPageContent } from "@/types/about-page";
 import type { RegionSlug } from "@/types/region";
 
-function getCuratedReviewCount(region: RegionSlug): number {
-  const raw = getCachedGoogleReviews(region);
+async function getCuratedReviewCount(region: RegionSlug): Promise<number> {
+  const raw = await getCachedGoogleReviews(region);
   const mapped = mapToReviewsPageTestimonials(raw);
   return mapped.filter((item) => isDisplayableReviewText(item.text)).length;
 }
 
-function getAboutPageContent(region: RegionSlug): AboutPageContent {
+async function getAboutPageContent(region: RegionSlug): Promise<AboutPageContent> {
   const regionConfig = getRegionConfig(region);
-  const curatedReviewCount = getCuratedReviewCount(region);
+  const curatedReviewCount = await getCuratedReviewCount(region);
   const base = aboutPageContentForRegion(region, regionConfig.regionName, curatedReviewCount);
 
   return {

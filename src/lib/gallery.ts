@@ -1,5 +1,5 @@
 import { GALLERY_CATEGORY_ORDER } from "@/config/gallery-catalog";
-import { galleryCatalogFromProofs } from "@/lib/gallery-catalog-data";
+import { getGalleryCatalogFromProofs } from "@/lib/gallery-catalog-data";
 import { galleryPageIntroForRegionAndCategory } from "@/config/gallery-page";
 import { sortGalleryItemsForPortfolio } from "@/lib/sort-gallery-items";
 import type { GalleryCategorySlug, GalleryItem, GalleryPageContent } from "@/types/gallery";
@@ -18,8 +18,9 @@ function parseCategoryFilter(value: string | undefined): GalleryCategorySlug | n
   return match ?? null;
 }
 
-function itemsForRegion(region: RegionSlug): GalleryItem[] {
-  return galleryCatalogFromProofs.filter((item) => isItemVisibleInRegion(item, region));
+async function itemsForRegion(region: RegionSlug): Promise<GalleryItem[]> {
+  const catalog = await getGalleryCatalogFromProofs();
+  return catalog.filter((item) => isItemVisibleInRegion(item, region));
 }
 
 function filterItemsByCategory(
@@ -37,13 +38,13 @@ function sortPortfolioItems(items: readonly GalleryItem[]): GalleryItem[] {
   return sortGalleryItemsForPortfolio(items);
 }
 
-function getGalleryPageContent(
+async function getGalleryPageContent(
   region: RegionSlug,
   regionName: string,
   categoryParam: string | undefined,
-): GalleryPageContent {
+): Promise<GalleryPageContent> {
   const activeCategory = parseCategoryFilter(categoryParam);
-  const visible = itemsForRegion(region);
+  const visible = await itemsForRegion(region);
   const filtered = filterItemsByCategory(visible, activeCategory);
 
   return {
@@ -53,8 +54,9 @@ function getGalleryPageContent(
   };
 }
 
-function galleryCategoriesForRegion(region: RegionSlug): GalleryCategorySlug[] {
-  const categories = new Set(itemsForRegion(region).map((item) => item.category));
+async function galleryCategoriesForRegion(region: RegionSlug): Promise<GalleryCategorySlug[]> {
+  const items = await itemsForRegion(region);
+  const categories = new Set(items.map((item) => item.category));
   return GALLERY_CATEGORY_ORDER.filter((category) => categories.has(category));
 }
 

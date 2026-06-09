@@ -1,37 +1,27 @@
+import fs from "node:fs";
+import path from "node:path";
+import { unstable_cache } from "next/cache";
 import { z } from "zod";
-import galleryCatalogJson from "@/data/gallery-catalog.json";
+import {
+  CONTENT_CACHE_REVALIDATE_SECONDS,
+  CONTENT_CACHE_TAG_GALLERY,
+} from "@/lib/content-cache-tags";
+import { galleryItemSchema } from "@/lib/gallery-catalog-schema";
 import type { GalleryItem } from "@/types/gallery";
 
-const galleryItemSchema = z.object({
-  id: z.string().min(1),
-  title: z.string().min(1),
-  alt: z.string().min(1),
-  imageSrc: z.string().min(1),
-  imageWidth: z.number().int().positive(),
-  imageHeight: z.number().int().positive(),
-  category: z.enum([
-    "realistic",
-    "portrait",
-    "japanese",
-    "colour",
-    "mandala",
-    "chicano",
-    "bamboo",
-    "line-and-dot",
-    "cover-up",
-    "healed",
-  ]),
-  regions: z.array(z.enum(["global", "bangkok", "bali", "phuket"])).min(1),
-  styleSlug: z
-    .enum(["realism", "portrait", "japanese", "colour", "mandala", "chicano", "bamboo", "healed"])
-    .optional(),
-  featured: z.boolean().optional(),
-  sortOrder: z.number().int().nonnegative(),
-  uploadedAt: z.string().datetime(),
-});
+function readGalleryCatalogFromDisk(): readonly GalleryItem[] {
+  const filePath = path.join(process.cwd(), "src/data/gallery-catalog.json");
+  const raw: unknown = JSON.parse(fs.readFileSync(filePath, "utf8"));
+  return z.array(galleryItemSchema).parse(raw);
+}
 
-const galleryCatalogFromProofs: readonly GalleryItem[] = z
-  .array(galleryItemSchema)
-  .parse(galleryCatalogJson);
+const getGalleryCatalogFromProofs = unstable_cache(
+  async () => readGalleryCatalogFromDisk(),
+  ["gallery-catalog-json"],
+  {
+    tags: [CONTENT_CACHE_TAG_GALLERY],
+    revalidate: CONTENT_CACHE_REVALIDATE_SECONDS,
+  },
+);
 
-export { galleryCatalogFromProofs };
+export { getGalleryCatalogFromProofs };

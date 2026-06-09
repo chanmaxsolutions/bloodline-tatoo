@@ -45,9 +45,9 @@ function buildStudioLinks(region: RegionSlug): ReviewsPageGoogleStudioLink[] {
   });
 }
 
-function getReviewsPageContent(region: RegionSlug): ReviewsPageContent {
+async function getReviewsPageContent(region: RegionSlug): Promise<ReviewsPageContent> {
   const regionConfig = getRegionConfig(region);
-  const raw = getCachedGoogleReviews(region);
+  const raw = await getCachedGoogleReviews(region);
   const mapped = mapToReviewsPageTestimonials(raw);
   const displayable = mapped.filter((item) => isDisplayableReviewText(item.text));
   const testimonials = sortReviewsNewestFirst(displayable);
@@ -68,8 +68,8 @@ interface ReviewsCarouselPreview {
 }
 
 /** Carousel bands only — avoids rendering hundreds of client cards on `/` and `/about`. */
-function getReviewsCarouselPreview(region: RegionSlug): ReviewsCarouselPreview {
-  const content = getReviewsPageContent(region);
+async function getReviewsCarouselPreview(region: RegionSlug): Promise<ReviewsCarouselPreview> {
+  const content = await getReviewsPageContent(region);
   const testimonials = sortReviewsByTextLengthDescending(content.testimonials).slice(
     0,
     REVIEWS_CAROUSEL_PREVIEW_LIMIT,

@@ -4,7 +4,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import { GoogleReviewCard } from "@/components/shared/google-review-card";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import { REVIEWS_CAROUSEL_PREVIEW_LIMIT } from "@/config/reviews-carousel";
-import { reviewStudioName } from "@/lib/reviews-cache";
+import { reviewStudioName } from "@/lib/review-studio-name";
 import { cn } from "@/lib/utils";
 import type { HomepageTestimonial } from "@/types/homepage-testimonial";
 

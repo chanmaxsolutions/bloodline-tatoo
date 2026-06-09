@@ -4,8 +4,9 @@ import type { RegionSlug } from "@/types/region";
 
 /**
  * Homepage testimonial carousel data: validated cached JSON per region (see `src/data/reviews/`).
- * Re-import from Outscraper with `scripts/generate-homepage-reviews-json.py`.
  */
-export function getHomepageTestimonials(region: RegionSlug): readonly HomepageTestimonial[] {
+export async function getHomepageTestimonials(
+  region: RegionSlug,
+): Promise<readonly HomepageTestimonial[]> {
   return getHomepageTestimonialsFromCachedJson(region);
 }

@@ -1,13 +1,22 @@
-import bangkokReviewsJson from "@/data/reviews/bangkok.json";
-import baliReviewsJson from "@/data/reviews/bali.json";
-import phuketReviewsJson from "@/data/reviews/phuket.json";
+import fs from "node:fs";
+import path from "node:path";
+import { unstable_cache } from "next/cache";
 import { googleReviewToHomepageTestimonial } from "@/lib/map-google-review-to-homepage-testimonial";
+import {
+  CONTENT_CACHE_REVALIDATE_SECONDS,
+  CONTENT_CACHE_TAG_REVIEWS,
+  CONTENT_CACHE_TAG_REVIEWS_BALI,
+  CONTENT_CACHE_TAG_REVIEWS_BANGKOK,
+  CONTENT_CACHE_TAG_REVIEWS_PHUKET,
+} from "@/lib/content-cache-tags";
 import { googleReviewsFileSchema } from "@/lib/schemas/google-review";
 import { getRegionConfig } from "@/lib/region";
 import type { GoogleReview } from "@/types/review";
 import type { ReviewsPageTestimonial } from "@/types/reviews-page";
 import type { HomepageTestimonial } from "@/types/homepage-testimonial";
 import type { RegionSlug } from "@/types/region";
+
+type StudioRegion = Exclude<RegionSlug, "global">;
 
 function loadRegionalPool(raw: unknown, label: string): GoogleReview[] {
   const parsed = googleReviewsFileSchema.safeParse(raw);
@@ -17,14 +26,38 @@ function loadRegionalPool(raw: unknown, label: string): GoogleReview[] {
   return parsed.data.reviews;
 }
 
-const regionalPools: Record<Exclude<RegionSlug, "global">, GoogleReview[]> = {
-  bangkok: loadRegionalPool(bangkokReviewsJson, "bangkok"),
-  bali: loadRegionalPool(baliReviewsJson, "bali"),
-  phuket: loadRegionalPool(phuketReviewsJson, "phuket"),
-};
+function readRegionalReviewPoolsFromDisk(): Record<StudioRegion, GoogleReview[]> {
+  const studioRegions: StudioRegion[] = ["bangkok", "bali", "phuket"];
 
-export function mixRegionalGoogleReviews(): GoogleReview[] {
-  const orderedRegions: Exclude<RegionSlug, "global">[] = ["bangkok", "bali", "phuket"];
+  return studioRegions.reduce(
+    (accumulator, region) => {
+      const filePath = path.join(process.cwd(), "src/data/reviews", `${region}.json`);
+      const raw: unknown = JSON.parse(fs.readFileSync(filePath, "utf8"));
+      accumulator[region] = loadRegionalPool(raw, region);
+      return accumulator;
+    },
+    {} as Record<StudioRegion, GoogleReview[]>,
+  );
+}
+
+const getRegionalReviewPools = unstable_cache(
+  async () => readRegionalReviewPoolsFromDisk(),
+  ["regional-review-pools"],
+  {
+    tags: [
+      CONTENT_CACHE_TAG_REVIEWS,
+      CONTENT_CACHE_TAG_REVIEWS_BANGKOK,
+      CONTENT_CACHE_TAG_REVIEWS_BALI,
+      CONTENT_CACHE_TAG_REVIEWS_PHUKET,
+    ],
+    revalidate: CONTENT_CACHE_REVALIDATE_SECONDS,
+  },
+);
+
+function mixRegionalGoogleReviews(
+  regionalPools: Record<StudioRegion, GoogleReview[]>,
+): GoogleReview[] {
+  const orderedRegions: StudioRegion[] = ["bangkok", "bali", "phuket"];
   const sources = orderedRegions.map((region) => regionalPools[region]);
   const maxLength = Math.max(...sources.map((items) => items.length));
   const mixed: GoogleReview[] = [];
@@ -39,8 +72,9 @@ export function mixRegionalGoogleReviews(): GoogleReview[] {
   return mixed;
 }
 
-function getCachedGoogleReviews(region: RegionSlug): GoogleReview[] {
-  if (region === "global") return mixRegionalGoogleReviews();
+async function getCachedGoogleReviews(region: RegionSlug): Promise<GoogleReview[]> {
+  const regionalPools = await getRegionalReviewPools();
+  if (region === "global") return mixRegionalGoogleReviews(regionalPools);
   return regionalPools[region];
 }
 
@@ -76,19 +110,12 @@ function sortReviewsByTextLengthDescending<T extends { text: string }>(items: re
   return [...items].sort((a, b) => b.text.trim().length - a.text.trim().length);
 }
 
-function reviewStudioName(item: HomepageTestimonial): string | undefined {
-  if ("studioName" in item && typeof item.studioName === "string") {
-    return item.studioName;
-  }
-  return undefined;
-}
-
 export {
   getCachedGoogleReviews,
+  getRegionalReviewPools,
   mapToHomepageTestimonials,
   mapToReviewsPageTestimonials,
-  regionalPools,
-  reviewStudioName,
+  mixRegionalGoogleReviews,
   sortReviewsByTextLengthDescending,
   sortReviewsNewestFirst,
 };

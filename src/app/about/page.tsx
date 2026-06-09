@@ -36,8 +36,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function AboutPage() {
   const { region, regionConfig } = await getRequestRegionContext();
-  const content = getAboutPageContent(region);
-  const reviewsContent = getReviewsCarouselPreview(region);
+  const content = await getAboutPageContent(region);
+  const reviewsContent = await getReviewsCarouselPreview(region);
 
   return (
     <div className="min-w-0 bg-background">

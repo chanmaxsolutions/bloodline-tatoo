@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ReviewsPage() {
   const { region, regionConfig } = await getRequestRegionContext();
-  const content = getReviewsPageContent(region);
+  const content = await getReviewsPageContent(region);
 
   return (
     <div className="min-w-0 bg-background">
