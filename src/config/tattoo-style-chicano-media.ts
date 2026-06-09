@@ -247,74 +247,100 @@ const chicanoProofPoolsByStudio: Record<
   ],
   bali: [
     {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-las-vegas-payasa-money-gun-sleeve-bloodline-bali.webp",
-      ),
-      alt: "Detailed black and grey Chicano arm sleeve tattoo featuring the Las Vegas sign, a payasa woman portrait, money, and a handgun at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-01-07-24-16-33-12-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano full arm sleeve tattoo featuring a masked woman, pistols, checkerboard patterns, and skull imagery at Bloodline Tattoo Bali.",
     },
     {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-masked-torso-ride-die-lions-tigers-bloodline-bali.webp",
-      ),
-      alt: "Intricate black and grey Chicano torso tattoo featuring a masked figure, Ride Die script, lion and tiger heads, money, and a rifle at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-02-09-23-22-57-14-1-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano leg sleeve tattoo with a laughing man in sunglasses, heart hands, and a crying child holding an ice cream cone at Bloodline Tattoo Bali.",
     },
     {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-melbourne-flinders-street-back-piece-bloodline-bali.webp",
-      ),
-      alt: "Massive black and grey Chicano back tattoo featuring Flinders Street Station, a Frankston train, graffiti lettering, and urban Melbourne imagery at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-02-09-23-22-57-14-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano thigh tattoo of a teardrop child portrait with a cigarette, chain necklace, hand sign, and graffiti lettering at Bloodline Tattoo Bali.",
     },
     {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-payasa-clown-sleeve-collage-bloodline-bali.webp",
-      ),
-      alt: "Black and grey Chicano arm sleeve collage featuring payasa clown women, an urban cityscape, and a clown mask with a gun at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-06-06-24-21-55-44-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano full back tattoo featuring a crowned ski mask woman, armed nun, cathedral facade, and riot scene at Bloodline Tattoo Bali.",
     },
     {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-payasa-gtr-rose-gambling-sleeve-bloodline-bali.webp",
-      ),
-      alt: "Detailed black and grey Chicano full arm sleeve tattoo featuring a payasa woman, Nissan GT-R, roses, dice, and casino chips at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-07-01-25-21-26-54-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano full arm sleeve tattoo with a grinning clown in a bowler hat, dramatic pointing hand, and screaming face below at Bloodline Tattoo Bali.",
     },
     {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-ski-mask-swag-graffiti-sleeve-bloodline-bali.webp",
-      ),
-      alt: "Detailed black and grey Chicano arm sleeve tattoo featuring a ski mask portrait with SWAG lettering, gold grillz, and graffiti spray can art at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-07-08-24-22-40-41-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano upper arm sleeve tattoo featuring a screaming clown girl, Mario figure, and bold graffiti-style script at Bloodline Tattoo Bali.",
     },
     {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-skull-woman-loyalty-roses-sleeve-bloodline-bali.webp",
-      ),
-      alt: "Black and grey Chicano full arm sleeve tattoo featuring a skull, roses, a woman with Loyalty script, praying hands, and barbed wire at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-09-11-23-08-48-15-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano full arm sleeve tattoo with a lowrider car, rose, script lettering, and a suited penguin character at Bloodline Tattoo Bali.",
     },
     {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-woman-balaclava-gun-skull-sleeve-bloodline-bali.webp",
-      ),
-      alt: "Black and grey Chicano full arm sleeve tattoo featuring a woman in a balaclava holding a gun, cracked glass effects, script lettering, and a wrist skull at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-11-04-24-00-12-28-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano full arm sleeve tattoo featuring a woman portrait, barbed wire, scissors, spiderweb elements, and script at Bloodline Tattoo Bali.",
     },
     {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-woman-clown-mask-hand-portrait-bloodline-bali.webp",
-      ),
-      alt: "Detailed black and grey Chicano tattoo featuring a woman portrait with clown makeup, a peeling clown mask, and a hand with long nails at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-12-01-24-23-04-52-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano thigh tattoo with the Las Vegas sign, laughing woman in round glasses, skull, and gambling motifs at Bloodline Tattoo Bali.",
     },
     {
-      src: chicanoProofSrc(
-        "bali",
-        "chicano-tattoo-woman-gun-motorcycle-back-piece-bloodline-bali.webp",
-      ),
-      alt: "Detailed black and grey Chicano back tattoo featuring a woman with dollar sign sunglasses holding a gun, a motorcycle, and city street signs at Bloodline Tattoo Bali.",
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-12-12-23-01-45-51-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano full back tattoo featuring masked faces, a woman in a Gucci scarf, palm trees, cards, and stacks of money at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-13-05-24-23-14-13-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano leg sleeve tattoo of a smoking woman with a rose, cards, dice, an 8-ball, and casino chips at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-14-04-25-22-36-01-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano leg sleeve tattoo with smiling clown women, a handgun, city skyline, and stacked portrait faces at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-14-04-25-22-36-30-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano leg sleeve tattoo featuring a female portrait, spray can, block lettering, and urban street imagery at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-15-04-24-21-46-44-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano full back tattoo with a gangster portrait, city skyline, helicopter, tram, and large script lettering at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-17-06-24-22-53-10-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano chest tattoo featuring a payasa woman, handgun, poker chips, city scene, and rolling coins at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-17-10-23-20-41-14-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano leg sleeve tattoo with a shouting clown, crying woman portrait, swirling script forms, and a lower face detail at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-19-07-24-22-43-06-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano leg sleeve tattoo featuring a crowned woman portrait, barbed wire elements, layered faces, and a pistol at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-23-10-23-12-51-52-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano upper arm sleeve tattoo with a blindfolded smoking woman, graffiti script, masked gunman, and checkerboard detail at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-29-08-25-22-58-06-1-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano leg sleeve tattoo featuring Scrooge McDuck, Monopoly Man, cash-sign glasses, and bullet hole accents at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-29-08-25-22-58-06-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano thigh and shin tattoo with a braided rapper portrait, bold script, ski mask figure, and handgun at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-29-12-24-22-54-32-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano leg sleeve tattoo with a split clown face, melancholic female portrait, and layered face studies at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-30-06-23-01-30-32-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano full back tattoo featuring blindfolded faces, chain-link framing, city skyline, casino chips, and money at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-30-10-23-13-31-00-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano full back tattoo with a ski mask portrait, lion head, Statue of Liberty, cash stacks, and rifle at Bloodline Tattoo Bali.",
+    },
+    {
+      src: chicanoProofSrc("bali", "chicano-tattoo-photo-30-12-22-17-32-40-bloodline-bali.webp"),
+      alt: "Detailed black and grey Chicano leg sleeve tattoo of a woman in a cap holding a pistol with cash and a nun portrait below at Bloodline Tattoo Bali.",
     },
   ],
   phuket: [

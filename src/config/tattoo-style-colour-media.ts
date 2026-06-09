@@ -266,64 +266,100 @@ const colourProofPoolsByStudio: Record<ColourStudioRegion, readonly TattooStyleD
     ],
     bali: [
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-12-29-34-bloodline-bali.webp"),
+        src: colourProofSrc("bali", "colour-tattoo-photo-01-12-24-12-55-31-bloodline-bali.webp"),
         alt: "Colour surreal cyberpunk forearm sleeve tattoo with a glossy red face, grayscale portrait, and glowing blue circuit lines at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-12-29-44-bloodline-bali.webp"),
-        alt: "Colour full arm sleeve tattoo with a snarling tiger, realistic eyes, orange ribbon swirls, and a lotus flower at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-01-12-24-12-55-55-bloodline-bali.webp"),
+        alt: "Colour biomechanical full arm sleeve tattoo featuring a snarling skull, red armor panels, and pale circuit linework at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-08-bloodline-bali.webp"),
-        alt: "Colour biomechanical leg tattoo with metallic gears, pistons, and bright red coiled springs wrapping the limb at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-03-02-24-18-53-10-bloodline-bali.webp"),
+        alt: "Colour Japanese calf tattoo of a fierce red daruma face with blue scarf details and black wave shading at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-15-bloodline-bali.webp"),
-        alt: "Colour trash polka full sleeve tattoo with realistic female faces, red leaves, and a detailed skull on the arm at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-05-12-23-23-01-31-bloodline-bali.webp"),
+        alt: "Colour fantasy leg sleeve tattoo with a stone dragon, blue torn-water effect, and a snarling shark breaking through below at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-19-bloodline-bali.webp"),
-        alt: "Colour Pennywise clown full sleeve tattoo with playing cards and dice on the arm at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-05-12-23-23-01-32-bloodline-bali.webp"),
+        alt: "Colour surreal female portrait leg sleeve tattoo with icy blue headpiece details and ornamental filigree flowing through the design at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-30-bloodline-bali.webp"),
-        alt: "Colour Egyptian full arm sleeve tattoo with a queen portrait, ornate headdress, and Anubis in black and grey realism at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-07-02-23-23-07-47-bloodline-bali.webp"),
+        alt: "Colour mythology leg sleeve tattoo with a bearded stone god, red lightning, and a dramatic female portrait below at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-48-bloodline-bali.webp"),
-        alt: "Colour Japanese Irezumi full sleeve tattoo of a snarling tiger in black, grey, and red with traditional wind bars at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-10-02-23-00-57-04-bloodline-bali.webp"),
+        alt: "Colour leg sleeve tattoo featuring a red-eyed classical statue, coiling snake scales, and a sinister grinning face at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-16-53-bloodline-bali.webp"),
-        alt: "Colour Japanese full arm sleeve tattoo with a dragon head, Fu dog, and orange swirling clouds at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-14-10-25-17-21-35-1-bloodline-bali.webp"),
+        alt: "Colour leg sleeve tattoo of a glowing orange oni mask with smoky grey shading, serpent textures, and ember-like highlights at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-17-00-bloodline-bali.webp"),
-        alt: "Colour Japanese full arm sleeve tattoo with a woman's face, samurai helmet, Hannya mask, skull, and red black patterns at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-14-10-25-17-21-35-bloodline-bali.webp"),
+        alt: "Colour fantasy full arm sleeve tattoo with purple mountain scenery, red demonic faces, and swirling abstract ribbons at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-17-05-bloodline-bali.webp"),
-        alt: "Colour surreal full sleeve tattoo of a woman's face with a glowing third eye, red light streaks, and pale bandage wraps at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-16-12-24-23-16-51-bloodline-bali.webp"),
+        alt: "Colour thigh tattoo with cracked red theatrical masks, flowing black hair forms, and glowing orange cloud accents at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-18-38-bloodline-bali.webp"),
-        alt: "Colour Greek mythology full arm sleeve tattoo with Zeus, red lightning, Medusa, and a Greek key pattern at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-16-12-24-23-17-27-bloodline-bali.webp"),
+        alt: "Colour Japanese leg sleeve tattoo featuring a snarling hannya face, bold black shading, and bright orange cloud swirls at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-18-46-bloodline-bali.webp"),
-        alt: "Colour Egyptian full leg sleeve tattoo with a queen portrait, Anubis, hieroglyphics, and electric blue shattered effects at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-17-06-25-22-31-08-bloodline-bali.webp"),
+        alt: "Colour Japanese back piece tattoo of a warrior in ornate armor with red leaves, teal patterns, and crashing waves at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-18-54-bloodline-bali.webp"),
-        alt: "Colour surreal full arm sleeve tattoo peeling between a ghostly white face and a realistic portrait with red leaves at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-18-11-24-22-20-10-bloodline-bali.webp"),
+        alt: "Colour thigh tattoo with a shadowed feminine face, geometric mandala details, and sculpted red-black ornamental framing at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-26-24-bloodline-bali.webp"),
-        alt: "Colour illustrative forearm tattoo of Ariel, Flounder, and Sebastian from The Little Mermaid underwater at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-20-01-25-23-35-32-bloodline-bali.webp"),
+        alt: "Colour floral arm sleeve tattoo featuring a vivid fox portrait with bright blue eyes, purple blossoms, and pink peonies at Bloodline Tattoo Bali.",
       },
       {
-        src: colourProofSrc("bali", "colour-tattoo-photo-21-04-25-13-26-28-bloodline-bali.webp"),
-        alt: "Colour realistic forearm tattoo of a tiger's face with orange fur, black stripes, and green foliage at Bloodline Tattoo Bali.",
+        src: colourProofSrc("bali", "colour-tattoo-photo-20-06-25-22-06-34-bloodline-bali.webp"),
+        alt: "Colour leg sleeve tattoo with a roaring tiger in a samurai helmet, soft female portraits, and orange ornamental swirls at Bloodline Tattoo Bali.",
+      },
+      {
+        src: colourProofSrc("bali", "colour-tattoo-photo-23-06-25-11-39-15-bloodline-bali.webp"),
+        alt: "Colour Japanese leg sleeve tattoo of a geisha in a blue kimono surrounded by blossoms, leaves, and traditional black cloud shading at Bloodline Tattoo Bali.",
+      },
+      {
+        src: colourProofSrc("bali", "colour-tattoo-photo-25-06-24-18-03-10-bloodline-bali.webp"),
+        alt: "Colour surreal leg tattoo with layered female faces, red ribbon slashes, and orange highlights flowing through the composition at Bloodline Tattoo Bali.",
+      },
+      {
+        src: colourProofSrc("bali", "colour-tattoo-photo-25-10-23-00-57-37-bloodline-bali.webp"),
+        alt: "Colour neo-traditional leg tattoo of a glamorous female portrait framed by large cream petals and warm orange decorative lines at Bloodline Tattoo Bali.",
+      },
+      {
+        src: colourProofSrc("bali", "colour-tattoo-photo-25-10-24-23-58-14-bloodline-bali.webp"),
+        alt: "Colour full arm sleeve tattoo featuring a roaring tiger, multiple female eyes, braided hair, and orange filigree accents at Bloodline Tattoo Bali.",
+      },
+      {
+        src: colourProofSrc("bali", "colour-tattoo-photo-26-07-23-23-09-23-bloodline-bali.webp"),
+        alt: "Colour abstract leg sleeve tattoo with stacked crimson female faces, black helmet shapes, and flowing ornamental red linework at Bloodline Tattoo Bali.",
+      },
+      {
+        src: colourProofSrc("bali", "colour-tattoo-photo-27-03-23-22-43-18-bloodline-bali.webp"),
+        alt: "Colour upper arm sleeve tattoo of a roaring cobra head with bold blackwork, orange clouds, and floral negative-space shapes at Bloodline Tattoo Bali.",
+      },
+      {
+        src: colourProofSrc("bali", "colour-tattoo-photo-27-06-25-22-24-29-bloodline-bali.webp"),
+        alt: "Colour Japanese leg sleeve tattoo with a blue serpent, red cloud swirls, and a geisha portrait in rich traditional tones at Bloodline Tattoo Bali.",
+      },
+      {
+        src: colourProofSrc("bali", "colour-tattoo-photo-28-08-25-11-07-23-bloodline-bali.webp"),
+        alt: "Colour dark fantasy leg sleeve tattoo with a skull, raven silhouette, geometric patterns, and glowing orange fracture lines at Bloodline Tattoo Bali.",
+      },
+      {
+        src: colourProofSrc("bali", "colour-tattoo-photo-28-08-25-11-07-26-bloodline-bali.webp"),
+        alt: "Colour dark fantasy leg tattoo with an orange storm vortex, twisted trees, and a wolf portrait emerging through the lower composition at Bloodline Tattoo Bali.",
       },
     ],
     phuket: [

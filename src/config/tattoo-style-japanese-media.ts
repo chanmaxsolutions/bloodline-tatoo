@@ -359,125 +359,219 @@ const japaneseProofPoolsByStudio: Record<
   ],
   bali: [
     {
-      src: japaneseProofSrc(
-        "bali",
-        "japanese-tattoo-dragon-clouds-full-sleeve-bloodline-bali.webp",
-      ),
-      alt: "Classic Japanese dragon full sleeve with scaled body, claws, and traditional cloud filler at Bloodline Tattoo Bali.",
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-02-01-24-23-49-50-bloodline-bali.webp"),
+      alt: "Black and grey Japanese-inspired full sleeve with a samurai helmet, oni mask, dragon head, and orange geometric accents at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-03-08-24-23-55-14-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full leg sleeve with a samurai kabuto, snarling oni mask, and swirling smoke at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-05-03-23-00-26-18-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full sleeve with a samurai kabuto, armor details, cloud shading, and red flower accents at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-05-10-23-22-57-08-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full back piece with a snarling yokai beast, warrior armor, and dark fur textures at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-06-09-24-12-41-56-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full sleeve with dragon scales, skull details, flowing wind bars, and red cherry blossoms at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-06-11-23-13-05-55-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full sleeve with a samurai mask, katana, and cherry blossoms at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-07-05-24-20-35-07-bloodline-bali.webp"),
+      alt: "Black and grey Japanese lower leg tattoo with a kitsune mask, female portrait, clasped hands, and skull shading at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-08-07-25-18-50-21-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full sleeve with a Hannya mask, wind bars, wave details, and koi imagery at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-08-08-23-01-02-53-bloodline-bali.webp"),
+      alt: "Black and grey Japanese half sleeve with a Hannya mask, snake, hanging lantern, and wave smoke at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-08-11-22-20-46-31-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full leg sleeve with a coiled dragon, wind bars, and crashing wave motifs at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-09-08-23-22-54-27-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full sleeve with a samurai kabuto, dragon head, cloud bars, and a snarling hand mask at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-09-08-25-21-16-07-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full back piece with a dragon face, pagoda, and lone samurai silhouette at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-09-09-25-11-25-32-bloodline-bali.webp"),
+      alt: "Japanese colour full sleeve with a bright green dragon, brown cloud bars, and red accents at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-11-11-22-20-30-24-bloodline-bali.webp"),
+      alt: "Black and grey Japanese arm tattoo with Hannya and Noh masks, cloud bars, and dotwork shading at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-11-11-22-23-30-47-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full leg tattoo with a Hannya mask, samurai helmet, and flowing smoke at Bloodline Tattoo Bali.",
     },
     {
       src: japaneseProofSrc(
         "bali",
-        "japanese-tattoo-dragon-pagoda-landscape-full-back-bloodline-bali.webp",
+        "japanese-tattoo-photo-12-01-23-22-42-50-1-bloodline-bali.webp",
       ),
-      alt: "Japanese full-back tattoo with a fierce dragon head above a pagoda landscape and boat on water at Bloodline Tattoo Bali.",
+      alt: "Black and grey Japanese chest-to-hand sleeve with a phoenix, tiger, and red wind bars at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-12-01-23-22-42-50-bloodline-bali.webp"),
+      alt: "Black and grey Japanese chest and full sleeve with a phoenix, tiger, and red wind bars at Bloodline Tattoo Bali.",
     },
     {
       src: japaneseProofSrc(
         "bali",
-        "japanese-tattoo-four-eyed-woman-dragon-noh-katana-sleeve-bloodline-bali.webp",
+        "japanese-tattoo-photo-13-02-24-15-31-44-1-bloodline-bali.webp",
       ),
-      alt: "Japanese surreal arm sleeve with four-eyed woman, dragon headpiece, Noh mask, and katana grip at Bloodline Tattoo Bali.",
+      alt: "Black and grey Japanese thigh-to-ankle leg sleeve with a snarling Shishi lion, lotus petals, and cloud bars at Bloodline Tattoo Bali.",
     },
     {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-12-29-14-bloodline-bali.webp"),
-      alt: "Full back black and grey Japanese tattoo with a woman in samurai kabuto and armor, a held Hannya mask, and cherry blossoms at Bloodline Tattoo Bali.",
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-13-02-24-15-31-44-bloodline-bali.webp"),
+      alt: "Black and grey Japanese leg sleeve with a geisha portrait, flowing chrysanthemum petals, and an oni mask at Bloodline Tattoo Bali.",
     },
     {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-12-29-19-bloodline-bali.webp"),
-      alt: "Japanese full back tattoo with foo dog, ornate kabuto, central Hannya mask, and a samurai before a torii gate at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-12-29-23-bloodline-bali.webp"),
-      alt: "Black and grey Japanese irezumi full sleeve with flowing wind bars, water swirls, and a moon motif at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-12-29-28-bloodline-bali.webp"),
-      alt: "Full back Japanese tattoo with layered Hannya and oni masks, swirling clouds, and geometric asanoha patterns at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-12-29-30-bloodline-bali.webp"),
-      alt: "Japanese full sleeve with Hannya mask, katana grip, cracked oni mask, and orange cloud accents at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-12-29-58-bloodline-bali.webp"),
-      alt: "Japanese full sleeve with dual Hannya masks, a realistic woman's portrait, dragon scales, and coin beads at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-12-30-03-bloodline-bali.webp"),
-      alt: "Full back black and grey Hannya mask tattoo with jagged shattered negative space and irezumi cloud filler at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-12-30-07-bloodline-bali.webp"),
-      alt: "Japanese full sleeve with layered woman's portrait, ghostly upper face, red reaching hand, and stylized red floral motifs at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-13-27-46-bloodline-bali.webp"),
-      alt: "Full back Japanese tattoo with Hannya face, skull-embellished kabuto, coiled snake, and porcelain crack lines at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-13-27-54-bloodline-bali.webp"),
-      alt: "Full back black and grey Hannya mask tattoo with a coiled snake across the forehead and irezumi wind filler at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-13-28-03-bloodline-bali.webp"),
-      alt: "Matching Japanese full sleeves with woman's portrait, Hannya mask, snake mandala, and stacked oni masks at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-13-28-10-bloodline-bali.webp"),
-      alt: "Japanese front torso tattoo with central Hannya mask, striking snakes, and mikiri cloud wind bars at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-13-28-18-bloodline-bali.webp"),
-      alt: "Japanese arm tattoo with red-crowned crane, cherry blossoms, stylized waves, and irezumi wind bars at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-13-28-32-bloodline-bali.webp"),
-      alt: "Full back Japanese tattoo with roaring dragon head, twin Hannya masks, and a samurai silhouette before a pagoda at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-13-34-13-bloodline-bali.webp"),
-      alt: "Full back Japanese tattoo with armoured samurai and katana, flanking dragon heads, pagoda, and moon at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-13-34-23-bloodline-bali.webp"),
-      alt: "Japanese full sleeve with Raijin thunder deity, mitsudomoe drums, and traditional wind and cloud filler at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-13-45-49-bloodline-bali.webp"),
-      alt: "Japanese side body tattoo with foo dog on the thigh, peonies across the ribs and hip, and wind bar background at Bloodline Tattoo Bali.",
-    },
-    {
-      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-04-25-13-56-23-bloodline-bali.webp"),
-      alt: "Japanese full sleeve with fierce dragon head, foo dog on the forearm, and orange-red cloud accents at Bloodline Tattoo Bali.",
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-13-06-24-21-35-24-bloodline-bali.webp"),
+      alt: "Japanese-inspired colour full sleeve with a bandaged female face, all-seeing eye, and red-black abstract ribbons at Bloodline Tattoo Bali.",
     },
     {
       src: japaneseProofSrc(
         "bali",
-        "japanese-tattoo-samurai-hannya-red-flames-full-sleeve-bloodline-bali.webp",
+        "japanese-tattoo-photo-14-03-23-16-41-23-1-bloodline-bali.webp",
       ),
-      alt: "Japanese full sleeve with armoured samurai, Hannya mask, and red flame accents at Bloodline Tattoo Bali.",
+      alt: "Black and grey Japanese leg sleeve with kitsune masks, peony blooms, and swirling wind bars at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-14-03-23-16-41-23-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full leg sleeve with a fierce warrior face, scale patterns, and wave bars at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-16-03-23-20-06-23-bloodline-bali.webp"),
+      alt: "Japanese colour full sleeve with an orange dragon, black background, and crashing waves at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-16-08-23-22-35-19-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full leg tattoo with a geisha portrait, fan, waves, and a floral hair ornament at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-16-08-25-23-24-53-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full back piece with a roaring Shishi lion, snarling dragon beast, and clawed details at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-17-04-23-23-11-59-bloodline-bali.webp"),
+      alt: "Black and grey Japanese leg sleeve with a dragon head, guardian lion, lotus, and bright red flames at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-17-09-24-23-27-42-bloodline-bali.webp"),
+      alt: "Japanese colour full sleeve with a red-crowned crane, peonies, and black wind bars at Bloodline Tattoo Bali.",
     },
     {
       src: japaneseProofSrc(
         "bali",
-        "japanese-tattoo-tiger-hanuman-foo-dog-full-sleeve-bloodline-bali.webp",
+        "japanese-tattoo-photo-18-09-23-23-42-14-1-bloodline-bali.webp",
       ),
-      alt: "Japanese-inspired full sleeve with snarling tiger, Hanuman deity, and foo dog in black and grey at Bloodline Tattoo Bali.",
+      alt: "Black and grey Japanese full leg sleeve with an armored Shishi lion, beads, and cloud background at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-18-09-23-23-42-14-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full leg sleeve with a guardian beast, muscular figure, and crashing waves at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-18-11-24-21-18-59-bloodline-bali.webp"),
+      alt: "Black and grey Japanese leg sleeve with a Hannya mask, koi scales, and red peonies at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-19-02-25-23-23-04-bloodline-bali.webp"),
+      alt: "Black and grey Japanese abstract full sleeve with bold wind bars, wave curls, and moon-like circles at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-19-03-24-23-26-14-bloodline-bali.webp"),
+      alt: "Black and grey Japanese leg sleeve with a geisha portrait, folding fan, and crane feathers at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-19-03-24-23-26-15-bloodline-bali.webp"),
+      alt: "Black and grey Japanese leg sleeve with a masked warrior face, Hannya details, and flowing smoke ribbons at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-19-04-25-21-37-26-bloodline-bali.webp"),
+      alt: "Black and grey Japanese-inspired full back piece with samurai skull armor, oni shoulders, and a multi-armed goddess at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-19-12-24-21-24-42-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full leg sleeve with a samurai warrior, drawn katana, and swirling smoke at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-20-04-24-23-31-08-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full back piece with twin Hannya masks, a roaring wolf, pagoda, and dragon scales at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-20-05-24-19-30-16-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full back piece with a giant oni face, coiled snake, and skull-topped armor at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-03-25-22-55-53-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full back piece with a samurai woman portrait, oni mask, and cherry blossoms at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-21-11-23-23-46-29-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full sleeve with a samurai menpo mask, braided rope, and cloud bars at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-23-02-24-22-26-38-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full leg sleeve with Noh masks, cherry blossoms, and flowing smoke at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-23-12-24-21-16-03-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full back piece with a giant oni face, Noh masks, and flowing wind bars at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-24-07-24-22-24-23-bloodline-bali.webp"),
+      alt: "Black and grey Japanese leg sleeve with a dragon skull, female portrait, and snarling oni mask at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-26-05-25-23-48-47-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full sleeve with a tiger, coiled snake, and chrysanthemum blooms at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-27-07-23-23-26-19-bloodline-bali.webp"),
+      alt: "Japanese red and black full leg tattoo with a samurai mask, female portrait, and swirling smoke at Bloodline Tattoo Bali.",
     },
     {
       src: japaneseProofSrc(
         "bali",
-        "japanese-tattoo-tiger-oni-kabuto-full-back-bloodline-bali.webp",
+        "japanese-tattoo-photo-29-05-23-21-14-25-1-bloodline-bali.webp",
       ),
-      alt: "Japanese full back with snarling tiger, ornate kabuto armour, and a large oni mask with braided ropes at Bloodline Tattoo Bali.",
+      alt: "Black and grey Japanese full leg sleeve with a samurai kabuto, geisha face, and chrysanthemum petals at Bloodline Tattoo Bali.",
     },
     {
-      src: japaneseProofSrc(
-        "bali",
-        "japanese-tattoo-woman-hannya-floral-orange-full-sleeve-bloodline-bali.webp",
-      ),
-      alt: "Neo-Japanese arm sleeve with woman's portrait, dark Hannya mask, and orange-outlined floral motifs at Bloodline Tattoo Bali.",
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-29-05-23-21-14-25-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full leg sleeve with a horned yokai skull, snarling beast face, and Hannya mask at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-29-07-23-20-25-58-bloodline-bali.webp"),
+      alt: "Japanese red and black full leg tattoo with a samurai mask, skull, and swirling wind bars at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-30-12-24-22-21-46-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full back piece with a samurai helmet, guardian lion, torii gate, and flanking eyes at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-31-05-24-21-19-48-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full back piece with a giant Hannya mask, coiled snake, and rib-like negative space at Bloodline Tattoo Bali.",
+    },
+    {
+      src: japaneseProofSrc("bali", "japanese-tattoo-photo-31-10-22-09-41-16-bloodline-bali.webp"),
+      alt: "Black and grey Japanese full back piece with a Hannya mask, coiled snakes, and cloud bars at Bloodline Tattoo Bali.",
     },
   ],
   phuket: [

@@ -233,79 +233,180 @@ const mandalaProofPoolsByStudio: Record<
   ],
   bali: [
     {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-buddha-crown-mandala-lotus-full-torso-front-bloodline-bali.webp",
-      ),
-      alt: "Front torso mandala tattoo centered on a serene Buddha portrait with crown geometry, sacred geometry panels, and a glowing lotus base in dotwork, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-02-06-25-14-56-46-bloodline-bali.webp"),
+      alt: "Full leg ornamental mandala sleeve with lotus rosettes, layered dotwork petals, and flowing negative-space geometry from thigh to shin at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-flower-of-life-mandala-full-arm-sleeve-dual-view-bloodline-bali.webp",
-      ),
-      alt: "Dual-angle full arm sleeve with Flower of Life geometry, hexagonal mandalas, and stippled dotwork bands in ornamental black and grey, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-02-07-24-21-50-15-bloodline-bali.webp"),
+      alt: "Ornamental chest collar tattoo with lace-like mandala borders, micro dotwork detail, and necklace-style symmetry across the clavicles at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-full-back-lotus-ornamental-dotwork-mandala-bloodline-bali.webp",
-      ),
-      alt: "Symmetrical full-back ornamental mandala with neck mandala, lotus petal panels, and dense stippled dotwork tapering to the lower back, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-02-10-23-18-41-37-bloodline-bali.webp"),
+      alt: "Shoulder blackwork sleeve with a lotus mandala cap, hexagon bands, and radiating geometric flowerwork in dense dot shading at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-hannya-mask-torn-flower-of-life-full-back-bloodline-bali.webp",
-      ),
-      alt: "Full-back black and grey piece with a Hannya mask tearing through layered Flower of Life geometry and a pointed lower mandala in dotwork, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-03-03-25-22-16-03-bloodline-bali.webp"),
+      alt: "Geometric calf sleeve with Flower of Life hexagons, 3D cube tessellation, and crisp dotwork symmetry flowing from knee to ankle at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc(
-        "bali",
-        "mandala-tattoo-leg-mandala-greek-key-3d-cubes-triptych-bloodline-bali.webp",
-      ),
-      alt: "Triptych view of a full leg mandala sleeve with Greek key bands, 3D cube geometry, honeycomb filler, and layered floral mandalas in black and grey, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-03-03-25-22-16-04-1-bloodline-bali.webp"),
+      alt: "Side leg sacred geometry with a giant rosette mandala, stacked cube tessellation, and fine-dot shading through the calf panels at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-48-bloodline-bali.webp"),
-      alt: "Dual-angle full arm sleeves with layered mandalas, Flower of Life hex grids, and shaded chrysanthemum florals in black and grey dotwork, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-03-03-25-22-16-04-bloodline-bali.webp"),
+      alt: "Upper leg geometric piece with a large rosette mandala, interlocked 3D lattice, and blackout-backed dotwork tapering into the calf at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-52-bloodline-bali.webp"),
-      alt: "Full sleeve pairing hexagonal dotwork grids, sunburst mandalas, and a shaded chrysanthemum in ornamental black and grey, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-05-10-23-22-02-32-bloodline-bali.webp"),
+      alt: "Geometric chest panel with Japanese wave fill, sacred-geometry fields, and heavy blackwork contrast shaped cleanly across the pecs at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-56-1-bloodline-bali.webp"),
-      alt: "Symmetrical full-back mandala tattoo with upper floral geometry, isometric dotwork cubes on the shoulders, and a honeycomb hex grid across the lower back, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-06-07-23-00-48-41-bloodline-bali.webp"),
+      alt: "Full torso Buddha composition with Flower of Life shoulders, ornamental crown work, and dot-shaded sacred geometry framed down the sternum at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-56-bloodline-bali.webp"),
-      alt: "Full arm sleeve with angular upper mandala, Flower of Life hex grid, and rounded elbow mandala in stippled dotwork, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-06-07-23-02-17-37-bloodline-bali.webp"),
+      alt: "Upper-back blackwork with a coiled snake centerpiece, winged ornamental panels, and dense geometric patterning across both shoulders at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-57-1-bloodline-bali.webp"),
-      alt: "Neck and chest geometric tattoo with throat mandala, 3D cube dotwork bands, and a bold upper-chest mandala in black and grey stippling, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-07-08-23-21-07-45-bloodline-bali.webp"),
+      alt: "Full sleeve with a shoulder mandala, Flower of Life panels, geometric hand rosette, and saturated blackout contrast through the arm at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-57-bloodline-bali.webp"),
-      alt: "Dual-arm geometric sleeves with layered mandalas, Flower of Life grids, and hexagonal floral dotwork in high-contrast black and grey, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-08-01-24-13-56-02-bloodline-bali.webp"),
+      alt: "Symmetrical ornamental backpiece with compass-lotus detailing, layered petals, and soft dotwork shading tapering toward the lower back at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-59-1-bloodline-bali.webp"),
-      alt: "Triptych full sleeve with Hannya mask, sunburst mandalas, isometric cubes, and honeycomb dotwork in black and grey, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-09-05-24-22-52-30-bloodline-bali.webp"),
+      alt: "Chest piece with mirrored guardian lions, a central mandala bloom, and Flower of Life shoulders rendered in smooth black-and-grey at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-58-59-bloodline-bali.webp"),
-      alt: "Full-back tattoo with realistic central eye framed by shadowed hands, upper mandala, and hexagonal Flower of Life panels in dense dotwork, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-09-05-25-15-04-43-bloodline-bali.webp"),
+      alt: "Geometric calf sleeve with hexagon webbing, ornamental borders, and crisp dotwork panels that hold sharp negative-space separation at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-59-03-bloodline-bali.webp"),
-      alt: "Full chest mandala integrating a surreal woman's portrait with concentric geometric petals and stippled dotwork shading, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-09-10-23-21-32-01-bloodline-bali.webp"),
+      alt: "Sleeve with a shoulder mandala cap, black-and-grey peony shading, and a Flower of Life wrist panel balanced by bold negative space at Bloodline Tattoo Bali.",
     },
     {
-      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-13-59-07-bloodline-bali.webp"),
-      alt: "Full sleeve with layered mandalas, 3D cube optical patterns, and repeating hexagonal sacred geometry in black and grey dotwork, at Bloodline Tattoo Bali.",
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-10-10-24-22-08-56-bloodline-bali.webp"),
+      alt: "Polynesian-inspired arm sleeve with woven chevrons, spearhead bands, and bold blackwork flow wrapping cleanly from shoulder to forearm at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-11-07-23-18-01-18-bloodline-bali.webp"),
+      alt: "Upper-arm mandala cap with layered petals, a black-and-grey chrysanthemum, and ornamental wrist geometry finished in smooth dot shading at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-11-12-23-13-18-56-bloodline-bali.webp"),
+      alt: "Full-back sacred geometry piece with an all-seeing eye, mirrored hands, hexagon fields, and petaled blackwork framing the spine at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-13-05-23-23-35-52-bloodline-bali.webp"),
+      alt: "Polynesian-style script sleeve with ornamental tribal bands, interlocking triangle motifs, and smooth blackwork tapering down the forearm at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-13-05-23-23-35-53-bloodline-bali.webp"),
+      alt: "Polynesian-style forearm section with interwoven tribal bands, fine triangle texture, and clean blackwork rhythm wrapping the arm at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-13-11-23-23-29-38-bloodline-bali.webp"),
+      alt: "Calf piece with a skull, lotus bloom, compass dial, and geometric dotwork panels stacked into a sharp black-and-grey composition at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-13-11-24-10-54-53-bloodline-bali.webp"),
+      alt: "Full-back black-and-grey Oni reveal with torn geometric framing, Flower of Life shoulders, and bold ornamental mandala work across the lower back at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-16-09-23-07-11-19-bloodline-bali.webp"),
+      alt: "Symmetrical neck and upper-back tribal blackwork with spearhead geometry, chevron bands, and high-contrast negative space at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-16-10-23-21-26-48-bloodline-bali.webp"),
+      alt: "Geometric shin piece with hexagon rosettes, cube accents, and stippled blackwork packed into a symmetrical lower-leg panel at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-18-07-23-00-55-10-bloodline-bali.webp"),
+      alt: "Full-back sacred geometry suit with cube tessellation, lotus-based symmetry, and layered blackwork panels running shoulder to waist at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-18-08-23-21-16-01-1-bloodline-bali.webp"),
+      alt: "Polynesian chest and shoulder coverage with flowing tribal bands, Greek-key details, and precise blackwork line rhythm across the pec and deltoid at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-18-08-23-21-16-01-bloodline-bali.webp"),
+      alt: "Polynesian chest and shoulder work with a sun-disc roundel, woven linework, and tightly packed tribal bands rendered in crisp blackwork at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-19-09-23-17-47-39-bloodline-bali.webp"),
+      alt: "Ornamental backpiece with a lotus neck crown, floral scrollwork, star-grid geometry, and heavy blackwork shaping through the mid-back at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-20-12-24-22-51-17-bloodline-bali.webp"),
+      alt: "Black-and-grey sleeve with a Hannya mask, serpent details, Metatron-style geometry, and dense dotwork contrast from shoulder to hand at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-04-25-21-41-22-bloodline-bali.webp"),
+      alt: "Full-back geometric piece with a central lotus mandala, 3D cube tessellation, and Flower of Life borders sweeping over both shoulders at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-06-23-12-45-07-bloodline-bali.webp"),
+      alt: "Full sleeve with a shoulder lotus mandala, Flower of Life field, angular star geometry, and layered dotwork from upper arm to wrist at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-21-08-23-14-48-40-bloodline-bali.webp"),
+      alt: "Geometric throat tattoo with a central rosette, Flower of Life texture, and 3D cube borders locking into the neck and upper chest at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-22-05-23-21-27-20-1-bloodline-bali.webp"),
+      alt: "Full leg ornamental sleeve with oversized floral mandalas, Flower of Life panels, and bold negative-space bands wrapping the thigh and calf at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-22-05-23-21-27-20-2-bloodline-bali.webp"),
+      alt: "Back-leg ornamental sleeve with stacked mandala blooms, lace-like dotwork panels, and strong negative-space dividers down the calf at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-22-05-23-21-27-20-bloodline-bali.webp"),
+      alt: "Side leg mandala sleeve with layered floral rosettes, dotwork shading, and geometric lower-leg panels balanced by clean blackout bands at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-22-05-24-23-35-16-1-bloodline-bali.webp"),
+      alt: "Geometric leg sleeve with a starburst thigh rosette, Flower of Life hexagons, and 3D cube tessellation stepping down the shin at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-22-05-24-23-35-16-bloodline-bali.webp"),
+      alt: "Side leg sacred geometry with a large rosette fan, clustered Flower of Life cells, and cube-grid blackwork cut with clean negative space at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-22-05-24-23-35-17-bloodline-bali.webp"),
+      alt: "Leg sleeve with a Hannya face, honeycomb tiles, wave fill, and Flower of Life geometry layered into smooth black-and-grey shading at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-26-07-24-23-26-29-1-bloodline-bali.webp"),
+      alt: "Geometric calf sleeve with stacked cube tessellation, dual ornamental rosettes, and crisp dotwork hexagons anchored at the ankle at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-26-07-24-23-26-29-bloodline-bali.webp"),
+      alt: "Sacred geometry calf piece with hexagon Flower of Life clusters, ornamental lotus framing, and 3D cube shading through the upper calf at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-27-04-24-23-51-07-bloodline-bali.webp"),
+      alt: "Chest blackwork with a woman's face set inside a wide lotus mandala, heavy stippled shading, and petaled geometry spanning pec to pec at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-28-01-24-08-30-06-bloodline-bali.webp"),
+      alt: "Floral black-and-grey sleeve with a shoulder mandala bloom, chrysanthemum center, and ornamental wrist rosettes balanced by negative space at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-29-02-24-23-24-16-bloodline-bali.webp"),
+      alt: "Blackwork sleeve with a Celtic cross, spiral triskeles, and knotwork bands flowing from shoulder to forearm in clean high-contrast linework at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-30-10-24-22-08-56-bloodline-bali.webp"),
+      alt: "Leg sleeve with a gothic skull, cathedral-style tracery, and Flower of Life geometry descending into the shin in smoky black-and-grey at Bloodline Tattoo Bali.",
+    },
+    {
+      src: mandalaProofSrc("bali", "mandala-tattoo-photo-31-07-23-22-41-29-bloodline-bali.webp"),
+      alt: "Black-and-grey sleeve with a shoulder starburst mandala, peony bloom, and geometric dotwork running into ornamental wristwork at Bloodline Tattoo Bali.",
     },
   ],
   phuket: [

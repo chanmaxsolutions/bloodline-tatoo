@@ -417,247 +417,828 @@ const realismProofPoolsByStudio: Record<
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-14-bloodline-bali.webp",
+        "black-grey-realism-photo-01-02-25-23-28-42-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo with a kraken, deep-sea diver, shark, and woman's face in a dark nautical scene at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full leg sleeve with a snarling wolf, a weathered skull, and smoky shadows flowing down the shin, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-15-1-bloodline-bali.webp",
+        "black-grey-realism-photo-01-04-24-21-46-14-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full sleeve tattoo blending a demonic multi-eyed face, scaly textures, and a realistic human portrait at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece of a roaring black panther head with piercing eyes and deep shadowed fur detail, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-16-bloodline-bali.webp",
+        "black-grey-realism-photo-01-05-24-22-49-46-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoos pairing a jeweled masked portrait with occult horns, gothic architecture, and skull motifs at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism lower leg sleeve of a solemn bearded face emerging through layered leaves and smoky organic textures, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-18-bloodline-bali.webp",
+        "black-grey-realism-photo-01-08-25-13-26-19-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full sleeve tattoo with a woman's face, wolves with blue eyes, white butterflies, and detailed floral elements at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece with a cracked skull, screaming faces, and dark horror shading spread across the shoulder blades, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-20-bloodline-bali.webp",
+        "black-grey-realism-photo-01-08-25-13-35-44-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of armored Archangel Michael battling dragons with wings, halo, and dramatic clouds at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism lower leg sleeve featuring a stern warrior portrait with ornate filigree and textured darkwash shading, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-21-bloodline-bali.webp",
+        "black-grey-realism-photo-02-03-23-23-28-06-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo with a roaring grizzly bear, skull, surreal multi-eyed woman's face, and orange filigree accents at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism arm sleeve with classical female portraits, sculptural facial features, and soft smoky transitions down the forearm, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-22-1-bloodline-bali.webp",
+        "black-grey-realism-photo-02-07-25-22-54-24-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo inspired by Saw with a bloody pig mask, blade, and Billy the Puppet portrait at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism half sleeve with clockwork detail, ornamental patterns, and dark portrait elements wrapping the upper arm, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-22-2-bloodline-bali.webp",
+        "black-grey-realism-photo-02-11-22-19-21-50-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full sleeve tattoo of a mythological bearded god with flowing hair and intense shaded portrait detail at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece with an aged warrior face, a skull headdress, and feathered textures in bold black and grey contrast, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-24-bloodline-bali.webp",
+        "black-grey-realism-photo-03-01-25-21-04-02-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo with a pirate captain portrait, sailing galleon, and kraken tentacles in turbulent seas at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism forearm sleeve of a sinister horror face with scarred skin, deep shadows, and blood-red accent details, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-26-bloodline-bali.webp",
+        "black-grey-realism-photo-03-04-24-19-12-51-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of the Virgin Mary with a rose crown beside Jesus wearing a crown of thorns at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece with classical figures, cathedral arches, and dramatic light rays cutting through sacred imagery, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-27-1-bloodline-bali.webp",
+        "black-grey-realism-photo-03-07-24-23-55-06-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo with layered human skulls draped in delicate white spider webs and dark shading at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism lower leg sleeve with a sinister grinning clown, a shadowed female face, and smoky horror shading, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-27-bloodline-bali.webp",
+        "black-grey-realism-photo-03-07-25-21-42-56-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of snarling Cerberus beneath a bearded Hades portrait with Pluto symbol and shadowy hands at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full sleeve with an eagle head, layered roses, and smooth shadow gradients wrapping the upper arm and forearm, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-32-1-bloodline-bali.webp",
+        "black-grey-realism-photo-03-10-24-22-59-42-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of a lightning-wreathed Zeus with roaring lion, dragon, Medusa, and skull mace motifs at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism arm sleeve of a Viking warrior portrait with braided beard detail, etched armor, and ornamental shading, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-32-bloodline-bali.webp",
+        "black-grey-realism-photo-03-12-24-11-06-10-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of winged classical angel figures framed by ornate baroque scrollwork and architectural filigree at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism arm sleeve with a sorrowful woman's face, a child's portrait, and a dark sacred face layered beneath, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-37-bloodline-bali.webp",
+        "black-grey-realism-photo-04-06-24-21-22-53-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of a roaring lion or tiger face with bared fangs and finely detailed fur texture at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece with a roaring lion, armored warrior figures, and battle scene textures in dramatic contrast, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-41-bloodline-bali.webp",
+        "black-grey-realism-photo-04-06-25-22-20-31-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo with a metallic female profile, Barong-style mask, mandala, and orange-outlined geometric accents at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism lower leg sleeve with armored warrior imagery, mechanical detail, and dark shadowwork running down the calf, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-45-bloodline-bali.webp",
+        "black-grey-realism-photo-05-02-24-21-35-35-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo of a Viking warrior in helmet with Valknut medallion and a snarling wolf on the forearm at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece of a stormy seascape with a ship, compass rose, and lighthouse-style coastal detail, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-46-bloodline-bali.webp",
+        "black-grey-realism-photo-05-03-23-01-08-28-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo of a Norse female warrior portrait with runic markings, compass emblem, and ringed hand at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism upper arm sleeve with Scarface, a femme fatale, a handgun, and cash layered in gritty gangster shading, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-48-bloodline-bali.webp",
+        "black-grey-realism-photo-05-03-24-22-08-50-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of the Joker's grinning portrait above a bold Why So Serious lettering at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece with a winged angel, moonlit clouds, and cathedral-inspired sacred imagery in cinematic shading, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-50-bloodline-bali.webp",
+        "black-grey-realism-photo-05-04-24-21-41-19-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of a large human skull with swirling white smoke through the eye sockets and teeth at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece with Scarface, a gun-wielding woman, cash, and gangster props rendered in sharp noir contrast, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-52-bloodline-bali.webp",
+        "black-grey-realism-photo-05-09-25-22-15-27-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo collage of chained snarling wolves and a scarred tiger face divided by white slash marks at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece of a grim reaper gripping a sword beneath stained-glass cathedral geometry, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-53-bloodline-bali.webp",
+        "black-grey-realism-photo-05-10-24-23-01-10-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo of a Spartan warrior in helmet gripping a heavy chain above a snarling wolf at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece with a commanding bearded king, a dragon, and layered eagle feathers in powerful dark contrast, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-54-bloodline-bali.webp",
+        "black-grey-realism-photo-05-11-24-21-07-52-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo pairing a bearded Greek philosopher with meander patterns and a laurel-wreathed portrait below at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism forearm sleeve of an elderly bishop portrait with weathered facial detail and cathedral-inspired headwear, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-56-bloodline-bali.webp",
+        "black-grey-realism-photo-06-01-25-22-51-46-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo with multiple detailed dog portraits and polaroid-style snapshots layered along the arm at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism arm sleeve with a split female face, skeletal detail, and smooth black and grey transitions through the upper arm, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-29-57-bloodline-bali.webp",
+        "black-grey-realism-photo-06-07-24-23-13-05-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo of a bandaged Egyptian mummy with a glowing red eye and hieroglyphic stone panels at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism arm sleeve with a skull, a shadowed human face, and dark horror smoke flowing down the forearm, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-30-01-bloodline-bali.webp",
+        "black-grey-realism-photo-06-09-24-11-48-58-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of Poseidon with kraken tentacles, a storm-tossed galleon, treasure chest, and sea creature eye at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism forearm sleeve of a Native American chief portrait with textured skin, braided detail, and layered shadows, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-30-03-bloodline-bali.webp",
+        "black-grey-realism-photo-06-12-24-22-55-44-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo of a bearded sea god with octopus tentacles, crashing waves, and trident details at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece with a roaring bear, wolves, and a hooded reaper scene in dark atmospheric contrast, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-30-05-bloodline-bali.webp",
+        "black-grey-realism-photo-06-12-24-22-57-05-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo of a screaming Medusa with glowing eyes and snake above an armored minotaur holding a double axe at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece with a roaring lion, a serene female face, and skull motifs woven into the mane, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-12-30-07-bloodline-bali.webp",
+        "black-grey-realism-photo-07-03-24-22-28-45-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of a chained roaring lion facing a Spartan warrior above a chariot race in a colosseum at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism lower leg sleeve with a demonic skull, screaming faces, and deep black shadowwork climbing the calf, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-21-04-25-13-43-38-bloodline-bali.webp",
+        "black-grey-realism-photo-07-06-24-23-20-06-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo with Anubis, a stone-textured pharaoh, and an Egyptian queen portrait with hieroglyph cheek markings at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism half sleeve of an elderly bearded man with wrinkled skin detail and smooth dark shading through the upper arm, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-23-04-25-14-34-58-1-bloodline-bali.webp",
+        "black-grey-realism-photo-07-11-24-22-55-26-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo blending a classical male statue, smiling woman's portrait, and intertwined serpents with fangs at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism arm sleeve of Christ with a crown of thorns, rose detail, and soft sacred shading down the forearm, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-23-04-25-14-34-58-2-bloodline-bali.webp",
+        "black-grey-realism-photo-07-12-24-21-31-16-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism tattoos of Medusa with glowing eyes and snakes beside mythological Greek god portraits with lightning bolts at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism lower leg sleeve with female eyes, geometric frames, and layered portrait fragments in smoky tonal shading, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-23-04-25-14-34-58-bloodline-bali.webp",
+        "black-grey-realism-photo-08-01-24-15-21-45-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo of Odin with ravens, Vegvisir compass, Valknut symbol, and runic circular frame at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism arm sleeve with a dark female portrait, serpent detail, and circular eclipse-like shading near the elbow, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-23-04-25-14-35-22-bloodline-bali.webp",
+        "black-grey-realism-photo-08-07-24-15-24-19-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism full back tattoo with domed light rays, winged figure, Atlas, Medusa head, lion carving, and classical portrait at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism full back piece with a nun-like female figure, skulls, and gothic horror elements framed in dark smoke, at Bloodline Tattoo Bali.",
     },
     {
       src: realismProofSrc(
         "bali",
-        "black-grey-realism-photo-23-04-25-14-36-09-bloodline-bali.webp",
+        "black-grey-realism-photo-08-07-24-22-55-12-bloodline-bali.webp",
       ),
-      alt: "Black and grey realism sleeve tattoo of one-eyed Odin with runes, a detailed raven, and a shouting Viking warrior in studded helmet at Bloodline Tattoo Bali.",
+      alt: "A black and grey realism arm sleeve of a stern bearded god portrait with flowing hair, ornamental shadows, and sculpted facial detail, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-08-07-25-19-06-09-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with aviation and military imagery layered through sharp geometric contrast and dark forearm shading, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-08-09-23-20-52-49-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with crime-scene tape, a masked gunman, getaway van, and noir urban detail, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-09-01-25-21-38-47-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full leg sleeve with a hooded warrior portrait, ornamental textures, and deep black shading down the calf, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-09-01-25-21-38-48-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full leg sleeve with a moonlit eye, skull detail, and dark gothic elements stacked along the shin, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-09-02-24-22-28-48-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism side torso and arm piece with a Buddha portrait, temple architecture, and lotus detail in soft grey gradients, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-09-05-23-21-58-44-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism torso piece with a Native American chief portrait, feathered headdress, and bold shadowwork across the stomach and chest, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-09-05-25-15-06-17-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a mountain climber, rugged landscape textures, and dark cinematic shading across the shoulders, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-09-08-25-21-15-24-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a memorial beach scene, a portrait, guitar, palm trees, and coastal landscape detail, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-09-12-24-19-45-58-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a lion portrait, ornamental background textures, and rich black and grey contrast down the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-10-02-25-11-23-13-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece of a sweeping phoenix with layered feathers and bold wing structure across the shoulders, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-10-06-24-22-47-17-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with flowing organic forms, serpent-like movement, and dark tonal shading along the calf, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-10-07-24-23-58-16-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a bearded god face, mirrored cherubs, and sacred ornamental symmetry, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-10-08-24-23-57-57-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a helmeted warrior, nautical textures, and dark smoke layered through the shin, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-10-09-25-20-14-03-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism forearm sleeve with a woman's portrait, a bird motif, and soft black and grey gradients through the lower arm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-10-09-25-20-14-33-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a roaring lion, flowing mane detail, and smoky dark contrast wrapping the calf, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-10-09-25-21-08-23-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a giant skull, hooded figures, and battlefield-like textures in dramatic contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-11-01-25-23-53-09-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full leg sleeve with a bearded portrait, a handgun, and shadowed masked imagery stacked down the shin, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-11-06-24-20-53-53-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a lion in regal headwear, warrior detail, and smooth dark shading through the calf, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-12-06-23-21-11-11-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with an angelic woman, wings, and architectural elements rendered in luminous black and grey contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-12-08-25-21-22-48-1-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a knight helmet, skull detail, and dark gothic architecture layered through the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-12-08-25-21-22-48-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve of a grim skull with swirling smoke and deep black shading wrapping the lower arm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-12-11-23-00-53-03-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with an Egyptian queen portrait, wrapped headwear, and a second female face layered below, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-13-01-25-21-46-33-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a weathered bearded sage, a child's portrait, and soft shadow transitions through the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-13-07-24-21-49-30-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a sensual female portrait, cross motifs, and gothic filigree in smooth tonal contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-13-12-23-21-42-25-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a solemn male portrait, script detail, and dark atmospheric shading through the upper arm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-14-01-25-21-09-40-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a roaring lion and a powerful bearded god figure in stormy shadowwork, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-14-08-23-21-08-06-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a great white shark, underwater depth, and dark oceanic shading running down the calf, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-14-08-24-22-54-49-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve of an elderly bearded portrait with weathered skin texture and moody darkwash shading, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-14-10-25-17-10-16-1-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a skull, web-like linework, and dark horror textures wrapping the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-14-10-25-17-10-16-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a classical Roman figure, temple columns, and ornate sacred framing, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-15-04-24-22-44-10-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a split wolf and lion portrait, a dagger, and snarling predator detail in bold contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-15-11-24-22-02-39-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism upper arm sleeve with a Spartan helmet, eclipse-like sphere, and metallic shading through the triceps, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-16-02-24-00-09-58-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with an aged bearded face, geometric patterning, and smooth shadow depth down the calf, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-16-07-25-21-57-41-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a skull, lion detail, and smoky black and grey layering through the shin, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-16-09-24-14-26-34-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece of a giant skull crossed by abstract smoke ribbons and high-contrast shadowwork, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-16-12-24-17-08-06-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a winged warrior angel, ornamental framing, and powerful sacred contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-17-07-23-14-41-20-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a Viking elder, carved architectural detail, and a skull built into the lower forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-18-08-25-20-57-55-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a weathered skull, sword-like blade, and smooth smoky shading down the shin, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-18-08-25-21-04-52-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a screaming goddess figure, sweeping hair, and fierce mythic energy across the shoulders, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-18-09-25-16-19-10-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a dramatic female portrait and dark flowing textures layered through the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-18-09-25-16-19-30-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism forearm sleeve with a serpent-crowned female portrait, split-face composition, and smooth black and grey shading, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-18-12-24-20-01-51-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a Spartan helmet, a female face, and etched ornamental detail running down the calf, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-19-04-25-21-36-44-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a roaring bear, armed warrior figures, and battle scene textures in heavy dark contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-19-06-24-21-15-44-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with an elderly bearded face, feminine portrait detail, and soft smoke transitions, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-19-06-24-21-22-11-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a sinister female face, skull detail, and eerie smoke shading along the shin, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-19-06-24-21-22-17-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a screaming skull, lower face portrait, and aggressive dark shading through the calf, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-19-08-25-22-41-29-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a tiger and lion, richly textured fur, and layered predator detail across the shoulders, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-19-10-24-23-25-50-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece of a soaring phoenix with expanded wings and deep feather shading in cinematic contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-20-05-24-18-37-03-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a female warrior portrait, classical armor detail, and smooth dark gradients down the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-20-09-25-23-56-14-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism forearm sleeve with a split female face, moonlit shading, and smoky tonal transitions, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-21-06-24-23-40-11-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with layered warrior imagery, textured faces, and rich black and grey detail wrapping the upper arm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-21-09-24-23-51-59-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a stern elder face, feminine portrait detail, and ornamental linework in deep shadows, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-22-08-25-22-04-27-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a giant skull, a lower face portrait, and sharp dark contrast along the shin, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-23-05-24-22-51-58-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a horned demonic face, beast-like textures, and dark atmospheric shading through the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-23-07-25-21-53-13-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a horned deity, a crucified Christ figure, and heavy sacred-horror contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-23-08-24-16-08-13-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a Spartan warrior, lion imagery, and bold Strength Honor lettering in dramatic contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-23-09-24-19-46-27-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a grim reaper skeleton gripping a staff amid smoky dark landscape textures, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-23-10-23-14-39-48-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with an Odin-like warrior, ravens, runic symbols, and bold Norse styling, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-23-12-24-21-16-31-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with layered landscape imagery, dark textures, and soft smoke shading down the calf, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-24-10-23-23-46-47-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism upper arm sleeve with a split female face, skeletal detail, and web-like linework in smooth black and grey tones, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-25-03-24-22-07-30-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with classical lovers, sculptural faces, and romantic Greco-Roman shading, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-25-07-25-22-34-02-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a bearded philosopher portrait, a lion below, and rich dark contrast through the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-25-08-23-22-32-56-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a ceremonial portrait, geometric headwear, and skull detail near the ankle, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-25-10-23-00-57-37-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism forearm sleeve with a glamorous female portrait, ornamental headwrap, and selective warm highlights against dark shading, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-26-05-25-22-57-28-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with an aged bearded portrait, skull detail, and moody shadowwork through the lower arm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-26-07-24-22-24-16-1-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with layered male and female portraits, deep facial detail, and soft tonal shading, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-26-07-24-22-24-16-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism forearm sleeve with a regal female portrait, cobra detail, and elegant shadow transitions through the lower arm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-26-08-24-21-41-27-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with split wolf and lion faces, razor-sharp eyes, and bold predator contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-26-10-24-10-27-04-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a rune-marked elder portrait, lion detail, and dense black and grey texture, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-27-06-24-21-56-56-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a female portrait, skeletal hand, and barbed dark linework framing the face, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-27-12-24-12-42-32-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a skull, roses, and soft smoke textures descending the calf, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-28-01-25-20-54-45-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with the Madonna and Christ wearing a crown of thorns in sacred high-contrast shading, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-29-04-24-23-39-28-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a bearded god portrait, lion detail, and layered dark shading through the shin, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-29-09-25-18-50-38-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a skull, dark feather textures, and smoky contrast flowing down the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-30-01-24-21-53-08-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a demonic grinning woman, lower portrait detail, and sharp horror shading, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-30-01-25-21-45-51-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a crowned female portrait, ornamental detail, and smooth tonal depth through the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-30-01-25-21-48-23-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with an elderly bearded face, Norse symbol detail, and rich dark shading wrapping the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-30-07-24-16-10-45-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a stormy ship, crashing waves, and kraken tentacles rising through the ocean scene, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-30-07-24-22-57-53-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism arm sleeve with a screaming geisha-like figure, ornate headwear, and dark horror shading through the forearm, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-30-09-24-15-51-01-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a weathered bearded portrait, lion detail, and smooth black and grey gradients, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-30-09-24-16-45-42-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism lower leg sleeve with a female portrait, floral detail, and layered skull imagery in soft smoke shading, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-30-10-24-21-06-16-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece of a roaring lion head with intense eyes and dense fur detail in bold contrast, at Bloodline Tattoo Bali.",
+    },
+    {
+      src: realismProofSrc(
+        "bali",
+        "black-grey-realism-photo-30-12-23-23-01-16-bloodline-bali.webp",
+      ),
+      alt: "A black and grey realism full back piece with a roaring lion, armored samurai, and distant riders layered into cinematic battle shading, at Bloodline Tattoo Bali.",
     },
   ],
   phuket: [

@@ -296,68 +296,75 @@ const portraitProofPoolsByStudio: Record<
   ],
   bali: [
     {
-      src: portraitProofSrc(
-        "bali",
-        "portrait-tattoo-michael-jordan-kobe-bryant-basketball-forearms-bloodline-bali.webp",
-      ),
-      alt: "Black and grey portrait realism forearm tattoos of Michael Jordan and Kobe Bryant with championship moments and Lakers branding at Bloodline Tattoo Bali.",
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-01-12-23-21-43-02-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism calf tattoo featuring Eazy-E and Dr. Dre with N.W.A, Compton, and Death Row references at Bloodline Tattoo Bali.",
     },
     {
       src: portraitProofSrc(
         "bali",
-        "portrait-tattoo-jim-morrison-singer-hands-forearm-bloodline-bali.webp",
+        "portrait-tattoo-photo-02-09-23-22-57-14-1-bloodline-bali.webp",
       ),
-      alt: "Black and grey portrait realism forearm tattoo of Jim Morrison with expressive hands and beaded necklace detail at Bloodline Tattoo Bali.",
+      alt: "Black and grey portrait realism thigh tattoo of a teardrop child with a cigarette, chain necklace, hand sign, and graffiti details at Bloodline Tattoo Bali.",
     },
     {
-      src: portraitProofSrc(
-        "bali",
-        "portrait-tattoo-chadwick-boseman-black-panther-forearm-bloodline-bali.webp",
-      ),
-      alt: "Black and grey portrait realism forearm tattoo of Chadwick Boseman paired with the Black Panther mask at Bloodline Tattoo Bali.",
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-02-09-23-22-57-14-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism leg tattoo featuring a laughing man in sunglasses, a crying child, heart hands, and ice cream detail at Bloodline Tattoo Bali.",
     },
     {
-      src: portraitProofSrc(
-        "bali",
-        "portrait-tattoo-soldier-bearded-man-pocket-watch-plane-chest-bloodline-bali.webp",
-      ),
-      alt: "Full chest black and grey realism with soldier and bearded man portraits, pocket watch, vintage fighter plane, and Such is life script at Bloodline Tattoo Bali.",
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-03-06-24-17-51-32-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism leg sleeve tattoo of a basketball player portrait with action scenes, jersey details, and championship-style imagery at Bloodline Tattoo Bali.",
     },
     {
-      src: portraitProofSrc(
-        "bali",
-        "portrait-tattoo-angus-young-devil-horns-thigh-bloodline-bali.webp",
-      ),
-      alt: "Black and grey portrait realism thigh tattoo of Angus Young in a schoolboy cap with devil horns at Bloodline Tattoo Bali.",
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-06-06-25-22-44-14-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism thigh tattoo featuring Michael Jackson, Eminem, Tupac, and bold rap-inspired lettering at Bloodline Tattoo Bali.",
     },
     {
-      src: portraitProofSrc("bali", "portrait-tattoo-chihuahua-dog-thigh-bloodline-bali.webp"),
-      alt: "Detailed black and grey Chihuahua dog portrait realism on the thigh with expressive eyes and fine fur shading at Bloodline Tattoo Bali.",
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-10-12-24-19-36-01-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism arm sleeve tattoo of a number 87 ice hockey player with action pose and memorial clock elements at Bloodline Tattoo Bali.",
     },
     {
-      src: portraitProofSrc("bali", "portrait-tattoo-rottweiler-dog-chest-bloodline-bali.webp"),
-      alt: "Black and grey Rottweiler dog portrait realism on the chest with lifelike fur texture and warm expression at Bloodline Tattoo Bali.",
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-11-06-24-20-46-54-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism chest tattoo featuring two memorial male portraits, a pocket watch, airplane, microphone, and signature at Bloodline Tattoo Bali.",
     },
     {
-      src: portraitProofSrc(
-        "bali",
-        "portrait-tattoo-boxer-dog-chest-memorial-script-bloodline-bali.webp",
-      ),
-      alt: "Realistic black and grey portrait tattoo of a Boxer dog on the upper chest with sentimental script lettering below, created at Bloodline Tattoo Bali.",
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-12-12-23-01-01-37-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism shoulder tattoo of Chadwick Boseman as Black Panther with a detailed superhero mask background at Bloodline Tattoo Bali.",
     },
     {
-      src: portraitProofSrc(
-        "bali",
-        "portrait-tattoo-boy-woman-girl-arm-sleeve-collage-bloodline-bali.webp",
-      ),
-      alt: "Black and grey portrait realism arm sleeve collage featuring a boy with face tattoos, a laughing woman in sunglasses with heart hands, and a girl with clown makeup holding ice cream, crafted at Bloodline Tattoo Bali.",
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-13-11-24-21-58-53-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism tattoo of a baby face with soft skin shading and detailed eyes at Bloodline Tattoo Bali.",
     },
     {
-      src: portraitProofSrc(
-        "bali",
-        "portrait-tattoo-elderly-man-flat-cap-glasses-chest-bloodline-bali.webp",
-      ),
-      alt: "Softly shaded black and grey portrait realism tattoo of a smiling elderly man in a flat cap and glasses on the left chest with a memorial date, at Bloodline Tattoo Bali.",
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-15-10-24-20-14-37-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism full back tattoo of the Joker with smeared makeup and bold Why So Serious lettering at Bloodline Tattoo Bali.",
+    },
+    {
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-17-03-23-23-34-01-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism arm tattoo of a bulldog memorial portrait with script, jeweled chain, and bottle label details at Bloodline Tattoo Bali.",
+    },
+    {
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-19-03-24-22-30-44-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism calf tattoo of Kobe Bryant with Lakers championship imagery and basketball details at Bloodline Tattoo Bali.",
+    },
+    {
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-19-03-24-22-30-45-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism calf tattoo of Kobe Bryant in profile with jersey number, hoop scene, and championship references at Bloodline Tattoo Bali.",
+    },
+    {
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-20-01-24-22-26-45-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism chest tattoo of two smiling children with floral accents, names, and birth dates at Bloodline Tattoo Bali.",
+    },
+    {
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-21-05-23-02-04-52-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism chest tattoo of a boxer dog portrait with smooth memorial shading and script below at Bloodline Tattoo Bali.",
+    },
+    {
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-21-07-25-12-32-00-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism Marvel leg sleeve tattoo featuring Thanos, Iron Man, and comic-book action scenes at Bloodline Tattoo Bali.",
+    },
+    {
+      src: portraitProofSrc("bali", "portrait-tattoo-photo-23-10-24-17-42-14-bloodline-bali.webp"),
+      alt: "Black and grey portrait realism leg tattoo of Eminem with a beanie, pointing hand, seated performance scene, and name lettering at Bloodline Tattoo Bali.",
     },
   ],
   phuket: [
