@@ -79,7 +79,6 @@ export default async function Home() {
             WORLD CLASS TATTOO ART STUDIO IN <span className="text-accent">{heroRegionWord}</span>
           </>
         }
-        afterTitle="TEST DEPLOY 2026"
         description={regionConfig.heroDescription}
         media={{
           src: homepageMediaPaths.heroPoster(region),
