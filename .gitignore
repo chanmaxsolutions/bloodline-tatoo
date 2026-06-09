@@ -40,3 +40,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# --- Local / IDE (not for GitHub) ---
+.cursor/
+
+# AI assistant instructions (local dev only)
+AGENTS.md
+CLAUDE.md
+
+# Internal architecture & workflow docs (not required for deploy)
+/docs/
+
+# Content pipeline scripts & mappings (outputs live in src/; keep catalog generator for prebuild)
+/scripts/*
+!/scripts/generate-gallery-catalog.ts
+
+# Asset upload guides (internal ops notes under public/)
+public/images/**/README.md
+public/images/**/UPLOAD.md
