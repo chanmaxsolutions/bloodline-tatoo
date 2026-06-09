@@ -14,6 +14,8 @@ interface HeroSectionProps {
   /** Optional small label above the title (omit when trust strip carries context). */
   eyebrow?: string;
   title: ReactNode;
+  /** Temporary marker below the hero heading (remove after deploy verification). */
+  afterTitle?: ReactNode;
   description: string;
   media: {
     src?: string;
@@ -38,6 +40,7 @@ interface HeroSectionProps {
 function HeroSection({
   eyebrow,
   title,
+  afterTitle,
   description,
   media,
   primaryCta,
@@ -122,6 +125,7 @@ function HeroSection({
                 align="center"
                 eyebrow={eyebrow}
                 heading={title}
+                afterHeading={afterTitle}
                 description={description}
                 className="w-full gap-5"
                 eyebrowClassName={eyebrow ? "text-lg md:text-lg" : undefined}

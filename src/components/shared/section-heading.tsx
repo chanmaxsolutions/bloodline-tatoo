@@ -27,6 +27,8 @@ interface SectionHeadingProps
   extends React.ComponentProps<"header">, VariantProps<typeof sectionHeadingVariants> {
   eyebrow?: string;
   heading: React.ReactNode;
+  /** Optional content rendered directly below the heading (temporary deploy markers, etc.). */
+  afterHeading?: React.ReactNode;
   description?: string;
   /** When set, applied to the heading for `aria-labelledby` on the parent section. */
   headingId?: string;
@@ -42,6 +44,7 @@ function SectionHeading({
   align,
   eyebrow,
   heading,
+  afterHeading,
   description,
   headingId,
   headingLevel = 2,
@@ -78,6 +81,11 @@ function SectionHeading({
       >
         {heading}
       </HeadingTag>
+      {afterHeading ? (
+        <p className="font-heading text-base font-semibold uppercase tracking-wider text-accent md:text-lg">
+          {afterHeading}
+        </p>
+      ) : null}
       {description
         ? (() => {
             const paragraphs = splitSectionDescription(description);
