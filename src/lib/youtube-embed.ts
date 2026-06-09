@@ -21,7 +21,7 @@ function buildYoutubeNoCookieEmbedUrl(videoId: string, options?: YoutubeEmbedOpt
 }
 
 function buildYoutubeThumbnailUrl(videoId: string): string {
-  return `https://i.ytimg.com/vi/${videoId}/maxresdefault.webp`;
+  return `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 }
 
 export { buildYoutubeNoCookieEmbedUrl, buildYoutubeThumbnailUrl };
