@@ -11,6 +11,7 @@ import { useBookingAppointmentModal } from "@/components/cta";
 import { Container } from "@/components/layout/container";
 import { MobileMenuOverlay } from "@/components/layout/mobile-menu-overlay";
 import type { HeaderNavItem } from "@/config/navigation";
+import { handleSameRouteNavClick } from "@/lib/same-route-nav";
 
 interface HeaderClientProps {
   logoWordmark: string;
@@ -86,6 +87,9 @@ function HeaderClient({
               href="/"
               aria-label="Bloodline home"
               className="relative flex h-[65px] w-24 shrink-0 items-center text-foreground motion-fast hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:h-[72px] md:w-28"
+              onClick={(event) => {
+                handleSameRouteNavClick(event, pathname, "/");
+              }}
             >
               <Image
                 src={logoPath}
@@ -122,6 +126,9 @@ function HeaderClient({
                           className="inline-flex items-center gap-1 font-heading text-lg leading-none font-semibold uppercase tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:text-2xl"
                           aria-expanded={isDropdownOpen}
                           aria-haspopup="true"
+                          onClick={(event) => {
+                            handleSameRouteNavClick(event, pathname, item.href);
+                          }}
                         >
                           {item.label}
                           <ChevronDownIcon
@@ -147,7 +154,10 @@ function HeaderClient({
                                   <Link
                                     href={child.href}
                                     className="inline-flex font-heading text-lg font-semibold uppercase tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 2xl:text-xl"
-                                    onClick={() => setOpenDesktopDropdownHref(null)}
+                                    onClick={(event) => {
+                                      handleSameRouteNavClick(event, pathname, child.href);
+                                      setOpenDesktopDropdownHref(null);
+                                    }}
                                   >
                                     {child.label}
                                   </Link>
@@ -165,6 +175,9 @@ function HeaderClient({
                       key={item.href}
                       href={item.href}
                       className="inline-flex items-center font-heading text-lg leading-none font-semibold uppercase tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:text-2xl"
+                      onClick={(event) => {
+                        handleSameRouteNavClick(event, pathname, item.href);
+                      }}
                     >
                       {item.label}
                     </Link>

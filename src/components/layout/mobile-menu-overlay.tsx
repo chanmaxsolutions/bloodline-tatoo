@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDownIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { handleSameRouteNavClick } from "@/lib/same-route-nav";
 import { Button, buttonVariants } from "@/components/ui";
 import type { HeaderNavItem } from "@/config/navigation";
 
@@ -25,7 +27,13 @@ function MobileMenuOverlay({
   onClose,
   onBookAppointment,
 }: MobileMenuOverlayProps) {
+  const pathname = usePathname();
   const [isStylesOpen, setIsStylesOpen] = useState(false);
+
+  function handleNavClick(event: MouseEvent<HTMLAnchorElement>, href: string): void {
+    handleSameRouteNavClick(event, pathname, href);
+    onClose();
+  }
 
   if (!isOpen) return null;
 
@@ -55,7 +63,9 @@ function MobileMenuOverlay({
                     <div className="flex items-center justify-between gap-4">
                       <Link
                         href={item.href}
-                        onClick={onClose}
+                        onClick={(event) => {
+                          handleNavClick(event, item.href);
+                        }}
                         className="text-heading-display text-3xl text-foreground motion-fast hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
                       >
                         {item.label}
@@ -82,7 +92,9 @@ function MobileMenuOverlay({
                           <li key={child.href}>
                             <Link
                               href={child.href}
-                              onClick={onClose}
+                              onClick={(event) => {
+                                handleNavClick(event, child.href);
+                              }}
                               className="text-heading-section text-xl font-semibold tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
                             >
                               {child.label}
@@ -99,7 +111,9 @@ function MobileMenuOverlay({
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    onClick={onClose}
+                    onClick={(event) => {
+                      handleNavClick(event, item.href);
+                    }}
                     className="text-heading-display text-3xl text-foreground motion-fast hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
                   >
                     {item.label}
