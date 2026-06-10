@@ -25,6 +25,8 @@ jobs:
             cd /var/www/bloodline-next
             git pull origin main
             npm ci --include=dev
+            # Source files in public/ can change while /_next/image cache keys stay stale.
+            rm -rf .next/cache/images
             npm run build
             pm2 restart bloodline
             pm2 save
