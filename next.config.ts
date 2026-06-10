@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { getLegacyRedirects } from "./src/config/legacy-redirects";
 
 /**
  * Turbopack infers the repo root by walking up for lockfiles (`pnpm-lock.yaml`,
@@ -18,6 +19,9 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react"],
+  },
+  async redirects() {
+    return getLegacyRedirects();
   },
   images: {
     /** Must include every `quality` prop used on `<Image />` (Next.js 16). */
