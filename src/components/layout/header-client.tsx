@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { ChevronDownIcon, MenuIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -12,6 +12,7 @@ import { Container } from "@/components/layout/container";
 import { MobileMenuOverlay } from "@/components/layout/mobile-menu-overlay";
 import type { HeaderNavItem } from "@/config/navigation";
 import { handleSameRouteNavClick } from "@/lib/same-route-nav";
+import { prefetchHeaderNavItemRoutes } from "@/lib/prefetch-nav-routes";
 
 interface HeaderClientProps {
   logoWordmark: string;
@@ -34,6 +35,7 @@ function HeaderClient({
   cta,
 }: HeaderClientProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDesktopDropdownHref, setOpenDesktopDropdownHref] = useState<string | null>(null);
@@ -70,6 +72,11 @@ function HeaderClient({
       window.removeEventListener("keydown", onEscape);
     };
   }, [isMenuOpen]);
+
+  function openDesktopDropdown(item: HeaderNavItem): void {
+    setOpenDesktopDropdownHref(item.href);
+    prefetchHeaderNavItemRoutes(router.prefetch, item);
+  }
 
   return (
     <>
@@ -112,9 +119,13 @@ function HeaderClient({
                       <div
                         key={item.href}
                         className="group/nav-item relative after:pointer-events-auto after:absolute after:top-full after:left-0 after:h-3 after:w-full after:content-['']"
-                        onMouseEnter={() => setOpenDesktopDropdownHref(item.href)}
+                        onMouseEnter={() => {
+                          openDesktopDropdown(item);
+                        }}
                         onMouseLeave={() => setOpenDesktopDropdownHref(null)}
-                        onFocusCapture={() => setOpenDesktopDropdownHref(item.href)}
+                        onFocusCapture={() => {
+                          openDesktopDropdown(item);
+                        }}
                         onBlurCapture={(event) => {
                           if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
                             setOpenDesktopDropdownHref(null);
@@ -153,6 +164,7 @@ function HeaderClient({
                                 <li key={child.href}>
                                   <Link
                                     href={child.href}
+                                    prefetch={true}
                                     className="inline-flex font-heading text-lg font-semibold uppercase tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 2xl:text-xl"
                                     onClick={(event) => {
                                       handleSameRouteNavClick(event, pathname, child.href);

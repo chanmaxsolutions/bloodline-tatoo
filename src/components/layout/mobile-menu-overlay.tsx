@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, type MouseEvent } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ChevronDownIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { handleSameRouteNavClick } from "@/lib/same-route-nav";
+import { prefetchHeaderNavigationRoutes } from "@/lib/prefetch-nav-routes";
 import { Button, buttonVariants } from "@/components/ui";
 import type { HeaderNavItem } from "@/config/navigation";
 
@@ -28,7 +29,16 @@ function MobileMenuOverlay({
   onBookAppointment,
 }: MobileMenuOverlayProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isStylesOpen, setIsStylesOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    prefetchHeaderNavigationRoutes(router.prefetch, navigationItems);
+  }, [isOpen, navigationItems, router]);
 
   function handleNavClick(event: MouseEvent<HTMLAnchorElement>, href: string): void {
     handleSameRouteNavClick(event, pathname, href);
@@ -63,6 +73,7 @@ function MobileMenuOverlay({
                     <div className="flex items-center justify-between gap-4">
                       <Link
                         href={item.href}
+                        prefetch={true}
                         onClick={(event) => {
                           handleNavClick(event, item.href);
                         }}
@@ -92,6 +103,7 @@ function MobileMenuOverlay({
                           <li key={child.href}>
                             <Link
                               href={child.href}
+                              prefetch={true}
                               onClick={(event) => {
                                 handleNavClick(event, child.href);
                               }}
@@ -111,6 +123,7 @@ function MobileMenuOverlay({
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    prefetch={true}
                     onClick={(event) => {
                       handleNavClick(event, item.href);
                     }}
