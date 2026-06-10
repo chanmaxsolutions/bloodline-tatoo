@@ -130,7 +130,8 @@ function getLegacyRedirects(): LegacyRedirect[] {
       permanent: true,
     },
     {
-      source: "/contact/:path*",
+      // `:path+` = one or more segments — `:path*` also matched `/contact` itself (redirect loop).
+      source: "/contact/:path+",
       destination: "/contact",
       permanent: true,
     },
