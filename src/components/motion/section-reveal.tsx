@@ -12,6 +12,13 @@ interface SectionRevealProps {
  * Scroll-triggered reveal wrapper. Children use `sectionRevealItemClass` / `sectionRevealStaggerClass`.
  * Faster fade-up than homepage hero; respects `prefers-reduced-motion`.
  */
+function isSectionInViewport(element: Element): boolean {
+  const rect = element.getBoundingClientRect();
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  return rect.top < viewportHeight && rect.bottom > 0;
+}
+
 function SectionReveal({ children, className }: SectionRevealProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -19,6 +26,11 @@ function SectionReveal({ children, className }: SectionRevealProps) {
   useEffect(() => {
     const element = rootRef.current;
     if (!element) {
+      return;
+    }
+
+    if (isSectionInViewport(element)) {
+      setIsVisible(true);
       return;
     }
 
@@ -30,8 +42,10 @@ function SectionReveal({ children, className }: SectionRevealProps) {
         }
       },
       {
-        threshold: 0.12,
-        rootMargin: "0px 0px -6% 0px",
+        // Any edge entering the viewport should reveal — a high threshold hides tall
+        // sections (e.g. tattoo-style grids) until the user scrolls far past them.
+        threshold: 0,
+        rootMargin: "0px 0px 8% 0px",
       },
     );
 

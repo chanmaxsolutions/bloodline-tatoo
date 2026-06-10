@@ -13,7 +13,7 @@ function TattooStyleTile({ tile }: TattooStyleTileProps) {
     <Link
       href={tile.href}
       className={cn(
-        "group relative isolate flex aspect-3/4 overflow-hidden rounded-xl border border-border/35 bg-surface-elevated/90 shadow-none",
+        "group relative isolate flex aspect-5/6 overflow-hidden rounded-xl border border-border/35 bg-surface-elevated/90 shadow-none",
         "md:aspect-2/3 md:min-h-[280px]",
         "motion-fast outline-none transition-[border-color,background-color]",
         "hover:border-white/8 hover:bg-surface-elevated",
