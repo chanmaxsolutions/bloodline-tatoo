@@ -19,9 +19,6 @@ const TATTOO_STYLE_PROOF_GALLERY_TILE_COUNT = 8;
 
 const tattooStyleImageRoot = "/images/tattoo-styles";
 
-/** Bump when regional `card.webp` assets change — busts `/_next/image` and browser cache. */
-const TATTOO_STYLE_CARD_ASSET_VERSION = "20260610";
-
 function tattooStyleHeroSrc(slug: TattooStyleSlug, studio: TattooStyleStudioRegion): string {
   return `${tattooStyleImageRoot}/${slug}/${studio}/hero.webp`;
 }
@@ -31,7 +28,7 @@ function tattooStyleApproachSrc(slug: TattooStyleSlug, studio: TattooStyleStudio
 }
 
 function tattooStyleCardSrc(slug: TattooStyleSlug, studio: TattooStyleStudioRegion): string {
-  return `${tattooStyleImageRoot}/${slug}/${studio}/card.webp?v=${TATTOO_STYLE_CARD_ASSET_VERSION}`;
+  return `${tattooStyleImageRoot}/${slug}/${studio}/card.webp`;
 }
 
 function resolvePrimaryTattooStyleStudio(
