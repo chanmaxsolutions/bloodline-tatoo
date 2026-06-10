@@ -52,21 +52,30 @@ function MobileMenuOverlay({
               if (item.label === "Tattoo Styles" && item.children?.length) {
                 return (
                   <li key={item.href} className="grid gap-3">
-                    <button
-                      type="button"
-                      className="inline-flex w-full items-center justify-between text-left text-heading-display text-3xl text-foreground motion-fast hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
-                      aria-expanded={isStylesOpen}
-                      onClick={() => setIsStylesOpen((prev) => !prev)}
-                    >
-                      <span>{item.label}</span>
-                      <ChevronDownIcon
-                        aria-hidden="true"
-                        className={cn(
-                          "size-5 text-muted-foreground motion-fast",
-                          isStylesOpen ? "rotate-180" : "rotate-0",
-                        )}
-                      />
-                    </button>
+                    <div className="flex items-center justify-between gap-4">
+                      <Link
+                        href={item.href}
+                        onClick={onClose}
+                        className="text-heading-display text-3xl text-foreground motion-fast hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        className="inline-flex shrink-0 items-center justify-center rounded-xs p-2 text-muted-foreground motion-fast hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+                        aria-expanded={isStylesOpen}
+                        aria-label={`${isStylesOpen ? "Collapse" : "Expand"} ${item.label} list`}
+                        onClick={() => setIsStylesOpen((prev) => !prev)}
+                      >
+                        <ChevronDownIcon
+                          aria-hidden="true"
+                          className={cn(
+                            "size-5 motion-fast",
+                            isStylesOpen ? "rotate-180" : "rotate-0",
+                          )}
+                        />
+                      </button>
+                    </div>
                     {isStylesOpen ? (
                       <ul className="grid gap-2 pl-1">
                         {item.children.map((child) => (
