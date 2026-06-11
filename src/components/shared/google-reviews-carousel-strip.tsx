@@ -33,6 +33,8 @@ interface GoogleReviewsCarouselStripProps {
   showStudioName?: boolean;
   /** Softens hard card crops at the scrollport edges. */
   edgeFade?: GoogleReviewsCarouselEdgeFade;
+  /** GA4 `carousel_context` for review link clicks. */
+  carouselContext?: string;
 }
 
 /**
@@ -46,6 +48,7 @@ function GoogleReviewsCarouselStrip({
   googleBusinessProfileUrl,
   showStudioName = false,
   edgeFade,
+  carouselContext,
 }: GoogleReviewsCarouselStripProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -289,6 +292,7 @@ function GoogleReviewsCarouselStrip({
             variant="carousel"
             googleBusinessProfileUrl={googleBusinessProfileUrl}
             studioName={showStudioName ? reviewStudioName(item) : undefined}
+            carouselContext={carouselContext}
           />
         ))}
       </div>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ContactChannelTileMark } from "@/components/shared/contact-channel-tile-mark";
 import { TileLinkArrow } from "@/components/shared/tile-link-arrow";
+import { bookingChannelFromLabel, trackAppointmentChannelClick } from "@/lib/gtag";
 import { cn } from "@/lib/utils";
 import type { BookingModalChannelLink, BookingModalChannels } from "@/types/booking-modal";
 import type { ContactPageStudioLink } from "@/types/contact-page";
@@ -61,11 +62,25 @@ function channelTileDescription(displayLabel: string): string {
 function ContactChannelTile({ channel }: ContactChannelTileProps) {
   const displayLabel = contactChannelTileLabel(channel.label);
 
+  function handleChannelClick(): void {
+    const bookingChannel = bookingChannelFromLabel(channel.label);
+    if (!bookingChannel) return;
+
+    trackAppointmentChannelClick({
+      channel: bookingChannel,
+      destinationUrl: channel.href,
+      ctaText: displayLabel,
+      componentName: "ContactPageActions",
+      entryPoint: "contact_page",
+    });
+  }
+
   return (
     <Link
       href={channel.href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleChannelClick}
       className={channelTileClassName}
     >
       <ContactChannelTileMark channelLabel={displayLabel} />

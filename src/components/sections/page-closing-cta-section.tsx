@@ -65,7 +65,12 @@ function PageClosingCtaSection({
           </div>
 
           <div className={sectionRevealItemClass("sm", pageClosingCtaBandActionsClassName)}>
-            <BookAppointmentTrigger variant="primary" size="lg" className="w-auto max-w-full">
+            <BookAppointmentTrigger
+              variant="primary"
+              size="lg"
+              className="w-auto max-w-full"
+              trackingComponentName="PageClosingCtaSection"
+            >
               {headerCtaLabel}
             </BookAppointmentTrigger>
             <Link

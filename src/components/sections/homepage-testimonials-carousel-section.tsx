@@ -75,6 +75,7 @@ function HomepageTestimonialsCarouselSection({
               googleBusinessProfileUrl={googleBusinessProfileUrl}
               showStudioName={showStudioName}
               edgeFade="surface-elevated"
+              carouselContext="homepage"
             />
             <div className="flex justify-center">
               <Link

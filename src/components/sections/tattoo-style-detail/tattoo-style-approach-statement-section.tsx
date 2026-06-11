@@ -87,6 +87,7 @@ function TattooStyleApproachStatementSection({
                   size="lg"
                   tattooStyleSlug={content.slug}
                   className="w-fit max-w-full"
+                  trackingComponentName="TattooStyleApproachStatementSection"
                 >
                   {tattooStyleBookingCtaLabel(content.title)}
                 </BookAppointmentTrigger>

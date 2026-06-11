@@ -44,4 +44,8 @@ export interface BookingModalPayload {
 export interface BookingModalOpenOptions {
   /** On the global site, limits studio tiles to regions that offer this style. */
   tattooStyleSlug?: TattooStyleSlug;
+  /** GA4: UI surface that opened the booking modal. */
+  componentName?: string;
+  /** GA4: visible CTA label on the trigger control. */
+  ctaText?: string;
 }

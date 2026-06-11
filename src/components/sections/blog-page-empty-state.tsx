@@ -39,7 +39,12 @@ function BlogPageEmptyState({ headerCtaLabel, categoryLabel }: BlogPageEmptyStat
           "flex w-full max-w-xl flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center",
         )}
       >
-        <BookAppointmentTrigger variant="primary" size="lg" className="w-auto max-w-full">
+        <BookAppointmentTrigger
+          variant="primary"
+          size="lg"
+          className="w-auto max-w-full"
+          trackingComponentName="BlogPageEmptyState"
+        >
           {headerCtaLabel}
         </BookAppointmentTrigger>
         <Link

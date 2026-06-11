@@ -29,6 +29,7 @@ import {
   footerListRowLabelClassName,
   footerTriggerClassName,
 } from "@/lib/footer-styles";
+import { trackSocialProfileClick } from "@/lib/gtag";
 import { cn } from "@/lib/utils";
 import type { BookingModalChannelLink, BookingModalChannels } from "@/types/booking-modal";
 import type { RegionSlug } from "@/types/region";
@@ -71,8 +72,21 @@ function FooterSocialNavLink({
   label: string;
   href: string;
 }) {
+  function handleSocialClick(): void {
+    trackSocialProfileClick({
+      channel,
+      destinationUrl: href,
+    });
+  }
+
   return (
-    <Link href={href} target="_blank" rel="noopener noreferrer" className={footerListRowClassName}>
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={handleSocialClick}
+      className={footerListRowClassName}
+    >
       <FooterSocialBrandIcon channel={channel} />
       <span className={footerListRowLabelClassName}>{label}</span>
     </Link>

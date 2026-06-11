@@ -69,6 +69,7 @@ function TattooStyleDetailCtaSection({
               size="lg"
               tattooStyleSlug={styleSlug}
               className="w-auto max-w-full"
+              trackingComponentName="TattooStyleDetailCtaSection"
             >
               {headerCtaLabel}
             </BookAppointmentTrigger>

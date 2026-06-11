@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { trackGoogleReviewClick } from "@/lib/gtag";
 import { buildGlobalHeroTrustProofChips } from "@/config/global-hero-trust-proof";
 import { HeroTrustBrandMark } from "@/components/shared/hero-trust-brand-mark";
 import { cn } from "@/lib/utils";
@@ -19,6 +22,8 @@ interface HeroTrustProofStripProps {
   showBrandMarks?: boolean;
   /** Region-aware Google proof with link target (hero / closing bands). */
   presentation?: GoogleBusinessProofPresentation;
+  /** GA4 `component_name` for external Google review clicks. */
+  analyticsComponentName?: string;
   className?: string;
 }
 
@@ -70,6 +75,7 @@ function HeroTrustProofStrip({
   chipsScope = "all",
   showBrandMarks = true,
   presentation,
+  analyticsComponentName = "HeroTrustProofStrip",
   className,
 }: HeroTrustProofStripProps) {
   const trustChips = presentation
@@ -187,6 +193,17 @@ function HeroTrustProofStrip({
           </span>
         );
 
+        function handleExternalGoogleClick(): void {
+          if (!presentation?.isExternalLink) return;
+
+          trackGoogleReviewClick({
+            componentName: analyticsComponentName,
+            linkType: "business_profile",
+            destinationUrl: presentation.href,
+            ctaText: metricLabel,
+          });
+        }
+
         const linkedCluster =
           presentation && chip.id === "google" ? (
             presentation.isExternalLink ? (
@@ -194,6 +211,7 @@ function HeroTrustProofStrip({
                 href={presentation.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleExternalGoogleClick}
                 className={heroTrustProofLinkClassName}
                 aria-label={`${metricLabel} on Google — opens in a new tab`}
               >

@@ -10,6 +10,7 @@ import {
   buildContactWhatsAppInquiryMessage,
   parseContactWhatsAppInquiry,
 } from "@/lib/contact-whatsapp-inquiry";
+import { trackGenerateLead } from "@/lib/gtag";
 import { cn } from "@/lib/utils";
 import type {
   ContactPageWhatsAppFormCopy,
@@ -166,6 +167,12 @@ function ContactPageWhatsAppForm({
     });
 
     const url = buildWhatsAppUrl({ phoneNumber: phoneDigits, text: message });
+
+    trackGenerateLead({
+      destinationUrl: url,
+      studioRegion: isGlobal ? studioRegion : undefined,
+    });
+
     window.open(url, "_blank", "noopener,noreferrer");
   }
 

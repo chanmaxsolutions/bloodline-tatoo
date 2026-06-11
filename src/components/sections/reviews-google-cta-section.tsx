@@ -1,5 +1,8 @@
+"use client";
+
 import clsx from "clsx";
 import Link from "next/link";
+import { trackGoogleReviewClick } from "@/lib/gtag";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { GoogleMark } from "@/components/shared/google-review-primitives";
@@ -59,20 +62,34 @@ function ReviewsGoogleCtaSection({ studioLinks, isGlobal }: ReviewsGoogleCtaSect
               cn(pageClosingCtaBandActionsClassName, isGlobal && "max-w-3xl"),
             )}
           >
-            {studioLinks.map((studio) => (
-              <Link
-                key={studio.region}
-                href={studio.googleBusinessProfileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  buttonVariants({ variant: isGlobal ? "outline" : "primary", size: "lg" }),
-                  "w-auto max-w-full",
-                )}
-              >
-                {isGlobal ? `Google reviews — ${studio.studioName}` : "View all reviews on Google"}
-              </Link>
-            ))}
+            {studioLinks.map((studio) => {
+              const ctaText = isGlobal
+                ? `Google reviews — ${studio.studioName}`
+                : "View all reviews on Google";
+
+              return (
+                <Link
+                  key={studio.region}
+                  href={studio.googleBusinessProfileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    trackGoogleReviewClick({
+                      componentName: "ReviewsGoogleCtaSection",
+                      linkType: "business_profile",
+                      destinationUrl: studio.googleBusinessProfileUrl,
+                      ctaText,
+                    })
+                  }
+                  className={cn(
+                    buttonVariants({ variant: isGlobal ? "outline" : "primary", size: "lg" }),
+                    "w-auto max-w-full",
+                  )}
+                >
+                  {ctaText}
+                </Link>
+              );
+            })}
           </div>
         </SectionReveal>
       </Container>

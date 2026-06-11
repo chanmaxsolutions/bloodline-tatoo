@@ -133,7 +133,11 @@ function HeroSection({
 
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-5">
             <div className="hero-reveal-motion hero-reveal-motion-delay-md flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
-              <BookAppointmentTrigger variant="primary" size="lg">
+              <BookAppointmentTrigger
+                variant="primary"
+                size="lg"
+                trackingComponentName="HeroSection"
+              >
                 {primaryCta.label}
               </BookAppointmentTrigger>
               {secondaryCta ? (

@@ -12,6 +12,7 @@ async function PageClosingTrustProofStrip() {
       variant="compact"
       chipsScope="google-only"
       presentation={presentation}
+      analyticsComponentName="PageClosingTrustProofStrip"
       className="w-full max-w-full"
     />
   );

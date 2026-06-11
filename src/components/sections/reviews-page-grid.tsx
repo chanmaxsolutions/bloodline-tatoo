@@ -35,6 +35,7 @@ function ReviewsPageGrid({
               variant="page"
               googleBusinessProfileUrl={googleBusinessProfileUrl}
               studioName={showStudioName ? item.studioName : undefined}
+              carouselContext="reviews-page"
               className="w-full"
             />
           </li>

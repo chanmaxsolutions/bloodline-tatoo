@@ -199,7 +199,12 @@ function HeaderClient({
               <button
                 type="button"
                 className={buttonVariants({ variant: "primary", size: "sm" })}
-                onClick={() => openBookingModal()}
+                onClick={() =>
+                  openBookingModal({
+                    componentName: "SiteHeader",
+                    ctaText: cta.label,
+                  })
+                }
               >
                 {cta.label}
               </button>
@@ -227,7 +232,12 @@ function HeaderClient({
           navigationItems={mobileNavigationItems}
           cta={cta}
           onClose={() => setIsMenuOpen(false)}
-          onBookAppointment={() => openBookingModal()}
+          onBookAppointment={() =>
+            openBookingModal({
+              componentName: "MobileMenuOverlay",
+              ctaText: cta.label,
+            })
+          }
         />
       </div>
     </>

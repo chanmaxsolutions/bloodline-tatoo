@@ -13,6 +13,7 @@ interface AboutPageReviewsCarouselProps {
   googleBusinessProfileUrl: string;
   showStudioName: boolean;
   edgeFade?: GoogleReviewsCarouselEdgeFade;
+  carouselContext?: string;
 }
 
 function AboutPageReviewsCarousel({
@@ -21,6 +22,7 @@ function AboutPageReviewsCarousel({
   googleBusinessProfileUrl,
   showStudioName,
   edgeFade = "surface",
+  carouselContext,
 }: AboutPageReviewsCarouselProps) {
   const carouselId = useId();
 
@@ -41,6 +43,7 @@ function AboutPageReviewsCarousel({
         googleBusinessProfileUrl={googleBusinessProfileUrl}
         showStudioName={showStudioName}
         edgeFade={edgeFade}
+        carouselContext={carouselContext}
       />
     </div>
   );

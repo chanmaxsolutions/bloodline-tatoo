@@ -21,6 +21,7 @@ import {
 import { BookingBrandChannelIcon } from "@/components/shared/channel-brand-glyphs";
 import { cn } from "@/lib/utils";
 import { bookingModalPayloadForOpen } from "@/lib/booking-modal";
+import { trackAppointmentChannelClick, trackAppointmentModalOpen } from "@/lib/gtag";
 import type {
   BookingModalChannelLink,
   BookingModalOpenOptions,
@@ -122,11 +123,25 @@ function ChannelPackage({
     </span>
   ) : null;
 
+  const channelHref = channel.href;
+  const channelLabel = channel.label;
+
+  function handleChannelClick(): void {
+    trackAppointmentChannelClick({
+      channel: channelVariant,
+      destinationUrl: channelHref,
+      ctaText: channelLabel,
+      componentName: "BookingAppointmentModal",
+      entryPoint: "booking_modal",
+    });
+  }
+
   return (
     <Link
-      href={channel.href}
+      href={channelHref}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleChannelClick}
       className={cn(packageBase, showDesktopBadge && "sm:relative sm:overflow-visible sm:pt-3")}
     >
       <span className="flex shrink-0 items-center justify-center">{icon}</span>
@@ -143,7 +158,7 @@ function ChannelPackage({
             showMobileBadge ? "min-w-0 shrink sm:shrink-0" : "min-w-0 max-sm:flex-1",
           )}
         >
-          {channel.label}
+          {channelLabel}
         </span>
         {mobileBadgeEl}
       </div>
@@ -266,10 +281,21 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
   const [open, setOpen] = useState(false);
   const [openOptions, setOpenOptions] = useState<BookingModalOpenOptions | undefined>();
 
-  const openModal = useCallback((options?: BookingModalOpenOptions) => {
-    setOpenOptions(options);
-    setOpen(true);
-  }, []);
+  const openModal = useCallback(
+    (options?: BookingModalOpenOptions) => {
+      setOpenOptions(options);
+      setOpen(true);
+
+      const active = bookingModalPayloadForOpen(payload, options?.tattooStyleSlug);
+      trackAppointmentModalOpen({
+        componentName: options?.componentName ?? "BookAppointmentTrigger",
+        ctaText: options?.ctaText,
+        modalLayout: active.layout,
+        tattooStyleSlug: options?.tattooStyleSlug,
+      });
+    },
+    [payload],
+  );
 
   const handleOpenChange = useCallback((next: boolean) => {
     setOpen(next);

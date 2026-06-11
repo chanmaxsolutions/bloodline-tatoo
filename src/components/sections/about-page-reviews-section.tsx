@@ -71,6 +71,7 @@ function AboutPageReviewsSection({
               testimonials={carouselItems}
               googleBusinessProfileUrl={googleBusinessProfileUrl}
               showStudioName={showStudioName}
+              carouselContext="about"
             />
             <div className="flex justify-center">
               <Link

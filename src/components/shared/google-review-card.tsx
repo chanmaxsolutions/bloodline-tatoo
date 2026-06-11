@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { GoogleReviewCardExpandableText } from "@/components/shared/google-review-card-expandable-text";
 import {
@@ -5,6 +7,7 @@ import {
   GoogleMark,
   GoogleStarRow,
 } from "@/components/shared/google-review-primitives";
+import { trackGoogleReviewClick } from "@/lib/gtag";
 import { cn } from "@/lib/utils";
 import type { HomepageTestimonial } from "@/types/homepage-testimonial";
 
@@ -25,20 +28,34 @@ interface GoogleReviewCardProps {
   variant?: "carousel" | "page";
   studioName?: string;
   className?: string;
+  carouselContext?: string;
 }
 
 function GoogleReviewCard({
   item,
-  googleBusinessProfileUrl,
   variant = "carousel",
   studioName,
   className,
+  carouselContext,
 }: GoogleReviewCardProps) {
   const avatarSrc = item.profilePhotoUrl;
   const showAvatar = isRemotePhotoUrl(avatarSrc);
   const isCarousel = variant === "carousel";
   const showReadMoreLink =
     isCarousel && item.text.trim().length > READ_MORE_CHAR_THRESHOLD && Boolean(item.reviewUrl);
+
+  function handleReviewLinkClick(ctaText: string): void {
+    if (!item.reviewUrl) return;
+
+    trackGoogleReviewClick({
+      componentName: "GoogleReviewCard",
+      linkType: "individual_review",
+      destinationUrl: item.reviewUrl,
+      ctaText,
+      reviewId: item.id,
+      carouselContext,
+    });
+  }
 
   return (
     <article
@@ -112,6 +129,7 @@ function GoogleReviewCard({
             href={item.reviewUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => handleReviewLinkClick("Read more")}
             className="w-fit font-sans text-xs font-medium text-muted-foreground underline decoration-white/25 underline-offset-2 outline-none transition-colors motion-fast hover:text-foreground hover:decoration-white/40 focus-visible:ring-2 focus-visible:ring-ring/60"
             aria-label="Read this review on Google"
           >
@@ -125,6 +143,7 @@ function GoogleReviewCard({
             href={item.reviewUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => handleReviewLinkClick("View on Google")}
             className="inline-flex items-center gap-1.5 rounded-xs font-sans text-xs text-muted-foreground underline-offset-2 outline-none transition-colors motion-fast hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/60"
           >
             <GoogleMark />

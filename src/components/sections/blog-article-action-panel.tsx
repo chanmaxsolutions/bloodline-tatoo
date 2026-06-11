@@ -27,7 +27,12 @@ function BlogArticleActionPanelAside({
         feasibility before you book flights or lock a session.
       </p>
       <div className="mt-6">
-        <BookAppointmentTrigger variant="primary" size="lg" className="w-full sm:w-auto">
+        <BookAppointmentTrigger
+          variant="primary"
+          size="lg"
+          className="w-full sm:w-auto"
+          trackingComponentName="BlogArticleActionPanel"
+        >
           {headerCtaLabel}
         </BookAppointmentTrigger>
       </div>
