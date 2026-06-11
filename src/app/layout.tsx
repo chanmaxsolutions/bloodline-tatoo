@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Plus_Jakarta_Sans } from "next/font/google";
+import { Suspense } from "react";
 import { BookingAppointmentProvider } from "@/components/cta";
 import { SiteFooter, SiteHeader } from "@/components/layout";
+import { GoogleAnalytics } from "@/components/seo";
 import { buildBookingModalPayload } from "@/lib/booking-modal";
 import { getRequestRegionContext } from "@/lib/request-region";
 import "./globals.css";
@@ -43,6 +45,9 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${headingFont.variable} ${bodyFont.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+        </Suspense>
         <BookingAppointmentProvider payload={bookingModalPayload}>
           <SiteHeader region={region} />
           <main className="min-w-0 flex-1">{children}</main>

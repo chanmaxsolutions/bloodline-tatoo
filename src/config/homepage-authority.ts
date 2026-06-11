@@ -68,34 +68,37 @@ const authorityPanelCopyByRegion: Record<
     },
     {
       tag: "House standard",
-      line: "Calm rooms built for focus, from first message to healed work.",
+      line: "Calm rooms built for focus, from first message through healed work.",
     },
   ],
   bangkok: [
     {
       tag: "Sterile field",
-      line: "Gloves, prep and session discipline kept non-negotiable in every Bangkok session.",
+      line: "Gloves, prep and discipline non-negotiable in every Bangkok session.",
     },
     {
       tag: "Consultation first",
-      line: "Scope, timing and expectations are agreed before the session begins.",
+      line: "Scope, timing and expectations agreed before your session begins.",
     },
   ],
   bali: [
     {
       tag: "Measured execution",
-      line: "Stencil integrity and tonal control on every pass, every time.",
+      line: "Stencil integrity and tonal control on every pass, every session.",
     },
-    { tag: "Calm room", line: "A focused environment where decisions are never rushed." },
+    {
+      tag: "Calm room",
+      line: "A calm focused room where consultation and pacing are never rushed.",
+    },
   ],
   phuket: [
     {
       tag: "Sterile practice",
-      line: "Controlled field habits from the moment you arrive through close-out.",
+      line: "Controlled sterile habits from your arrival through session close-out.",
     },
     {
       tag: "Focused session",
-      line: "Paced sessions so the work stays exact from start to finish.",
+      line: "Measured session pacing so work stays exact from start to finish.",
     },
   ],
 };

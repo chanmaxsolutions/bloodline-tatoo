@@ -46,7 +46,8 @@ const authorityProofTitleClassName =
   "font-heading text-2xl font-bold uppercase leading-none tracking-tight md:text-3xl";
 
 /** Matches `TattooStyleTile` description scale. */
-const authorityProofLineClassName = "line-clamp-2 font-sans text-base leading-relaxed text-pretty";
+const authorityProofLineClassName =
+  "min-h-[2.75rem] font-sans text-base leading-relaxed text-pretty md:min-h-[3.25rem]";
 
 /** Softer top wash, solid bottom for caption contrast. */
 const authorityProofOverlayClassName: Record<HomepageAuthorityProofOverlay, string> = {

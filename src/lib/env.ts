@@ -22,7 +22,6 @@ const serverEnvSchema = z.object({
 });
 
 const publicEnvSchema = z.object({
-  NEXT_PUBLIC_GA_ID: optionalNonEmptyString,
   NEXT_PUBLIC_META_PIXEL_ID: optionalNonEmptyString,
   NEXT_PUBLIC_SITE_ENV: z.enum(["local", "preview", "production"]).default("local"),
 });
@@ -41,7 +40,6 @@ export const env = {
     REGION_HOSTS_PHUKET: optionalEnv(process.env.REGION_HOSTS_PHUKET),
   }),
   ...publicEnvSchema.parse({
-    NEXT_PUBLIC_GA_ID: optionalEnv(process.env.NEXT_PUBLIC_GA_ID),
     NEXT_PUBLIC_META_PIXEL_ID: optionalEnv(process.env.NEXT_PUBLIC_META_PIXEL_ID),
     NEXT_PUBLIC_SITE_ENV: optionalEnv(process.env.NEXT_PUBLIC_SITE_ENV) ?? "local",
   }),
