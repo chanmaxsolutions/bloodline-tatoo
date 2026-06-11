@@ -32,15 +32,15 @@ function homepageStandardsSplitForRegion(
     return {
       bandSurface: "elevated",
       eyebrow: "Studio standard",
-      heading: "PREMIUM STANDARD. ZERO THEATRE.",
+      heading: "PREMIUM STANDARD. SERIOUS CRAFT.",
       intro:
-        "The house runs on consultation-first discipline, sterile-field habits, and execution held under restraint—not theatre.",
-      pointerLabels: ["Institutional floor", "Execution discipline", "Across studios"],
+        "The house runs on consultation first, sterile practice and execution held with genuine discipline across every studio.",
+      pointerLabels: ["Studio foundation", "Execution discipline", "Across studios"],
       pointerIcons: ["building-2", "pen-tool", "globe"],
       bullets: [
-        `${studio} is built as a studio house: consultation before commitment, measured pacing, and craft discipline that does not flex for trends.`,
-        "Internationally held execution standards—sterile field habits, stencil integrity, and a calm room so the work stays exact on every pass.",
-        "The same institutional floor in Bangkok, Bali, and Phuket: permanence treated with seriousness, not volume speed.",
+        `${studio} is built as a studio house. Consultation before commitment, measured pacing and craft discipline that does not follow trends.`,
+        "The same execution standards across every city. Sterile field habits, stencil integrity and a calm room so the work stays exact on every pass.",
+        "Bangkok, Bali and Phuket operate on one floor. Permanence treated with seriousness, not speed.",
       ],
       cta: { label: "About the studio", href: "/about" },
       media: {
@@ -54,13 +54,13 @@ function homepageStandardsSplitForRegion(
     bandSurface: "elevated",
     eyebrow: "Studio standard",
     heading: "PREMIUM WORK. DISCIPLINED ROOM.",
-    intro: `How ${regionName} sessions are run: structured consultation, measured pacing, and craft discipline that does not flex for trends.`,
+    intro: `How ${regionName} sessions are run. Structured consultation, measured pacing and craft discipline that does not follow trends.`,
     pointerLabels: ["Room baseline", "Custom execution", "House gravity"],
     pointerIcons: ["shield-check", "pen-tool", "building-2"],
     bullets: [
-      `${studio} runs on a non-negotiable baseline: structured consultation, sterile-field discipline, and execution held under restraint—not hype.`,
-      "Custom work is staged with intent: stencil discipline, tonal control, and pacing that keeps uncertainty out of the room while the piece is built.",
-      "You should feel the same premium gravity here as the wider house—only the city changes.",
+      `${studio} runs on a clear baseline. Structured consultation, sterile practice and execution held with genuine discipline, not hype.`,
+      "Custom work is built with intent. Stencil discipline, tonal control and careful pacing keep the process steady while the piece comes together.",
+      "The standard you feel here is the same across every Bloodline studio. Only the city changes.",
     ],
     cta: { label: "About the studio", href: "/about" },
     media: {
@@ -83,13 +83,13 @@ function homepageSessionPathSplitForRegion(
       eyebrow: "SESSION PATH",
       heading: "MESSAGE TO HEALED WORK",
       intro:
-        "One consultation architecture across Bangkok, Bali, and Phuket—legible from first message through final heal. No vague steps between studios.",
+        "One consultation process across Bangkok, Bali and Phuket. Clear from first message through final heal, with no vague steps between studios.",
       pointerLabels: ["Cross-studio consult", "Timing on the desk", "Aftercare included"],
       pointerIcons: ["message-square", "clock", "heart-pulse"],
       bullets: [
-        `${studio} carries one consultation architecture across Bangkok, Bali, and Phuket—expectations align before you travel.`,
-        "The desk keeps timing legible: scope, session length, sterile-field prep, and pacing you can plan around.",
-        "Aftercare ships as part of the work—clear steps so healing protects line weight and tonal control.",
+        `${studio} runs one consultation process across Bangkok, Bali and Phuket. Expectations are aligned before you travel.`,
+        "Scope, session length, sterile prep and pacing are all confirmed before your session day. Nothing is left vague.",
+        "Aftercare is part of the work. Clear steps so your healing protects the line weight and tone we built.",
       ],
       cta: { label: "Book consultation", href: "/contact" },
       media: {
@@ -101,10 +101,10 @@ function homepageSessionPathSplitForRegion(
 
   const sessionPathIntroByRegion: Record<Exclude<RegionSlug, "global">, string> = {
     bangkok:
-      "Consultation, locked scope, then execution in-chair—each stage readable before you commit. Placement, pacing, and recovery expectations are set early.",
-    bali: "Consult first, agreement on placement and session pacing, then measured work in-room. The path stays clear from first message through healing.",
+      "Consultation, agreed scope, then execution in the chair. Each stage is clear before you commit. Placement, pacing and recovery are all set before session day.",
+    bali: "Consult first, agree on placement and pacing, then measured work in the room. The process stays clear from first message through to full healing.",
     phuket:
-      "Consultation, scope, and session day run in sequence—no deposit theatre, no surprises once you are in the chair. Expectations are locked before needles are staged.",
+      "Consultation, scope and session day run in clear sequence. No surprises once you are in the chair. Everything is agreed before the session begins.",
   };
 
   return {
@@ -116,9 +116,9 @@ function homepageSessionPathSplitForRegion(
     pointerLabels: ["Consult first", "Scope locked", "Session day"],
     pointerIcons: ["message-square", "clipboard-list", "shield-check"],
     bullets: [
-      `${studio} runs consult first—scope, timing, and sterile-field prep agreed before the room commits to execution.`,
-      "You know placement, session cadence, and recovery expectations before needles are staged—no vague deposit games.",
-      "Session day stays calm: disciplined field habits, controlled pacing, and a close-out brief that protects line weight and tone.",
+      `${studio} runs consult first. Scope, timing and sterile prep are all agreed before the session is committed.`,
+      "You know placement, session length and recovery expectations before anything is staged. No vague deposit games.",
+      "Session day is calm. Disciplined field habits, controlled pacing and a close-out brief that protects the line weight and tone of your work.",
     ],
     cta: { label: "Book consultation", href: "/contact" },
     media: {

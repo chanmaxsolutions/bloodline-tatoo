@@ -29,30 +29,30 @@ const authorityStudioAltByRegion: Record<RegionSlug, string> = {
 const authorityBySlug: Record<RegionSlug, Omit<RegionHomepageAuthorityConfig, "proofPanels">> = {
   global: {
     eyebrow: "CRAFT DISCIPLINE",
-    heading: "THE GLOBAL STUDIO STANDARD",
+    heading: "THE HOUSE STANDARD ACROSS ASIA",
     description:
-      "Bloodline runs as a studio house—not a trend shop. **Consultation, sterile discipline, and measured execution** stay consistent across Bangkok, Bali, and Phuket.",
+      "Bloodline runs across Bangkok, Bali and Phuket as one studio house. Consultation first, sterile discipline and measured execution in every room.",
     ...authorityCta,
   },
   bangkok: {
     eyebrow: "CRAFT DISCIPLINE",
     heading: "THE BANGKOK STUDIO STANDARD",
     description:
-      "Bloodline Bangkok carries the wider house baseline: **structured consultation**, sterile practice, and premium work paced for permanence—not hype.",
+      "Bloodline Bangkok runs on structured consultation, sterile practice and premium work built for permanence. Every session is paced with care, not rushed for volume.",
     ...authorityCta,
   },
   bali: {
     eyebrow: "CRAFT DISCIPLINE",
     heading: "THE BALI STUDIO STANDARD",
     description:
-      "Bloodline Bali holds the same house process: **clear consultation**, sterile habits, and execution that respects how ink lives on skin long-term.",
+      "Bloodline Bali runs on clear consultation, sterile habits and careful execution. We work with the understanding that what goes on your skin stays there for life.",
     ...authorityCta,
   },
   phuket: {
     eyebrow: "CRAFT DISCIPLINE",
     heading: "THE PHUKET STUDIO STANDARD",
     description:
-      "Bloodline Phuket follows the house standard: **consultation-first** sessions, sterile practice, and craft handled with long-term seriousness.",
+      "Bloodline Phuket runs consultation first, with sterile practice and craft handled with genuine long-term seriousness. Not a walk-in shop. A proper studio.",
     ...authorityCta,
   },
 };
@@ -64,30 +64,39 @@ const authorityPanelCopyByRegion: Record<
   global: [
     {
       tag: "Sterile field",
-      line: "Field prep and pacing held to the same baseline in every city.",
+      line: "The same prep and pacing discipline in every city, every session.",
     },
     {
       tag: "House standard",
-      line: "Calm rooms built for focus—from first message to healed work.",
+      line: "Calm rooms built for focus, from first message to healed work.",
     },
   ],
   bangkok: [
     {
       tag: "Sterile field",
-      line: "Gloves, prep, and session discipline kept non-negotiable in-room.",
+      line: "Gloves, prep and session discipline kept non-negotiable in every Bangkok session.",
     },
     {
       tag: "Consultation first",
-      line: "Scope, timing, and expectations locked before needles are staged.",
+      line: "Scope, timing and expectations are agreed before the session begins.",
     },
   ],
   bali: [
-    { tag: "Measured execution", line: "Stencil integrity and tonal control on every pass." },
-    { tag: "Calm room", line: "A focused environment—no chaos, no rushed decisions." },
+    {
+      tag: "Measured execution",
+      line: "Stencil integrity and tonal control on every pass, every time.",
+    },
+    { tag: "Calm room", line: "A focused environment where decisions are never rushed." },
   ],
   phuket: [
-    { tag: "Sterile practice", line: "Controlled field habits from setup through close-out." },
-    { tag: "Focused session", line: "Readable pacing so the piece stays exact under restraint." },
+    {
+      tag: "Sterile practice",
+      line: "Controlled field habits from the moment you arrive through close-out.",
+    },
+    {
+      tag: "Focused session",
+      line: "Paced sessions so the work stays exact from start to finish.",
+    },
   ],
 };
 

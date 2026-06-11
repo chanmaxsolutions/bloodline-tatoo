@@ -11,9 +11,9 @@ export const bangkokRegionConfig: RegionConfig = {
   slug: "bangkok",
   domain: "bloodlinetattoobangkok.com",
   regionName: "Bangkok",
-  heroHeading: "PREMIUM TATTOO STUDIO IN BANGKOK",
+  heroHeading: "BANGKOK'S PREMIER APPOINTMENT-ONLY TATTOO STUDIO",
   heroDescription:
-    "Disciplined artistry and elevated studio standards for clients seeking premium tattoo work in Bangkok.",
+    "Bangkok's appointment-only studio for serious custom work. Trusted by international travellers and expats who will not settle for a walk-in shop.",
   googleBusinessProfileUrl:
     "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bangkok",
   branding: {
@@ -35,8 +35,9 @@ export const bangkokRegionConfig: RegionConfig = {
   },
   seo: {
     siteName: "Bloodline Tattoo Bangkok",
-    defaultTitle: "Premium Tattoo Studio in Bangkok | Bloodline Tattoo",
-    defaultDescription: "Regional Bloodline Tattoo foundation configuration for Bangkok.",
+    defaultTitle: "Bloodline Tattoo Bangkok | Appointment-Only Custom Studio",
+    defaultDescription:
+      "Bloodline Tattoo Bangkok is an appointment-only studio for custom realism, Japanese and portrait work. Trusted by international travellers and Bangkok expats.",
   },
   homepageAuthority: homepageAuthorityForRegion("bangkok"),
   homepageTattooStyles: homepageTattooStylesForRegion("bangkok"),

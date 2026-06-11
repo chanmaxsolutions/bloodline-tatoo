@@ -1,7 +1,8 @@
 import { getTattooStyleBySlug } from "@/config/tattoo-style-catalog";
 import { tattooStyleFaqBySlug } from "@/config/tattoo-style-detail-faq";
 import { getTattooStyleProofPool } from "@/config/tattoo-style-proof-pools";
-import { tattooStyleDetailBySlug, defaultApproachBandImage } from "@/config/tattoo-style-detail";
+import { defaultApproachBandImage } from "@/config/tattoo-style-detail";
+import { tattooStyleDetailForRegion } from "@/config/tattoo-style-detail-regional";
 import {
   isTattooStyleAvailableInRegion,
   tattooStyleSlugsForRegion,
@@ -36,7 +37,7 @@ function resolveTattooStyleDetailPage(
   }
 
   const catalog = getTattooStyleBySlug(slug);
-  const detail = tattooStyleDetailBySlug[slug];
+  const detail = tattooStyleDetailForRegion(slug, region);
 
   const catalogFallback = { src: catalog.imageSrc, alt: catalog.imageAlt };
 

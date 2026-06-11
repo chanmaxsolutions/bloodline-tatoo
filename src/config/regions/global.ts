@@ -11,9 +11,9 @@ export const globalRegionConfig: RegionConfig = {
   slug: "global",
   domain: "bloodlinetattoo.com",
   regionName: "Global",
-  heroHeading: "BLOODLINE TATTOO",
+  heroHeading: "WORLD CLASS TATTOO STUDIOS ACROSS ASIA",
   heroDescription:
-    "Precision artistry and elevated studio standards for clients seeking premium tattoo experiences across modern Asia.",
+    "Three studios across Bangkok, Bali and Phuket, running on one standard. Consultation first, sterile practice and work built to last.",
   googleBusinessProfileUrl:
     "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bangkok",
   branding: {
@@ -34,8 +34,9 @@ export const globalRegionConfig: RegionConfig = {
   },
   seo: {
     siteName: "Bloodline Tattoo",
-    defaultTitle: "Bloodline Tattoo",
-    defaultDescription: "Global brand hub for Bloodline Tattoo.",
+    defaultTitle: "Bloodline Tattoo | Premium Studios in Bangkok, Bali and Phuket",
+    defaultDescription:
+      "Bloodline Tattoo runs premium appointment-only studios in Bangkok, Bali and Phuket. Consultation first, sterile practice and serious custom work.",
   },
   homepageAuthority: homepageAuthorityForRegion("global"),
   homepageTattooStyles: homepageTattooStylesForRegion("global"),

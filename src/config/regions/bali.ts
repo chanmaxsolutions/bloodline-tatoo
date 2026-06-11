@@ -11,9 +11,9 @@ export const baliRegionConfig: RegionConfig = {
   slug: "bali",
   domain: "bloodlinetattoobali.com",
   regionName: "Bali",
-  heroHeading: "PREMIUM TATTOO STUDIO IN BALI",
+  heroHeading: "BALI'S PREMIER APPOINTMENT-ONLY TATTOO STUDIO",
   heroDescription:
-    "Creative artistry and elevated studio standards for clients seeking premium tattoo experiences throughout Bali.",
+    "Bali's appointment-only studio for considered custom work. Calm rooms, careful consultation and the time to do the work properly.",
   googleBusinessProfileUrl:
     "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bali",
   branding: {
@@ -35,8 +35,9 @@ export const baliRegionConfig: RegionConfig = {
   },
   seo: {
     siteName: "Bloodline Tattoo Bali",
-    defaultTitle: "Premium Tattoo Studio in Bali | Bloodline Tattoo",
-    defaultDescription: "Regional Bloodline Tattoo foundation configuration for Bali.",
+    defaultTitle: "Bloodline Tattoo Bali | Appointment-Only Custom Studio",
+    defaultDescription:
+      "Bloodline Tattoo Bali is an appointment-only studio for custom realism, Japanese and portrait work. Calm rooms and careful consultation for every client.",
   },
   homepageAuthority: homepageAuthorityForRegion("bali"),
   homepageTattooStyles: homepageTattooStylesForRegion("bali"),

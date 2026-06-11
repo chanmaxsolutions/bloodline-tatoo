@@ -22,7 +22,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: "Bloodline Tattoo Platform",
-    description: "Phase 1 foundation scaffold for Bloodline Tattoo.",
+    description:
+      "Bloodline Tattoo runs premium appointment-only studios in Bangkok, Bali and Phuket. Consultation first, sterile practice and serious custom work.",
     icons: {
       icon: regionConfig.branding.faviconPath,
       shortcut: regionConfig.branding.faviconPath,

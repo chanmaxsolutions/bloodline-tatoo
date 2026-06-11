@@ -18,7 +18,7 @@ const blogCategoryHubDefinitions: Record<BlogCategorySlug, BlogCategoryHubDefini
         eyebrow: "Tattoo guides",
         heading: "TATTOO GUIDES",
         description:
-          "Session planning, style direction, and decision-making for travelers booking premium work at Bloodline in Bangkok, Bali, and Phuket.",
+          "Session planning, style direction and decision-making for travellers booking premium work at Bloodline in Bangkok, Bali and Phuket.",
         quickIntro:
           "These guides help you align placement, scale, and style before you travel. Read for clear direction — then message the studio that matches your route.",
       },
@@ -59,7 +59,7 @@ const blogCategoryHubDefinitions: Record<BlogCategorySlug, BlogCategoryHubDefini
         eyebrow: "Style education",
         heading: "TATTOO STYLE GUIDES",
         description:
-          "How realism, fine line, Japanese, and blackwork behave on skin — and how to choose a lane that fits your placement and trip.",
+          "How realism, fine line, Japanese and blackwork behave on skin, and how to choose a lane that fits your placement and trip.",
         quickIntro:
           "Style is not aesthetic preference alone — it affects healing, session count, and longevity. Start here before you collect references.",
       },
@@ -100,9 +100,9 @@ const blogCategoryHubDefinitions: Record<BlogCategorySlug, BlogCategoryHubDefini
         eyebrow: "Aftercare",
         heading: "TATTOO AFTERCARE GUIDES",
         description:
-          "Healing timelines, humidity, sun, and long-term clarity for work done at Bloodline across Southeast Asia.",
+          "Healing timelines, humidity, sun and long-term clarity for work done at Bloodline across Southeast Asia.",
         quickIntro:
-          "Aftercare is part of the tattoo. These guides explain sealing windows, sun discipline, and when to message the studio for a review.",
+          "Aftercare is part of the tattoo. These guides explain sealing windows, sun discipline and when to message the studio for a review.",
       },
       bangkok: {
         eyebrow: "Aftercare",
@@ -138,9 +138,9 @@ const blogCategoryHubDefinitions: Record<BlogCategorySlug, BlogCategoryHubDefini
         eyebrow: "Travel & tattoo",
         heading: "TRAVEL & TATTOO GUIDES",
         description:
-          "How to plan tattoos around flights, beaches, and multi-city trips when booking Bloodline in Thailand and Indonesia.",
+          "How to plan tattoos around flights, beaches and multi-city trips when booking Bloodline in Thailand and Indonesia.",
         quickIntro:
-          "Travel tattoos fail when healing is an afterthought. These guides map session timing backward from your itinerary.",
+          "Travel tattoos fail when healing is an afterthought. These guides map session timing back from your itinerary.",
       },
       bangkok: {
         eyebrow: "Travel & tattoo",
@@ -177,9 +177,9 @@ const blogCategoryHubDefinitions: Record<BlogCategorySlug, BlogCategoryHubDefini
         eyebrow: "Tattoo ideas",
         heading: "TATTOO IDEAS & PLACEMENT",
         description:
-          "Placement, scale, and longevity decisions before you commit — curated for premium travel tattoos.",
+          "Placement, scale and longevity decisions before you commit. Curated for premium travel tattoos.",
         quickIntro:
-          "The best idea is one that ages on your lifestyle and sun exposure. These guides focus on placement and scale, not trend chasing.",
+          "The best idea is one that ages well on your lifestyle and sun exposure. These guides focus on placement and scale, not trend chasing.",
       },
       bangkok: {
         eyebrow: "Tattoo ideas",
@@ -214,9 +214,9 @@ const blogCategoryHubDefinitions: Record<BlogCategorySlug, BlogCategoryHubDefini
         eyebrow: "Studio advice",
         heading: "STUDIO ADVICE",
         description:
-          "Consultation standards, booking flow, and how to prepare for cover-ups and custom work at Bloodline.",
+          "Consultation standards, booking flow and how to prepare for cover-ups and custom work at Bloodline.",
         quickIntro:
-          "Premium studios move faster when you arrive prepared. These guides explain what to send and what to expect before travel.",
+          "Premium studios move faster when you arrive prepared. These guides explain what to send and what to expect before you travel.",
       },
       bangkok: {
         eyebrow: "Studio advice",

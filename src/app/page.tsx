@@ -17,6 +17,7 @@ import { getReviewsCarouselPreview } from "@/lib/reviews-page";
 import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
 import { resolveGoogleBusinessProofPresentation } from "@/lib/google-business-proof";
 import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
+import { homepageHeroTitle } from "@/lib/homepage-hero-title";
 import { getRequestRegionContext } from "@/lib/request-region";
 
 const HomepageTestimonialsCarouselSection = dynamic(
@@ -46,7 +47,6 @@ export default async function Home() {
   const reviewsPreview = await getReviewsCarouselPreview(region);
   const googleBusinessProof = resolveGoogleBusinessProofPresentation(region);
 
-  const heroRegionWord = region === "global" ? "ASIA" : regionConfig.regionName.toUpperCase();
   const heroPosterSrc = homepageMediaPaths.heroPoster(region);
   const {
     props: {
@@ -74,11 +74,7 @@ export default async function Home() {
         fetchPriority="high"
       />
       <HeroSection
-        title={
-          <>
-            WORLD CLASS TATTOO ART STUDIO IN <span className="text-accent">{heroRegionWord}</span>
-          </>
-        }
+        title={homepageHeroTitle(regionConfig.heroHeading, region)}
         description={regionConfig.heroDescription}
         media={{
           src: homepageMediaPaths.heroPoster(region),

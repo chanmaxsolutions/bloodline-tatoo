@@ -11,9 +11,9 @@ export const phuketRegionConfig: RegionConfig = {
   slug: "phuket",
   domain: "bloodlinetattoophuket.com",
   regionName: "Phuket",
-  heroHeading: "PREMIUM TATTOO STUDIO IN PHUKET",
+  heroHeading: "PHUKET'S PREMIER APPOINTMENT-ONLY TATTOO STUDIO",
   heroDescription:
-    "Refined artistry and high-trust studio standards for clients seeking premium tattoo experiences in Phuket.",
+    "Phuket's appointment-only studio for serious custom work. Sterile practice, full consultation and none of the walk-in rush you find everywhere else.",
   googleBusinessProfileUrl:
     "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Phuket",
   branding: {
@@ -35,8 +35,9 @@ export const phuketRegionConfig: RegionConfig = {
   },
   seo: {
     siteName: "Bloodline Tattoo Phuket",
-    defaultTitle: "Premium Tattoo Studio in Phuket | Bloodline Tattoo",
-    defaultDescription: "Regional Bloodline Tattoo foundation configuration for Phuket.",
+    defaultTitle: "Bloodline Tattoo Phuket | Appointment-Only Custom Studio",
+    defaultDescription:
+      "Bloodline Tattoo Phuket is an appointment-only studio for custom realism, Japanese and portrait work. Sterile practice and full consultation for every session.",
   },
   homepageAuthority: homepageAuthorityForRegion("phuket"),
   homepageTattooStyles: homepageTattooStylesForRegion("phuket"),

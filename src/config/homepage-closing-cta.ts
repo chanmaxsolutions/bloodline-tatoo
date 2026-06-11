@@ -6,13 +6,13 @@ function homepageClosingForRegion(region: RegionSlug, regionName: string): PageC
     return {
       heading: "READY TO BOOK YOUR NEXT SESSION?",
       description:
-        "You've seen the standard, the work, and what clients report. Choose your studio and message us on WhatsApp—we align on placement, scale, and timing before ink.",
+        "You have seen the standard, the work and what clients report. Choose your studio and message us on WhatsApp. We align on placement, scale and timing before anything is committed.",
     };
   }
 
   return {
     heading: `READY TO BOOK YOUR NEXT ${regionName.toUpperCase()} SESSION?`,
-    description: `You've seen how we run the room, the styles we hold, and what clients report. Message Bloodline ${regionName} on WhatsApp—we confirm scope and timing before the session is locked in.`,
+    description: `You have seen how we run the room, the styles we hold and what clients report. Message Bloodline ${regionName} on WhatsApp. We confirm scope and timing before the session is locked in.`,
   };
 }
 
