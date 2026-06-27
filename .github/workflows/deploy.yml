@@ -23,7 +23,8 @@ jobs:
           script: |
             set -e
             cd /var/www/bloodline-next
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
             npm ci --include=dev
             # Source files in public/ can change while /_next/image cache keys stay stale.
             rm -rf .next/cache/images
