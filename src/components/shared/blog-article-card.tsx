@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BLOG_CATEGORY_LABELS } from "@/config/blog-catalog";
-import { formatBlogPublishedDate } from "@/lib/blog";
+import { BLOG_CATEGORY_LABELS } from "@/config/blog-categories";
+import { formatBlogPublishedDate } from "@/lib/blog-format";
 import { formatBlogReadingTime, toIso8601ReadingDuration } from "@/lib/blog-reading-time";
 import { cn } from "@/lib/utils";
 import type { BlogPostListing } from "@/types/blog";

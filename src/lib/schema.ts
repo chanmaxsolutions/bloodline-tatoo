@@ -1,6 +1,6 @@
 import type { BlogFaqItem, BlogPageIntro, BlogPost, BlogPostListing } from "@/types/blog";
 import type { RegionConfig } from "@/types";
-import { BLOG_CATEGORY_LABELS } from "@/config/blog-catalog";
+import { BLOG_CATEGORY_LABELS } from "@/config/blog-categories";
 import { toIso8601ReadingDuration } from "@/lib/blog-reading-time";
 
 export interface SchemaBreadcrumbItem {

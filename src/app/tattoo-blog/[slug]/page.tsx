@@ -5,7 +5,7 @@ import { BlogArticleSection } from "@/components/sections/blog-article-section";
 import { BlogArticleRelatedSection } from "@/components/sections/blog-article-related-section";
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
 import { blogPageClosingForRegion } from "@/config/blog-page";
-import { BLOG_CATEGORY_LABELS } from "@/config/blog-catalog";
+import { BLOG_CATEGORY_LABELS } from "@/config/blog-categories";
 import { pageClosingCtaBandBorderlessSectionClassName } from "@/lib/page-closing-cta-band";
 import { homepageClosingCtaBandClassName } from "@/lib/homepage-section-surfaces";
 import { cn } from "@/lib/utils";
@@ -13,11 +13,10 @@ import {
   getAllBlogSlugs,
   getBlogArticleBreadcrumbTrail,
   getBlogCategoryHref,
-  getBlogPostBySlug,
   getRelatedBlogPosts,
   isPostVisibleInRegion,
 } from "@/lib/blog";
-import { resolveBlogPost } from "@/lib/blog-display";
+import { getCompiledBlogPost } from "@/lib/blog-mdx";
 import { buildBlogArticleMetadata, buildBlogArticleNotFoundMetadata } from "@/lib/blog-seo";
 import {
   absoluteRegionalUrl,
@@ -38,7 +37,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: TattooBlogArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
   const { region, regionConfig } = await getRequestRegionContext();
-  const post = getBlogPostBySlug(slug);
+  const post = await getCompiledBlogPost(slug);
 
   if (!post || !isPostVisibleInRegion(post, region)) {
     return buildBlogArticleNotFoundMetadata(slug, regionConfig);
@@ -50,13 +49,12 @@ export async function generateMetadata({ params }: TattooBlogArticlePageProps): 
 export default async function TattooBlogArticlePage({ params }: TattooBlogArticlePageProps) {
   const { slug } = await params;
   const { region, regionConfig } = await getRequestRegionContext();
-  const rawPost = getBlogPostBySlug(slug);
+  const post = await getCompiledBlogPost(slug);
 
-  if (!rawPost || !isPostVisibleInRegion(rawPost, region)) {
+  if (!post || !isPostVisibleInRegion(post, region)) {
     notFound();
   }
 
-  const post = resolveBlogPost(rawPost);
   const related = getRelatedBlogPosts(post, region);
   const closing = blogPageClosingForRegion(region, regionConfig.regionName);
   const breadcrumbSchemaItems = getBlogArticleBreadcrumbTrail(post).schemaSteps.map((step) => ({

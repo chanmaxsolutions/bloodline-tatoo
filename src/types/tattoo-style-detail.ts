@@ -1,4 +1,5 @@
 import type { TattooStyleSlug } from "@/types/tattoo-style";
+import type { BlogPostRelatedLink } from "@/types/blog";
 
 export interface TattooStyleDetailProofImage {
   src: string;
@@ -46,6 +47,8 @@ export interface TattooStyleDetailContent {
   proofPool?: readonly TattooStyleDetailProofImage[];
   /** Legacy fixed set; used when `proofPool` is empty. */
   proofImages?: readonly TattooStyleDetailProofImage[];
+  /** Regional blog articles linked from style detail pages (e.g. healed standards hub). */
+  relatedBlogLinks?: readonly BlogPostRelatedLink[];
 }
 
 export interface ResolvedTattooStyleDetailPage {
@@ -70,5 +73,6 @@ export interface ResolvedTattooStyleDetailPage {
   proofImages: readonly TattooStyleDetailProofImage[];
   proofPortfolioHref: string;
   relatedSlugs: readonly TattooStyleSlug[];
+  relatedBlogLinks: readonly BlogPostRelatedLink[];
   faqItems: readonly TattooStyleFaqItem[];
 }

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { RegionSlug } from "@/types/region";
 
 export type BlogCategorySlug =
@@ -13,35 +14,6 @@ export interface BlogPostImage {
   alt: string;
 }
 
-interface BlogArticleParagraphBlock {
-  type: "paragraph";
-  text: string;
-}
-
-interface BlogArticleHeadingBlock {
-  type: "heading";
-  text: string;
-  level?: 2 | 3;
-}
-
-interface BlogArticleImageBlock {
-  type: "image";
-  image: BlogPostImage;
-  caption?: string;
-}
-
-type BlogArticleBodyBlock =
-  | BlogArticleParagraphBlock
-  | BlogArticleHeadingBlock
-  | BlogArticleImageBlock;
-
-export type {
-  BlogArticleBodyBlock,
-  BlogArticleHeadingBlock,
-  BlogArticleImageBlock,
-  BlogArticleParagraphBlock,
-};
-
 export interface BlogPostRelatedLink {
   label: string;
   href: string;
@@ -55,6 +27,8 @@ export interface BlogFaqItem {
 export interface BlogPost {
   slug: string;
   title: string;
+  /** Shorter title for metadata and social cards when the on-page H1 is long. */
+  metaTitle?: string;
   description: string;
   category: BlogCategorySlug;
   publishedAt: string;
@@ -62,7 +36,6 @@ export interface BlogPost {
   featuredImage: BlogPostImage;
   regions: readonly RegionSlug[];
   featured?: boolean;
-  body: readonly BlogArticleBodyBlock[];
   /** 40–80 word direct answer for AEO / AI extraction. Falls back to description when omitted. */
   quickAnswer?: string;
   faq?: readonly BlogFaqItem[];
@@ -73,6 +46,10 @@ export interface BlogPost {
 /** Article fields resolved at render time (defaults applied). */
 export interface ResolvedBlogPost extends BlogPost {
   quickAnswer: string;
+}
+
+export interface CompiledBlogPost extends ResolvedBlogPost {
+  content: ReactNode;
 }
 
 export interface BlogPostListing {

@@ -10,6 +10,7 @@ const bangkokPhuketStyleSlugs = [
   "mandala",
   "chicano",
   "bamboo",
+  "healed",
 ] as const satisfies readonly TattooStyleSlug[];
 
 const baliStyleSlugs = [

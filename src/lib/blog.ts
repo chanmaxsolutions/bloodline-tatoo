@@ -1,22 +1,16 @@
-import { blogCatalog, BLOG_CATEGORY_LABELS, BLOG_CATEGORY_ORDER } from "@/config/blog-catalog";
+import "server-only";
+
+import { BLOG_CATEGORY_ORDER } from "@/config/blog-categories";
 import { blogPageIntroForRegion } from "@/config/blog-page";
-import { getBlogCategoryHref } from "@/lib/blog-category";
+import { getAllBlogPostMeta } from "@/lib/blog-mdx";
 import {
-  filterPostsByCategory,
   getCategoriesInRegion,
   isPostVisibleInRegion,
   postsForRegion,
   sortPostsByDate,
   toBlogListing,
 } from "@/lib/blog-internals";
-import type {
-  BlogArticleBreadcrumbStep,
-  BlogArticleBreadcrumbTrail,
-  BlogCategorySlug,
-  BlogPageContent,
-  BlogPost,
-  BlogPostListing,
-} from "@/types/blog";
+import type { BlogCategorySlug, BlogPageContent, BlogPost, BlogPostListing } from "@/types/blog";
 import type { RegionSlug } from "@/types/region";
 
 const toListing = toBlogListing;
@@ -28,33 +22,6 @@ function parseCategoryFilter(value: string | undefined): BlogCategorySlug | null
 
   const match = BLOG_CATEGORY_ORDER.find((category) => category === value);
   return match ?? null;
-}
-
-/** Short trail label so breadcrumbs do not repeat the full article H1. */
-function blogBreadcrumbArticleLabel(title: string, maxLength = 52): string {
-  if (title.length <= maxLength) {
-    return title;
-  }
-
-  return `${title.slice(0, maxLength - 1).trimEnd()}…`;
-}
-
-function getBlogArticleBreadcrumbTrail(post: BlogPost): BlogArticleBreadcrumbTrail {
-  const categoryLabel = BLOG_CATEGORY_LABELS[post.category];
-  const categoryPath = getBlogCategoryHref(post.category);
-  const articlePath = `/tattoo-blog/${post.slug}`;
-  const articleLabel = blogBreadcrumbArticleLabel(post.title);
-
-  const ancestors: readonly BlogArticleBreadcrumbStep[] = [
-    { label: "Home", path: "/" },
-    { label: "Blog", path: "/tattoo-blog" },
-    { label: categoryLabel, path: categoryPath },
-  ];
-
-  return {
-    navSteps: ancestors,
-    schemaSteps: [...ancestors, { label: articleLabel, path: articlePath }],
-  };
 }
 
 function getBlogPageContent(region: RegionSlug): BlogPageContent {
@@ -93,11 +60,11 @@ function getBlogPageContent(region: RegionSlug): BlogPageContent {
 }
 
 function getAllBlogSlugs(): string[] {
-  return blogCatalog.map((post) => post.slug);
+  return getAllBlogPostMeta().map((post) => post.slug);
 }
 
 function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return blogCatalog.find((post) => post.slug === slug);
+  return getAllBlogPostMeta().find((post) => post.slug === slug);
 }
 
 function getBlogPostsForRegion(region: RegionSlug): readonly BlogPost[] {
@@ -112,18 +79,8 @@ function getRelatedBlogPosts(post: BlogPost, region: RegionSlug, limit = 3): Blo
     .map(toListing);
 }
 
-function formatBlogPublishedDate(isoDate: string): string {
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  }).format(new Date(isoDate));
-}
-
 export {
-  formatBlogPublishedDate,
   getAllBlogSlugs,
-  getBlogArticleBreadcrumbTrail,
   getBlogPageContent,
   getBlogPostBySlug,
   getBlogPostsForRegion,
@@ -132,4 +89,5 @@ export {
   parseCategoryFilter,
 };
 
-export { getBlogCategoryHref } from "@/lib/blog-category";
+export { getBlogCategoryHref } from "@/lib/blog-category-paths";
+export { getBlogArticleBreadcrumbTrail } from "@/lib/blog-format";

@@ -5,6 +5,7 @@ import { TattooStyleDetailFaqSection } from "@/components/sections/tattoo-style-
 import { TattooStyleDetailHero } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-hero";
 import { TattooStyleDetailOverviewSection } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-overview-section";
 import { TattooStyleDetailProofSection } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-proof-section";
+import { TattooStyleDetailRelatedReadingSection } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-related-reading-section";
 import { TattooStyleDetailRelatedSection } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-related-section";
 import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
 
@@ -23,6 +24,7 @@ function TattooStyleDetailPage({
     <div className="min-w-0 bg-background">
       <TattooStyleDetailHero content={content} />
       <TattooStyleDetailOverviewSection content={content} />
+      <TattooStyleDetailRelatedReadingSection content={content} />
       <TattooStyleDetailBodySection content={content} />
       <TattooStyleApproachStatementSection content={content} />
       <TattooStyleDetailProofSection content={content} />

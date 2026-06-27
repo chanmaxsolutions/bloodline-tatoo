@@ -279,6 +279,54 @@ const tattooStyleDetailRegionalOverrides: Partial<
         "Bali is a uniquely demanding healing environment. Humidity, sun and ocean exposure all test how well a tattoo was built. Our healed documentation from Bali clients shows work that was planned and executed with that environment in mind from the start.",
         "If you are planning a tattoo in Bali and care how it looks six months later, the healed gallery is where we prove what our consultation process, pacing decisions and aftercare guidance actually deliver.",
       ],
+      relatedBlogLinks: [
+        {
+          label: "Tattoo in Bali — booking guide",
+          href: "/tattoo-blog/tattoo-in-bali-guide-for-australian-travellers",
+        },
+        {
+          label: "Tattoo prices in Bali",
+          href: "/tattoo-blog/tattoo-prices-in-bali-guide-for-australians",
+        },
+      ],
+    },
+    bangkok: {
+      metaDescription:
+        "Healed tattoo documentation from Bloodline Bangkok. Line integrity, tonal stability and craft that holds once skin has fully settled.",
+      lead: "Healed work from Bloodline Bangkok shows what actually lasts once the city climate has done its work. Line integrity, stable tone and contrast that still reads after full recovery.",
+      overview: [
+        "Bangkok's heat and humidity test how well a tattoo was built from the first week onward. Our healed documentation shows work planned and executed with that environment in mind from the start.",
+        "If you are planning a tattoo in Bangkok and care how it looks six months later, the healed gallery is where we prove what our consultation process, pacing decisions and aftercare guidance actually deliver.",
+      ],
+      relatedBlogLinks: [
+        {
+          label: "Is it safe to get a tattoo in Bangkok",
+          href: "/tattoo-blog/is-it-safe-to-get-a-tattoo-in-bangkok",
+        },
+        {
+          label: "Bangkok tattoo price guide",
+          href: "/tattoo-blog/tattoo-bangkok-price-guide-for-australians",
+        },
+      ],
+    },
+    phuket: {
+      metaDescription:
+        "Healed tattoo documentation from Bloodline Phuket. Line integrity, tonal stability and craft that holds once skin has fully settled.",
+      lead: "Healed work from Bloodline Phuket shows what actually lasts once island sun and salt air have done their work. Line integrity, stable tone and contrast that still reads after full recovery.",
+      overview: [
+        "Phuket's sun, humidity and resort pace test how well a tattoo was built from day one. Our healed documentation shows work planned and executed with that environment in mind from the start.",
+        "If you are planning a tattoo in Phuket and care how it looks six months later, the healed gallery is where we prove what our consultation process, pacing decisions and aftercare guidance actually deliver.",
+      ],
+      relatedBlogLinks: [
+        {
+          label: "Tattoo in Phuket — booking guide",
+          href: "/tattoo-blog/tattoo-in-phuket-thailand-guide-for-australians",
+        },
+        {
+          label: "Are tattoos safe in Phuket",
+          href: "/tattoo-blog/are-tattoos-safe-in-phuket-guide-for-travellers",
+        },
+      ],
     },
     global: {
       metaDescription:

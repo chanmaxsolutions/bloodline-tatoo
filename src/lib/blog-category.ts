@@ -1,9 +1,11 @@
-import { BLOG_CATEGORY_LABELS, BLOG_CATEGORY_ORDER } from "@/config/blog-catalog";
+import "server-only";
+
+import { BLOG_CATEGORY_LABELS } from "@/config/blog-categories";
 import {
   getBlogCategoryHubIntro,
   getBlogCategoryRelatedStyleLinks,
 } from "@/config/blog-category-hubs";
-import type { BlogArticleBreadcrumbStep } from "@/types/blog";
+import { getBlogCategoryPath } from "@/lib/blog-category-paths";
 import {
   filterPostsByCategory,
   getCategoriesInRegion,
@@ -11,20 +13,12 @@ import {
   sortPostsByDate,
   toBlogListing,
 } from "@/lib/blog-internals";
-import type { BlogCategoryPageContent, BlogCategorySlug } from "@/types/blog";
+import type {
+  BlogArticleBreadcrumbStep,
+  BlogCategoryPageContent,
+  BlogCategorySlug,
+} from "@/types/blog";
 import type { RegionSlug } from "@/types/region";
-
-function isBlogCategorySlug(value: string): value is BlogCategorySlug {
-  return (BLOG_CATEGORY_ORDER as readonly string[]).includes(value);
-}
-
-function getBlogCategoryPath(category: BlogCategorySlug): string {
-  return `/tattoo-blog/category/${category}`;
-}
-
-function getBlogCategoryHref(category: BlogCategorySlug | null): string {
-  return category ? getBlogCategoryPath(category) : "/tattoo-blog";
-}
 
 function getRegionalHubLinks(region: RegionSlug): readonly { label: string; href: string }[] {
   const links: { label: string; href: string }[] = [
@@ -78,10 +72,13 @@ function getBlogCategorySlugsForRegion(region: RegionSlug): readonly BlogCategor
 
 export {
   getBlogCategoryBreadcrumbSteps,
-  getBlogCategoryHref,
   getBlogCategoryPageContent,
-  getBlogCategoryPath,
   getBlogCategorySlugsForRegion,
   getRegionalHubLinks,
-  isBlogCategorySlug,
 };
+
+export {
+  getBlogCategoryHref,
+  getBlogCategoryPath,
+  isBlogCategorySlug,
+} from "@/lib/blog-category-paths";

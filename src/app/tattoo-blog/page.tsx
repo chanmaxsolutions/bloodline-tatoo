@@ -12,7 +12,7 @@ import { blogPageClosingForRegion } from "@/config/blog-page";
 import { pageClosingCtaBandBorderlessSectionClassName } from "@/lib/page-closing-cta-band";
 import { homepageClosingCtaBandClassName } from "@/lib/homepage-section-surfaces";
 import { cn } from "@/lib/utils";
-import { getBlogCategoryHref, isBlogCategorySlug } from "@/lib/blog-category";
+import { getBlogCategoryHref, isBlogCategorySlug } from "@/lib/blog-category-paths";
 import { getBlogPageContent, parseCategoryFilter } from "@/lib/blog";
 import { buildBlogIndexMetadata } from "@/lib/blog-seo";
 import {

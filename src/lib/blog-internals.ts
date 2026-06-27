@@ -1,8 +1,16 @@
-import { blogCatalog, BLOG_CATEGORY_ORDER } from "@/config/blog-catalog";
+import "server-only";
+
+import { getAllBlogPostMeta } from "@/lib/blog-mdx";
+import { BLOG_CATEGORY_ORDER } from "@/config/blog-categories";
 import type { BlogCategorySlug, BlogPost, BlogPostListing } from "@/types/blog";
 import type { RegionSlug } from "@/types/region";
 
 function isPostVisibleInRegion(post: BlogPost, region: RegionSlug): boolean {
+  // Global hub lists every published post; regional domains stay region-scoped.
+  if (region === "global") {
+    return true;
+  }
+
   return post.regions.includes(region);
 }
 
@@ -20,7 +28,7 @@ function toBlogListing(post: BlogPost): BlogPostListing {
 }
 
 function postsForRegion(region: RegionSlug): BlogPost[] {
-  return blogCatalog.filter((post) => isPostVisibleInRegion(post, region));
+  return getAllBlogPostMeta().filter((post) => isPostVisibleInRegion(post, region));
 }
 
 function sortPostsByDate(posts: BlogPost[]): BlogPost[] {

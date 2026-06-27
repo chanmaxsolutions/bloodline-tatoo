@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { BlogQuickAnswer } from "@/components/blog/blog-quick-answer";
@@ -6,11 +5,13 @@ import { BlogArticleActionPanelAside } from "@/components/sections/blog-article-
 import { BlogArticleFaqSection } from "@/components/sections/blog-article-faq-section";
 import { BlogArticleRelatedStylesSection } from "@/components/sections/blog-article-related-styles-section";
 import { BreadcrumbNav } from "@/components/shared/breadcrumb-nav";
-import { formatBlogPublishedDate, getBlogArticleBreadcrumbTrail } from "@/lib/blog";
+import { formatBlogPublishedDate, getBlogArticleBreadcrumbTrail } from "@/lib/blog-format";
 import { formatBlogReadingTime, toIso8601ReadingDuration } from "@/lib/blog-reading-time";
 import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
-import type { BlogArticleBodyBlock, ResolvedBlogPost } from "@/types/blog";
+import type { CompiledBlogPost } from "@/types/blog";
+import Image from "next/image";
+import type { ReactNode } from "react";
 
 /** Fluid clamp via `.text-heading-authority-display` — avoid `text-balance` on long SEO titles. */
 const blogArticleTitleClassName =
@@ -22,75 +23,13 @@ const blogArticleHeaderMetaClassName =
 
 const blogArticleHeaderMetaSeparatorClassName = "text-muted-foreground/25";
 
-const proseParagraphClassName =
-  "font-sans text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-snug";
-
-const proseHeadingClassName =
-  "font-heading text-2xl font-bold uppercase tracking-tight text-foreground md:text-3xl";
-
 const blogArticleFigureClassName =
   "relative aspect-16/10 w-full overflow-hidden rounded-xl bg-surface-elevated";
 
-const blogArticleCaptionClassName =
-  "font-sans text-sm italic leading-relaxed text-muted-foreground/55 md:text-base";
-
 interface BlogArticleSectionProps {
-  post: ResolvedBlogPost;
+  post: CompiledBlogPost;
   regionName: string;
   headerCtaLabel: string;
-}
-
-function renderBodyBlock(block: BlogArticleBodyBlock, index: number) {
-  const revealDelay = index % 2 === 0 ? "sm" : "md";
-
-  if (block.type === "image") {
-    return (
-      <figure
-        key={`image-${index}`}
-        className={sectionRevealItemClass(revealDelay, "flex flex-col gap-3")}
-      >
-        <div className={blogArticleFigureClassName}>
-          <Image
-            src={block.image.src}
-            alt={block.image.alt}
-            fill
-            sizes="(min-width: 1024px) 720px, 100vw"
-            quality={75}
-            className="object-cover object-center"
-          />
-        </div>
-        {block.caption ? (
-          <figcaption className={blogArticleCaptionClassName}>{block.caption}</figcaption>
-        ) : null}
-      </figure>
-    );
-  }
-
-  if (block.type === "heading") {
-    const Tag = block.level === 3 ? "h3" : "h2";
-    return (
-      <Tag
-        key={`heading-${index}`}
-        className={sectionRevealItemClass(
-          revealDelay,
-          block.level === 3
-            ? "font-heading text-xl font-bold uppercase tracking-tight text-foreground md:text-2xl"
-            : proseHeadingClassName,
-        )}
-      >
-        {block.text}
-      </Tag>
-    );
-  }
-
-  return (
-    <p
-      key={`paragraph-${index}`}
-      className={sectionRevealItemClass(revealDelay, proseParagraphClassName)}
-    >
-      {block.text}
-    </p>
-  );
 }
 
 function BlogArticleSection({ post, regionName, headerCtaLabel }: BlogArticleSectionProps) {
@@ -155,9 +94,7 @@ function BlogArticleSection({ post, regionName, headerCtaLabel }: BlogArticleSec
             </div>
           </figure>
 
-          <div className="flex flex-col gap-6 md:gap-8">
-            {post.body.map((block, index) => renderBodyBlock(block, index))}
-          </div>
+          <BlogMdxArticleBody content={post.content} />
 
           {post.relatedStyles && post.relatedStyles.length > 0 ? (
             <BlogArticleRelatedStylesSection
@@ -174,6 +111,14 @@ function BlogArticleSection({ post, regionName, headerCtaLabel }: BlogArticleSec
         </SectionReveal>
       </Container>
     </article>
+  );
+}
+
+function BlogMdxArticleBody({ content }: { content: ReactNode }) {
+  return (
+    <div className="flex flex-col gap-6 md:gap-8 [&_figure]:my-2 [&_h2:not(:first-child)]:mt-2 [&_h3:not(:first-child)]:mt-1">
+      {content}
+    </div>
   );
 }
 

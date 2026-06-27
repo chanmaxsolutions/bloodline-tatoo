@@ -1,4 +1,3 @@
-import { getBlogArticleSeoExtension } from "@/config/blog-article-seo-extensions";
 import type { BlogPost, ResolvedBlogPost } from "@/types/blog";
 
 const QUICK_ANSWER_MAX_WORDS = 80;
@@ -14,17 +13,12 @@ function deriveQuickAnswerFromDescription(description: string): string {
 }
 
 function resolveBlogPost(post: BlogPost): ResolvedBlogPost {
-  const extension = getBlogArticleSeoExtension(post.slug);
   const quickAnswer =
-    post.quickAnswer?.trim() ||
-    extension?.quickAnswer?.trim() ||
-    deriveQuickAnswerFromDescription(post.description);
-  const faq = post.faq ?? extension?.faq;
+    post.quickAnswer?.trim() || deriveQuickAnswerFromDescription(post.description);
 
   return {
     ...post,
     quickAnswer,
-    faq,
   };
 }
 

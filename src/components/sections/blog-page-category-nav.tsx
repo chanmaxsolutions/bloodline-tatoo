@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { BLOG_CATEGORY_LABELS } from "@/config/blog-catalog";
-import { getBlogCategoryHref } from "@/lib/blog-category";
+import { BLOG_CATEGORY_LABELS } from "@/config/blog-categories";
+import { getBlogCategoryHref } from "@/lib/blog-category-paths";
 import { cn } from "@/lib/utils";
 import type { BlogCategorySlug } from "@/types/blog";
 

@@ -77,6 +77,7 @@ function resolveTattooStyleDetailPage(
     proofImages,
     proofPortfolioHref: getPortfolioHrefForTattooStyle(slug),
     relatedSlugs: relatedStyleSlugsForRegion(slug, region),
+    relatedBlogLinks: detail.relatedBlogLinks ?? [],
     faqItems: tattooStyleFaqBySlug[slug],
   };
 }

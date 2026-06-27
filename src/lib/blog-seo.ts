@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import type { BlogCategoryHubIntro, BlogCategorySlug, BlogPageIntro, BlogPost } from "@/types/blog";
 import type { RegionConfig } from "@/types";
 import { pageIntroBackgroundFor } from "@/config/page-intro-band";
-import { BLOG_CATEGORY_LABELS } from "@/config/blog-catalog";
-import { getBlogCategoryPath } from "@/lib/blog-category";
+import { BLOG_CATEGORY_LABELS } from "@/config/blog-categories";
+import { getBlogCategoryPath } from "@/lib/blog-category-paths";
 import { toIso8601ReadingDuration } from "@/lib/blog-reading-time";
 import { absoluteRegionalUrl } from "@/lib/schema";
 import type { RegionSlug } from "@/types/region";
@@ -109,8 +109,13 @@ function buildBlogIndexMetadata(region: RegionSlug, regionConfig: RegionConfig):
   };
 }
 
+function getBlogArticleMetadataTitle(post: BlogPost, region: RegionConfig): string {
+  const headline = post.metaTitle?.trim() || post.title;
+  return `${headline} | ${region.seo.siteName}`;
+}
+
 function buildBlogArticleMetadata(post: BlogPost, region: RegionConfig): Metadata {
-  const title = `${post.title} | ${region.seo.siteName}`;
+  const title = getBlogArticleMetadataTitle(post, region);
   const description = truncateMetaDescription(post.description);
   const canonicalPath = `/tattoo-blog/${post.slug}`;
   const canonical = absoluteRegionalUrl(region, canonicalPath);
