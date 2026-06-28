@@ -13,6 +13,15 @@ function aboutIntroForRegion(region: RegionSlug, regionName: string): AboutPageI
     };
   }
 
+  if (region === "bali") {
+    return {
+      eyebrow: "Inside the studio",
+      heading: "THE BLOODLINE STANDARD",
+      description:
+        "Bloodline Tattoo Bali runs on a family feel and an organised floor. Consultation first, dedicated staff throughout and every session executed with the care that permanent work deserves.",
+    };
+  }
+
   return {
     eyebrow: "Inside the studio",
     heading: `PREMIUM TATTOO STUDIO IN ${regionName.toUpperCase()}`,
@@ -24,6 +33,10 @@ function aboutTrustStatsForRegion(
   region: RegionSlug,
   curatedReviewCount: number,
 ): readonly AboutPageTrustStat[] {
+  if (region === "bali") {
+    return [];
+  }
+
   if (region === "global") {
     return [
       { label: "Studios across Asia", value: "3" },
@@ -52,9 +65,10 @@ function aboutStoryParagraphsForRegion(region: RegionSlug, regionName: string): 
 
   if (region === "bali") {
     return [
-      `${studio} sits in one of the world's most visited creative destinations and holds the same disciplined floor as the wider house. Structured consultation, measured execution and sterile practice on every session.`,
-      "Bali attracts people on longer stays, which means more time to consult properly, heal well and return for follow-up work. We work with that rhythm, not against it.",
-      "Whether you are a digital nomad, a long-stay traveller or a visitor with a few days, we align on scope and timing first, then execute with care in the room.",
+      "Step inside Bloodline Bali and you'll feel it immediately, this isn't like other studios. The space is generous, the energy is calm and every detail has been considered. We believe the environment you work in sets the standard you work to. Build something beautiful, and the people inside it rise to meet it.",
+      "Three floors of space for every artist and a dedicated support team whose only focus is making sure you're looked after from the moment you arrive. Whether that's walking you through the process, keeping you comfortable during a long session or making sure every little detail is taken care of, it's all handled, so you can just be present for the experience.",
+      "When serious artists work alongside each other in a space built for the craft, something special happens. The energy is collaborative, the standard is shared and every person in the room is there because they genuinely love what they do.",
+      "A place that looks the part, feels like home and produces work that speaks for itself.",
     ];
   }
 
@@ -86,6 +100,15 @@ function aboutVideoForRegion(region: RegionSlug, regionName: string): AboutPageV
       heading: "THE STORY BEHIND THE STUDIO HOUSE",
       description:
         "Watch how Bloodline formed across Bangkok, Bali and Phuket. Consultation first, sterile discipline and work built to hold on skin for life.",
+    };
+  }
+
+  if (region === "bali") {
+    return {
+      ...base,
+      eyebrow: "Studio story",
+      heading: "THE STORY BEHIND THE STUDIO",
+      description: `The same philosophy behind every Bloodline studio. See how the house was built and why the standard stays the same from city to city.`,
     };
   }
 

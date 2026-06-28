@@ -21,7 +21,7 @@ function AboutPageStorySection({ storyParagraphs }: AboutPageStorySectionProps) 
       aria-label="Studio philosophy"
       className={cn(
         "relative overflow-hidden bg-surface text-foreground",
-        "pb-(--homepage-section-band-padding-y-mobile) lg:pb-(--homepage-section-band-padding-y-desktop)",
+        "py-(--homepage-section-band-padding-y-mobile) lg:py-(--homepage-section-band-padding-y-desktop)",
       )}
     >
       <Container size="wide" className="relative">
@@ -29,7 +29,7 @@ function AboutPageStorySection({ storyParagraphs }: AboutPageStorySectionProps) 
           <div
             className={sectionRevealItemClass(
               "lg",
-              "mx-auto flex w-full max-w-2xl flex-col gap-4 pt-10 text-center md:gap-5 md:pt-12",
+              "mx-auto flex w-full max-w-2xl flex-col gap-4 text-center md:gap-5",
             )}
           >
             {storyParagraphs.map((paragraph, index) => (

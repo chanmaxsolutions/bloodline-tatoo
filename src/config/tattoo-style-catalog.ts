@@ -107,6 +107,26 @@ function getTattooStyleBySlug(slug: TattooStyleSlug): TattooStyleCatalogEntry {
   return tattooStyleCatalog[slug];
 }
 
+/** Bali card copy overrides — used on related style links and homepage tiles. */
+const tattooStyleShortDescriptionByRegion: Partial<
+  Record<RegionSlug, Partial<Record<TattooStyleSlug, string>>>
+> = {
+  bali: {
+    portrait:
+      "The most personal style in tattooing. Faces, figures and likenesses captured with the detail they deserve.",
+    japanese: "Bold, timeless and built to age beautifully. Japanese tattooing at its finest.",
+    colour:
+      "Vivid, saturated and built to hold. Colour work that turns heads for all the right reasons.",
+  },
+};
+
+function tattooStyleShortDescriptionForRegion(slug: TattooStyleSlug, region: RegionSlug): string {
+  return (
+    tattooStyleShortDescriptionByRegion[region]?.[slug] ??
+    getTattooStyleBySlug(slug).shortDescription
+  );
+}
+
 function resolveHomepageTattooStyleTiles(
   slugs: readonly TattooStyleSlug[],
   region: RegionSlug,
@@ -118,7 +138,7 @@ function resolveHomepageTattooStyleTiles(
     return {
       slug: entry.slug,
       title: entry.title,
-      shortDescription: entry.shortDescription,
+      shortDescription: tattooStyleShortDescriptionForRegion(slug, region),
       imageSrc: card.src,
       imageAlt: card.alt,
       href: `/tattoo-styles/${entry.slug}`,
@@ -130,6 +150,7 @@ export {
   getTattooStyleBySlug,
   isTattooStyleSlug,
   resolveHomepageTattooStyleTiles,
+  tattooStyleShortDescriptionForRegion,
   TATTOO_STYLE_SLUGS,
   tattooStyleCatalog,
 };

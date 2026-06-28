@@ -1,6 +1,7 @@
 export type HomepageAuthorityProofOverlay = "accent" | "light";
 
-export interface HomepageAuthorityProofPanel {
+export interface HomepageAuthorityProofImagePanel {
+  kind: "image";
   src: string;
   alt: string;
   tag: string;
@@ -8,6 +9,17 @@ export interface HomepageAuthorityProofPanel {
   line: string;
   overlay: HomepageAuthorityProofOverlay;
 }
+
+export interface HomepageAuthorityProofVideoPanel {
+  kind: "video";
+  videoSrc: string;
+  posterSrc: string;
+  alt: string;
+}
+
+export type HomepageAuthorityProofPanel =
+  | HomepageAuthorityProofImagePanel
+  | HomepageAuthorityProofVideoPanel;
 
 export interface RegionHomepageAuthorityConfig {
   eyebrow: string;
@@ -19,6 +31,6 @@ export interface RegionHomepageAuthorityConfig {
   description: string;
   ctaLabel: string;
   ctaHref: string;
-  /** Two proof images (30% + 30%) with a single tactical tag each. */
+  /** Two proof panels (30% + 30%) — image cards with captions, or video-only for Bali. */
   proofPanels: readonly [HomepageAuthorityProofPanel, HomepageAuthorityProofPanel];
 }

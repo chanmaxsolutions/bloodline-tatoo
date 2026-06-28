@@ -11,9 +11,9 @@ export const baliRegionConfig: RegionConfig = {
   slug: "bali",
   domain: "bloodlinetattoobali.com",
   regionName: "Bali",
-  heroHeading: "BALI'S PREMIER APPOINTMENT-ONLY TATTOO STUDIO",
+  heroHeading: "BALI'S MOST SOUGHT-AFTER TATTOO STUDIO",
   heroDescription:
-    "Bali's appointment-only studio for considered custom work. Calm rooms, careful consultation and the time to do the work properly.",
+    "Appointment-only. Custom work built around you. Your idea, the right artist, the time to do it justice.",
   googleBusinessProfileUrl:
     "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bali",
   branding: {

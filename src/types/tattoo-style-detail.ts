@@ -33,6 +33,8 @@ export interface TattooStyleDetailContent {
   philosophyBullets: ApproachPointerTriplet;
   idealForBullets: ApproachPointerTriplet;
   sessionBullets: ApproachPointerTriplet;
+  /** Optional column titles for the approach spec strip (defaults to Philosophy / Ideal for / Session structure). */
+  approachColumnLabels?: readonly [string, string, string];
   /** Page header cover; defaults to `/images/tattoo-styles/{slug}/hero.webp`. */
   heroImage?: TattooStyleDetailProofImage;
   /** Approach statement background; defaults to `/images/tattoo-styles/{slug}/approach.webp`. */
@@ -49,6 +51,11 @@ export interface TattooStyleDetailContent {
   proofImages?: readonly TattooStyleDetailProofImage[];
   /** Regional blog articles linked from style detail pages (e.g. healed standards hub). */
   relatedBlogLinks?: readonly BlogPostRelatedLink[];
+  relatedStylesHeading?: string;
+  relatedStylesDescription?: string;
+  faqSectionDescription?: string;
+  /** Optional regional FAQ overrides; falls back to global `tattooStyleFaqBySlug`. */
+  faqItems?: readonly TattooStyleFaqItem[];
 }
 
 export interface ResolvedTattooStyleDetailPage {
@@ -65,6 +72,8 @@ export interface ResolvedTattooStyleDetailPage {
   philosophyBullets: ApproachPointerTriplet;
   idealForBullets: ApproachPointerTriplet;
   sessionBullets: ApproachPointerTriplet;
+  /** Optional column titles for the approach spec strip (defaults to Philosophy / Ideal for / Session structure). */
+  approachColumnLabels?: readonly [string, string, string];
   approachImageSrc: string;
   approachImageAlt: string;
   proofEyebrow: string;
@@ -74,5 +83,8 @@ export interface ResolvedTattooStyleDetailPage {
   proofPortfolioHref: string;
   relatedSlugs: readonly TattooStyleSlug[];
   relatedBlogLinks: readonly BlogPostRelatedLink[];
+  relatedStylesHeading?: string;
+  relatedStylesDescription?: string;
+  faqSectionDescription?: string;
   faqItems: readonly TattooStyleFaqItem[];
 }

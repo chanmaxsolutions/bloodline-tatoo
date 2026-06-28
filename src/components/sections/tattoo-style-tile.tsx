@@ -6,9 +6,10 @@ import type { TattooStyleHomepageTile } from "@/types/tattoo-style";
 
 interface TattooStyleTileProps {
   tile: TattooStyleHomepageTile;
+  showDescription?: boolean;
 }
 
-function TattooStyleTile({ tile }: TattooStyleTileProps) {
+function TattooStyleTile({ tile, showDescription = true }: TattooStyleTileProps) {
   return (
     <Link
       href={tile.href}
@@ -37,9 +38,11 @@ function TattooStyleTile({ tile }: TattooStyleTileProps) {
         <p className="font-heading text-2xl font-bold uppercase leading-none tracking-tight text-foreground md:text-3xl">
           {tile.title}
         </p>
-        <p className="line-clamp-2 font-sans text-base leading-relaxed text-muted-foreground">
-          {tile.shortDescription}
-        </p>
+        {showDescription ? (
+          <p className="line-clamp-2 font-sans text-base leading-relaxed text-muted-foreground">
+            {tile.shortDescription}
+          </p>
+        ) : null}
       </div>
     </Link>
   );

@@ -75,28 +75,30 @@ function AboutPageIntroSection({
             descriptionClassName={sectionRevealItemClass("md", aboutHeroDescriptionClassName)}
           />
 
-          <ul
-            aria-label="Studio trust metrics"
-            className={cn(
-              "mx-auto grid w-full max-w-5xl divide-y divide-border/45",
-              "sm:grid-cols-3 sm:divide-x sm:divide-y-0",
-            )}
-          >
-            {trustStats.map((stat, index) => (
-              <li
-                key={stat.label}
-                className={sectionRevealStaggerClass(
-                  index,
-                  "flex flex-col items-center justify-center gap-1 px-4 py-5 text-center sm:py-6",
-                )}
-              >
-                <p className={statValueClassName} aria-hidden>
-                  {stat.value}
-                </p>
-                <p className={statLabelClassName}>{stat.label}</p>
-              </li>
-            ))}
-          </ul>
+          {trustStats.length > 0 ? (
+            <ul
+              aria-label="Studio trust metrics"
+              className={cn(
+                "mx-auto grid w-full max-w-5xl divide-y divide-border/45",
+                "sm:grid-cols-3 sm:divide-x sm:divide-y-0",
+              )}
+            >
+              {trustStats.map((stat, index) => (
+                <li
+                  key={stat.label}
+                  className={sectionRevealStaggerClass(
+                    index,
+                    "flex flex-col items-center justify-center gap-1 px-4 py-5 text-center sm:py-6",
+                  )}
+                >
+                  <p className={statValueClassName} aria-hidden>
+                    {stat.value}
+                  </p>
+                  <p className={statLabelClassName}>{stat.label}</p>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </SectionReveal>
       </Container>
     </section>

@@ -43,7 +43,7 @@ export default async function TattooBlogPage({ searchParams }: TattooBlogPagePro
   const content = getBlogPageContent(region);
   const closing = blogPageClosingForRegion(region, regionConfig.regionName);
 
-  const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc();
+  const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc(region);
   const hasAnyPosts = content.featuredPosts.length > 0 || content.gridPosts.length > 0;
   const showFeaturedBand = content.featuredPosts.length > 0;
   const allListings = [...content.featuredPosts, ...content.gridPosts];

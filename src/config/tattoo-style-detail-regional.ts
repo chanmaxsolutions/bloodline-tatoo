@@ -19,10 +19,67 @@ const tattooStyleDetailRegionalOverrides: Partial<
     bali: {
       metaDescription:
         "Realistic tattoos in Bali at Bloodline. Portrait depth, tonal control and careful consultation for longer-stay visitors and travellers. Appointment only.",
-      lead: "Realism at Bloodline Bali is built around the time you have on the island. Proper consultation, skin-aware pacing and work planned to heal well in a tropical climate.",
+      lead: "Realism is one of the most versatile styles in tattooing and at Bloodline Tattoo Bali, we have a team of specialists built to cover every corner of it. Whatever you want brought to life, we have the artist for it.",
       overview: [
-        "Bali attracts clients who are here for longer than a weekend. That time works in your favour when it comes to realism. We can consult properly, pace the session without rushing and give your skin the recovery time it needs before you move on.",
-        "Whether you are a digital nomad with a flexible schedule or a traveller with two weeks on the island, we plan realistic work around your stay so you leave with something built to last.",
+        "Realism covers more ground than most people realise. Animals, portraits, mythology, architecture, the spiritual, the cinematic — any image you've ever wanted permanently on your skin, realism is how you make it breathe.",
+        "At Bloodline Tattoo Bali, we have a roster of artists who have dedicated themselves to this style, each with their own speciality, their own strengths and their own body of work that proves it. People fly in from around the world for pieces like this. Large scale, deeply detailed, built to last. The kind of work that stops people in the street.",
+      ],
+      approachColumnLabels: ["Our Approach", "Ideal for", "Session structure"],
+      philosophyBullets: [
+        "Every piece is planned around your reference, your placement and how it'll sit on your body",
+        "Light, depth and tone are all considered before we touch the skin",
+        "Every pass is made with the long term result in mind — not just how it looks on the day",
+      ],
+      idealForBullets: [
+        "Any image, scene or subject you want brought to life on skin",
+        "Pieces that demand depth, dimension and fine detail",
+        "Large scale pieces where placement and flow across the body matters",
+      ],
+      sessionBullets: [
+        "Consultation to understand your vision and present a design that's uniquely yours — approved before anything begins",
+        "Stencil applied, design confirmed on the body, then we get to work — with dedicated staff looking after you throughout every session",
+        "Leave with full aftercare guidance and ongoing support through the healing process",
+      ],
+      approachHeadline: "WHY REALISM",
+      approachIntro:
+        "There's a reason realism is one of the most sought-after styles in tattooing. It's personal. It's the closest you can get to wearing something that truly means something — a person, a place, a moment, an image that lives with you permanently. No abstraction, no interpretation. Just the real thing, on your skin, executed at the highest level. Browse the portfolio and see what our artists are capable of.",
+      proofDescription: "The work speaks for itself. Browse our recent realism pieces below.",
+      relatedStylesHeading: "EXPLORE OTHER STYLES",
+      relatedStylesDescription:
+        "Not sure realism is the one? Browse our other styles and find what speaks to you.",
+      faqSectionDescription:
+        "Straight answers to the questions we get asked most — so you're ready before you reach out.",
+      faqItems: [
+        {
+          id: "realism-healing-sessions",
+          question: "How many sessions does realistic work usually need?",
+          answer:
+            "It depends entirely on the size and detail of your piece. Smaller work can often be completed in a single session, while larger, more intricate pieces will require multiple sittings. Whatever the scope, we work at a pace that puts the quality of the result first — never rushed, always done properly. Reach out and we'll give you a clear picture of what your idea will take.",
+        },
+        {
+          id: "realism-references",
+          question: "What references should I bring for a realism tattoo?",
+          answer:
+            "High resolution photos with clear light and shadow work best — avoid heavily filtered or blurred images. Your references are a starting point, not a final brief. During consultation we'll review everything together, offer suggestions and rebuild the concept into something that actually works on skin. If you've been inspired by AI generated designs, bring them in but understand that these are often built around impossible details and don't translate directly to a tattoo. We'll use them as a guide and create something real from the idea behind them.",
+        },
+        {
+          id: "realism-longevity",
+          question: "Will fine detail in realism hold after healing?",
+          answer:
+            "Yes, when it's planned properly. We build every piece with long term readability in mind — not just how it looks fresh. Very small placements with dense micro-detail can soften over time, and we'll be upfront about that during consultation so you go in with the right expectations for your size and placement.",
+        },
+        {
+          id: "realism-placement",
+          question: "Which placements work best for black and grey realism?",
+          answer:
+            "The whole body works well for realism, and we've tattooed all of it. The key is understanding how to use each surface properly. On the arms and legs, we keep the main subjects centered on the flat faces of the limbs, where they're most visible and age the best. For larger pieces, we'll run the design from top to bottom with intention — no fillers, no clutter, just the work flowing through the placement naturally. For full backs, chests and stomachs, you've got a generous flat canvas. We'll always work with you to plan something that makes the most of the space, whether that's one bold centerpiece or a considered composition that fills the surface. Our job is to make sure whatever you choose reads beautifully and holds its impact over time. Most clients come to us for full pieces — full arms, full legs, full backs. We'll always plan the placement so that wherever you are and whatever angle someone sees it from, it looks exactly as it should.",
+        },
+        {
+          id: "realism-booking",
+          question: "How do I book a realism consultation?",
+          answer:
+            "Send us a message via whichever platform works best for you, whether that's WhatsApp, Instagram or Facebook. Our team will get back to you promptly, answer any questions you have and get you lined up with the right artist for your piece. From there we'll take care of everything.",
+        },
       ],
     },
     phuket: {

@@ -56,3 +56,14 @@ export function homepageHeroVideoSrc(region: RegionSlug): string {
   const version = homepageHeroVideoVersionByRegion[region];
   return version ? `${path}?v=${version}` : path;
 }
+
+const baliHomepageAuthorityVideoRoot = "/videos/homepage/bali" as const;
+const baliHomepageAuthorityVideoVersion = "20250628" as const;
+
+export type BaliHomepageAuthorityVideoSlot = "craft" | "studio";
+
+/** Bali homepage authority card clips (craft + studio columns). */
+export function baliHomepageAuthorityVideoSrc(slot: BaliHomepageAuthorityVideoSlot): string {
+  const file = slot === "craft" ? "authority-craft.mp4" : "authority-studio.mp4";
+  return `${baliHomepageAuthorityVideoRoot}/${file}?v=${baliHomepageAuthorityVideoVersion}`;
+}

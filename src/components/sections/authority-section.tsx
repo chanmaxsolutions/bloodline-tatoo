@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
+import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
 import { homepageGhostCtaClassName } from "@/lib/homepage-ghost-cta";
 import { homepageAuthorityBandClassName } from "@/lib/homepage-section-surfaces";
 import { sectionDisplayHeadingPresetClassName } from "@/lib/section-display-heading";
@@ -9,8 +10,10 @@ import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section
 import { splitDescriptionEmphasis } from "@/lib/split-description-emphasis";
 import { cn } from "@/lib/utils";
 import type {
+  HomepageAuthorityProofImagePanel,
   HomepageAuthorityProofOverlay,
   HomepageAuthorityProofPanel,
+  HomepageAuthorityProofVideoPanel,
   RegionHomepageAuthorityConfig,
 } from "@/types/homepage-authority";
 
@@ -73,12 +76,16 @@ function splitAuthorityDescription(description: string): string[] {
     .filter(Boolean);
 }
 
-interface AuthorityProofPanelProps {
-  panel: HomepageAuthorityProofPanel;
+function authorityProofPanelKey(panel: HomepageAuthorityProofPanel): string {
+  return panel.kind === "video" ? panel.videoSrc : panel.src;
+}
+
+interface AuthorityProofImagePanelProps {
+  panel: HomepageAuthorityProofImagePanel;
   staggerIndex: number;
 }
 
-function AuthorityProofPanel({ panel, staggerIndex }: AuthorityProofPanelProps) {
+function AuthorityProofImagePanel({ panel, staggerIndex }: AuthorityProofImagePanelProps) {
   return (
     <div className={sectionRevealStaggerClass(staggerIndex, "min-w-0")}>
       <figure className={authorityProofPanelClassName}>
@@ -98,6 +105,41 @@ function AuthorityProofPanel({ panel, staggerIndex }: AuthorityProofPanelProps) 
       </figure>
     </div>
   );
+}
+
+interface AuthorityProofVideoPanelProps {
+  panel: HomepageAuthorityProofVideoPanel;
+  staggerIndex: number;
+}
+
+function AuthorityProofVideoPanel({ panel, staggerIndex }: AuthorityProofVideoPanelProps) {
+  return (
+    <div className={sectionRevealStaggerClass(staggerIndex, "min-w-0")}>
+      <figure className={authorityProofPanelClassName}>
+        <HeroBackgroundVideo
+          key={panel.videoSrc}
+          src={panel.videoSrc}
+          poster={panel.posterSrc}
+          stillSrc={panel.posterSrc}
+          stillAlt={panel.alt}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+      </figure>
+    </div>
+  );
+}
+
+interface AuthorityProofPanelProps {
+  panel: HomepageAuthorityProofPanel;
+  staggerIndex: number;
+}
+
+function AuthorityProofPanel({ panel, staggerIndex }: AuthorityProofPanelProps) {
+  if (panel.kind === "video") {
+    return <AuthorityProofVideoPanel panel={panel} staggerIndex={staggerIndex} />;
+  }
+
+  return <AuthorityProofImagePanel panel={panel} staggerIndex={staggerIndex} />;
 }
 
 function AuthoritySectionCta({ href, label }: { href: string; label: string }) {
@@ -149,7 +191,11 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
           </div>
 
           {content.proofPanels.map((panel, index) => (
-            <AuthorityProofPanel key={panel.src} panel={panel} staggerIndex={index + 1} />
+            <AuthorityProofPanel
+              key={authorityProofPanelKey(panel)}
+              panel={panel}
+              staggerIndex={index + 1}
+            />
           ))}
 
           <div className={sectionRevealItemClass("none", authorityMobileCtaRowClassName)}>

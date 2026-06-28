@@ -50,16 +50,35 @@ function homepageStandardsSplitForRegion(
     };
   }
 
+  const standardsSplitIntroByRegion: Record<Exclude<RegionSlug, "global">, string> = {
+    bangkok:
+      "How Bangkok sessions are run. Structured consultation, measured pacing and craft discipline that does not follow trends.",
+    bali: "How we run things in Bali. From first consultation to final result. Organised, personal and held to a standard we don't compromise on.",
+    phuket:
+      "How Phuket sessions are run. Structured consultation, measured pacing and craft discipline that does not follow trends.",
+  };
+
+  const standardsSplitCustomExecutionBulletByRegion: Record<
+    Exclude<RegionSlug, "global">,
+    string
+  > = {
+    bangkok:
+      "Custom work is built with intent. Stencil discipline, tonal control and careful pacing keep the process steady while the piece comes together.",
+    bali: "Every piece starts with a conversation. Designed from the ground up, consulted, crafted and executed with intent.",
+    phuket:
+      "Custom work is built with intent. Stencil discipline, tonal control and careful pacing keep the process steady while the piece comes together.",
+  };
+
   return {
     bandSurface: "elevated",
     eyebrow: "Studio standard",
     heading: "PREMIUM WORK. DISCIPLINED ROOM.",
-    intro: `How ${regionName} sessions are run. Structured consultation, measured pacing and craft discipline that does not follow trends.`,
+    intro: standardsSplitIntroByRegion[slug],
     pointerLabels: ["Room baseline", "Custom execution", "House gravity"],
     pointerIcons: ["shield-check", "pen-tool", "building-2"],
     bullets: [
       `${studio} runs on a clear baseline. Structured consultation, sterile practice and execution held with genuine discipline, not hype.`,
-      "Custom work is built with intent. Stencil discipline, tonal control and careful pacing keep the process steady while the piece comes together.",
+      standardsSplitCustomExecutionBulletByRegion[slug],
       "The standard you feel here is the same across every Bloodline studio. Only the city changes.",
     ],
     cta: { label: "About the studio", href: "/about" },
@@ -99,28 +118,62 @@ function homepageSessionPathSplitForRegion(
     };
   }
 
+  const sessionPathHeadingByRegion: Record<Exclude<RegionSlug, "global">, string> = {
+    bangkok: "CONSULT TO HEALED WORK",
+    bali: "THE FULL JOURNEY",
+    phuket: "CONSULT TO HEALED WORK",
+  };
+
   const sessionPathIntroByRegion: Record<Exclude<RegionSlug, "global">, string> = {
     bangkok:
       "Consultation, agreed scope, then execution in the chair. Each stage is clear before you commit. Placement, pacing and recovery are all set before session day.",
-    bali: "Consult first, agree on placement and pacing, then measured work in the room. The process stays clear from first message through to full healing.",
+    bali: "Every Bloodline booking starts with a conversation. Tell us what you've always wanted and we'll take it from there. Everything sorted before you set foot in the studio.",
     phuket:
       "Consultation, scope and session day run in clear sequence. No surprises once you are in the chair. Everything is agreed before the session begins.",
   };
+
+  const sessionPathCtaByRegion: Record<
+    Exclude<RegionSlug, "global">,
+    { label: string; href: string }
+  > = {
+    bangkok: { label: "Book consultation", href: "/contact" },
+    bali: { label: "Book a session", href: "/contact" },
+    phuket: { label: "Book consultation", href: "/contact" },
+  };
+
+  const sessionPathPointerLabels =
+    slug === "bali"
+      ? (["Everything Agreed First", "Consultation Day", "Session day"] as const)
+      : (["Consult first", "Scope locked", "Session day"] as const);
+
+  const sessionPathPointerIcons =
+    slug === "bali"
+      ? (["clipboard-list", "message-square", "shield-check"] as const)
+      : (["message-square", "clipboard-list", "shield-check"] as const);
+
+  const sessionPathBullets =
+    slug === "bali"
+      ? ([
+          "Placement, session count and everything in between. All locked in before you're asked to commit. No surprises, no pressure.",
+          "This is where it all comes together. Meet your artist, go over everything you've shared and lock in the blueprint for the piece you're about to wear.",
+          "The day you've been waiting for. Our team is with you every step of the way. Dedicated staff, a comfortable environment and everything in place to make sure your experience is as seamless as the work going on your skin.",
+        ] as const)
+      : ([
+          `${studio} runs consult first. Scope, timing and sterile prep are all agreed before the session is committed.`,
+          "You know placement, session length and recovery expectations before anything is staged. No vague deposit games.",
+          "Session day is calm. Disciplined field habits, controlled pacing and a close-out brief that protects the line weight and tone of your work.",
+        ] as const);
 
   return {
     mediaSide: "start",
     proofVariants: ["dark", "light", "accent"],
     eyebrow: "SESSION PATH",
-    heading: "CONSULT TO HEALED WORK",
+    heading: sessionPathHeadingByRegion[slug],
     intro: sessionPathIntroByRegion[slug],
-    pointerLabels: ["Consult first", "Scope locked", "Session day"],
-    pointerIcons: ["message-square", "clipboard-list", "shield-check"],
-    bullets: [
-      `${studio} runs consult first. Scope, timing and sterile prep are all agreed before the session is committed.`,
-      "You know placement, session length and recovery expectations before anything is staged. No vague deposit games.",
-      "Session day is calm. Disciplined field habits, controlled pacing and a close-out brief that protects the line weight and tone of your work.",
-    ],
-    cta: { label: "Book consultation", href: "/contact" },
+    pointerLabels: [...sessionPathPointerLabels],
+    pointerIcons: [...sessionPathPointerIcons],
+    bullets: [...sessionPathBullets],
+    cta: sessionPathCtaByRegion[slug],
     media: {
       src: homepageMediaPaths.sessionPath(slug),
       alt: sessionPathAltByRegion[slug],

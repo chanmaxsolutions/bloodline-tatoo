@@ -39,7 +39,7 @@ function TattooStyleDetailFaqSection({ content }: TattooStyleDetailFaqSectionPro
             align="center"
             eyebrow="Before you book"
             heading="COMMON QUESTIONS"
-            description={faqSectionDescription(content.title)}
+            description={content.faqSectionDescription ?? faqSectionDescription(content.title)}
             headingId="tattoo-style-faq-heading"
             titleClassName={sectionRevealItemClass("none", faqTitleClassName)}
             descriptionClassName={sectionRevealItemClass("sm", faqDescriptionClassName)}

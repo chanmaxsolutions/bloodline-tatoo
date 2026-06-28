@@ -54,7 +54,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
   const { region, regionConfig } = await getRequestRegionContext();
   const content = await getGalleryPageContent(region, regionConfig.regionName, categoryParam);
   const closing = galleryPageClosingForRegion(region, regionConfig.regionName);
-  const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc();
+  const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc(region);
 
   return (
     <div className="min-w-0 bg-background">

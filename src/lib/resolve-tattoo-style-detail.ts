@@ -69,6 +69,7 @@ function resolveTattooStyleDetailPage(
     philosophyBullets: detail.philosophyBullets,
     idealForBullets: detail.idealForBullets,
     sessionBullets: detail.sessionBullets,
+    approachColumnLabels: detail.approachColumnLabels,
     approachImageSrc: approachImage.src,
     approachImageAlt: approachImage.alt,
     proofEyebrow: detail.proofEyebrow,
@@ -78,7 +79,10 @@ function resolveTattooStyleDetailPage(
     proofPortfolioHref: getPortfolioHrefForTattooStyle(slug),
     relatedSlugs: relatedStyleSlugsForRegion(slug, region),
     relatedBlogLinks: detail.relatedBlogLinks ?? [],
-    faqItems: tattooStyleFaqBySlug[slug],
+    relatedStylesHeading: detail.relatedStylesHeading,
+    relatedStylesDescription: detail.relatedStylesDescription,
+    faqSectionDescription: detail.faqSectionDescription,
+    faqItems: detail.faqItems ?? tattooStyleFaqBySlug[slug],
   };
 }
 

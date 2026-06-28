@@ -1,4 +1,4 @@
-import { homepageMediaPaths } from "@/config/homepage-media";
+import { baliHomepageAuthorityVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
 import type { RegionHomepageAuthorityConfig } from "@/types/homepage-authority";
 import type { RegionSlug } from "@/types/region";
 
@@ -43,7 +43,7 @@ const authorityBySlug: Record<RegionSlug, Omit<RegionHomepageAuthorityConfig, "p
   },
   bali: {
     eyebrow: "CRAFT DISCIPLINE",
-    heading: "THE BALI STUDIO STANDARD",
+    heading: "THE BLOODLINE STANDARD",
     description:
       "Bloodline Bali runs on clear consultation, sterile habits and careful execution. We work with the understanding that what goes on your skin stays there for life.",
     ...authorityCta,
@@ -106,10 +106,28 @@ const authorityPanelCopyByRegion: Record<
 function authorityProofPanelsForRegion(
   slug: RegionSlug,
 ): RegionHomepageAuthorityConfig["proofPanels"] {
+  if (slug === "bali") {
+    return [
+      {
+        kind: "video",
+        videoSrc: baliHomepageAuthorityVideoSrc("craft"),
+        posterSrc: homepageMediaPaths.authorityCraft(slug),
+        alt: authorityCraftAltByRegion[slug],
+      },
+      {
+        kind: "video",
+        videoSrc: baliHomepageAuthorityVideoSrc("studio"),
+        posterSrc: homepageMediaPaths.authorityStudio(slug),
+        alt: authorityStudioAltByRegion[slug],
+      },
+    ];
+  }
+
   const [craftCopy, studioCopy] = authorityPanelCopyByRegion[slug];
 
   return [
     {
+      kind: "image",
       src: homepageMediaPaths.authorityCraft(slug),
       alt: authorityCraftAltByRegion[slug],
       overlay: "accent",
@@ -117,6 +135,7 @@ function authorityProofPanelsForRegion(
       line: craftCopy.line,
     },
     {
+      kind: "image",
       src: homepageMediaPaths.authorityStudio(slug),
       alt: authorityStudioAltByRegion[slug],
       overlay: "light",

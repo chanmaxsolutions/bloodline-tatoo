@@ -27,6 +27,7 @@ function TattooStyleDetailBodySection({ content }: TattooStyleDetailBodySectionP
             philosophyBullets={content.philosophyBullets}
             idealForBullets={content.idealForBullets}
             sessionBullets={content.sessionBullets}
+            columnLabels={content.approachColumnLabels}
           />
         </SectionReveal>
       </Container>

@@ -3,9 +3,11 @@ import { Container } from "@/components/layout/container";
 import { HeroBackgroundVideo } from "@/components/sections/hero-background-video";
 import { tattooStyleHeroVideoSrc } from "@/config/tattoo-style-hero-video";
 import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
+import type { RegionSlug } from "@/types/region";
 
 interface TattooStyleDetailHeroProps {
   content: ResolvedTattooStyleDetailPage;
+  region: RegionSlug;
 }
 
 /** Short trail label so the breadcrumb does not repeat the full H1 (e.g. "Realistic"). */
@@ -14,7 +16,7 @@ function breadcrumbCurrentLabel(title: string): string {
   return shortened.length > 0 ? shortened : title;
 }
 
-function TattooStyleDetailHero({ content }: TattooStyleDetailHeroProps) {
+function TattooStyleDetailHero({ content, region }: TattooStyleDetailHeroProps) {
   const breadcrumbCurrent = breadcrumbCurrentLabel(content.title);
   return (
     <section
@@ -24,7 +26,7 @@ function TattooStyleDetailHero({ content }: TattooStyleDetailHeroProps) {
       <div className="pointer-events-none absolute inset-0 z-0 min-h-full w-full overflow-hidden">
         <HeroBackgroundVideo
           key={content.slug}
-          src={tattooStyleHeroVideoSrc(content.slug)}
+          src={tattooStyleHeroVideoSrc(content.slug, region)}
           poster={content.heroImageSrc}
           stillSrc={content.heroImageSrc}
           stillAlt={content.heroImageAlt}

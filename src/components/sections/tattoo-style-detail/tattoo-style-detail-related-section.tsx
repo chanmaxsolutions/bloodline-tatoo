@@ -5,9 +5,13 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { TileLinkArrow } from "@/components/shared/tile-link-arrow";
 import { buttonVariants } from "@/components/ui/button";
 import { sectionRevealItemClass, sectionRevealStaggerClass } from "@/lib/section-reveal-classes";
-import { getTattooStyleBySlug } from "@/config/tattoo-style-catalog";
+import {
+  getTattooStyleBySlug,
+  tattooStyleShortDescriptionForRegion,
+} from "@/config/tattoo-style-catalog";
 import { cn } from "@/lib/utils";
 import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
+import type { RegionSlug } from "@/types/region";
 
 /** Matches proof band `SectionHeading` title scale. */
 const relatedTitleClassName =
@@ -35,9 +39,13 @@ function relatedSectionDescription(styleTitle: string): string {
 
 interface TattooStyleDetailRelatedSectionProps {
   content: ResolvedTattooStyleDetailPage;
+  region: RegionSlug;
 }
 
-function TattooStyleDetailRelatedSection({ content }: TattooStyleDetailRelatedSectionProps) {
+function TattooStyleDetailRelatedSection({
+  content,
+  region,
+}: TattooStyleDetailRelatedSectionProps) {
   if (content.relatedSlugs.length === 0) {
     return null;
   }
@@ -55,8 +63,10 @@ function TattooStyleDetailRelatedSection({ content }: TattooStyleDetailRelatedSe
           <SectionHeading
             align="center"
             eyebrow="Keep exploring"
-            heading="EXPLORE OTHER LANES"
-            description={relatedSectionDescription(content.title)}
+            heading={content.relatedStylesHeading ?? "EXPLORE OTHER LANES"}
+            description={
+              content.relatedStylesDescription ?? relatedSectionDescription(content.title)
+            }
             headingId="tattoo-style-related-heading"
             titleClassName={sectionRevealItemClass("none", relatedTitleClassName)}
             descriptionClassName={sectionRevealItemClass("sm", relatedDescriptionClassName)}
@@ -71,7 +81,7 @@ function TattooStyleDetailRelatedSection({ content }: TattooStyleDetailRelatedSe
                     <TileLinkArrow className="pointer-events-none absolute right-4 top-4 md:right-5 md:top-5" />
                     <span className={relatedCardTitleClassName}>{style.title}</span>
                     <span className={relatedCardDescriptionClassName}>
-                      {style.shortDescription}
+                      {tattooStyleShortDescriptionForRegion(slug, region)}
                     </span>
                   </Link>
                 </li>

@@ -44,7 +44,7 @@ export default async function TattooStylesIndexPage() {
   const intro = tattooStylesIndexIntroForRegion(region);
   const closing = tattooStylesIndexClosingForRegion(region, regionConfig.regionName);
   const tiles = resolveHomepageTattooStyleTiles(tattooStyleSlugsForRegion(region), region);
-  const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc();
+  const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc(region);
 
   return (
     <div className="min-w-0 bg-background">
@@ -53,7 +53,7 @@ export default async function TattooStylesIndexPage() {
         introBackgroundImage={pageIntroBackgroundFor("tattoo-styles")}
         introBackgroundVideoSrc={introBackgroundVideoSrc}
       />
-      <TattooStylesIndexGridSection tiles={tiles} />
+      <TattooStylesIndexGridSection tiles={tiles} showTileDescription={region !== "bali"} />
       <PageClosingCtaSection
         content={closing}
         headerCtaLabel={regionConfig.headerCta.label}

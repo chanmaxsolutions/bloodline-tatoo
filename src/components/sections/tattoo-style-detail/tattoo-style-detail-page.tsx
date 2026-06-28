@@ -8,27 +8,30 @@ import { TattooStyleDetailProofSection } from "@/components/sections/tattoo-styl
 import { TattooStyleDetailRelatedReadingSection } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-related-reading-section";
 import { TattooStyleDetailRelatedSection } from "@/components/sections/tattoo-style-detail/tattoo-style-detail-related-section";
 import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
+import type { RegionSlug } from "@/types/region";
 
 interface TattooStyleDetailPageProps {
   content: ResolvedTattooStyleDetailPage;
+  region: RegionSlug;
   headerCtaLabel: string;
   ctaUrgencyNote?: string;
 }
 
 function TattooStyleDetailPage({
   content,
+  region,
   headerCtaLabel,
   ctaUrgencyNote,
 }: TattooStyleDetailPageProps) {
   return (
     <div className="min-w-0 bg-background">
-      <TattooStyleDetailHero content={content} />
+      <TattooStyleDetailHero content={content} region={region} />
       <TattooStyleDetailOverviewSection content={content} />
       <TattooStyleDetailRelatedReadingSection content={content} />
       <TattooStyleDetailBodySection content={content} />
       <TattooStyleApproachStatementSection content={content} />
       <TattooStyleDetailProofSection content={content} />
-      <TattooStyleDetailRelatedSection content={content} />
+      <TattooStyleDetailRelatedSection content={content} region={region} />
       <TattooStyleDetailFaqSection content={content} />
       <TattooStyleDetailCtaSection
         content={content}

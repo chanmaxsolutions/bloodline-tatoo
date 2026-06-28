@@ -8,9 +8,13 @@ import type { TattooStyleHomepageTile } from "@/types/tattoo-style";
 
 interface TattooStylesIndexGridSectionProps {
   tiles: TattooStyleHomepageTile[];
+  showTileDescription?: boolean;
 }
 
-function TattooStylesIndexGridSection({ tiles }: TattooStylesIndexGridSectionProps) {
+function TattooStylesIndexGridSection({
+  tiles,
+  showTileDescription = true,
+}: TattooStylesIndexGridSectionProps) {
   return (
     <section
       aria-label="Tattoo styles catalog"
@@ -24,7 +28,7 @@ function TattooStylesIndexGridSection({ tiles }: TattooStylesIndexGridSectionPro
           <ul className={cn(homepageTattooStylesGridClassName(tiles.length), "lg:gap-6")}>
             {tiles.map((tile, index) => (
               <li key={tile.slug} className={sectionRevealStaggerClass(index, "min-w-0")}>
-                <TattooStyleTile tile={tile} />
+                <TattooStyleTile tile={tile} showDescription={showTileDescription} />
               </li>
             ))}
           </ul>

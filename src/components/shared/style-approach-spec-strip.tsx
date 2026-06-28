@@ -36,18 +36,27 @@ const styleApproachSpecRows: readonly [
   { label: "Session structure", iconId: "clipboard-list" },
 ];
 
+const defaultStyleApproachSpecLabels = [
+  "Philosophy",
+  "Ideal for",
+  "Session structure",
+] as const satisfies readonly [string, string, string];
+
 interface StyleApproachSpecStripProps {
   philosophyBullets: ApproachPointerTriplet;
   idealForBullets: ApproachPointerTriplet;
   sessionBullets: ApproachPointerTriplet;
+  columnLabels?: readonly [string, string, string];
 }
 
 function StyleApproachSpecStrip({
   philosophyBullets,
   idealForBullets,
   sessionBullets,
+  columnLabels,
 }: StyleApproachSpecStripProps) {
   const bulletGroups = [philosophyBullets, idealForBullets, sessionBullets] as const;
+  const labels = columnLabels ?? defaultStyleApproachSpecLabels;
 
   return (
     <div className={specStripShellClassName}>
@@ -55,17 +64,15 @@ function StyleApproachSpecStrip({
         {styleApproachSpecRows.map((row, index) => {
           const Icon = standardsProofIconForId(row.iconId);
           const items = bulletGroups[index];
+          const label = labels[index];
 
           return (
-            <li
-              key={row.label}
-              className={sectionRevealStaggerClass(index, specStripColumnClassName)}
-            >
+            <li key={label} className={sectionRevealStaggerClass(index, specStripColumnClassName)}>
               <div className="flex items-center gap-4">
                 <div className={specStripIconWrapClassName} aria-hidden>
                   <Icon className="size-5 md:size-6" strokeWidth={1.75} />
                 </div>
-                <p className={cn(specStripLabelClassName, "min-w-0 text-pretty")}>{row.label}</p>
+                <p className={cn(specStripLabelClassName, "min-w-0 text-pretty")}>{label}</p>
               </div>
               <ul className="m-0 flex list-none flex-col gap-3 p-0 md:gap-3.5">
                 {items.map((line, lineIndex) => (

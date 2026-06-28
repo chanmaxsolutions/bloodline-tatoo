@@ -37,7 +37,7 @@ const tattooStylesBySlug: Record<RegionSlug, RegionHomepageTattooStylesConfig> =
       eyebrow: "TATTOO STYLES",
       heading: "BALI STYLE DIRECTIONS",
       description:
-        "Realism, portrait, Japanese and healed work, each running on the same Bali baseline. Open a style to see consultation flow, placement options and proof from the room.",
+        "Realistic, Portrait, Japanese, Colour, Mandala and Chicano. Browse our work, see the results, then let us match you to the right artist for your piece.",
     },
     featuredSlugs: homepageFeaturedTattooStyleSlugsForRegion("bali"),
     catalogCta,

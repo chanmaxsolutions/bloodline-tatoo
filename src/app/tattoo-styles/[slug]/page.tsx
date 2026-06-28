@@ -55,6 +55,7 @@ export default async function TattooStyleRoutePage({ params }: TattooStylePagePr
     <main className="min-w-0">
       <TattooStyleDetailPage
         content={content}
+        region={region}
         headerCtaLabel={regionConfig.headerCta.label}
         ctaUrgencyNote={regionConfig.heroCtaUrgencyNote}
       />
