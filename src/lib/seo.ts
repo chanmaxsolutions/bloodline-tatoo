@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { PageSeoInput, RegionConfig } from "@/types";
+import { buildRegionalHreflangLanguages } from "@/lib/hreflang";
 import { absoluteRegionalUrl } from "@/lib/schema";
 
 export function buildMetadata(input: PageSeoInput, region: RegionConfig): Metadata {
@@ -13,6 +14,7 @@ export function buildMetadata(input: PageSeoInput, region: RegionConfig): Metada
     description,
     alternates: {
       canonical,
+      languages: buildRegionalHreflangLanguages(input.canonicalPath),
     },
     openGraph: {
       title,

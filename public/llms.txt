@@ -32,6 +32,7 @@
 - Portfolio: /portfolio
 - Reviews: /reviews
 - About: /about
+- FAQ: /faq
 - Contact / booking: /contact
 - Blog (travel, safety, pricing guides): /tattoo-blog
 

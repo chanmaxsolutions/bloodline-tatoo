@@ -14,7 +14,8 @@ export const bangkokRegionConfig: RegionConfig = {
   heroHeading: "BANGKOK'S PREMIER APPOINTMENT-ONLY TATTOO STUDIO",
   heroDescription:
     "Bangkok's appointment-only studio for serious custom work. Trusted by international travellers and expats who will not settle for a walk-in shop.",
-  googleBusinessProfileUrl: "https://share.google/fGhjPd8n3Pzv9wNxC",
+  googleBusinessProfileUrl:
+    "https://www.google.com/maps/place/Bloodline+Tattoo+Bangkok/@13.739781,100.562007,17z/data=!3m1!4b1!4m6!3m5!1s0x30e29f292108dad7:0xe5573420299d57a1!8m2!3d13.739781!4d100.562007",
   location: {
     streetAddress: "22/3-4 Sukhumvit 21 Rd, Khlong Toei",
     addressLocality: "Watthana",
@@ -23,6 +24,10 @@ export const bangkokRegionConfig: RegionConfig = {
     addressCountry: "TH",
     telephone: "+66820450006",
     openingHours: ["Mo-Su 09:00-20:00"],
+    geo: {
+      latitude: 13.739781,
+      longitude: 100.562007,
+    },
   },
   branding: {
     logoWordmark: "BLOODLINE BANGKOK",

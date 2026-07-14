@@ -14,6 +14,7 @@ const STATIC_SITEMAP_PATHS = [
   { path: "/portfolio", priority: 0.8, changeFrequency: "weekly" as const },
   { path: "/reviews", priority: 0.75, changeFrequency: "weekly" as const },
   { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/faq", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
 ] as const;
 

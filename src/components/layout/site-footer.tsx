@@ -35,17 +35,26 @@ function partitionFooterNavigation(items: HeaderNavItem[]): {
   explore: HeaderNavItem[];
   studio: HeaderNavItem[];
 } {
-  const studioHrefs = new Set(["/about", "/contact", "/reviews"]);
+  /** Contact stays in the header CTA/nav only — omitted from footer links. */
+  const footerExcludedHrefs = new Set(["/contact"]);
+  const studioHrefs = new Set(["/about", "/reviews"]);
   const explore: HeaderNavItem[] = [];
   const studio: HeaderNavItem[] = [];
 
   for (const item of items) {
+    if (footerExcludedHrefs.has(item.href)) {
+      continue;
+    }
+
     if (studioHrefs.has(item.href)) {
       studio.push(item);
     } else {
       explore.push(item);
     }
   }
+
+  /** FAQ is footer-only (not in header nav). */
+  studio.push({ label: "FAQ", href: "/faq" });
 
   return { explore, studio };
 }

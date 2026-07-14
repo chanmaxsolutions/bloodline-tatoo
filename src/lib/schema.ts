@@ -120,6 +120,16 @@ function buildStudioTattooParlorNode(
     ...(location?.openingHours && location.openingHours.length > 0
       ? { openingHours: [...location.openingHours] }
       : {}),
+    ...(location?.geo
+      ? {
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: location.geo.latitude,
+            longitude: location.geo.longitude,
+          },
+          hasMap: studio.googleBusinessProfileUrl,
+        }
+      : {}),
     aggregateRating: buildAggregateRatingSchema(metrics.reviewCount, metrics.rating),
   };
 }
@@ -184,6 +194,14 @@ export function buildBlogPostingSchema(
       url: absoluteRegionalUrl(region, "/"),
     },
     publisher: buildBlogPublisherSchema(region),
+    ...(post.quickAnswer
+      ? {
+          speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: ["#quick-answer"],
+          },
+        }
+      : {}),
   };
 }
 
@@ -228,7 +246,6 @@ export function buildBlogCategoryCollectionPageSchema(
 /**
  * Studio entity graph for AI + local SEO.
  * Regional domains emit TattooParlor; global emits Organization with studio departments.
- * Street-level NAP is omitted until verified addresses live in region config.
  */
 export function buildStudioEntitySchema(
   region: RegionConfig,

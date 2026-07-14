@@ -95,6 +95,14 @@ function getLegacyRedirects(): LegacyRedirect[] {
     permanent: true,
   });
 
+  // Blueprint alias — no dedicated services tree; styles carry the menu intent.
+  add("/tattoo-services", "/tattoo-styles");
+  rules.push({
+    source: "/tattoo-services/:path*",
+    destination: "/tattoo-styles",
+    permanent: true,
+  });
+
   // — WordPress archives, tags, feeds —
   rules.push(
     {

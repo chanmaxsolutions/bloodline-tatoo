@@ -23,6 +23,8 @@ export { ContactPageIntroSection } from "@/components/sections/contact-page-intr
 export { ContactPageFormSection } from "@/components/sections/contact-page-form-section";
 export { ContactPageActions } from "@/components/sections/contact-page-actions";
 export { ContactPageWhatsAppForm } from "@/components/sections/contact-page-whatsapp-form";
+export { FaqPageIntroSection } from "@/components/sections/faq-page-intro-section";
+export { FaqPageContentSection } from "@/components/sections/faq-page-content-section";
 export { BlogPageIntroSection } from "@/components/sections/blog-page-intro-section";
 export { BlogPageFiltersSection } from "@/components/sections/blog-page-filters-section";
 export { BlogPageFeaturedSection } from "@/components/sections/blog-page-featured-section";

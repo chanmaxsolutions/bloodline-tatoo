@@ -30,6 +30,13 @@ export interface RegionHeaderCtaConfig {
   href: string;
 }
 
+export interface RegionLocationGeoConfig {
+  /** WGS84 latitude from the Google Maps place pin. */
+  latitude: number;
+  /** WGS84 longitude from the Google Maps place pin. */
+  longitude: number;
+}
+
 export interface RegionLocationConfig {
   /** Street line as shown on Google Business Profile. */
   streetAddress: string;
@@ -45,6 +52,8 @@ export interface RegionLocationConfig {
    * Sourced from the live Google Business Profile.
    */
   openingHours: readonly string[];
+  /** Street-level coordinates from the Google Maps place pin. */
+  geo: RegionLocationGeoConfig;
 }
 
 export interface RegionConfig {

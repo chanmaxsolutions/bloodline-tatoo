@@ -16,7 +16,11 @@ interface BlogQuickAnswerProps {
 
 function BlogQuickAnswer({ answer, className }: BlogQuickAnswerProps) {
   return (
-    <aside className={cn(quickAnswerBoxClassName, className)} aria-label="Quick answer">
+    <aside
+      id="quick-answer"
+      className={cn(quickAnswerBoxClassName, className)}
+      aria-label="Quick answer"
+    >
       <p className={quickAnswerLabelClassName}>Quick answer</p>
       <p className={quickAnswerTextClassName}>{answer}</p>
     </aside>

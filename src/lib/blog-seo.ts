@@ -5,6 +5,7 @@ import { pageIntroBackgroundFor } from "@/config/page-intro-band";
 import { BLOG_CATEGORY_LABELS } from "@/config/blog-categories";
 import { getBlogCategoryPath } from "@/lib/blog-category-paths";
 import { toIso8601ReadingDuration } from "@/lib/blog-reading-time";
+import { buildRegionalHreflangLanguages } from "@/lib/hreflang";
 import { absoluteRegionalUrl } from "@/lib/schema";
 import type { RegionSlug } from "@/types/region";
 
@@ -93,7 +94,10 @@ function buildBlogIndexMetadata(region: RegionSlug, regionConfig: RegionConfig):
   return {
     title: intro.title,
     description: intro.description,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: buildRegionalHreflangLanguages(canonicalPath),
+    },
     openGraph: buildBlogOpenGraph(regionConfig, {
       title: intro.title,
       description: intro.description,
@@ -125,7 +129,10 @@ function buildBlogArticleMetadata(post: BlogPost, region: RegionConfig): Metadat
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: buildRegionalHreflangLanguages(canonicalPath),
+    },
     openGraph: buildBlogOpenGraph(region, {
       title,
       description,
@@ -167,7 +174,10 @@ function buildBlogCategoryMetadata(
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: buildRegionalHreflangLanguages(canonicalPath),
+    },
     ...(indexable ? {} : { robots: { index: false, follow: true } }),
     openGraph: buildBlogOpenGraph(regionConfig, {
       title,
