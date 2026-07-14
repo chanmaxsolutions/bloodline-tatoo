@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { ReviewsGoogleCtaSection } from "@/components/sections/reviews-google-cta-section";
 import { ReviewsPageGridSection } from "@/components/sections/reviews-page-grid-section";
 import { ReviewsPageIntroSection } from "@/components/sections/reviews-page-intro-section";
+import { JsonLd } from "@/components/seo/json-ld";
 import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
 import { getReviewsPageContent } from "@/lib/reviews-page";
+import { buildStudioEntitySchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
 
@@ -36,6 +38,7 @@ export default async function ReviewsPage() {
 
   return (
     <div className="min-w-0 bg-background">
+      <JsonLd data={buildStudioEntitySchema(regionConfig, region)} />
       <ReviewsPageIntroSection
         intro={content.intro}
         trustStats={content.trustStats}

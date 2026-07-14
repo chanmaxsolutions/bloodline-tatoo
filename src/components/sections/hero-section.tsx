@@ -123,6 +123,7 @@ function HeroSection({
                 eyebrow={eyebrow}
                 heading={title}
                 description={description}
+                headingLevel={1}
                 className="w-full gap-5"
                 eyebrowClassName={eyebrow ? "text-lg md:text-lg" : undefined}
                 titleClassName="text-5xl leading-[0.95] md:text-7xl md:leading-[0.9] lg:text-8xl"

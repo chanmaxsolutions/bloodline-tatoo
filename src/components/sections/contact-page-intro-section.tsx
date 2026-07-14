@@ -68,6 +68,7 @@ function ContactPageIntroSection({
             heading={intro.heading}
             description={intro.description}
             headingId="contact-page-heading"
+            headingLevel={1}
             className="mx-auto w-full max-w-5xl"
             eyebrowClassName={sectionRevealItemClass("none", contactHeroEyebrowClassName)}
             titleClassName={sectionRevealItemClass("sm", contactHeroTitleClassName)}

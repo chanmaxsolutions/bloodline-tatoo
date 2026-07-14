@@ -61,6 +61,7 @@ function TattooStylesIndexIntroSection({
             heading={intro.heading}
             description={intro.description}
             headingId="tattoo-styles-index-heading"
+            headingLevel={1}
             className="mx-auto w-full max-w-4xl"
             eyebrowClassName={sectionRevealItemClass("none", tattooStylesIndexEyebrowClassName)}
             titleClassName={sectionRevealItemClass("sm", tattooStylesIndexTitleClassName)}

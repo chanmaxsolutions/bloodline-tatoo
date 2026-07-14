@@ -69,6 +69,7 @@ function ReviewsPageIntroSection({
             heading={intro.heading}
             description={intro.description}
             headingId="reviews-page-heading"
+            headingLevel={1}
             className="mx-auto w-full max-w-4xl"
             eyebrowClassName={sectionRevealItemClass("none", reviewsHeroEyebrowClassName)}
             titleClassName={sectionRevealItemClass("sm", reviewsHeroTitleClassName)}

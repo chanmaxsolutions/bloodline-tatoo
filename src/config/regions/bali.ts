@@ -14,8 +14,16 @@ export const baliRegionConfig: RegionConfig = {
   heroHeading: "BALI'S MOST SOUGHT-AFTER TATTOO STUDIO",
   heroDescription:
     "Appointment-only. Custom work built around you. Your idea, the right artist, the time to do it justice.",
-  googleBusinessProfileUrl:
-    "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bali",
+  googleBusinessProfileUrl: "https://share.google/zfG9XmQysnCuo7r1c",
+  location: {
+    streetAddress: "Jln Legian No.180",
+    addressLocality: "Kuta",
+    addressRegion: "Bali",
+    postalCode: "80361",
+    addressCountry: "ID",
+    telephone: "+6281138801222",
+    openingHours: ["Mo-Su 09:00-19:00"],
+  },
   branding: {
     logoWordmark: "BLOODLINE BALI",
     logoMonogram: "BL",

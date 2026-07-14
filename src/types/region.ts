@@ -30,6 +30,23 @@ export interface RegionHeaderCtaConfig {
   href: string;
 }
 
+export interface RegionLocationConfig {
+  /** Street line as shown on Google Business Profile. */
+  streetAddress: string;
+  addressLocality: string;
+  addressRegion: string;
+  postalCode: string;
+  /** ISO 3166-1 alpha-2 */
+  addressCountry: "TH" | "ID";
+  /** Public Google listing phone (may match WhatsApp). */
+  telephone: string;
+  /**
+   * Schema.org openingHours strings, e.g. "Mo-Su 09:00-19:00".
+   * Sourced from the live Google Business Profile.
+   */
+  openingHours: readonly string[];
+}
+
 export interface RegionConfig {
   slug: RegionSlug;
   domain: string;
@@ -44,6 +61,8 @@ export interface RegionConfig {
   heroDescription: string;
   /** Public Google Maps / Business listing for this studio (homepage review “View more”). */
   googleBusinessProfileUrl: string;
+  /** Verified studio NAP from Google Business Profile (omit on global hub). */
+  location?: RegionLocationConfig;
   branding: RegionBrandingConfig;
   headerCta: RegionHeaderCtaConfig;
   /** Optional urgency line rendered under hero CTAs (config-driven, honest tone). */

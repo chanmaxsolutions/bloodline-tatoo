@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import type { Metadata } from "next";
 import { getImageProps } from "next/image";
 import {
   AuthoritySection,
@@ -7,18 +8,23 @@ import {
   PageClosingCtaSection,
   TattooStylesSection,
   TrustProofBarSection,
-  type TrustProofItem,
 } from "@/components/sections";
+import { JsonLd } from "@/components/seo/json-ld";
 import { homepageClosingForRegion } from "@/config/homepage-closing-cta";
 import { homepageClosingCtaBandClassName } from "@/lib/homepage-section-surfaces";
 import { pageClosingCtaBandBorderlessSectionClassName } from "@/lib/page-closing-cta-band";
 import { cn } from "@/lib/utils";
 import { getReviewsCarouselPreview } from "@/lib/reviews-page";
 import { resolveHomepageTattooStyleTiles } from "@/config/tattoo-style-catalog";
-import { resolveGoogleBusinessProofPresentation } from "@/lib/google-business-proof";
+import {
+  resolveGoogleBusinessProofPresentation,
+  resolveHomepageTrustProofItems,
+} from "@/lib/google-business-proof";
 import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
 import { homepageHeroTitle } from "@/lib/homepage-hero-title";
 import { getRequestRegionContext } from "@/lib/request-region";
+import { buildStudioEntitySchema, buildWebSiteSchema } from "@/lib/schema";
+import { buildMetadata } from "@/lib/seo";
 
 const HomepageTestimonialsCarouselSection = dynamic(
   () =>
@@ -32,11 +38,18 @@ const HomepageTestimonialsCarouselSection = dynamic(
   },
 );
 
-const defaultTrustProofItems: TrustProofItem[] = [
-  { label: "Google Rating", value: "5.0" },
-  { label: "Customers served per year", value: "5000+" },
-  { label: "Five-star Google reviews", value: "2500+" },
-];
+export async function generateMetadata(): Promise<Metadata> {
+  const { regionConfig } = await getRequestRegionContext();
+
+  return buildMetadata(
+    {
+      title: regionConfig.seo.defaultTitle,
+      description: regionConfig.seo.defaultDescription,
+      canonicalPath: "/",
+    },
+    regionConfig,
+  );
+}
 
 export default async function Home() {
   const { region, regionConfig } = await getRequestRegionContext();
@@ -46,6 +59,11 @@ export default async function Home() {
   );
   const reviewsPreview = await getReviewsCarouselPreview(region);
   const googleBusinessProof = resolveGoogleBusinessProofPresentation(region);
+  const trustProofItems = resolveHomepageTrustProofItems(region);
+  const structuredData = [
+    buildStudioEntitySchema(regionConfig, region),
+    buildWebSiteSchema(regionConfig),
+  ];
 
   const heroPosterSrc = homepageMediaPaths.heroPoster(region);
   const {
@@ -65,6 +83,7 @@ export default async function Home() {
 
   return (
     <div className="min-w-0 bg-background">
+      <JsonLd data={structuredData} />
       <link
         rel="preload"
         as="image"
@@ -93,7 +112,7 @@ export default async function Home() {
         ctaUrgencyNote={regionConfig.heroCtaUrgencyNote}
         googleBusinessProof={googleBusinessProof}
       />
-      <TrustProofBarSection items={defaultTrustProofItems} />
+      <TrustProofBarSection items={[...trustProofItems]} />
       <AuthoritySection content={regionConfig.homepageAuthority} />
       <TattooStylesSection
         config={regionConfig.homepageTattooStyles}

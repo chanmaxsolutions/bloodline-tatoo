@@ -1,5 +1,6 @@
 import type { AboutPageIntro, AboutPageTrustStat, AboutPageVideo } from "@/types/about-page";
 import type { RegionSlug } from "@/types/region";
+import { resolveGoogleBusinessTrustStats } from "@/lib/google-business-proof";
 
 const ABOUT_STUDIO_STORY_YOUTUBE_VIDEO_ID = "4t9BxBku6wI";
 
@@ -37,18 +38,20 @@ function aboutTrustStatsForRegion(
     return [];
   }
 
+  const googleTrust = resolveGoogleBusinessTrustStats(region);
+
   if (region === "global") {
     return [
       { label: "Studios across Asia", value: "3" },
-      { label: "Google rating", value: "5.0" },
-      { label: "Five-star Google reviews", value: "2500+" },
+      { label: googleTrust.rating.label, value: googleTrust.rating.value },
+      { label: googleTrust.reviewCount.label, value: googleTrust.reviewCount.value },
     ];
   }
 
   return [
-    { label: "Google rating", value: "5.0" },
+    { label: googleTrust.rating.label, value: googleTrust.rating.value },
     { label: "Reviews on this page", value: String(curatedReviewCount) },
-    { label: "Five-star Google reviews", value: "2500+" },
+    { label: googleTrust.reviewCount.label, value: googleTrust.reviewCount.value },
   ];
 }
 

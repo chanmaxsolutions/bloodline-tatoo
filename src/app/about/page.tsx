@@ -4,10 +4,12 @@ import { AboutPageStorySection } from "@/components/sections/about-page-story-se
 import { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
 import { AboutPageReviewsSection } from "@/components/sections/about-page-reviews-section";
 import { AboutPageVideoSection } from "@/components/sections/about-page-video-section";
+import { JsonLd } from "@/components/seo/json-ld";
 import { portfolioClosingCtaSectionClassName } from "@/lib/gallery-page-layout";
 import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
 import { getAboutPageContent } from "@/lib/about-page";
 import { getReviewsCarouselPreview } from "@/lib/reviews-page";
+import { buildStudioEntitySchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
 
@@ -41,6 +43,7 @@ export default async function AboutPage() {
 
   return (
     <div className="min-w-0 bg-background">
+      <JsonLd data={buildStudioEntitySchema(regionConfig, region)} />
       <AboutPageIntroSection
         intro={content.intro}
         introBackgroundVideoSrc={homepageHeroVideoSrc(region)}

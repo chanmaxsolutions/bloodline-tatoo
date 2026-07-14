@@ -1,7 +1,11 @@
 import type { BlogFaqItem, BlogPageIntro, BlogPost, BlogPostListing } from "@/types/blog";
 import type { RegionConfig } from "@/types";
+import type { RegionSlug } from "@/types/region";
+import { googleBusinessProofByStudio } from "@/config/google-business-proof";
 import { BLOG_CATEGORY_LABELS } from "@/config/blog-categories";
 import { toIso8601ReadingDuration } from "@/lib/blog-reading-time";
+import { getGoogleBusinessProofMetrics, STUDIO_REGIONS } from "@/lib/google-business-proof";
+import { getRegionConfig } from "@/lib/region";
 
 export interface SchemaBreadcrumbItem {
   name: string;
@@ -29,8 +33,13 @@ export function buildBreadcrumbListSchema(
   };
 }
 
+interface FaqSchemaItem {
+  question: string;
+  answer: string;
+}
+
 export function buildFaqPageSchema(
-  faq: readonly BlogFaqItem[],
+  faq: readonly FaqSchemaItem[] | readonly BlogFaqItem[],
   pageUrl: string,
 ): Record<string, unknown> {
   return {
@@ -45,6 +54,73 @@ export function buildFaqPageSchema(
       },
     })),
     url: pageUrl,
+  };
+}
+
+function buildSameAsLinks(region: RegionConfig): string[] {
+  return [
+    ...new Set(
+      [
+        region.contact.instagramUrl,
+        region.contact.facebookBookUrl,
+        region.googleBusinessProfileUrl,
+      ].filter((value): value is string => Boolean(value && value.trim().length > 0)),
+    ),
+  ];
+}
+
+function buildAggregateRatingSchema(reviewCount: number, rating: number): Record<string, unknown> {
+  return {
+    "@type": "AggregateRating",
+    ratingValue: rating.toFixed(1),
+    reviewCount,
+    bestRating: "5",
+    worstRating: "1",
+  };
+}
+
+function studioAddressCountry(regionSlug: Exclude<RegionSlug, "global">): string {
+  return regionSlug === "bali" ? "ID" : "TH";
+}
+
+function buildStudioTattooParlorNode(
+  regionSlug: Exclude<RegionSlug, "global">,
+): Record<string, unknown> {
+  const studio = getRegionConfig(regionSlug);
+  const metrics = googleBusinessProofByStudio[regionSlug];
+  const sameAs = buildSameAsLinks(studio);
+  const logoUrl = absoluteRegionalUrl(studio, studio.branding.logoPath);
+  const location = studio.location;
+  const telephone = location?.telephone || studio.contact.whatsappNumber;
+
+  return {
+    "@type": "TattooParlor",
+    name: studio.seo.siteName,
+    url: absoluteRegionalUrl(studio, "/"),
+    description: studio.seo.defaultDescription,
+    image: logoUrl,
+    logo: logoUrl,
+    ...(telephone ? { telephone } : {}),
+    ...(sameAs.length > 0 ? { sameAs } : {}),
+    priceRange: "$$",
+    address: location
+      ? {
+          "@type": "PostalAddress",
+          streetAddress: location.streetAddress,
+          addressLocality: location.addressLocality,
+          addressRegion: location.addressRegion,
+          postalCode: location.postalCode,
+          addressCountry: location.addressCountry,
+        }
+      : {
+          "@type": "PostalAddress",
+          addressLocality: studio.regionName,
+          addressCountry: studioAddressCountry(regionSlug),
+        },
+    ...(location?.openingHours && location.openingHours.length > 0
+      ? { openingHours: [...location.openingHours] }
+      : {}),
+    aggregateRating: buildAggregateRatingSchema(metrics.reviewCount, metrics.rating),
   };
 }
 
@@ -149,11 +225,66 @@ export function buildBlogCategoryCollectionPageSchema(
   };
 }
 
-export function buildTattooParlorSchema(region: RegionConfig): Record<string, unknown> {
+/**
+ * Studio entity graph for AI + local SEO.
+ * Regional domains emit TattooParlor; global emits Organization with studio departments.
+ * Street-level NAP is omitted until verified addresses live in region config.
+ */
+export function buildStudioEntitySchema(
+  region: RegionConfig,
+  regionSlug: RegionSlug,
+): Record<string, unknown> {
+  const pageUrl = absoluteRegionalUrl(region, "/");
+  const logoUrl = absoluteRegionalUrl(region, region.branding.logoPath);
+  const metrics = getGoogleBusinessProofMetrics(regionSlug);
+
+  if (regionSlug === "global") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: region.seo.siteName,
+      url: pageUrl,
+      description: region.seo.defaultDescription,
+      logo: {
+        "@type": "ImageObject",
+        url: logoUrl,
+      },
+      image: logoUrl,
+      aggregateRating: buildAggregateRatingSchema(metrics.reviewCount, metrics.rating),
+      department: STUDIO_REGIONS.map((studioSlug) => buildStudioTattooParlorNode(studioSlug)),
+    };
+  }
+
   return {
     "@context": "https://schema.org",
-    "@type": "TattooParlor",
+    ...buildStudioTattooParlorNode(regionSlug),
+  };
+}
+
+/** @deprecated Prefer buildStudioEntitySchema — kept for callers mid-migration. */
+export function buildTattooParlorSchema(
+  region: RegionConfig,
+  regionSlug: RegionSlug = region.slug,
+): Record<string, unknown> {
+  return buildStudioEntitySchema(region, regionSlug);
+}
+
+export function buildWebSiteSchema(region: RegionConfig): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
     name: region.seo.siteName,
     url: absoluteRegionalUrl(region, "/"),
+    description: region.seo.defaultDescription,
+    inLanguage: "en",
+    publisher: {
+      "@type": "Organization",
+      name: region.seo.siteName,
+      url: absoluteRegionalUrl(region, "/"),
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteRegionalUrl(region, region.branding.logoPath),
+      },
+    },
   };
 }

@@ -23,9 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const { regionConfig } = await getRequestRegionContext();
 
   return {
-    title: "Bloodline Tattoo Platform",
-    description:
-      "Bloodline Tattoo runs premium appointment-only studios in Bangkok, Bali and Phuket. Consultation first, sterile practice and serious custom work.",
+    metadataBase: new URL(`https://${regionConfig.domain}`),
+    title: regionConfig.seo.defaultTitle,
+    description: regionConfig.seo.defaultDescription,
     icons: {
       icon: regionConfig.branding.faviconPath,
       shortcut: regionConfig.branding.faviconPath,

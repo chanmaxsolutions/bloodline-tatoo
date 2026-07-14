@@ -1,6 +1,7 @@
 import { pageIntroBackgroundFor } from "@/config/page-intro-band";
 import type { ReviewsPageIntro, ReviewsPageTrustStat } from "@/types/reviews-page";
 import type { RegionSlug } from "@/types/region";
+import { resolveGoogleBusinessTrustStats } from "@/lib/google-business-proof";
 
 function reviewsPageIntroForRegion(region: RegionSlug): ReviewsPageIntro {
   if (region === "global") {
@@ -25,11 +26,12 @@ function reviewsPageTrustStatsForRegion(
   curatedCount: number,
 ): ReviewsPageTrustStat[] {
   const curatedLabel = region === "global" ? "Reviews shown here" : `Curated on this page`;
+  const googleTrust = resolveGoogleBusinessTrustStats(region);
 
   return [
-    { label: "Google rating", value: "5.0" },
+    { label: googleTrust.rating.label, value: googleTrust.rating.value },
     { label: curatedLabel, value: String(curatedCount) },
-    { label: "Five-star Google reviews", value: "2500+" },
+    { label: googleTrust.reviewCount.label, value: googleTrust.reviewCount.value },
   ];
 }
 

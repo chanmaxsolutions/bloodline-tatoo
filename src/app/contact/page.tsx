@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { ContactPageFormSection } from "@/components/sections/contact-page-form-section";
 import { ContactPageIntroSection } from "@/components/sections/contact-page-intro-section";
+import { JsonLd } from "@/components/seo/json-ld";
 import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
 import { getContactPageContent } from "@/lib/contact-page";
+import { buildStudioEntitySchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { getRequestRegionContext } from "@/lib/request-region";
 
@@ -35,6 +37,7 @@ export default async function ContactPage() {
 
   return (
     <div className="min-w-0 bg-background">
+      <JsonLd data={buildStudioEntitySchema(regionConfig, region)} />
       <ContactPageIntroSection
         intro={content.intro}
         introBackgroundVideoSrc={homepageHeroVideoSrc(region)}

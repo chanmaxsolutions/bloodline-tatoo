@@ -69,6 +69,7 @@ function AboutPageIntroSection({
             heading={intro.heading}
             description={intro.description}
             headingId="about-page-heading"
+            headingLevel={1}
             className="mx-auto w-full max-w-4xl"
             eyebrowClassName={sectionRevealItemClass("none", aboutHeroEyebrowClassName)}
             titleClassName={sectionRevealItemClass("sm", aboutHeroTitleClassName)}

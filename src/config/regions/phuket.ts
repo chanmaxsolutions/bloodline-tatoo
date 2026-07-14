@@ -14,8 +14,16 @@ export const phuketRegionConfig: RegionConfig = {
   heroHeading: "PHUKET'S PREMIER APPOINTMENT-ONLY TATTOO STUDIO",
   heroDescription:
     "Phuket's appointment-only studio for serious custom work. Sterile practice, full consultation and none of the walk-in rush you find everywhere else.",
-  googleBusinessProfileUrl:
-    "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Phuket",
+  googleBusinessProfileUrl: "https://share.google/T35oX05El9LNSzhVd",
+  location: {
+    streetAddress: "54/2 Soi Patong Resort, Thanon Bangla",
+    addressLocality: "Patong",
+    addressRegion: "Phuket",
+    postalCode: "83150",
+    addressCountry: "TH",
+    telephone: "+66954289430",
+    openingHours: ["Mo-Su 10:00-19:00"],
+  },
   branding: {
     logoWordmark: "BLOODLINE PHUKET",
     logoMonogram: "BL",

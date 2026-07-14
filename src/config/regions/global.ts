@@ -14,8 +14,7 @@ export const globalRegionConfig: RegionConfig = {
   heroHeading: "WORLD CLASS TATTOO STUDIOS ACROSS ASIA",
   heroDescription:
     "Three studios across Bangkok, Bali and Phuket, running on one standard. Consultation first, sterile practice and work built to last.",
-  googleBusinessProfileUrl:
-    "https://www.google.com/maps/search/?api=1&query=Bloodline%20Tattoo%20Bangkok",
+  googleBusinessProfileUrl: "https://share.google/fGhjPd8n3Pzv9wNxC",
   branding: {
     logoWordmark: "BLOODLINE",
     logoMonogram: "BL",

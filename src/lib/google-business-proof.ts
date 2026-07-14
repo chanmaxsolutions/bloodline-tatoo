@@ -46,6 +46,51 @@ function aggregateGlobalGoogleBusinessProof(): GoogleBusinessProofMetrics {
   };
 }
 
+function getGoogleBusinessProofMetrics(region: RegionSlug): GoogleBusinessProofMetrics {
+  if (region === "global") {
+    return aggregateGlobalGoogleBusinessProof();
+  }
+
+  return googleBusinessProofByStudio[region];
+}
+
+interface GoogleBusinessTrustStat {
+  label: string;
+  value: string;
+}
+
+/**
+ * Honest trust stats for homepage / about / reviews bands.
+ * Global sums studio GMB reviews; regional surfaces that studio only.
+ */
+function resolveGoogleBusinessTrustStats(region: RegionSlug): {
+  rating: GoogleBusinessTrustStat;
+  reviewCount: GoogleBusinessTrustStat;
+} {
+  const metrics = getGoogleBusinessProofMetrics(region);
+
+  return {
+    rating: {
+      label: "Google rating",
+      value: metrics.rating.toFixed(1),
+    },
+    reviewCount: {
+      label: region === "global" ? "Google reviews across studios" : "Five-star Google reviews",
+      value: formatGoogleReviewCount(metrics.reviewCount, metrics.approximateCount),
+    },
+  };
+}
+
+function resolveHomepageTrustProofItems(region: RegionSlug): readonly GoogleBusinessTrustStat[] {
+  const { rating, reviewCount } = resolveGoogleBusinessTrustStats(region);
+
+  return [
+    { label: "Google Rating", value: rating.value },
+    { label: "Customers served per year", value: "5000+" },
+    { label: reviewCount.label, value: reviewCount.value },
+  ];
+}
+
 function resolveGoogleBusinessProofPresentation(
   region: RegionSlug,
 ): GoogleBusinessProofPresentation {
@@ -67,4 +112,13 @@ function resolveGoogleBusinessProofPresentation(
   };
 }
 
-export { buildGoogleBusinessProofChip, resolveGoogleBusinessProofPresentation };
+export {
+  aggregateGlobalGoogleBusinessProof,
+  buildGoogleBusinessProofChip,
+  formatGoogleReviewCount,
+  getGoogleBusinessProofMetrics,
+  resolveGoogleBusinessProofPresentation,
+  resolveGoogleBusinessTrustStats,
+  resolveHomepageTrustProofItems,
+  STUDIO_REGIONS,
+};
