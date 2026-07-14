@@ -83,7 +83,7 @@ function buildBlogIndexMetadata(region: RegionSlug, regionConfig: RegionConfig):
       : {
           title: `Tattoo Blog in ${regionConfig.regionName} | ${regionConfig.seo.siteName}`,
           description: truncateMetaDescription(
-            `Tattoo guides, aftercare, and session planning for Bloodline ${regionConfig.regionName}.`,
+            `Tattoo guides, aftercare, travel planning, and session advice from Bloodline ${regionConfig.regionName}. Built for travellers booking appointment-only custom work.`,
           ),
         };
 

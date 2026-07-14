@@ -18,8 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const title =
     region === "global"
-      ? `About Bloodline Tattoo | ${regionConfig.seo.siteName}`
-      : `About Bloodline Tattoo ${regionConfig.regionName} | ${regionConfig.seo.siteName}`;
+      ? `About Us | ${regionConfig.seo.siteName}`
+      : `About the Studio in ${regionConfig.regionName} | ${regionConfig.seo.siteName}`;
 
   const description =
     region === "global"
