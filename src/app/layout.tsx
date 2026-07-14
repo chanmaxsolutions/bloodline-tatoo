@@ -27,9 +27,24 @@ export async function generateMetadata(): Promise<Metadata> {
     title: regionConfig.seo.defaultTitle,
     description: regionConfig.seo.defaultDescription,
     icons: {
-      icon: regionConfig.branding.faviconPath,
+      icon: [
+        {
+          url: regionConfig.branding.faviconPath.replace(/\.png$/i, "-48.png"),
+          sizes: "48x48",
+          type: "image/png",
+        },
+        {
+          url: regionConfig.branding.faviconPath,
+          sizes: "192x192",
+          type: "image/png",
+        },
+      ],
       shortcut: regionConfig.branding.faviconPath,
-      apple: regionConfig.branding.faviconPath,
+      apple: {
+        url: regionConfig.branding.faviconPath,
+        sizes: "192x192",
+        type: "image/png",
+      },
     },
   };
 }
