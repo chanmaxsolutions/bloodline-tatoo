@@ -1,4 +1,5 @@
 import { tattooStyleDetailBySlug } from "@/config/tattoo-style-detail";
+import { baliTattooStyleDetailOverrides } from "@/config/tattoo-style-detail-bali";
 import type { TattooStyleDetailContent } from "@/types/tattoo-style-detail";
 import type { TattooStyleSlug } from "@/types/tattoo-style";
 import type { RegionSlug } from "@/types/region";
@@ -403,12 +404,13 @@ function tattooStyleDetailForRegion(
 ): TattooStyleDetailContent {
   const base = tattooStyleDetailBySlug[slug];
   const regional = tattooStyleDetailRegionalOverrides[slug]?.[region];
+  const baliCopy = region === "bali" ? baliTattooStyleDetailOverrides[slug] : undefined;
 
-  if (!regional) {
-    return base;
-  }
-
-  return { ...base, ...regional };
+  return {
+    ...base,
+    ...regional,
+    ...baliCopy,
+  };
 }
 
 export { tattooStyleDetailForRegion, tattooStyleDetailRegionalOverrides };

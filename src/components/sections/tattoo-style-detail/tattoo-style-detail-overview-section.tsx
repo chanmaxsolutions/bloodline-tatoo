@@ -12,8 +12,6 @@ interface TattooStyleDetailOverviewSectionProps {
 }
 
 function TattooStyleDetailOverviewSection({ content }: TattooStyleDetailOverviewSectionProps) {
-  const [firstParagraph, secondParagraph] = content.overview;
-
   return (
     <section
       aria-labelledby="tattoo-style-overview-heading"
@@ -24,12 +22,17 @@ function TattooStyleDetailOverviewSection({ content }: TattooStyleDetailOverview
           <h2 id="tattoo-style-overview-heading" className="sr-only">
             About {content.title.toLowerCase()}
           </h2>
-          <p className={sectionRevealItemClass("none", styleOverviewParagraphClassName)}>
-            {firstParagraph}
-          </p>
-          <p className={sectionRevealItemClass("sm", styleOverviewParagraphClassName)}>
-            {secondParagraph}
-          </p>
+          {content.overview.map((paragraph, index) => (
+            <p
+              key={index}
+              className={sectionRevealItemClass(
+                index === 0 ? "none" : "sm",
+                styleOverviewParagraphClassName,
+              )}
+            >
+              {paragraph}
+            </p>
+          ))}
         </SectionReveal>
       </Container>
     </section>

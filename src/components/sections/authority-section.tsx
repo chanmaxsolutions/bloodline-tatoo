@@ -44,6 +44,10 @@ const emphasisClassName = "font-semibold text-foreground";
 const authorityProofPanelClassName =
   "relative aspect-5/4 max-h-[min(40vh,280px)] w-full overflow-hidden rounded-xl sm:aspect-auto sm:max-h-none sm:min-h-[300px] lg:h-full lg:min-h-[min(56vh,520px)]";
 
+/** Portrait-first shell for Bali vertical clips (9:16) — landscape 5/4 crops them badly on mobile. */
+const authorityProofVideoPanelClassName =
+  "relative aspect-3/4 max-h-[min(52vh,420px)] w-full overflow-hidden rounded-xl sm:aspect-auto sm:max-h-none sm:min-h-[300px] lg:h-full lg:min-h-[min(56vh,520px)]";
+
 /** Matches `TattooStyleTile` title scale. */
 const authorityProofTitleClassName =
   "font-heading text-2xl font-bold uppercase leading-none tracking-tight md:text-3xl";
@@ -115,7 +119,7 @@ interface AuthorityProofVideoPanelProps {
 function AuthorityProofVideoPanel({ panel, staggerIndex }: AuthorityProofVideoPanelProps) {
   return (
     <div className={sectionRevealStaggerClass(staggerIndex, "min-w-0")}>
-      <figure className={authorityProofPanelClassName}>
+      <figure className={authorityProofVideoPanelClassName}>
         <HeroBackgroundVideo
           key={panel.videoSrc}
           src={panel.videoSrc}

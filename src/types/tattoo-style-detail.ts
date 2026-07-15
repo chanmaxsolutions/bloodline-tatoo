@@ -10,8 +10,8 @@ export interface TattooStyleDetailProofImage {
   uploadedAt?: string;
 }
 
-/** Exactly three concise pointers for approach band cards and columns. */
-export type ApproachPointerTriplet = readonly [string, string, string];
+/** Approach-band column bullets (usually three; portrait Ideal for may be two). */
+export type ApproachPointerTriplet = readonly string[];
 
 export interface TattooStyleFaqItem {
   id: string;
@@ -24,8 +24,8 @@ export interface TattooStyleDetailContent {
   /** SEO meta; falls back to lead when omitted. */
   metaDescription?: string;
   lead: string;
-  /** Two editorial paragraphs between hero and approach spec. */
-  overview: readonly [string, string];
+  /** Editorial paragraphs between hero and approach spec. */
+  overview: readonly string[];
   /** Approach band headline (single line). */
   approachHeadline: string;
   /** Approach band intro; target ~4–5 lines at desktop measure. */
@@ -35,6 +35,11 @@ export interface TattooStyleDetailContent {
   sessionBullets: ApproachPointerTriplet;
   /** Optional column titles for the approach spec strip (defaults to Philosophy / Ideal for / Session structure). */
   approachColumnLabels?: readonly [string, string, string];
+  /**
+   * When false, the Philosophy / Ideal for / Session structure strip is hidden.
+   * Used for Bali healed proof page per client brief.
+   */
+  showApproachSpecStrip?: boolean;
   /** Page header cover; defaults to `/images/tattoo-styles/{slug}/hero.webp`. */
   heroImage?: TattooStyleDetailProofImage;
   /** Approach statement background; defaults to `/images/tattoo-styles/{slug}/approach.webp`. */
@@ -66,7 +71,7 @@ export interface ResolvedTattooStyleDetailPage {
   heroImageAlt: string;
   metaDescription: string;
   lead: string;
-  overview: readonly [string, string];
+  overview: readonly string[];
   approachHeadline: string;
   approachIntro: string;
   philosophyBullets: ApproachPointerTriplet;
@@ -74,6 +79,7 @@ export interface ResolvedTattooStyleDetailPage {
   sessionBullets: ApproachPointerTriplet;
   /** Optional column titles for the approach spec strip (defaults to Philosophy / Ideal for / Session structure). */
   approachColumnLabels?: readonly [string, string, string];
+  showApproachSpecStrip: boolean;
   approachImageSrc: string;
   approachImageAlt: string;
   proofEyebrow: string;

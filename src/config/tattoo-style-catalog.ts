@@ -112,6 +112,7 @@ const tattooStyleShortDescriptionByRegion: Partial<
   Record<RegionSlug, Partial<Record<TattooStyleSlug, string>>>
 > = {
   bali: {
+    realism: "Any image, scene or subject brought to life on skin. Realism at its finest.",
     portrait:
       "The most personal style in tattooing. Faces, figures and likenesses captured with the detail they deserve.",
     japanese: "Bold, timeless and built to age beautifully. Japanese tattooing at its finest.",

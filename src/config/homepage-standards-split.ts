@@ -69,12 +69,17 @@ function homepageStandardsSplitForRegion(
       "Custom work is built with intent. Stencil discipline, tonal control and careful pacing keep the process steady while the piece comes together.",
   };
 
+  const standardsSplitPointerLabels =
+    slug === "bali"
+      ? (["Room baseline", "Custom Execution", "House gravity"] as const)
+      : (["Room baseline", "Custom execution", "House gravity"] as const);
+
   return {
     bandSurface: "elevated",
     eyebrow: "Studio standard",
     heading: "PREMIUM WORK. DISCIPLINED ROOM.",
     intro: standardsSplitIntroByRegion[slug],
-    pointerLabels: ["Room baseline", "Custom execution", "House gravity"],
+    pointerLabels: [...standardsSplitPointerLabels],
     pointerIcons: ["shield-check", "pen-tool", "building-2"],
     bullets: [
       `${studio} runs on a clear baseline. Structured consultation, sterile practice and execution held with genuine discipline, not hype.`,
@@ -143,7 +148,7 @@ function homepageSessionPathSplitForRegion(
 
   const sessionPathPointerLabels =
     slug === "bali"
-      ? (["Everything Agreed First", "Consultation Day", "Session day"] as const)
+      ? (["Everything Agreed First", "Consultation Day", "Session Day"] as const)
       : (["Consult first", "Scope locked", "Session day"] as const);
 
   const sessionPathPointerIcons =
@@ -156,7 +161,7 @@ function homepageSessionPathSplitForRegion(
       ? ([
           "Placement, session count and everything in between. All locked in before you're asked to commit. No surprises, no pressure.",
           "This is where it all comes together. Meet your artist, go over everything you've shared and lock in the blueprint for the piece you're about to wear.",
-          "The day you've been waiting for. Our team is with you every step of the way. Dedicated staff, a comfortable environment and everything in place to make sure your experience is as seamless as the work going on your skin.",
+          "The day you've been waiting for. Our team is with you every step of the way. Dedicated staff, a comfortable environment and everything in place to make sure your experience is as seamless as the work going on your skin. This is where you become part of the Bloodline family.",
         ] as const)
       : ([
           `${studio} runs consult first. Scope, timing and sterile prep are all agreed before the session is committed.`,

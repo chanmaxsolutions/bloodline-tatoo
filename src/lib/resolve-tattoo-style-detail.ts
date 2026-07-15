@@ -70,6 +70,7 @@ function resolveTattooStyleDetailPage(
     idealForBullets: detail.idealForBullets,
     sessionBullets: detail.sessionBullets,
     approachColumnLabels: detail.approachColumnLabels,
+    showApproachSpecStrip: detail.showApproachSpecStrip !== false,
     approachImageSrc: approachImage.src,
     approachImageAlt: approachImage.alt,
     proofEyebrow: detail.proofEyebrow,

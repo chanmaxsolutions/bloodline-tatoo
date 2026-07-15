@@ -9,6 +9,10 @@ interface TattooStyleDetailBodySectionProps {
 }
 
 function TattooStyleDetailBodySection({ content }: TattooStyleDetailBodySectionProps) {
+  if (!content.showApproachSpecStrip) {
+    return null;
+  }
+
   return (
     <section
       aria-labelledby="tattoo-style-approach-details-heading"

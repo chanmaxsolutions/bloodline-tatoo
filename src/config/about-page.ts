@@ -34,10 +34,6 @@ function aboutTrustStatsForRegion(
   region: RegionSlug,
   curatedReviewCount: number,
 ): readonly AboutPageTrustStat[] {
-  if (region === "bali") {
-    return [];
-  }
-
   const googleTrust = resolveGoogleBusinessTrustStats(region);
 
   if (region === "global") {
@@ -68,8 +64,8 @@ function aboutStoryParagraphsForRegion(region: RegionSlug, regionName: string): 
 
   if (region === "bali") {
     return [
-      "Step inside Bloodline Bali and you'll feel it immediately, this isn't like other studios. The space is generous, the energy is calm and every detail has been considered. We believe the environment you work in sets the standard you work to. Build something beautiful, and the people inside it rise to meet it.",
-      "Three floors of space for every artist and a dedicated support team whose only focus is making sure you're looked after from the moment you arrive. Whether that's walking you through the process, keeping you comfortable during a long session or making sure every little detail is taken care of, it's all handled, so you can just be present for the experience.",
+      "Step inside Bloodline Tattoo Bali and you'll feel it immediately, this isn't like other studios. The space is generous, the energy is calm and every detail has been considered. We believe the environment you work in sets the standard you work to. Build something beautiful, and the people inside it rise to meet it.",
+      "Three floors of space for every artist and a dedicated support team whose only focus is making sure you're looked after from the moment you arrive. Whether that's walking you through the process, keeping you comfortable during a long session or making sure every little detail is taken care of, it's all handled so you can just be present for the experience.",
       "When serious artists work alongside each other in a space built for the craft, something special happens. The energy is collaborative, the standard is shared and every person in the room is there because they genuinely love what they do.",
       "A place that looks the part, feels like home and produces work that speaks for itself.",
     ];
