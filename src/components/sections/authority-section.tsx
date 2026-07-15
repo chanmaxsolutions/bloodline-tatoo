@@ -46,7 +46,7 @@ const authorityProofPanelClassName =
 
 /** Portrait-first shell for Bali vertical clips (9:16) — landscape 5/4 crops them badly on mobile. */
 const authorityProofVideoPanelClassName =
-  "relative aspect-3/4 max-h-[min(52vh,420px)] w-full overflow-hidden rounded-xl sm:aspect-auto sm:max-h-none sm:min-h-[300px] lg:h-full lg:min-h-[min(56vh,520px)]";
+  "relative aspect-9/16 max-h-[min(70vh,580px)] w-full overflow-hidden rounded-xl sm:aspect-auto sm:max-h-none sm:min-h-[300px] lg:h-full lg:min-h-[min(56vh,520px)]";
 
 /** Matches `TattooStyleTile` title scale. */
 const authorityProofTitleClassName =
