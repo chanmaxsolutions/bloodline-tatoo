@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Plus_Jakarta_Sans } from "next/font/google";
 import { Suspense } from "react";
-import { BookingAppointmentProvider } from "@/components/cta";
+import { BookingAppointmentProvider, TrustpilotFloatingWidget } from "@/components/cta";
+import { trustpilotForRegion } from "@/config/trustpilot";
 import { SiteFooter, SiteHeader } from "@/components/layout";
 import { GoogleAnalytics } from "@/components/seo";
 import { buildBookingModalPayload } from "@/lib/booking-modal";
@@ -56,6 +57,7 @@ export default async function RootLayout({
 }>) {
   const { region, regionConfig } = await getRequestRegionContext();
   const bookingModalPayload = buildBookingModalPayload(regionConfig);
+  const trustpilot = trustpilotForRegion(region);
 
   return (
     <html lang="en" className={`${headingFont.variable} ${bodyFont.variable} h-full antialiased`}>
@@ -67,6 +69,9 @@ export default async function RootLayout({
           <SiteHeader region={region} />
           <main className="min-w-0 flex-1">{children}</main>
           <SiteFooter region={region} />
+          {trustpilot.enabled ? (
+            <TrustpilotFloatingWidget regionSlug={region} evaluateUrl={trustpilot.evaluateUrl} />
+          ) : null}
         </BookingAppointmentProvider>
       </body>
     </html>

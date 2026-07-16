@@ -8,3 +8,4 @@ export * from "@/types/tattoo-style";
 export * from "@/types/tattoo-style-detail";
 export * from "@/types/review";
 export * from "@/types/seo";
+export * from "@/types/trustpilot";
