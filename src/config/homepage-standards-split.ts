@@ -7,7 +7,7 @@ const standardsSplitAltByRegion: Record<RegionSlug, string> = {
     "Close detail of premium tattoo execution in a controlled Bloodline studio session across Asia",
   bangkok:
     "Black and grey realism sleeve with Greek god, winged angel, cathedral architecture, and eye detail at Bloodline Tattoo Bangkok",
-  bali: "Black and grey realism portrait sleeve with roses and classical columns on a woman at Bloodline Tattoo Bali",
+  bali: "Professional tattoo artists working in the sterile Bloodline Tattoo Bali studio with black and grey realism murals and clinical session standards",
   phuket:
     "Black and grey realism angel back tattoo with sword, roses, and classical columns at Bloodline Tattoo Phuket",
 };
@@ -17,7 +17,7 @@ const sessionPathAltByRegion: Record<RegionSlug, string> = {
     "Bloodline studio atmosphere and controlled lighting for premium tattoo sessions across Bangkok, Bali, and Phuket",
   bangkok:
     "Black and grey realism back tattoo with Greek god portrait, winged angel, temple, and lightning at Bloodline Tattoo Bangkok",
-  bali: "Black and grey realism Spartan warrior and Parthenon full back tattoo in a moody studio at Bloodline Tattoo Bali",
+  bali: "Tattoo artists and client reviewing a custom design on a tablet during consultation at Bloodline Tattoo Bali before session day",
   phuket:
     "Black and grey realism angel full back tattoo with cathedral columns in a cinematic studio at Bloodline Tattoo Phuket",
 };

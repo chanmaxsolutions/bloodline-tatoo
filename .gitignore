@@ -44,6 +44,9 @@ next-env.d.ts
 # Internal docs (not required for deploy)
 /docs/
 
+# Client image staging library (local uploads — not deployed)
+/image resources/
+
 # Content pipeline scripts & mappings (outputs live in src/; keep catalog generator for prebuild)
 /scripts/*
 !/scripts/generate-gallery-catalog.ts

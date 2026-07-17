@@ -103,8 +103,9 @@ function HomepageStandardsSplitApproachLayout({
         src={content.media.src}
         alt={content.media.alt}
         fill
-        sizes="(min-width: 1024px) 60vw, 92vw"
-        quality={78}
+        // Intentionally larger than CSS width so retina (2x/3x) gets sharp pixels.
+        sizes="(min-width: 1024px) 1400px, 100vw"
+        quality={92}
         className="object-cover object-center shadow-none drop-shadow-none"
       />
     </div>

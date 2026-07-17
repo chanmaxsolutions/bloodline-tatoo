@@ -142,8 +142,8 @@ function BlogMdxImage({ alt = "", src, title }: { alt?: string; src?: string; ti
           src={src}
           alt={alt}
           fill
-          sizes="(min-width: 1024px) 720px, 100vw"
-          quality={75}
+          sizes="(min-width: 1024px) 1400px, 100vw"
+          quality={88}
           className="object-cover object-center"
         />
       </div>

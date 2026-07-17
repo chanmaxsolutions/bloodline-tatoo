@@ -87,8 +87,8 @@ function BlogArticleSection({ post, regionName, headerCtaLabel }: BlogArticleSec
                 alt={post.featuredImage.alt}
                 fill
                 priority
-                sizes="(min-width: 1024px) 720px, 100vw"
-                quality={75}
+                sizes="(min-width: 1024px) 1400px, 100vw"
+                quality={88}
                 className="object-cover object-center"
               />
             </div>

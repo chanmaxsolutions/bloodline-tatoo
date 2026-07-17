@@ -87,11 +87,16 @@ function authorityProofPanelKey(panel: HomepageAuthorityProofPanel): string {
 interface AuthorityProofImagePanelProps {
   panel: HomepageAuthorityProofImagePanel;
   staggerIndex: number;
+  className?: string;
 }
 
-function AuthorityProofImagePanel({ panel, staggerIndex }: AuthorityProofImagePanelProps) {
+function AuthorityProofImagePanel({
+  panel,
+  staggerIndex,
+  className,
+}: AuthorityProofImagePanelProps) {
   return (
-    <div className={sectionRevealStaggerClass(staggerIndex, "min-w-0")}>
+    <div className={sectionRevealStaggerClass(staggerIndex, cn("min-w-0", className))}>
       <figure className={authorityProofPanelClassName}>
         <Image
           src={panel.src}
@@ -114,11 +119,16 @@ function AuthorityProofImagePanel({ panel, staggerIndex }: AuthorityProofImagePa
 interface AuthorityProofVideoPanelProps {
   panel: HomepageAuthorityProofVideoPanel;
   staggerIndex: number;
+  className?: string;
 }
 
-function AuthorityProofVideoPanel({ panel, staggerIndex }: AuthorityProofVideoPanelProps) {
+function AuthorityProofVideoPanel({
+  panel,
+  staggerIndex,
+  className,
+}: AuthorityProofVideoPanelProps) {
   return (
-    <div className={sectionRevealStaggerClass(staggerIndex, "min-w-0")}>
+    <div className={sectionRevealStaggerClass(staggerIndex, cn("min-w-0", className))}>
       <figure className={authorityProofVideoPanelClassName}>
         <HeroBackgroundVideo
           key={panel.videoSrc}
@@ -136,14 +146,19 @@ function AuthorityProofVideoPanel({ panel, staggerIndex }: AuthorityProofVideoPa
 interface AuthorityProofPanelProps {
   panel: HomepageAuthorityProofPanel;
   staggerIndex: number;
+  className?: string;
 }
 
-function AuthorityProofPanel({ panel, staggerIndex }: AuthorityProofPanelProps) {
+function AuthorityProofPanel({ panel, staggerIndex, className }: AuthorityProofPanelProps) {
   if (panel.kind === "video") {
-    return <AuthorityProofVideoPanel panel={panel} staggerIndex={staggerIndex} />;
+    return (
+      <AuthorityProofVideoPanel panel={panel} staggerIndex={staggerIndex} className={className} />
+    );
   }
 
-  return <AuthorityProofImagePanel panel={panel} staggerIndex={staggerIndex} />;
+  return (
+    <AuthorityProofImagePanel panel={panel} staggerIndex={staggerIndex} className={className} />
+  );
 }
 
 function AuthoritySectionCta({ href, label }: { href: string; label: string }) {
@@ -199,6 +214,8 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
               key={authorityProofPanelKey(panel)}
               panel={panel}
               staggerIndex={index + 1}
+              // Mobile: show only the studio/second panel; keep both from `sm` up.
+              className={index === 0 ? "hidden sm:block" : undefined}
             />
           ))}
 
