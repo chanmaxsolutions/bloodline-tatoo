@@ -333,6 +333,8 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
     ? bookingNoteBodySegments(activePayload.copy.noteBody)
     : null;
   const descriptionText = activePayload.copy.body?.trim() ?? "";
+  /** Keep the previous modal footprint when description/note copy is omitted. */
+  const isCompactCopy = !descriptionText && !showNote;
 
   return (
     <BookingAppointmentContext.Provider value={ctx}>
@@ -345,6 +347,8 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
           className={cn(
             "max-h-[min(88dvh,920px)] w-[min(100vw-1.25rem,48rem)] max-w-[min(100vw-1.25rem,48rem)] gap-0 overflow-y-auto overscroll-contain rounded-xl border-0 bg-surface-strong/90 px-4 py-8 backdrop-blur-xl sm:px-10 sm:py-12 md:px-12 md:py-14",
             "shadow-lg shadow-black/35",
+            isCompactCopy &&
+              "min-h-[min(70dvh,28rem)] justify-center sm:min-h-[min(72dvh,32.5rem)] md:min-h-[min(70dvh,34rem)]",
           )}
         >
           <DialogHeader className="items-center gap-3 px-0 text-center sm:gap-4 sm:px-2 md:px-4">
