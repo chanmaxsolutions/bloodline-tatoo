@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ContactPage() {
   const { region, regionConfig } = await getRequestRegionContext();
   const content = getContactPageContent(region);
-  const hasContentBelow = content.narrative !== null || contactPageWhatsAppFormEnabled;
+  const hasContentBelow = true;
 
   return (
     <div className="min-w-0 bg-background">
@@ -53,7 +53,7 @@ export default async function ContactPage() {
         studios={content.studios}
         hasContentBelow={hasContentBelow}
       />
-      {content.narrative ? <ContactPageNarrativeSection narrative={content.narrative} /> : null}
+      <ContactPageNarrativeSection narrative={content.narrative} />
       {contactPageWhatsAppFormEnabled ? (
         <ContactPageFormSection
           whatsappForm={content.whatsappForm}

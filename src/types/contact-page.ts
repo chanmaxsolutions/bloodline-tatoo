@@ -53,8 +53,8 @@ export interface ContactPageContent {
   regionName: string;
   channels: BookingModalChannels;
   studios: readonly ContactPageStudioLink[];
-  /** Regional studio location copy under the channel tiles. Null when not provided yet. */
-  narrative: ContactPageNarrative | null;
+  /** Regional studio location copy under the channel tiles. */
+  narrative: ContactPageNarrative;
   whatsappForm: ContactPageWhatsAppFormCopy;
   whatsappPhoneDigits: string | null;
   whatsappStudioOptions: readonly ContactPageWhatsAppStudioOption[];

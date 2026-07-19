@@ -34,10 +34,22 @@ const contactWhatsAppFormCopy: ContactPageWhatsAppFormCopy = {
 };
 
 /**
- * Location / welcome narrative under the contact channel tiles.
- * Add Bali / Bangkok / global entries when the client supplies copy.
+ * Location / welcome narrative under the contact channel tiles (all regional sites).
+ * Phuket body matches client-supplied copy; Bangkok / Bali / global follow the same pattern.
  */
-const contactPageNarrativeByRegion: Partial<Record<RegionSlug, ContactPageNarrative>> = {
+const contactPageNarrativeByRegion: Record<RegionSlug, ContactPageNarrative> = {
+  global: {
+    heading: "CONTACT BLOODLINE TATTOO",
+    body: "Bloodline Tattoo runs across Bangkok, Bali and Phuket as one studio house. Each location is appointment-only and ready to welcome travellers and locals who want serious custom work. Whether you’re booking in Thailand or Indonesia, our Bloodline family is here to help. Contact your studio on WhatsApp or Instagram for directions, studio information and tattoo appointments.",
+  },
+  bangkok: {
+    heading: "CONTACT BLOODLINE TATTOO BANGKOK",
+    body: "Bloodline Tattoo Bangkok is located on Sukhumvit 21 in Watthana, one of Bangkok’s most accessible neighbourhoods for travellers and expats. Our studio is conveniently located for clients staying around Sukhumvit and travelling from across the city. Whether you’re visiting Bangkok on holiday or travelling specifically for your tattoo, our Bloodline family is here to welcome you. Contact our team on WhatsApp or Instagram for directions, studio information and tattoo appointments.",
+  },
+  bali: {
+    heading: "CONTACT BLOODLINE TATTOO BALI",
+    body: "Bloodline Tattoo Bali is located in Kuta on Jalan Legian, in the heart of one of Bali’s most popular tourist areas. Our studio is conveniently located for clients staying in Kuta, Seminyak and travelling from across the island. Whether you’re visiting Bali on holiday or travelling specifically for your tattoo, our Bloodline family is here to welcome you. Contact our team on WhatsApp or Instagram for directions, studio information and tattoo appointments.",
+  },
   phuket: {
     heading: "CONTACT BLOODLINE TATTOO PHUKET",
     body: "Bloodline Tattoo Phuket is located in Patong, Phuket, one of Thailand’s most popular tourist destinations. Our studio is conveniently located for clients staying in Patong and travelling from across Phuket. Whether you’re visiting the island on holiday or travelling specifically for your tattoo, our Bloodline family is here to welcome you. Contact our team on WhatsApp or Instagram for directions, studio information and tattoo appointments.",
@@ -62,8 +74,8 @@ function contactIntroForRegion(region: RegionSlug, regionName: string): ContactP
   };
 }
 
-function contactNarrativeForRegion(region: RegionSlug): ContactPageNarrative | null {
-  return contactPageNarrativeByRegion[region] ?? null;
+function contactNarrativeForRegion(region: RegionSlug): ContactPageNarrative {
+  return contactPageNarrativeByRegion[region];
 }
 
 function contactPageContentForRegion(region: RegionSlug, regionName: string) {
