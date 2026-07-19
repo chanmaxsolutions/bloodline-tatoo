@@ -216,6 +216,14 @@ function aboutClosingForRegion(region: RegionSlug, regionName: string) {
     };
   }
 
+  if (region === "phuket") {
+    return {
+      heading: "READY TO BECOME PART OF THE BLOODLINE FAMILY?",
+      description:
+        "If you’re planning a tattoo in Phuket and looking for an experienced team that takes custom tattooing seriously, we’d love to hear what you have in mind.\n\nBloodline Phuket specialises in custom tattoo work and large-scale tattoo projects, with experienced artists across a range of individual tattoo styles.\n\nMessage the Bloodline Phuket team on WhatsApp to tell us about your tattoo idea. We’ll help match you with the right artist, discuss your project and guide you through the booking process.\n\nCome for the tattoo. Leave as part of the Bloodline family.",
+    };
+  }
+
   return {
     heading: `READY TO BOOK YOUR ${regionName.toUpperCase()} SESSION?`,
     description: `Tell us what you have in mind. We align on placement, scale and timing before the session is locked in.`,

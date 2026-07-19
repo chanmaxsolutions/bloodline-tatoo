@@ -16,6 +16,13 @@ import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { cn } from "@/lib/utils";
 import type { PageClosingCtaContent } from "@/types/page-closing-cta";
 
+function splitClosingDescription(description: string): string[] {
+  return description
+    .split(/\n\n+/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+}
+
 interface PageClosingCtaSectionProps {
   content: PageClosingCtaContent;
   headerCtaLabel: string;
@@ -60,7 +67,26 @@ function PageClosingCtaSection({
               >
                 {content.heading}
               </h2>
-              <p className={pageClosingCtaBandDescriptionClassName}>{content.description}</p>
+              {(() => {
+                const paragraphs = splitClosingDescription(content.description);
+                if (paragraphs.length <= 1) {
+                  return (
+                    <p className={pageClosingCtaBandDescriptionClassName}>
+                      {paragraphs[0] ?? content.description}
+                    </p>
+                  );
+                }
+
+                return (
+                  <div className="flex w-full flex-col items-center gap-3 md:gap-3.5">
+                    {paragraphs.map((paragraph, index) => (
+                      <p key={index} className={pageClosingCtaBandDescriptionClassName}>
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                );
+              })()}
             </div>
           </div>
 
