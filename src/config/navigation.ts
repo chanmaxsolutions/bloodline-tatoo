@@ -6,6 +6,7 @@ export interface HeaderNavItem {
 }
 
 export const desktopNavigationItems: HeaderNavItem[] = [
+  { label: "Home", href: "/" },
   {
     label: "Tattoo Styles",
     href: "/tattoo-styles",
