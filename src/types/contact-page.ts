@@ -8,6 +8,12 @@ export interface ContactPageIntro {
   description: string;
 }
 
+/** Studio location / welcome copy shown under the contact channel tiles. */
+export interface ContactPageNarrative {
+  heading: string;
+  body: string;
+}
+
 export interface ContactPageFormFieldCopy {
   label: string;
   placeholder: string;
@@ -47,6 +53,8 @@ export interface ContactPageContent {
   regionName: string;
   channels: BookingModalChannels;
   studios: readonly ContactPageStudioLink[];
+  /** Regional studio location copy under the channel tiles. Null when not provided yet. */
+  narrative: ContactPageNarrative | null;
   whatsappForm: ContactPageWhatsAppFormCopy;
   whatsappPhoneDigits: string | null;
   whatsappStudioOptions: readonly ContactPageWhatsAppStudioOption[];

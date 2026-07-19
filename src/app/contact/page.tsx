@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactPageFormSection } from "@/components/sections/contact-page-form-section";
 import { ContactPageIntroSection } from "@/components/sections/contact-page-intro-section";
+import { ContactPageNarrativeSection } from "@/components/sections/contact-page-narrative-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { contactPageWhatsAppFormEnabled } from "@/config/contact-page";
 import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
@@ -35,6 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ContactPage() {
   const { region, regionConfig } = await getRequestRegionContext();
   const content = getContactPageContent(region);
+  const hasContentBelow = content.narrative !== null || contactPageWhatsAppFormEnabled;
 
   return (
     <div className="min-w-0 bg-background">
@@ -49,7 +51,9 @@ export default async function ContactPage() {
         isGlobal={content.isGlobal}
         channels={content.channels}
         studios={content.studios}
+        hasContentBelow={hasContentBelow}
       />
+      {content.narrative ? <ContactPageNarrativeSection narrative={content.narrative} /> : null}
       {contactPageWhatsAppFormEnabled ? (
         <ContactPageFormSection
           whatsappForm={content.whatsappForm}

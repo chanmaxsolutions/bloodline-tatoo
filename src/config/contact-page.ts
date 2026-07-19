@@ -1,4 +1,8 @@
-import type { ContactPageIntro, ContactPageWhatsAppFormCopy } from "@/types/contact-page";
+import type {
+  ContactPageIntro,
+  ContactPageNarrative,
+  ContactPageWhatsAppFormCopy,
+} from "@/types/contact-page";
 import type { RegionSlug } from "@/types/region";
 
 /**
@@ -29,6 +33,17 @@ const contactWhatsAppFormCopy: ContactPageWhatsAppFormCopy = {
   studio: { label: "Studio", placeholder: "Select a studio" },
 };
 
+/**
+ * Location / welcome narrative under the contact channel tiles.
+ * Add Bali / Bangkok / global entries when the client supplies copy.
+ */
+const contactPageNarrativeByRegion: Partial<Record<RegionSlug, ContactPageNarrative>> = {
+  phuket: {
+    heading: "CONTACT BLOODLINE TATTOO PHUKET",
+    body: "Bloodline Tattoo Phuket is located in Patong, Phuket, one of Thailand’s most popular tourist destinations. Our studio is conveniently located for clients staying in Patong and travelling from across Phuket. Whether you’re visiting the island on holiday or travelling specifically for your tattoo, our Bloodline family is here to welcome you. Contact our team on WhatsApp or Instagram for directions, studio information and tattoo appointments.",
+  },
+};
+
 function contactIntroForRegion(region: RegionSlug, regionName: string): ContactPageIntro {
   if (region === "global") {
     return {
@@ -47,9 +62,14 @@ function contactIntroForRegion(region: RegionSlug, regionName: string): ContactP
   };
 }
 
+function contactNarrativeForRegion(region: RegionSlug): ContactPageNarrative | null {
+  return contactPageNarrativeByRegion[region] ?? null;
+}
+
 function contactPageContentForRegion(region: RegionSlug, regionName: string) {
   return {
     intro: contactIntroForRegion(region, regionName),
+    narrative: contactNarrativeForRegion(region),
     whatsappForm: contactWhatsAppFormCopy,
   };
 }

@@ -17,9 +17,12 @@ const contactHeroTitleClassName =
 const contactHeroDescriptionClassName =
   "mx-auto max-w-xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty sm:max-w-2xl md:text-xl md:leading-snug";
 
-/** Page-closing padding when the optional WhatsApp form band below is hidden. */
-const contactIntroBottomSpacingClassName =
+/** Page-closing padding when no narrative / form band follows. */
+const contactIntroPageCloseSpacingClassName =
   "pb-(--homepage-section-band-padding-y-mobile) lg:pb-(--homepage-section-band-padding-y-desktop)";
+
+/** Tighter bottom when a content band continues below the channel tiles. */
+const contactIntroContinueSpacingClassName = "pb-10 md:pb-12 lg:pb-14";
 
 interface ContactPageIntroSectionProps {
   intro: ContactPageContent["intro"];
@@ -30,6 +33,8 @@ interface ContactPageIntroSectionProps {
   isGlobal: ContactPageContent["isGlobal"];
   channels: ContactPageContent["channels"];
   studios: ContactPageContent["studios"];
+  /** When true, a narrative or form band follows — use tighter bottom spacing. */
+  hasContentBelow?: boolean;
 }
 
 function ContactPageIntroSection({
@@ -39,6 +44,7 @@ function ContactPageIntroSection({
   isGlobal,
   channels,
   studios,
+  hasContentBelow = false,
 }: ContactPageIntroSectionProps) {
   return (
     <section
@@ -46,7 +52,9 @@ function ContactPageIntroSection({
       className={cn(
         "relative isolate overflow-hidden border-t border-border/50 bg-surface text-foreground",
         "pt-28 md:pt-36",
-        contactIntroBottomSpacingClassName,
+        hasContentBelow
+          ? contactIntroContinueSpacingClassName
+          : contactIntroPageCloseSpacingClassName,
       )}
     >
       <div className="pointer-events-none absolute inset-0 z-0 min-h-full w-full overflow-hidden">

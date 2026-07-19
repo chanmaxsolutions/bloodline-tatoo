@@ -21,6 +21,7 @@ export { AboutPageReviewsSection } from "@/components/sections/about-page-review
 export { PageClosingCtaSection } from "@/components/sections/page-closing-cta-section";
 export { ContactPageIntroSection } from "@/components/sections/contact-page-intro-section";
 export { ContactPageFormSection } from "@/components/sections/contact-page-form-section";
+export { ContactPageNarrativeSection } from "@/components/sections/contact-page-narrative-section";
 export { ContactPageActions } from "@/components/sections/contact-page-actions";
 export { ContactPageWhatsAppForm } from "@/components/sections/contact-page-whatsapp-form";
 export { FaqPageIntroSection } from "@/components/sections/faq-page-intro-section";
