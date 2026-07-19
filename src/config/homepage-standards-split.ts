@@ -140,7 +140,7 @@ function homepageSessionPathSplitForRegion(
       "Consultation, agreed scope, then execution in the chair. Each stage is clear before you commit. Placement, pacing and recovery are all set before session day.",
     bali: "Every Bloodline booking starts with a conversation. Tell us what you've always wanted and we'll take it from there. Everything sorted before you set foot in the studio.",
     phuket:
-      "Consultation, scope and session day run in clear sequence. No surprises once you are in the chair. Everything is agreed before the session begins.",
+      "Founded with a shared passion for tattooing and a vision to build something different, Bloodline has grown into one family across three locations. Our owners remain hands-on in the business, working alongside our artists and team to maintain the standards, culture and family atmosphere that Bloodline was built on.",
   };
 
   const sessionPathCtaByRegion: Record<
