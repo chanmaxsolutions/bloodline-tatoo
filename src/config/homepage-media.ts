@@ -30,6 +30,9 @@ const homepageImageFileOverrideByRegion: Partial<
     standardsSplit: "standards-split-20250718-home.webp",
     sessionPath: "session-path-20250718-home.webp",
   },
+  phuket: {
+    authorityStudio: "authority-studio-20250719-home.webp",
+  },
 };
 
 function resolveHomepageImageFile(region: RegionSlug, slot: HomepageImageSlot): string {
@@ -81,9 +84,13 @@ export function homepageHeroVideoSrc(region: RegionSlug): string {
 const baliHomepageAuthorityVideoRoot = "/videos/homepage/bali" as const;
 const baliHomepageAuthorityVideoVersion = "20250628" as const;
 
-/** Phuket: both authority cards share one optimized clip until a second video lands. */
-const phuketHomepageAuthorityVideoSrc = "/videos/homepage/phuket/authority-shared.mp4" as const;
-const phuketHomepageAuthorityVideoVersion = "20250719-home" as const;
+const phuketHomepageAuthorityVideoRoot = "/videos/homepage/phuket" as const;
+const phuketHomepageAuthorityVideoVersionBySlot = {
+  /** First Phuket clip — still used on the craft card. */
+  craft: "20250719-home",
+  /** `story-450_focus` optimized studio card clip. */
+  studio: "20250719-studio",
+} as const;
 
 export type HomepageAuthorityVideoSlot = "craft" | "studio";
 
@@ -92,7 +99,7 @@ export type BaliHomepageAuthorityVideoSlot = HomepageAuthorityVideoSlot;
 
 /**
  * Homepage authority card clips (craft + studio columns).
- * - Phuket: regional optimized shared clip (both cards)
+ * - Phuket: regional craft + studio clips
  * - Other regions: Bali craft/studio clips until per-region files are added
  */
 export function homepageAuthorityVideoSrc(
@@ -100,7 +107,8 @@ export function homepageAuthorityVideoSrc(
   slot: HomepageAuthorityVideoSlot,
 ): string {
   if (region === "phuket") {
-    return `${phuketHomepageAuthorityVideoSrc}?v=${phuketHomepageAuthorityVideoVersion}`;
+    const file = slot === "craft" ? "authority-shared.mp4" : "authority-studio.mp4";
+    return `${phuketHomepageAuthorityVideoRoot}/${file}?v=${phuketHomepageAuthorityVideoVersionBySlot[slot]}`;
   }
 
   const file = slot === "craft" ? "authority-craft.mp4" : "authority-studio.mp4";
