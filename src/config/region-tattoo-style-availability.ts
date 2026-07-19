@@ -1,8 +1,8 @@
 import type { TattooStyleSlug } from "@/types/tattoo-style";
 import type { RegionSlug } from "@/types/region";
 
-/** Shared studio menu (Bangkok + Phuket). */
-const bangkokPhuketStyleSlugs = [
+/** Bangkok studio menu (includes healed). */
+const bangkokStyleSlugs = [
   "realism",
   "portrait",
   "japanese",
@@ -11,6 +11,17 @@ const bangkokPhuketStyleSlugs = [
   "chicano",
   "bamboo",
   "healed",
+] as const satisfies readonly TattooStyleSlug[];
+
+/** Phuket studio menu — healed is not offered. */
+const phuketStyleSlugs = [
+  "realism",
+  "portrait",
+  "japanese",
+  "colour",
+  "mandala",
+  "chicano",
+  "bamboo",
 ] as const satisfies readonly TattooStyleSlug[];
 
 const baliStyleSlugs = [
@@ -40,8 +51,8 @@ const globalStyleSlugs = [
 
 const tattooStyleSlugsByRegion: Record<RegionSlug, readonly TattooStyleSlug[]> = {
   global: globalStyleSlugs,
-  bangkok: bangkokPhuketStyleSlugs,
-  phuket: bangkokPhuketStyleSlugs,
+  bangkok: bangkokStyleSlugs,
+  phuket: phuketStyleSlugs,
   bali: baliStyleSlugs,
 };
 
@@ -76,12 +87,17 @@ function isTattooStyleAvailableInRegion(slug: TattooStyleSlug, region: RegionSlu
   return tattooStyleSlugsByRegion[region].includes(slug);
 }
 
+/** @deprecated Prefer {@link bangkokStyleSlugs} / {@link phuketStyleSlugs}. */
+const bangkokPhuketStyleSlugs = bangkokStyleSlugs;
+
 export {
   baliStyleSlugs,
   bangkokPhuketStyleSlugs,
+  bangkokStyleSlugs,
   globalStyleSlugs,
   HOMEPAGE_TATTOO_STYLE_FEATURED_LIMIT,
   homepageFeaturedTattooStyleSlugsForRegion,
   isTattooStyleAvailableInRegion,
+  phuketStyleSlugs,
   tattooStyleSlugsForRegion,
 };
