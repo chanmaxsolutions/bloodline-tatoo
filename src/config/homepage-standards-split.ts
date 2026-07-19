@@ -9,7 +9,7 @@ const standardsSplitAltByRegion: Record<RegionSlug, string> = {
     "Black and grey realism sleeve with Greek god, winged angel, cathedral architecture, and eye detail at Bloodline Tattoo Bangkok",
   bali: "Professional tattoo artists working in the sterile Bloodline Tattoo Bali studio with black and grey realism murals and clinical session standards",
   phuket:
-    "Black and grey realism angel back tattoo with sword, roses, and classical columns at Bloodline Tattoo Phuket",
+    "Bloodline Tattoo Phuket team in the studio under neon branding and hexagonal studio lights",
 };
 
 const sessionPathAltByRegion: Record<RegionSlug, string> = {

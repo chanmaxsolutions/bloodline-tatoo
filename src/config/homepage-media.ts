@@ -32,6 +32,7 @@ const homepageImageFileOverrideByRegion: Partial<
   },
   phuket: {
     authorityStudio: "authority-studio-20250719-home.webp",
+    standardsSplit: "standards-split-20250719-home.webp",
   },
 };
 
