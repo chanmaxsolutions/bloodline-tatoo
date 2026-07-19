@@ -19,6 +19,21 @@ const TATTOO_STYLE_PROOF_GALLERY_TILE_COUNT = 8;
 
 const tattooStyleImageRoot = "/images/tattoo-styles";
 
+/**
+ * Dated card filename overrides (bust `/_next/image` cache after a swap).
+ * Default remains `card.webp` when unset.
+ */
+const tattooStyleCardFileOverrideByStudio: Partial<
+  Record<TattooStyleSlug, Partial<Record<TattooStyleStudioRegion, string>>>
+> = {
+  portrait: {
+    phuket: "card-20250719-home.webp",
+  },
+  colour: {
+    phuket: "card-20250719-home.webp",
+  },
+};
+
 function tattooStyleHeroSrc(slug: TattooStyleSlug, studio: TattooStyleStudioRegion): string {
   return `${tattooStyleImageRoot}/${slug}/${studio}/hero.webp`;
 }
@@ -28,7 +43,8 @@ function tattooStyleApproachSrc(slug: TattooStyleSlug, studio: TattooStyleStudio
 }
 
 function tattooStyleCardSrc(slug: TattooStyleSlug, studio: TattooStyleStudioRegion): string {
-  return `${tattooStyleImageRoot}/${slug}/${studio}/card.webp`;
+  const file = tattooStyleCardFileOverrideByStudio[slug]?.[studio] ?? "card.webp";
+  return `${tattooStyleImageRoot}/${slug}/${studio}/${file}`;
 }
 
 function resolvePrimaryTattooStyleStudio(
