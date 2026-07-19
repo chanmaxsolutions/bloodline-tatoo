@@ -17,8 +17,9 @@ const contactHeroTitleClassName =
 const contactHeroDescriptionClassName =
   "mx-auto max-w-xl font-sans text-lg leading-relaxed text-muted-foreground text-pretty sm:max-w-2xl md:text-xl md:leading-snug";
 
-/** Matches reviews intro → grid spacing between bands. */
-const contactIntroBottomSpacingClassName = "pb-10 md:pb-12 lg:pb-14";
+/** Page-closing padding when the optional WhatsApp form band below is hidden. */
+const contactIntroBottomSpacingClassName =
+  "pb-(--homepage-section-band-padding-y-mobile) lg:pb-(--homepage-section-band-padding-y-desktop)";
 
 interface ContactPageIntroSectionProps {
   intro: ContactPageContent["intro"];

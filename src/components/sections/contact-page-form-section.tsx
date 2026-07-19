@@ -1,3 +1,7 @@
+/**
+ * Optional `/contact` WhatsApp lead form band (“Or start here”).
+ * Toggle via `contactPageWhatsAppFormEnabled` in `src/config/contact-page.ts`.
+ */
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { ContactPageWhatsAppForm } from "@/components/sections/contact-page-whatsapp-form";

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactPageFormSection } from "@/components/sections/contact-page-form-section";
 import { ContactPageIntroSection } from "@/components/sections/contact-page-intro-section";
 import { JsonLd } from "@/components/seo/json-ld";
+import { contactPageWhatsAppFormEnabled } from "@/config/contact-page";
 import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
 import { getContactPageContent } from "@/lib/contact-page";
 import { buildStudioEntitySchema } from "@/lib/schema";
@@ -49,13 +50,15 @@ export default async function ContactPage() {
         channels={content.channels}
         studios={content.studios}
       />
-      <ContactPageFormSection
-        whatsappForm={content.whatsappForm}
-        isGlobal={content.isGlobal}
-        regionName={content.regionName}
-        whatsappPhoneDigits={content.whatsappPhoneDigits}
-        whatsappStudioOptions={content.whatsappStudioOptions}
-      />
+      {contactPageWhatsAppFormEnabled ? (
+        <ContactPageFormSection
+          whatsappForm={content.whatsappForm}
+          isGlobal={content.isGlobal}
+          regionName={content.regionName}
+          whatsappPhoneDigits={content.whatsappPhoneDigits}
+          whatsappStudioOptions={content.whatsappStudioOptions}
+        />
+      ) : null}
     </div>
   );
 }

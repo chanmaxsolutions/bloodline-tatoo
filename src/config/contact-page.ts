@@ -1,6 +1,13 @@
 import type { ContactPageIntro, ContactPageWhatsAppFormCopy } from "@/types/contact-page";
 import type { RegionSlug } from "@/types/region";
 
+/**
+ * Contact WhatsApp lead form (Or start here).
+ * Kept in codebase via `ContactPageFormSection` / `ContactPageWhatsAppForm`.
+ * Set `true` to show it again under the channel tiles on `/contact`.
+ */
+const contactPageWhatsAppFormEnabled = false;
+
 const contactWhatsAppFormCopy: ContactPageWhatsAppFormCopy = {
   eyebrow: "Or start here",
   heading: "TELL US ABOUT YOUR TATTOO",
@@ -47,4 +54,4 @@ function contactPageContentForRegion(region: RegionSlug, regionName: string) {
   };
 }
 
-export { contactPageContentForRegion, contactWhatsAppFormCopy };
+export { contactPageContentForRegion, contactPageWhatsAppFormEnabled, contactWhatsAppFormCopy };
