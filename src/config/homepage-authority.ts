@@ -61,12 +61,12 @@ const authorityBySlug: Record<RegionSlug, Omit<RegionHomepageAuthorityConfig, "p
 const phuketAuthorityVideoCaptions = [
   {
     tag: "Sterile practice",
-    line: "Controlled sterile habits from your arrival through session close-out.",
+    line: "Strict hygiene and sterile procedures maintained from the moment you arrive until your tattoo session is complete.",
     overlay: "accent",
   },
   {
-    tag: "Focused session",
-    line: "Measured session pacing so work stays exact from start to finish.",
+    tag: "Large-scale custom work",
+    line: "Specialising in large custom tattoos, carefully designed and executed with precision from concept to completion.",
     overlay: "light",
   },
 ] as const;
