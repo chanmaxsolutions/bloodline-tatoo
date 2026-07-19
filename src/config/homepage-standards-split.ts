@@ -50,12 +50,18 @@ function homepageStandardsSplitForRegion(
     };
   }
 
+  const standardsSplitHeadingByRegion: Record<Exclude<RegionSlug, "global">, string> = {
+    bangkok: "PREMIUM WORK. DISCIPLINED ROOM.",
+    bali: "PREMIUM WORK. DISCIPLINED ROOM.",
+    phuket: "PREMIUM TATTOOING. THE BLOODLINE STANDARD.",
+  };
+
   const standardsSplitIntroByRegion: Record<Exclude<RegionSlug, "global">, string> = {
     bangkok:
       "How Bangkok sessions are run. Structured consultation, measured pacing and craft discipline that does not follow trends.",
     bali: "How we run things in Bali. From first consultation to final result. Organised, personal and held to a standard we don't compromise on.",
     phuket:
-      "How Phuket sessions are run. Structured consultation, measured pacing and craft discipline that does not follow trends.",
+      "From planning your design to completing each session, our Phuket team takes the time to get every detail right and deliver the highest standard of work.",
   };
 
   const standardsSplitCustomExecutionBulletByRegion: Record<
@@ -77,7 +83,7 @@ function homepageStandardsSplitForRegion(
   return {
     bandSurface: "elevated",
     eyebrow: "Studio standard",
-    heading: "PREMIUM WORK. DISCIPLINED ROOM.",
+    heading: standardsSplitHeadingByRegion[slug],
     intro: standardsSplitIntroByRegion[slug],
     pointerLabels: [...standardsSplitPointerLabels],
     pointerIcons: ["shield-check", "pen-tool", "building-2"],
