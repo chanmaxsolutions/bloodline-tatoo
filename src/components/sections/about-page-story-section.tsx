@@ -3,6 +3,10 @@ import { Container } from "@/components/layout/container";
 import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { splitDescriptionEmphasis } from "@/lib/split-description-emphasis";
 import { cn } from "@/lib/utils";
+import type { AboutPageStoryBlock } from "@/types/about-page";
+
+const storyHeadingClassName =
+  "font-heading text-2xl font-bold uppercase tracking-tight text-foreground md:text-3xl md:leading-none";
 
 const storyParagraphClassName =
   "font-sans text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl md:leading-snug";
@@ -10,11 +14,11 @@ const storyParagraphClassName =
 const emphasisClassName = "font-semibold text-foreground";
 
 interface AboutPageStorySectionProps {
-  storyParagraphs: readonly string[];
+  storyBlocks: readonly AboutPageStoryBlock[];
 }
 
-function AboutPageStorySection({ storyParagraphs }: AboutPageStorySectionProps) {
-  if (storyParagraphs.length === 0) return null;
+function AboutPageStorySection({ storyBlocks }: AboutPageStorySectionProps) {
+  if (storyBlocks.length === 0) return null;
 
   return (
     <section
@@ -29,21 +33,29 @@ function AboutPageStorySection({ storyParagraphs }: AboutPageStorySectionProps) 
           <div
             className={sectionRevealItemClass(
               "lg",
-              "mx-auto flex w-full max-w-2xl flex-col gap-4 text-center md:gap-5",
+              "mx-auto flex w-full max-w-3xl flex-col gap-10 text-center md:gap-12 lg:gap-14",
             )}
           >
-            {storyParagraphs.map((paragraph, index) => (
-              <p key={index} className={storyParagraphClassName}>
-                {splitDescriptionEmphasis(paragraph).map((segment, segIndex) =>
-                  segment.emphasis ? (
-                    <strong key={segIndex} className={emphasisClassName}>
-                      {segment.text}
-                    </strong>
-                  ) : (
-                    <span key={segIndex}>{segment.text}</span>
-                  ),
-                )}
-              </p>
+            {storyBlocks.map((block, blockIndex) => (
+              <div
+                key={block.heading ?? `story-block-${blockIndex}`}
+                className="flex w-full flex-col gap-4 md:gap-5"
+              >
+                {block.heading ? <h2 className={storyHeadingClassName}>{block.heading}</h2> : null}
+                {block.paragraphs.map((paragraph, paragraphIndex) => (
+                  <p key={paragraphIndex} className={storyParagraphClassName}>
+                    {splitDescriptionEmphasis(paragraph).map((segment, segIndex) =>
+                      segment.emphasis ? (
+                        <strong key={segIndex} className={emphasisClassName}>
+                          {segment.text}
+                        </strong>
+                      ) : (
+                        <span key={segIndex}>{segment.text}</span>
+                      ),
+                    )}
+                  </p>
+                ))}
+              </div>
             ))}
           </div>
         </SectionReveal>

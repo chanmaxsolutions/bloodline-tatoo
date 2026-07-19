@@ -1,3 +1,4 @@
+import type { PageClosingCtaContent } from "@/types/page-closing-cta";
 import type { PageIntroBandBackgroundImage } from "@/types/page-intro-band";
 
 export interface AboutPageIntro {
@@ -11,8 +12,6 @@ export interface AboutPageTrustStat {
   value: string;
 }
 
-import type { PageClosingCtaContent } from "@/types/page-closing-cta";
-
 export type AboutPageClosing = PageClosingCtaContent;
 
 export interface AboutPageVideo {
@@ -23,11 +22,17 @@ export interface AboutPageVideo {
   embedTitle: string;
 }
 
+/** One philosophy band: optional uppercase heading + body paragraphs. */
+export interface AboutPageStoryBlock {
+  heading?: string;
+  paragraphs: readonly string[];
+}
+
 export interface AboutPageContent {
   intro: AboutPageIntro;
   introBackgroundImage: PageIntroBandBackgroundImage;
   trustStats: readonly AboutPageTrustStat[];
-  storyParagraphs: readonly string[];
+  storyBlocks: readonly AboutPageStoryBlock[];
   video: AboutPageVideo;
   closing: AboutPageClosing;
   headerCtaLabel: string;

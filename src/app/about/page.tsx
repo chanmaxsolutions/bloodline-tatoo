@@ -53,7 +53,7 @@ export default async function AboutPage() {
         }}
         trustStats={content.trustStats}
       />
-      <AboutPageStorySection storyParagraphs={content.storyParagraphs} />
+      <AboutPageStorySection storyBlocks={content.storyBlocks} />
       <AboutPageVideoSection video={content.video} />
       <AboutPageReviewsSection
         region={region}
