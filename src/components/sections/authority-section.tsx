@@ -77,14 +77,9 @@ const authorityProofLineClassNameByOverlay: Record<HomepageAuthorityProofOverlay
 const authorityProofVideoCaptionWashClassName =
   "pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-background/45 to-background/95";
 
-/** Slightly smaller than image-card titles so longer labels fit the video column. */
-const authorityProofVideoTitleClassName = cn(
-  "font-heading text-xl font-bold uppercase leading-none tracking-tight text-foreground md:text-2xl",
-);
+const authorityProofVideoTitleClassName = cn(authorityProofTitleClassName, "text-foreground");
 
-const authorityProofVideoLineClassName = cn(
-  "min-h-0 font-sans text-sm leading-relaxed text-pretty text-foreground/80 md:text-base",
-);
+const authorityProofVideoLineClassName = cn(authorityProofLineClassName, "text-foreground/80");
 
 function splitAuthorityDescription(description: string): string[] {
   return description
