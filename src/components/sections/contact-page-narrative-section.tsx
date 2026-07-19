@@ -19,7 +19,7 @@ function ContactPageNarrativeSection({ narrative }: ContactPageNarrativeSectionP
       aria-labelledby="contact-narrative-heading"
       className={cn(
         "relative overflow-hidden bg-surface text-foreground",
-        "pb-(--homepage-section-band-padding-y-mobile) lg:pb-(--homepage-section-band-padding-y-desktop)",
+        "py-(--homepage-section-band-padding-y-mobile) lg:py-(--homepage-section-band-padding-y-desktop)",
       )}
     >
       <Container size="wide" className="relative">
