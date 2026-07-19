@@ -49,8 +49,8 @@ const authorityBySlug: Record<RegionSlug, Omit<RegionHomepageAuthorityConfig, "p
     ...authorityCta,
   },
   phuket: {
-    eyebrow: "CRAFT DISCIPLINE",
-    heading: "THE PHUKET STUDIO STANDARD",
+    eyebrow: "THE BLOODLINE FAMILY",
+    heading: "SETTING THE STANDARD FOR TATTOOING IN PHUKET",
     description:
       "Bloodline Phuket runs consultation first, with sterile practice and craft handled with genuine long-term seriousness. Not a walk-in shop. A proper studio.",
     ...authorityCta,
