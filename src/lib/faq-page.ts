@@ -41,6 +41,15 @@ function faqPageIntroForRegion(region: RegionSlug, regionName: string): FaqPageI
     };
   }
 
+  if (region === "phuket") {
+    return {
+      eyebrow: "Straight answers",
+      heading: "PHUKET FAQ",
+      description:
+        "Booking, deposits, artist matching, travel timing, hygiene, and aftercare at Bloodline Tattoo Phuket — answered straight from the studio.",
+    };
+  }
+
   return {
     eyebrow: "Straight answers",
     heading: `${regionName.toUpperCase()} FAQ`,
@@ -65,16 +74,21 @@ function faqPageClosingForRegion(region: RegionSlug, regionName: string) {
 
 function getFaqPageContent(region: RegionSlug, regionName: string): FaqPageContent {
   const studioFaqs = studioFaqForRegion(region, regionName);
-  const styleGroups = tattooStyleSlugsForRegion(region).map((slug) => {
-    const catalog = getTattooStyleBySlug(slug);
 
-    return {
-      slug,
-      title: catalog.title,
-      href: `/tattoo-styles/${slug}`,
-      items: tattooStyleFaqBySlug[slug],
-    };
-  });
+  /** Phuket `/faq` uses the client 30-FAQ set only (no shared style FAQ bands). */
+  const styleGroups =
+    region === "phuket"
+      ? []
+      : tattooStyleSlugsForRegion(region).map((slug) => {
+          const catalog = getTattooStyleBySlug(slug);
+
+          return {
+            slug,
+            title: catalog.title,
+            href: `/tattoo-styles/${slug}`,
+            items: tattooStyleFaqBySlug[slug],
+          };
+        });
 
   const schemaFaqs = [
     ...studioFaqs.map(({ question, answer }) => ({ question, answer })),

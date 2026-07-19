@@ -23,7 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const description =
     region === "global"
       ? "Answers on booking, sterile practice, travel timing, and tattoo styles across Bloodline studios in Bangkok, Bali, and Phuket."
-      : `Answers on booking, sterile practice, travel timing, and tattoo styles at Bloodline ${regionConfig.regionName}.`;
+      : region === "phuket"
+        ? "Answers on booking, deposits, artist matching, travel timing, hygiene, and aftercare at Bloodline Tattoo Phuket."
+        : `Answers on booking, sterile practice, travel timing, and tattoo styles at Bloodline ${regionConfig.regionName}.`;
 
   return buildMetadata(
     {

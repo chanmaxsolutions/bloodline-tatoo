@@ -1,3 +1,4 @@
+import { phuketStudioFaqs } from "@/config/studio-faq-phuket";
 import type { RegionSlug } from "@/types/region";
 
 export interface StudioFaqItem {
@@ -7,6 +8,10 @@ export interface StudioFaqItem {
 }
 
 function studioFaqForRegion(region: RegionSlug, regionName: string): readonly StudioFaqItem[] {
+  if (region === "phuket") {
+    return phuketStudioFaqs;
+  }
+
   const studioLabel = region === "global" ? "Bloodline" : `Bloodline ${regionName}`;
   const place =
     region === "global" ? "our Bangkok, Bali, and Phuket studios" : `our ${regionName} studio`;
