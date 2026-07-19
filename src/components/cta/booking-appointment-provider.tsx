@@ -370,7 +370,10 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
 
           {hasBookingOptions ? (
             <div
-              className="mt-7 grid grid-cols-1 gap-3 sm:mt-9 sm:grid-cols-3 sm:gap-4 md:gap-6"
+              className={cn(
+                "grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 md:gap-6",
+                isCompactCopy ? "mt-10 sm:mt-14 md:mt-16" : "mt-7 sm:mt-9",
+              )}
               role="list"
               aria-label={isStudioLayout ? "Bloodline studios" : "Booking channels"}
             >
