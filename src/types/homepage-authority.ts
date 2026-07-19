@@ -37,4 +37,9 @@ export interface RegionHomepageAuthorityConfig {
   ctaHref: string;
   /** Two proof panels (30% + 30%) — video clips across all regional sites. */
   proofPanels: readonly [HomepageAuthorityProofPanel, HomepageAuthorityProofPanel];
+  /**
+   * When true, both proof panels render on mobile.
+   * Default: first panel stays `hidden` below `sm` (studio/second panel only).
+   */
+  showBothProofPanelsOnMobile?: boolean;
 }

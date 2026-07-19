@@ -104,6 +104,8 @@ function homepageAuthorityForRegion(slug: RegionSlug): RegionHomepageAuthorityCo
   return {
     ...authorityBySlug[slug],
     proofPanels: authorityProofPanelsForRegion(slug),
+    /** Phuket: both craft + studio videos on mobile; other regions keep studio-only. */
+    showBothProofPanelsOnMobile: slug === "phuket",
   };
 }
 

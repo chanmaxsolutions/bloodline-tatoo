@@ -237,8 +237,10 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
               key={authorityProofPanelKey(panel, index)}
               panel={panel}
               staggerIndex={index + 1}
-              // Mobile: show only the studio/second panel; keep both from `sm` up.
-              className={index === 0 ? "hidden sm:block" : undefined}
+              // Mobile default: studio/second panel only. Phuket shows both videos.
+              className={
+                index === 0 && !content.showBothProofPanelsOnMobile ? "hidden sm:block" : undefined
+              }
             />
           ))}
 
