@@ -80,8 +80,12 @@ function splitAuthorityDescription(description: string): string[] {
     .filter(Boolean);
 }
 
-function authorityProofPanelKey(panel: HomepageAuthorityProofPanel): string {
-  return panel.kind === "video" ? panel.videoSrc : panel.src;
+function authorityProofPanelKey(panel: HomepageAuthorityProofPanel, index: number): string {
+  // Phuket can reuse one clip on both cards — include index/poster so keys stay unique.
+  if (panel.kind === "video") {
+    return `authority-video-${index}-${panel.posterSrc}-${panel.videoSrc}`;
+  }
+  return `authority-image-${index}-${panel.src}`;
 }
 
 interface AuthorityProofImagePanelProps {
@@ -131,7 +135,7 @@ function AuthorityProofVideoPanel({
     <div className={sectionRevealStaggerClass(staggerIndex, cn("min-w-0", className))}>
       <figure className={authorityProofVideoPanelClassName}>
         <HeroBackgroundVideo
-          key={panel.videoSrc}
+          key={`${panel.videoSrc}:${panel.posterSrc}`}
           src={panel.videoSrc}
           poster={panel.posterSrc}
           stillSrc={panel.posterSrc}
@@ -211,7 +215,7 @@ function AuthoritySection({ content }: AuthoritySectionProps) {
 
           {content.proofPanels.map((panel, index) => (
             <AuthorityProofPanel
-              key={authorityProofPanelKey(panel)}
+              key={authorityProofPanelKey(panel, index)}
               panel={panel}
               staggerIndex={index + 1}
               // Mobile: show only the studio/second panel; keep both from `sm` up.
