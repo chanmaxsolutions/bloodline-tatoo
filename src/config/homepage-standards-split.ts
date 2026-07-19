@@ -155,7 +155,9 @@ function homepageSessionPathSplitForRegion(
   const sessionPathPointerLabels =
     slug === "bali"
       ? (["Everything Agreed First", "Consultation Day", "Session Day"] as const)
-      : (["Consult first", "Scope locked", "Session day"] as const);
+      : slug === "phuket"
+        ? (["Consultation first", "Plan your tattoo", "Tattoo day"] as const)
+        : (["Consult first", "Scope locked", "Session day"] as const);
 
   const sessionPathPointerIcons =
     slug === "bali"
@@ -169,11 +171,17 @@ function homepageSessionPathSplitForRegion(
           "This is where it all comes together. Meet your artist, go over everything you've shared and lock in the blueprint for the piece you're about to wear.",
           "The day you've been waiting for. Our team is with you every step of the way. Dedicated staff, a comfortable environment and everything in place to make sure your experience is as seamless as the work going on your skin. This is where you become part of the Bloodline family.",
         ] as const)
-      : ([
-          `${studio} runs consult first. Scope, timing and sterile prep are all agreed before the session is committed.`,
-          "You know placement, session length and recovery expectations before anything is staged. No vague deposit games.",
-          "Session day is calm. Disciplined field habits, controlled pacing and a close-out brief that protects the line weight and tone of your work.",
-        ] as const);
+      : slug === "phuket"
+        ? ([
+            "Every Bloodline tattoo starts with a proper consultation. We discuss your ideas, placement, style and overall vision before your tattoo sessions begin.",
+            "Once we understand your vision, we plan your design, estimated sessions and appointment schedule, so everything is clear before we get started.",
+            "Your artist brings the design to life, following the highest Bloodline standards from your first session through to the completion of your tattoo.",
+          ] as const)
+        : ([
+            `${studio} runs consult first. Scope, timing and sterile prep are all agreed before the session is committed.`,
+            "You know placement, session length and recovery expectations before anything is staged. No vague deposit games.",
+            "Session day is calm. Disciplined field habits, controlled pacing and a close-out brief that protects the line weight and tone of your work.",
+          ] as const);
 
   return {
     mediaSide: "start",
