@@ -131,6 +131,8 @@ function AuthorityProofVideoPanel({
   staggerIndex,
   className,
 }: AuthorityProofVideoPanelProps) {
+  const hasCaption = Boolean(panel.tag && panel.line && panel.overlay);
+
   return (
     <div className={sectionRevealStaggerClass(staggerIndex, cn("min-w-0", className))}>
       <figure className={authorityProofVideoPanelClassName}>
@@ -142,6 +144,15 @@ function AuthorityProofVideoPanel({
           stillAlt={panel.alt}
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
+        {hasCaption && panel.overlay ? (
+          <>
+            <div aria-hidden className={authorityProofOverlayClassName[panel.overlay]} />
+            <figcaption className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 p-5 md:gap-2.5 md:p-6">
+              <p className={authorityProofTitleClassNameByOverlay[panel.overlay]}>{panel.tag}</p>
+              <p className={authorityProofLineClassNameByOverlay[panel.overlay]}>{panel.line}</p>
+            </figcaption>
+          </>
+        ) : null}
       </figure>
     </div>
   );

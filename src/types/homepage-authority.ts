@@ -15,6 +15,10 @@ export interface HomepageAuthorityProofVideoPanel {
   videoSrc: string;
   posterSrc: string;
   alt: string;
+  /** Optional caption overlay (Phuket restores title + line on both cards). */
+  tag?: string;
+  line?: string;
+  overlay?: HomepageAuthorityProofOverlay;
 }
 
 export type HomepageAuthorityProofPanel =

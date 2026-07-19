@@ -57,26 +57,45 @@ const authorityBySlug: Record<RegionSlug, Omit<RegionHomepageAuthorityConfig, "p
   },
 };
 
+/** Phuket-only caption overlays on the two authority video cards. */
+const phuketAuthorityVideoCaptions = [
+  {
+    tag: "Sterile practice",
+    line: "Controlled sterile habits from your arrival through session close-out.",
+    overlay: "accent",
+  },
+  {
+    tag: "Focused session",
+    line: "Measured session pacing so work stays exact from start to finish.",
+    overlay: "light",
+  },
+] as const;
+
 /**
  * Video proof panels for every regional homepage.
- * Phuket uses its regional clip (both cards for now). Other sites use Bali clips until
- * per-region videos land. Regional posters + alt text stay site-specific.
+ * Phuket uses regional clips + restored title/line overlays. Other sites use Bali clips
+ * until per-region videos land. Regional posters + alt text stay site-specific.
  */
 function authorityProofPanelsForRegion(
   slug: RegionSlug,
 ): RegionHomepageAuthorityConfig["proofPanels"] {
+  const craftCaption = slug === "phuket" ? phuketAuthorityVideoCaptions[0] : null;
+  const studioCaption = slug === "phuket" ? phuketAuthorityVideoCaptions[1] : null;
+
   return [
     {
       kind: "video",
       videoSrc: homepageAuthorityVideoSrc(slug, "craft"),
       posterSrc: homepageMediaPaths.authorityCraft(slug),
       alt: authorityCraftAltByRegion[slug],
+      ...(craftCaption ?? {}),
     },
     {
       kind: "video",
       videoSrc: homepageAuthorityVideoSrc(slug, "studio"),
       posterSrc: homepageMediaPaths.authorityStudio(slug),
       alt: authorityStudioAltByRegion[slug],
+      ...(studioCaption ?? {}),
     },
   ];
 }
