@@ -57,59 +57,17 @@ const authorityBySlug: Record<RegionSlug, Omit<RegionHomepageAuthorityConfig, "p
   },
 };
 
-const authorityPanelCopyByRegion: Record<
-  RegionSlug,
-  readonly [{ tag: string; line: string }, { tag: string; line: string }]
-> = {
-  global: [
-    {
-      tag: "Sterile field",
-      line: "The same prep and pacing discipline in every city, every session.",
-    },
-    {
-      tag: "House standard",
-      line: "Calm rooms built for focus, from first message through healed work.",
-    },
-  ],
-  bangkok: [
-    {
-      tag: "Sterile field",
-      line: "Gloves, prep and discipline non-negotiable in every Bangkok session.",
-    },
-    {
-      tag: "Consultation first",
-      line: "Scope, timing and expectations agreed before your session begins.",
-    },
-  ],
-  bali: [
-    {
-      tag: "Measured execution",
-      line: "Stencil integrity and tonal control on every pass, every session.",
-    },
-    {
-      tag: "Calm room",
-      line: "A calm focused room where consultation and pacing are never rushed.",
-    },
-  ],
-  phuket: [
-    {
-      tag: "Sterile practice",
-      line: "Controlled sterile habits from your arrival through session close-out.",
-    },
-    {
-      tag: "Focused session",
-      line: "Measured session pacing so work stays exact from start to finish.",
-    },
-  ],
-};
-
-function authorityVideoProofPanelsForRegion(
+/**
+ * Video proof panels for every regional homepage.
+ * All sites temporarily share the Bali craft/studio clips until per-region videos land.
+ * Regional posters + alt text stay site-specific.
+ */
+function authorityProofPanelsForRegion(
   slug: RegionSlug,
 ): RegionHomepageAuthorityConfig["proofPanels"] {
   return [
     {
       kind: "video",
-      /** Phuket temporarily reuses Bali clips until region-specific videos land. */
       videoSrc: baliHomepageAuthorityVideoSrc("craft"),
       posterSrc: homepageMediaPaths.authorityCraft(slug),
       alt: authorityCraftAltByRegion[slug],
@@ -119,35 +77,6 @@ function authorityVideoProofPanelsForRegion(
       videoSrc: baliHomepageAuthorityVideoSrc("studio"),
       posterSrc: homepageMediaPaths.authorityStudio(slug),
       alt: authorityStudioAltByRegion[slug],
-    },
-  ];
-}
-
-function authorityProofPanelsForRegion(
-  slug: RegionSlug,
-): RegionHomepageAuthorityConfig["proofPanels"] {
-  if (slug === "bali" || slug === "phuket") {
-    return authorityVideoProofPanelsForRegion(slug);
-  }
-
-  const [craftCopy, studioCopy] = authorityPanelCopyByRegion[slug];
-
-  return [
-    {
-      kind: "image",
-      src: homepageMediaPaths.authorityCraft(slug),
-      alt: authorityCraftAltByRegion[slug],
-      overlay: "accent",
-      tag: craftCopy.tag,
-      line: craftCopy.line,
-    },
-    {
-      kind: "image",
-      src: homepageMediaPaths.authorityStudio(slug),
-      alt: authorityStudioAltByRegion[slug],
-      overlay: "light",
-      tag: studioCopy.tag,
-      line: studioCopy.line,
     },
   ];
 }
