@@ -73,6 +73,14 @@ const authorityProofLineClassNameByOverlay: Record<HomepageAuthorityProofOverlay
   light: cn(authorityProofLineClassName, "text-background/75"),
 };
 
+/** Dark bottom wash + light type — readable on moody authority video clips. */
+const authorityProofVideoCaptionWashClassName =
+  "pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-background/45 to-background/95";
+
+const authorityProofVideoTitleClassName = cn(authorityProofTitleClassName, "text-foreground");
+
+const authorityProofVideoLineClassName = cn(authorityProofLineClassName, "text-foreground/80");
+
 function splitAuthorityDescription(description: string): string[] {
   return description
     .split(/\n\n+/)
@@ -144,12 +152,12 @@ function AuthorityProofVideoPanel({
           stillAlt={panel.alt}
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        {hasCaption && panel.overlay ? (
+        {hasCaption ? (
           <>
-            <div aria-hidden className={authorityProofOverlayClassName[panel.overlay]} />
+            <div aria-hidden className={authorityProofVideoCaptionWashClassName} />
             <figcaption className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 p-5 md:gap-2.5 md:p-6">
-              <p className={authorityProofTitleClassNameByOverlay[panel.overlay]}>{panel.tag}</p>
-              <p className={authorityProofLineClassNameByOverlay[panel.overlay]}>{panel.line}</p>
+              <p className={authorityProofVideoTitleClassName}>{panel.tag}</p>
+              <p className={authorityProofVideoLineClassName}>{panel.line}</p>
             </figcaption>
           </>
         ) : null}
