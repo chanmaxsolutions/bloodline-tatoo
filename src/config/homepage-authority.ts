@@ -52,7 +52,7 @@ const authorityBySlug: Record<RegionSlug, Omit<RegionHomepageAuthorityConfig, "p
     eyebrow: "THE BLOODLINE FAMILY",
     heading: "SETTING THE STANDARD FOR TATTOOING IN PHUKET",
     description:
-      "Bloodline Phuket runs consultation first, with sterile practice and craft handled with genuine long-term seriousness. Not a walk-in shop. A proper studio.",
+      "Bloodline Tattoo Phuket is built on family, passion, and a commitment to world-class tattooing. Our team of experienced Phuket tattoo artists specialise in their own individual styles, allowing us to match every client with the right artist for their custom tattoo. From your first consultation to the final session, you become part of the Bloodline family with a team that genuinely cares about your experience, your tattoo, and creating work you’ll be proud to wear for life.",
     ...authorityCta,
   },
 };
