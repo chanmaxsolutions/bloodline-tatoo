@@ -1,7 +1,72 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { isLegacyTopLevelBlogSlug } from "@/config/legacy-blog-slugs";
+import {
+  isPreviewRegionOverrideAllowed,
+  parseRegionSlug,
+  PREVIEW_REGION_COOKIE,
+  PREVIEW_REGION_HEADER,
+} from "@/lib/preview-region";
 import { getRegionConfig, resolveRegionFromHostname } from "@/lib/region";
+import type { RegionSlug } from "@/types/region";
+
+interface PreviewRegionResolution {
+  region: RegionSlug | null;
+  /** Persist cookie when `?region=` is present on this request. */
+  persistCookie: boolean;
+}
+
+function resolvePreviewRegion(request: NextRequest): PreviewRegionResolution {
+  if (!isPreviewRegionOverrideAllowed()) {
+    return { region: null, persistCookie: false };
+  }
+
+  const fromQuery = parseRegionSlug(request.nextUrl.searchParams.get("region"));
+  if (fromQuery) {
+    return { region: fromQuery, persistCookie: true };
+  }
+
+  const fromCookie = parseRegionSlug(request.cookies.get(PREVIEW_REGION_COOKIE)?.value);
+  return { region: fromCookie, persistCookie: false };
+}
+
+function withPreviewRegion(
+  request: NextRequest,
+  response: NextResponse,
+  preview: PreviewRegionResolution,
+): NextResponse {
+  if (!preview.region) return response;
+
+  if (preview.persistCookie) {
+    response.cookies.set(PREVIEW_REGION_COOKIE, preview.region, {
+      path: "/",
+      sameSite: "lax",
+      httpOnly: false,
+      maxAge: 60 * 60 * 24 * 7,
+    });
+  }
+
+  return response;
+}
+
+function nextWithPreviewRegion(
+  request: NextRequest,
+  preview: PreviewRegionResolution,
+): NextResponse {
+  const requestHeaders = new Headers(request.headers);
+
+  if (preview.region) {
+    requestHeaders.set(PREVIEW_REGION_HEADER, preview.region);
+  } else {
+    requestHeaders.delete(PREVIEW_REGION_HEADER);
+  }
+
+  return withPreviewRegion(
+    request,
+    NextResponse.next({ request: { headers: requestHeaders } }),
+    preview,
+  );
+}
 
 /**
  * Catch old WordPress blog posts published at top-level slugs (e.g. /guide-to-choosing-...).
@@ -9,38 +74,53 @@ import { getRegionConfig, resolveRegionFromHostname } from "@/lib/region";
  *
  * Also rewrite /favicon.ico to the regional Bloodline mark. Google and browsers request
  * /favicon.ico by default; the create-next-app Vercel icon previously lived at app/favicon.ico.
+ *
+ * On Vercel Preview / local dev only: `?region=bali|bangkok|phuket|global` overrides the
+ * hostname region (and sticks via cookie for in-site navigation). Production/VPS ignores this.
  */
 function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const preview = resolvePreviewRegion(request);
+  const hostname = request.headers.get("host") ?? "";
+  const hostnameRegion = resolveRegionFromHostname(hostname);
+  const activeRegion = preview.region ?? hostnameRegion;
 
   if (pathname === "/favicon.ico") {
-    const hostname = request.headers.get("host") ?? "";
-    const region = resolveRegionFromHostname(hostname);
-    const faviconPath = getRegionConfig(region).branding.faviconPath;
+    const faviconPath = getRegionConfig(activeRegion).branding.faviconPath;
     const url = request.nextUrl.clone();
     url.pathname = faviconPath;
-    return NextResponse.rewrite(url);
+
+    const requestHeaders = new Headers(request.headers);
+    if (preview.region) {
+      requestHeaders.set(PREVIEW_REGION_HEADER, preview.region);
+    }
+
+    return withPreviewRegion(
+      request,
+      NextResponse.rewrite(url, { request: { headers: requestHeaders } }),
+      preview,
+    );
   }
 
   if (pathname === "/" || pathname.includes(".")) {
-    return NextResponse.next();
+    return nextWithPreviewRegion(request, preview);
   }
 
   const segments = pathname.split("/").filter(Boolean);
 
   if (segments.length !== 1) {
-    return NextResponse.next();
+    return nextWithPreviewRegion(request, preview);
   }
 
   const slug = segments[0];
 
   if (!isLegacyTopLevelBlogSlug(slug)) {
-    return NextResponse.next();
+    return nextWithPreviewRegion(request, preview);
   }
 
   const url = request.nextUrl.clone();
   url.pathname = "/tattoo-blog";
-  return NextResponse.redirect(url, 308);
+  return withPreviewRegion(request, NextResponse.redirect(url, 308), preview);
 }
 
 export { middleware };
