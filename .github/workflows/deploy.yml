@@ -1,9 +1,14 @@
+# Production VPS deploy — runs ONLY on pushes to `main`.
+# Client preview work should go to the `staging` branch (Vercel preview).
+# Merge staging → main only after the client approves.
 name: Deploy
 
 on:
   push:
     branches:
       - main
+  # Optional: run a production deploy manually from the Actions tab.
+  workflow_dispatch:
 
 concurrency:
   group: deploy-vps-main
