@@ -103,24 +103,31 @@ const authorityPanelCopyByRegion: Record<
   ],
 };
 
+function authorityVideoProofPanelsForRegion(
+  slug: RegionSlug,
+): RegionHomepageAuthorityConfig["proofPanels"] {
+  return [
+    {
+      kind: "video",
+      /** Phuket temporarily reuses Bali clips until region-specific videos land. */
+      videoSrc: baliHomepageAuthorityVideoSrc("craft"),
+      posterSrc: homepageMediaPaths.authorityCraft(slug),
+      alt: authorityCraftAltByRegion[slug],
+    },
+    {
+      kind: "video",
+      videoSrc: baliHomepageAuthorityVideoSrc("studio"),
+      posterSrc: homepageMediaPaths.authorityStudio(slug),
+      alt: authorityStudioAltByRegion[slug],
+    },
+  ];
+}
+
 function authorityProofPanelsForRegion(
   slug: RegionSlug,
 ): RegionHomepageAuthorityConfig["proofPanels"] {
-  if (slug === "bali") {
-    return [
-      {
-        kind: "video",
-        videoSrc: baliHomepageAuthorityVideoSrc("craft"),
-        posterSrc: homepageMediaPaths.authorityCraft(slug),
-        alt: authorityCraftAltByRegion[slug],
-      },
-      {
-        kind: "video",
-        videoSrc: baliHomepageAuthorityVideoSrc("studio"),
-        posterSrc: homepageMediaPaths.authorityStudio(slug),
-        alt: authorityStudioAltByRegion[slug],
-      },
-    ];
+  if (slug === "bali" || slug === "phuket") {
+    return authorityVideoProofPanelsForRegion(slug);
   }
 
   const [craftCopy, studioCopy] = authorityPanelCopyByRegion[slug];

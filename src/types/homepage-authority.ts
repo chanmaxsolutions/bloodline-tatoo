@@ -31,6 +31,6 @@ export interface RegionHomepageAuthorityConfig {
   description: string;
   ctaLabel: string;
   ctaHref: string;
-  /** Two proof panels (30% + 30%) — image cards with captions, or video-only for Bali. */
+  /** Two proof panels (30% + 30%) — image cards with captions, or video-only (Bali / Phuket). */
   proofPanels: readonly [HomepageAuthorityProofPanel, HomepageAuthorityProofPanel];
 }

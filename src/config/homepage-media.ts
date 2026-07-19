@@ -83,7 +83,10 @@ const baliHomepageAuthorityVideoVersion = "20250628" as const;
 
 export type BaliHomepageAuthorityVideoSlot = "craft" | "studio";
 
-/** Bali homepage authority card clips (craft + studio columns). */
+/**
+ * Homepage authority card clips (craft + studio columns).
+ * Stored under Bali; Phuket reuses these until dedicated Phuket files are added.
+ */
 export function baliHomepageAuthorityVideoSrc(slot: BaliHomepageAuthorityVideoSlot): string {
   const file = slot === "craft" ? "authority-craft.mp4" : "authority-studio.mp4";
   return `${baliHomepageAuthorityVideoRoot}/${file}?v=${baliHomepageAuthorityVideoVersion}`;
