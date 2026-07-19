@@ -25,9 +25,12 @@ export type BookingModalLayout = "social-channels" | "studio-regions";
 
 export interface BookingModalCopy {
   title: string;
-  body: string;
-  noteLabel: string;
-  noteBody: string;
+  /** Optional supporting line under the title. Omit when the channel tiles are enough. */
+  body?: string;
+  /** Optional footer note label (e.g. PLEASE NOTE). */
+  noteLabel?: string;
+  /** Optional footer note body. */
+  noteBody?: string;
   /** WhatsApp tile: short badge on narrow viewports (inline before arrow). */
   whatsappChannelBadge: string;
   /** WhatsApp tile: pill on top border from `sm` up (longer copy). */

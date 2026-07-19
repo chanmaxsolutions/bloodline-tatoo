@@ -46,6 +46,10 @@ function bookingNoteBodySegments(text: string): ReactNode {
   });
 }
 
+function hasBookingModalNote(copy: BookingModalPayload["copy"]): boolean {
+  return Boolean(copy.noteLabel?.trim() || copy.noteBody?.trim());
+}
+
 interface BookingAppointmentContextValue {
   open: (options?: BookingModalOpenOptions) => void;
 }
@@ -324,7 +328,11 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
   const hasStudioRegions = activePayload.studioRegions.length > 0;
   const hasBookingOptions = isStudioLayout ? hasStudioRegions : hasSocialChannels;
 
-  const noteBodyContent = bookingNoteBodySegments(activePayload.copy.noteBody);
+  const showNote = hasBookingModalNote(activePayload.copy);
+  const noteBodyContent = activePayload.copy.noteBody
+    ? bookingNoteBodySegments(activePayload.copy.noteBody)
+    : null;
+  const descriptionText = activePayload.copy.body?.trim() ?? "";
 
   return (
     <BookingAppointmentContext.Provider value={ctx}>
@@ -343,9 +351,17 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
             <DialogTitle className="font-heading text-3xl font-bold uppercase leading-[0.95] tracking-tight text-foreground/90 sm:text-4xl md:text-5xl md:leading-[0.92]">
               {activePayload.copy.title}
             </DialogTitle>
-            <DialogDescription className="mx-auto max-w-3xl font-sans text-base leading-relaxed text-muted-foreground/90 md:text-lg md:leading-relaxed">
-              {activePayload.copy.body}
-            </DialogDescription>
+            {descriptionText ? (
+              <DialogDescription className="mx-auto max-w-3xl font-sans text-base leading-relaxed text-muted-foreground/90 md:text-lg md:leading-relaxed">
+                {descriptionText}
+              </DialogDescription>
+            ) : (
+              <DialogDescription className="sr-only">
+                {isStudioLayout
+                  ? "Choose a Bloodline studio to continue booking."
+                  : "Choose Instagram, Facebook, or WhatsApp to continue booking."}
+              </DialogDescription>
+            )}
           </DialogHeader>
 
           {hasBookingOptions ? (
@@ -391,14 +407,20 @@ function BookingAppointmentProvider({ children, payload }: BookingAppointmentPro
             </p>
           )}
 
-          <div className="mt-8 border-t border-border pt-7 text-center">
-            <p className="font-heading text-sm font-bold uppercase tracking-normal text-foreground/80 md:text-base">
-              {activePayload.copy.noteLabel}
-            </p>
-            <p className="mx-auto mt-3 max-w-3xl px-2 text-balance font-sans text-sm leading-snug tracking-wide max-sm:pb-3">
-              {noteBodyContent}
-            </p>
-          </div>
+          {showNote ? (
+            <div className="mt-8 border-t border-border pt-7 text-center">
+              {activePayload.copy.noteLabel?.trim() ? (
+                <p className="font-heading text-sm font-bold uppercase tracking-normal text-foreground/80 md:text-base">
+                  {activePayload.copy.noteLabel}
+                </p>
+              ) : null}
+              {noteBodyContent ? (
+                <p className="mx-auto mt-3 max-w-3xl px-2 text-balance font-sans text-sm leading-snug tracking-wide max-sm:pb-3">
+                  {noteBodyContent}
+                </p>
+              ) : null}
+            </div>
+          ) : null}
         </DialogContent>
       </Dialog>
     </BookingAppointmentContext.Provider>
