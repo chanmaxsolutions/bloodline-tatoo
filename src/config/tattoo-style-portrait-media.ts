@@ -36,7 +36,7 @@ const portraitStudioMediaByRegion = {
     approachAlt:
       "Black and grey Kobe Bryant portrait realism on both forearms with championship and Lakers tribute scenes at Bloodline Tattoo Phuket",
     cardAlt:
-      "Black and grey child portrait realism with braided hair on the inner upper arm at Bloodline Tattoo Phuket",
+      "Black and grey JJ Watt 99 portrait realism with eye black and nose tape at Bloodline Tattoo Phuket",
   },
 } as const satisfies Record<
   PortraitStudioRegion,

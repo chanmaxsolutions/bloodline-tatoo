@@ -36,7 +36,7 @@ const colourStudioMediaByRegion = {
     approachAlt:
       "Colour leg tattoo with twin red Japanese masks and ornamental black-and-grey shading at Bloodline Tattoo Phuket",
     cardAlt:
-      "Japanese colour leg sleeve with geisha in blue kimono, chrysanthemums, and wind bars at Bloodline Tattoo Phuket",
+      "Colour realism Terminator portrait with metallic endoskeleton and red eye at Bloodline Tattoo Phuket",
   },
 } as const satisfies Record<
   ColourStudioRegion,
