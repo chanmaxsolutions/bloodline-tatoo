@@ -13,7 +13,7 @@ export const phuketRegionConfig: RegionConfig = {
   regionName: "Phuket",
   heroHeading: "PHUKET'S PREMIER APPOINTMENT-ONLY TATTOO STUDIO",
   heroDescription:
-    "Specialising in large-scale custom tattoos.\n\nProudly tattooing Phuket since 2015.",
+    "Specialising in large-scale custom tattoos. Proudly tattooing Phuket since 2015.",
   googleBusinessProfileUrl:
     "https://www.google.com/maps/place/Bloodline+Tattoo+Patong+Phuket/@7.893357,98.296677,17z/data=!3m1!4b1!4m6!3m5!1s0x30503abca0572a7d:0x281da2ad7840f277!8m2!3d7.893357!4d98.296677",
   location: {
