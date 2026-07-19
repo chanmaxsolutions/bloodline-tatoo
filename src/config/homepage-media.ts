@@ -81,13 +81,33 @@ export function homepageHeroVideoSrc(region: RegionSlug): string {
 const baliHomepageAuthorityVideoRoot = "/videos/homepage/bali" as const;
 const baliHomepageAuthorityVideoVersion = "20250628" as const;
 
-export type BaliHomepageAuthorityVideoSlot = "craft" | "studio";
+/** Phuket: both authority cards share one optimized clip until a second video lands. */
+const phuketHomepageAuthorityVideoSrc = "/videos/homepage/phuket/authority-shared.mp4" as const;
+const phuketHomepageAuthorityVideoVersion = "20250719-home" as const;
+
+export type HomepageAuthorityVideoSlot = "craft" | "studio";
+
+/** @deprecated Prefer {@link homepageAuthorityVideoSrc}. */
+export type BaliHomepageAuthorityVideoSlot = HomepageAuthorityVideoSlot;
 
 /**
  * Homepage authority card clips (craft + studio columns).
- * Stored under Bali for now; all regional sites reuse these until per-region files are added.
+ * - Phuket: regional optimized shared clip (both cards)
+ * - Other regions: Bali craft/studio clips until per-region files are added
  */
-export function baliHomepageAuthorityVideoSrc(slot: BaliHomepageAuthorityVideoSlot): string {
+export function homepageAuthorityVideoSrc(
+  region: RegionSlug,
+  slot: HomepageAuthorityVideoSlot,
+): string {
+  if (region === "phuket") {
+    return `${phuketHomepageAuthorityVideoSrc}?v=${phuketHomepageAuthorityVideoVersion}`;
+  }
+
   const file = slot === "craft" ? "authority-craft.mp4" : "authority-studio.mp4";
   return `${baliHomepageAuthorityVideoRoot}/${file}?v=${baliHomepageAuthorityVideoVersion}`;
+}
+
+/** @deprecated Prefer {@link homepageAuthorityVideoSrc}. */
+export function baliHomepageAuthorityVideoSrc(slot: HomepageAuthorityVideoSlot): string {
+  return homepageAuthorityVideoSrc("bali", slot);
 }

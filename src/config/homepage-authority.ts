@@ -1,4 +1,4 @@
-import { baliHomepageAuthorityVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
+import { homepageAuthorityVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
 import type { RegionHomepageAuthorityConfig } from "@/types/homepage-authority";
 import type { RegionSlug } from "@/types/region";
 
@@ -59,8 +59,8 @@ const authorityBySlug: Record<RegionSlug, Omit<RegionHomepageAuthorityConfig, "p
 
 /**
  * Video proof panels for every regional homepage.
- * All sites temporarily share the Bali craft/studio clips until per-region videos land.
- * Regional posters + alt text stay site-specific.
+ * Phuket uses its regional clip (both cards for now). Other sites use Bali clips until
+ * per-region videos land. Regional posters + alt text stay site-specific.
  */
 function authorityProofPanelsForRegion(
   slug: RegionSlug,
@@ -68,13 +68,13 @@ function authorityProofPanelsForRegion(
   return [
     {
       kind: "video",
-      videoSrc: baliHomepageAuthorityVideoSrc("craft"),
+      videoSrc: homepageAuthorityVideoSrc(slug, "craft"),
       posterSrc: homepageMediaPaths.authorityCraft(slug),
       alt: authorityCraftAltByRegion[slug],
     },
     {
       kind: "video",
-      videoSrc: baliHomepageAuthorityVideoSrc("studio"),
+      videoSrc: homepageAuthorityVideoSrc(slug, "studio"),
       posterSrc: homepageMediaPaths.authorityStudio(slug),
       alt: authorityStudioAltByRegion[slug],
     },

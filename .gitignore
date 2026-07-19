@@ -47,6 +47,9 @@ next-env.d.ts
 # Client image staging library (local uploads — not deployed)
 /image resources/
 
+# Raw video uploads (optimize before committing the active MP4)
+public/videos/**/sources/
+
 # Content pipeline scripts & mappings (outputs live in src/; keep catalog generator for prebuild)
 /scripts/*
 !/scripts/generate-gallery-catalog.ts
