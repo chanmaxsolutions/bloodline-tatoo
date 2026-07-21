@@ -90,72 +90,50 @@ function aboutStoryBlocksForRegion(
       {
         heading: "MORE THAN A TATTOO STUDIO. THIS IS BLOODLINE.",
         paragraphs: [
-          "Bloodline Tattoo was built on a simple idea — bring good people together, look after each other, and create the best tattoos we possibly can.",
-          "Since 2015, Bloodline has grown from one vision into a family of more than 45 full-time tattoo artists and team members across Phuket, Bangkok and Bali. We’ve grown over the years, but the way we run our studios has stayed the same. We believe in treating our artists, staff and clients like part of the family.",
-          "When you walk into Bloodline, we want you to feel comfortable. Whether you’re coming in for your first tattoo or travelling across the world for a large-scale custom piece, you’ll be looked after by a team that genuinely cares about what you’re creating.",
+          "Bloodline was built to bring good people together, look after each other, and create the best tattoos we can.",
+          "Since 2015 we’ve grown into a family of more than 45 full-time artists and team members across Phuket, Bangkok and Bali — still treating artists, staff and clients like family.",
         ],
       },
       {
         heading: "BUILT BY FAMILY. RUN LIKE FAMILY.",
         paragraphs: [
-          "Bloodline was founded by people who shared the same vision for what a tattoo studio should be.",
-          "We wanted to create a place where great tattoo artists could come to work every day, enjoy what they do and focus on producing quality work. A place where the team supports each other and where clients feel welcome from the minute they walk through the door.",
-          "Our owners are still hands-on in the business today. We work alongside our managers, artists and staff to keep improving our studios while protecting the family culture Bloodline was built on.",
-          "As we’ve grown, that has become even more important to us.",
-          "Three locations. One team. One Bloodline family.",
+          "We built Bloodline so great artists could focus on quality work, support each other, and make clients feel welcome from the door.",
+          "Our owners stay hands-on with managers, artists and staff. Three locations. One team. One Bloodline family.",
         ],
       },
       {
         heading: "OUR PHUKET TATTOO STUDIO",
         paragraphs: [
-          "Bloodline Tattoo Phuket is our home in Thailand and a destination for clients travelling from around the world for custom tattoo work.",
-          "As an appointment-focused custom tattoo studio in Phuket, we take the time to understand what each client wants before the tattoo begins. For larger pieces, the process starts with a proper consultation where we discuss your ideas, placement, tattoo style and estimated sessions.",
-          "We don’t believe one tattoo artist should try to do every style.",
-          "Our Phuket tattoo artists specialise in their own individual areas of tattooing. This allows our team to match each client with an artist whose experience and style are right for the work they want.",
-          "From Japanese and realism to fine line, geometric, mandala and other custom tattoo styles, the goal is simple: the right artist for the right tattoo.",
+          "Bloodline Tattoo Phuket is our home in Thailand and a destination for travellers seeking custom work.",
+          "We’re appointment-focused: larger pieces start with a proper consultation on ideas, placement, style and sessions. Artists specialise in their own lanes so we can match you to the right person for Japanese, realism, fine line, geometric, mandala and other custom work.",
         ],
       },
       {
         heading: "LARGE-SCALE CUSTOM TATTOOING",
         paragraphs: [
-          "Large custom tattoos are a big part of what we do at Bloodline.",
-          "Full sleeves, leg sleeves, back pieces and other large-scale tattoo projects require proper planning, time and commitment from both the artist and the client.",
-          "That’s why we take the process seriously.",
-          "From your initial consultation through to your final tattoo session, our team works with you to plan the project properly. We explain the expected number of sessions, organise consecutive appointments where required and make sure you understand the process before getting started.",
-          "No rushing. No cutting corners.",
-          "Just experienced tattoo artists doing what they do best.",
+          "Full sleeves, leg sleeves, back pieces and other large projects need planning, time and commitment.",
+          "From first consult to final session we map expected sessions, organise consecutive bookings when needed, and keep the process clear — no rushing, no cutting corners.",
         ],
       },
       {
         heading: "OUR ARTISTS ARE THE HEART OF BLOODLINE",
         paragraphs: [
-          "Bloodline wouldn’t be Bloodline without our artists.",
-          "We are proud to have built a team of full-time tattoo artists who bring their own experience, personality and specialist style to the studio.",
-          "Some have been tattooing for many years. Others have grown their careers as part of the Bloodline family. What matters to us is that everyone shares the same commitment to their work and to the people sitting in their chair.",
-          "We want our artists to enjoy coming to work.",
-          "Because when you build the right environment for your team, give artists the freedom to focus on their craft and surround them with people who support them, the quality of the work speaks for itself.",
+          "Bloodline is built around full-time artists who bring their own experience, personality and specialist style.",
+          "We want artists to enjoy coming to work. The right environment and support show up in the quality of the tattoo.",
         ],
       },
       {
         heading: "FROM PHUKET TO BANGKOK AND BALI",
         paragraphs: [
-          "What started in Phuket has grown into three Bloodline Tattoo studios across Southeast Asia.",
-          "Today, you’ll find the Bloodline family in Phuket, Bangkok and Bali.",
-          "Each studio has its own team and personality, but we all share the same Bloodline values: quality tattooing, specialist artists, proper planning and looking after our clients from their first message through to their final session.",
-          "Wherever you visit us, you’re walking into the same family.",
+          "What started in Phuket is now three studios across Southeast Asia.",
+          "Each room has its own team and personality, but the same values: quality tattooing, specialist artists, proper planning, and looking after clients from first message to final session.",
         ],
       },
       {
         heading: "THE BLOODLINE STANDARD",
         paragraphs: [
-          "For us, the Bloodline standard isn’t a marketing line.",
-          "It’s how we work every day.",
-          "It means taking the time to understand the tattoo before we start. Matching clients with artists who specialise in the right style. Maintaining professional studio standards. Planning large tattoo projects properly. And making sure our clients feel looked after throughout the entire experience.",
-          "We’ve spent years building Bloodline, and we’re proud of what our team has created together.",
-          "We’re always looking to improve, but one thing won’t change:",
-          "Bloodline will always be about the people.",
-          "The owners. The artists. The staff. The clients.",
-          "That’s the Bloodline family.",
+          "The Bloodline standard is how we work every day — understand the tattoo before we start, match the right specialist, keep professional studio standards, plan large projects properly, and look after clients throughout.",
+          "We’re always improving, but one thing won’t change: Bloodline is about the people — owners, artists, staff and clients. That’s the Bloodline family.",
         ],
       },
     ];
@@ -213,14 +191,6 @@ function aboutClosingForRegion(region: RegionSlug, regionName: string) {
       heading: "READY TO BOOK YOUR NEXT SESSION?",
       description:
         "Choose your studio and message us on WhatsApp. We align on placement, scale and timing before anything is committed.",
-    };
-  }
-
-  if (region === "phuket") {
-    return {
-      heading: "READY TO BECOME PART OF THE BLOODLINE FAMILY?",
-      description:
-        "If you’re planning a tattoo in Phuket and looking for an experienced team that takes custom tattooing seriously, we’d love to hear what you have in mind.\n\nBloodline Phuket specialises in custom tattoo work and large-scale tattoo projects, with experienced artists across a range of individual tattoo styles.\n\nMessage the Bloodline Phuket team on WhatsApp to tell us about your tattoo idea. We’ll help match you with the right artist, discuss your project and guide you through the booking process.\n\nCome for the tattoo. Leave as part of the Bloodline family.",
     };
   }
 

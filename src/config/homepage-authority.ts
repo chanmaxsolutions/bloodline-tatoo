@@ -49,10 +49,10 @@ const authorityBySlug: Record<RegionSlug, Omit<RegionHomepageAuthorityConfig, "p
     ...authorityCta,
   },
   phuket: {
-    eyebrow: "THE BLOODLINE FAMILY",
-    heading: "SETTING THE STANDARD FOR TATTOOING IN PHUKET",
+    eyebrow: "CRAFT DISCIPLINE",
+    heading: "THE PHUKET STUDIO STANDARD",
     description:
-      "Bloodline Tattoo Phuket is built on family, passion, and a commitment to world-class tattooing. Our team of experienced Phuket tattoo artists specialise in their own individual styles, allowing us to match every client with the right artist for their custom tattoo. From your first consultation to the final session, you become part of the Bloodline family with a team that genuinely cares about your experience, your tattoo, and creating work you’ll be proud to wear for life.",
+      "Bloodline Phuket runs consultation first, with sterile practice and craft handled with genuine long-term seriousness. Not a walk-in shop. A proper studio.",
     ...authorityCta,
   },
 };
@@ -61,12 +61,12 @@ const authorityBySlug: Record<RegionSlug, Omit<RegionHomepageAuthorityConfig, "p
 const phuketAuthorityVideoCaptions = [
   {
     tag: "Sterile practice",
-    line: "Strict hygiene and sterile procedures maintained from the moment you arrive until your tattoo session is complete.",
+    line: "Controlled sterile habits from your arrival through session close-out.",
     overlay: "accent",
   },
   {
-    tag: "Large-scale custom work",
-    line: "Specialising in large custom tattoos, carefully designed and executed with precision from concept to completion.",
+    tag: "Focused session",
+    line: "Measured session pacing so work stays exact from start to finish.",
     overlay: "light",
   },
 ] as const;

@@ -53,7 +53,7 @@ function homepageStandardsSplitForRegion(
   const standardsSplitHeadingByRegion: Record<Exclude<RegionSlug, "global">, string> = {
     bangkok: "PREMIUM WORK. DISCIPLINED ROOM.",
     bali: "PREMIUM WORK. DISCIPLINED ROOM.",
-    phuket: "PREMIUM TATTOOING. THE BLOODLINE STANDARD.",
+    phuket: "PREMIUM WORK. DISCIPLINED ROOM.",
   };
 
   const standardsSplitIntroByRegion: Record<Exclude<RegionSlug, "global">, string> = {
@@ -61,7 +61,7 @@ function homepageStandardsSplitForRegion(
       "How Bangkok sessions are run. Structured consultation, measured pacing and craft discipline that does not follow trends.",
     bali: "How we run things in Bali. From first consultation to final result. Organised, personal and held to a standard we don't compromise on.",
     phuket:
-      "From planning your design to completing each session, our Phuket team takes the time to get every detail right and deliver the highest standard of work.",
+      "How Phuket sessions are run. Structured consultation, measured pacing and craft discipline that does not follow trends.",
   };
 
   const standardsSplitCustomExecutionBulletByRegion: Record<
@@ -140,7 +140,7 @@ function homepageSessionPathSplitForRegion(
       "Consultation, agreed scope, then execution in the chair. Each stage is clear before you commit. Placement, pacing and recovery are all set before session day.",
     bali: "Every Bloodline booking starts with a conversation. Tell us what you've always wanted and we'll take it from there. Everything sorted before you set foot in the studio.",
     phuket:
-      "Founded with a shared passion for tattooing and a vision to build something different, Bloodline has grown into one family across three locations. Our owners remain hands-on in the business, working alongside our artists and team to maintain the standards, culture and family atmosphere that Bloodline was built on.",
+      "Consultation, scope and session day run in clear sequence. No surprises once you are in the chair. Everything is agreed before the session begins.",
   };
 
   const sessionPathCtaByRegion: Record<
@@ -155,9 +155,7 @@ function homepageSessionPathSplitForRegion(
   const sessionPathPointerLabels =
     slug === "bali"
       ? (["Everything Agreed First", "Consultation Day", "Session Day"] as const)
-      : slug === "phuket"
-        ? (["Consultation first", "Plan your tattoo", "Tattoo day"] as const)
-        : (["Consult first", "Scope locked", "Session day"] as const);
+      : (["Consult first", "Scope locked", "Session day"] as const);
 
   const sessionPathPointerIcons =
     slug === "bali"
@@ -171,17 +169,11 @@ function homepageSessionPathSplitForRegion(
           "This is where it all comes together. Meet your artist, go over everything you've shared and lock in the blueprint for the piece you're about to wear.",
           "The day you've been waiting for. Our team is with you every step of the way. Dedicated staff, a comfortable environment and everything in place to make sure your experience is as seamless as the work going on your skin. This is where you become part of the Bloodline family.",
         ] as const)
-      : slug === "phuket"
-        ? ([
-            "Every Bloodline tattoo starts with a proper consultation. We discuss your ideas, placement, style and overall vision before your tattoo sessions begin.",
-            "Once we understand your vision, we plan your design, estimated sessions and appointment schedule, so everything is clear before we get started.",
-            "Your artist brings the design to life, following the highest Bloodline standards from your first session through to the completion of your tattoo.",
-          ] as const)
-        : ([
-            `${studio} runs consult first. Scope, timing and sterile prep are all agreed before the session is committed.`,
-            "You know placement, session length and recovery expectations before anything is staged. No vague deposit games.",
-            "Session day is calm. Disciplined field habits, controlled pacing and a close-out brief that protects the line weight and tone of your work.",
-          ] as const);
+      : ([
+          `${studio} runs consult first. Scope, timing and sterile prep are all agreed before the session is committed.`,
+          "You know placement, session length and recovery expectations before anything is staged. No vague deposit games.",
+          "Session day is calm. Disciplined field habits, controlled pacing and a close-out brief that protects the line weight and tone of your work.",
+        ] as const);
 
   return {
     mediaSide: "start",
