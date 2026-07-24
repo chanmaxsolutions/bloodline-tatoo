@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "generate:gallery-catalog": "tsx scripts/generate-gallery-catalog.ts",
     "prebuild": "npm run generate:gallery-catalog",
     "start": "next start",

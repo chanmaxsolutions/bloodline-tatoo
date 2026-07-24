@@ -1,0 +1,43 @@
+# One-off diagnostics for broken /_next/static assets (500s).
+name: Diagnose Next static
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-vps-main
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    name: Diagnose static chunks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect via SSH
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          command_timeout: 2m
+          script: |
+            set -euo pipefail
+            cd /var/www/bloodline-next
+            echo "USER=$(whoami) PWD=$(pwd)"
+            echo "=== pm2 ==="
+            pm2 status || true
+            echo "=== who listens on 3000 ==="
+            ss -lntp | grep 3000 || netstat -lntp 2>/dev/null | grep 3000 || true
+            echo "=== missing referenced css? ==="
+            ls -la .next/static/chunks/0ftygp~sxxntz.css .next/static/chunks/0019p3eo6n921.css .next/static/chunks/0cl.dapd-8ogm.js 2>&1 || true
+            echo "=== sample chunk dir ==="
+            ls .next/static/chunks | rg -n '0ftygp|0019p3|0cl\.dapd|~~' || ls .next/static/chunks | head -30
+            echo "=== local curl css ==="
+            curl -sS -o /dev/null -w "local_css1=%{http_code}\n" http://127.0.0.1:3000/_next/static/chunks/0019p3eo6n921.css || true
+            curl -sS -o /dev/null -w "local_css2=%{http_code}\n" http://127.0.0.1:3000/_next/static/chunks/0ftygp~sxxntz.css || true
+            curl -sS http://127.0.0.1:3000/_next/static/chunks/0ftygp~sxxntz.css | head -c 80; echo
+            echo "=== file sizes ==="
+            wc -c .next/static/chunks/0ftygp~sxxntz.css .next/static/chunks/0019p3eo6n921.css 2>&1 || true
+            echo "=== build id ==="
+            cat .next/BUILD_ID 2>/dev/null || true
+            git rev-parse --short HEAD
