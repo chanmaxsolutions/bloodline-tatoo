@@ -1,7 +1,7 @@
 import type { TattooStyleSlug } from "@/types/tattoo-style";
 import type { RegionSlug } from "@/types/region";
 
-/** Bangkok studio menu (includes healed). */
+/** Bangkok studio menu — healed is Bali-only (not offered here). */
 const bangkokStyleSlugs = [
   "realism",
   "portrait",
@@ -10,10 +10,9 @@ const bangkokStyleSlugs = [
   "mandala",
   "chicano",
   "bamboo",
-  "healed",
 ] as const satisfies readonly TattooStyleSlug[];
 
-/** Phuket studio menu — healed is not offered. */
+/** Phuket studio menu — healed is Bali-only (not offered here). */
 const phuketStyleSlugs = [
   "realism",
   "portrait",
@@ -24,6 +23,7 @@ const phuketStyleSlugs = [
   "bamboo",
 ] as const satisfies readonly TattooStyleSlug[];
 
+/** Bali studio menu — only region that offers the healed proof lane. */
 const baliStyleSlugs = [
   "realism",
   "portrait",
@@ -36,7 +36,7 @@ const baliStyleSlugs = [
 
 /**
  * Global site: union of every style offered at any Bloodline studio.
- * Order: shared core first, then studio-specific (bamboo, healed).
+ * Order: shared core first, then studio-specific (bamboo Bangkok/Phuket, healed Bali).
  */
 const globalStyleSlugs = [
   "realism",

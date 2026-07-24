@@ -136,8 +136,8 @@ function FooterBrandChannelIcon({ brand, className }: { brand: ChannelBrand; cla
   return (
     <ChannelBrandGlyph
       brand={brand}
-      variant="brand"
-      className={cn(footerBrandChannelIconClassName, className)}
+      variant="accent"
+      className={cn(footerBrandChannelIconClassName, channelBrandAccentClassName, className)}
     />
   );
 }

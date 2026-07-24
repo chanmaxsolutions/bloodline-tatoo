@@ -26,11 +26,26 @@ const tattooStyleImageRoot = "/images/tattoo-styles";
 const tattooStyleCardFileOverrideByStudio: Partial<
   Record<TattooStyleSlug, Partial<Record<TattooStyleStudioRegion, string>>>
 > = {
+  realism: {
+    phuket: "card-20250724-home.webp",
+  },
   portrait: {
-    phuket: "card-20250719-home.webp",
+    phuket: "card-20250724-home.webp",
+  },
+  japanese: {
+    phuket: "card-20250724-home.webp",
+  },
+  mandala: {
+    phuket: "card-20250724-home.webp",
+  },
+  chicano: {
+    phuket: "card-20250724-home.webp",
+  },
+  bamboo: {
+    phuket: "card-20250724-home.webp",
   },
   colour: {
-    phuket: "card-20250719-home.webp",
+    phuket: "card-20250724-home.webp",
   },
 };
 

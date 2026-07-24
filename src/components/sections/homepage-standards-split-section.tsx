@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
 import { approachSectionMediaClassName } from "@/components/shared/approach-pointer-card";
+import { BrandedYoutubePlayer } from "@/components/shared/branded-youtube-player";
 import {
   sectionDisplayHeadingClassName,
   sectionDisplayHeadingPresetClassName,
@@ -29,7 +30,21 @@ import {
   standardsSplitEditorialMediaClassName,
 } from "@/lib/standards-split-layout";
 import { cn } from "@/lib/utils";
-import type { RegionHomepageStandardsSplitConfig } from "@/types/homepage-standards-split";
+import type {
+  HomepageStandardsSplitMedia,
+  RegionHomepageStandardsSplitConfig,
+} from "@/types/homepage-standards-split";
+
+function resolveStandardsSplitStillMedia(media: HomepageStandardsSplitMedia): {
+  src: string;
+  alt: string;
+} {
+  if (media.kind === "youtube") {
+    return { src: media.posterSrc, alt: media.alt };
+  }
+
+  return { src: media.src, alt: media.alt };
+}
 
 interface HomepageStandardsSplitSectionProps {
   content: RegionHomepageStandardsSplitConfig;
@@ -97,19 +112,33 @@ function HomepageStandardsSplitApproachLayout({
     </div>
   );
 
-  const mediaColumn = (
-    <div className={sectionRevealItemClass("sm", mediaColumnClassName)}>
-      <Image
-        src={content.media.src}
-        alt={content.media.alt}
-        fill
-        // Intentionally larger than CSS width so retina (2x/3x) gets sharp pixels.
-        sizes="(min-width: 1024px) 1400px, 100vw"
-        quality={92}
-        className="object-cover object-center shadow-none drop-shadow-none"
-      />
-    </div>
-  );
+  const mediaColumn =
+    content.media.kind === "youtube" ? (
+      <div className={sectionRevealItemClass("sm", mediaColumnClassName)}>
+        <BrandedYoutubePlayer
+          variant="fill"
+          playbackMode="modal"
+          youtubeVideoId={content.media.youtubeVideoId}
+          embedTitle={content.media.embedTitle}
+          posterSrc={content.media.posterSrc}
+          posterAlt={content.media.alt}
+          imageSizes="(min-width: 1024px) 1400px, 100vw"
+          imageQuality={92}
+        />
+      </div>
+    ) : (
+      <div className={sectionRevealItemClass("sm", mediaColumnClassName)}>
+        <Image
+          src={content.media.src}
+          alt={content.media.alt}
+          fill
+          // Intentionally larger than CSS width so retina (2x/3x) gets sharp pixels.
+          sizes="(min-width: 1024px) 1400px, 100vw"
+          quality={92}
+          className="object-cover object-center shadow-none drop-shadow-none"
+        />
+      </div>
+    );
 
   return (
     <Container size="wide" className={homepageApproachBandContainerClassName}>
@@ -155,6 +184,7 @@ function HomepageStandardsSplitSection({
   const isMediaEnd = mediaSide === "end";
   const isEditorial = layout === "editorial";
   const isApproach = layout === "approach";
+  const stillMedia = resolveStandardsSplitStillMedia(content.media);
 
   return (
     <section
@@ -192,8 +222,8 @@ function HomepageStandardsSplitSection({
               )}
             >
               <Image
-                src={content.media.src}
-                alt={content.media.alt}
+                src={stillMedia.src}
+                alt={stillMedia.alt}
                 fill
                 sizes={
                   isEditorial ? "(min-width: 1024px) 40vw, 92vw" : "(min-width: 1024px) 46vw, 100vw"

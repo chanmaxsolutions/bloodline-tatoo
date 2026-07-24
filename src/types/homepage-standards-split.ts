@@ -2,6 +2,27 @@ import type { StandardsProofIconId } from "@/lib/standards-proof-icons";
 
 export type StandardsProofVariant = "accent" | "light" | "dark";
 
+/** Still image media for standards / session-path split bands. */
+export interface HomepageStandardsSplitImageMedia {
+  kind?: "image";
+  src: string;
+  alt: string;
+}
+
+/** Branded click-to-play YouTube media (Phuket homepage bands). */
+export interface HomepageStandardsSplitYoutubeMedia {
+  kind: "youtube";
+  youtubeVideoId: string;
+  embedTitle: string;
+  /** Local poster still shown before play (preferred over YouTube thumb). */
+  posterSrc: string;
+  alt: string;
+}
+
+export type HomepageStandardsSplitMedia =
+  | HomepageStandardsSplitImageMedia
+  | HomepageStandardsSplitYoutubeMedia;
+
 export interface RegionHomepageStandardsSplitConfig {
   /** LTR: image column first (default) vs second (text left, image right). */
   mediaSide?: "start" | "end";
@@ -25,8 +46,5 @@ export interface RegionHomepageStandardsSplitConfig {
     label: string;
     href: string;
   };
-  media: {
-    src: string;
-    alt: string;
-  };
+  media: HomepageStandardsSplitMedia;
 }

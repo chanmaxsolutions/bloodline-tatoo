@@ -97,7 +97,12 @@ function TrustpilotIcon({
   );
 }
 
-/** Matches Trustpilot Review Collector CTA: white bar, green border, centered label + icon. */
+/** Matches Trustpilot Review Collector CTA: white bar, green border, centered label + icon.
+ *
+ * Archived from site-wide float (see `floatingWidgetEnabled` in `src/config/trustpilot.ts`).
+ * Component kept for a possible future remount in `src/app/layout.tsx`.
+ * Active invite: `ReviewsTrustpilotInviteWidget` above the grid on `/reviews`.
+ */
 export function TrustpilotFloatingWidget({
   regionSlug,
   evaluateUrl,

@@ -4,6 +4,7 @@ import { ReviewsPageGridSection } from "@/components/sections/reviews-page-grid-
 import { ReviewsPageIntroSection } from "@/components/sections/reviews-page-intro-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { homepageHeroVideoSrc, homepageMediaPaths } from "@/config/homepage-media";
+import { trustpilotEvaluateLinksForRegion } from "@/config/trustpilot";
 import { getReviewsPageContent } from "@/lib/reviews-page";
 import { buildStudioEntitySchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
@@ -35,6 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ReviewsPage() {
   const { region, regionConfig } = await getRequestRegionContext();
   const content = await getReviewsPageContent(region);
+  const trustpilotLinks = trustpilotEvaluateLinksForRegion(region);
 
   return (
     <div className="min-w-0 bg-background">
@@ -52,6 +54,7 @@ export default async function ReviewsPage() {
         testimonials={content.testimonials}
         googleBusinessProfileUrl={content.googleBusinessProfileUrl}
         region={region}
+        trustpilotLinks={trustpilotLinks}
       />
       <ReviewsGoogleCtaSection studioLinks={content.studioLinks} isGlobal={region === "global"} />
     </div>
