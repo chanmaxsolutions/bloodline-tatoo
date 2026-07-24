@@ -1,6 +1,11 @@
 # Production VPS deploy — runs ONLY on pushes to `main`.
 # Client preview work should go to the `staging` branch (Vercel preview).
 # Merge staging → main only after the client approves.
+#
+# Downtime rules:
+# - Keep the previous release serving during git/npm/build.
+# - Restart PM2 only after a successful build (seconds of cutover).
+# - Never leave the app stopped if build fails (set -e exits before restart).
 name: Deploy
 
 on:
@@ -12,6 +17,7 @@ on:
 
 concurrency:
   group: deploy-vps-main
+  # Do not cancel a live deploy mid-build — that can leave PM2 stopped.
   cancel-in-progress: false
 
 jobs:
@@ -25,19 +31,31 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          # Large media pulls + npm ci + production build regularly exceed 10m.
+          # npm ci + next build on this VPS regularly needs more than 10m.
           command_timeout: 30m
           script: |
-            set -e
+            set -euo pipefail
             cd /var/www/bloodline-next
+
             git fetch origin main
             git reset --hard origin/main
+
+            # Install + build while the previous PM2 process keeps serving traffic.
             npm ci --include=dev
-            # Keep the current release serving during install + build (ads / live traffic).
             npm run build
-            # Brief cutover only after a successful build — seconds, not minutes.
-            pm2 stop bloodline || true
-            # Clear after stop so Next releases image-cache locks safely.
-            rm -rf .next/cache/images
-            pm2 start bloodline || pm2 restart bloodline
+
+            # Brief cutover only after a successful build.
+            if pm2 describe bloodline >/dev/null 2>&1; then
+              pm2 restart bloodline --update-env
+            else
+              pm2 start npm --name bloodline --cwd /var/www/bloodline-next -- start
+            fi
+
+            # Safe after the new process is up (avoids long offline image-cache clears).
+            rm -rf .next/cache/images || true
             pm2 save
+
+            # Fail the job if the app is not actually answering locally.
+            sleep 3
+            curl -fsS -o /dev/null --max-time 15 http://127.0.0.1:3000/
+            pm2 status
