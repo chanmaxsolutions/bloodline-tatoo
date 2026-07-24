@@ -52,6 +52,8 @@ jobs:
 
             # Install + build while the previous PM2 process keeps serving traffic.
             npm ci --include=dev
+            # Wipe .next so Turbopack/webpack artifacts never mix (causes CSS/JS 500s).
+            rm -rf .next
             npm run build
 
             # Brief cutover only after a successful build.
