@@ -14,10 +14,11 @@ export const HOMEPAGE_IMAGE_FILES = {
 /**
  * When replacing a regional homepage image:
  * 1. Pick an unused file from `image resources/{region}/`
- * 2. Move the current active WebP to `public/images/homepage/{region}/archive/{slot}-{date}.webp`
+ * 2. Move the current active WebP to `public/images/homepage/{region}/archive/` (local only — gitignored)
  * 3. Export at near-full source width, WebP q92, dated filename (e.g. `standards-split-20250718-home.webp`)
  * 4. Point `homepageImageFileOverrideByRegion` at the new dated filename
  * 5. Update alt text in `src/config/homepage-standards-split.ts` (or relevant config)
+ * Never commit archive/ raw sources or retired heavy assets — keep them local.
  */
 
 export type HomepageImageSlot = keyof typeof HOMEPAGE_IMAGE_FILES;
@@ -63,11 +64,12 @@ export const homepageHeroVideoByRegion = {
 
 /**
  * When replacing a regional hero clip:
- * 1. Move the current active MP4 to `public/videos/hero/archive/{region}/hero-{region}-{date}-home.mp4`
- * 2. Store the raw upload in `archive/{region}/sources/` with a dated filename
+ * 1. Move the current active MP4 to `public/videos/hero/archive/{region}/` (local only — gitignored)
+ * 2. Store the raw upload in `archive/{region}/sources/` with a dated filename (also gitignored)
  * 3. Export the new active file as `hero-{region}.mp4` (web-optimized MP4)
  * 4. Bump the matching version below so browsers and CDNs fetch the new file
  *    (same path otherwise stays cached aggressively).
+ * Never commit archive/ media — local reference only.
  */
 const homepageHeroVideoVersionByRegion: Partial<Record<RegionSlug, string>> = {
   global: "20250604-home",
