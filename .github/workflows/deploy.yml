@@ -39,6 +39,8 @@ jobs:
 
             # Repo may be owned by a different user after manual recovery / mixed sudo.
             git config --global --add safe.directory /var/www/bloodline-next
+            # Keep the tree writable for this deploy user (fixes FETCH_HEAD permission denied).
+            sudo chown -R "$(whoami):$(whoami)" /var/www/bloodline-next
 
             git fetch origin main
             git reset --hard origin/main
