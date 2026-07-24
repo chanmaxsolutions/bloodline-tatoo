@@ -53,6 +53,14 @@ public/videos/**/sources/
 # Local-only media archives (retired assets + raw sources — never commit / never deploy)
 public/**/archive/
 
+# Client briefs / copy decks (local reference only)
+Bloodline_*.docx
+Bloodline_*.pdf
+*.docx
+
+# Finder / iCloud duplicate copies ("filename 2.ext")
+**/*[[:space:]]2.*
+
 # Content pipeline scripts & mappings (outputs live in src/; keep catalog generator for prebuild)
 /scripts/*
 !/scripts/generate-gallery-catalog.ts
