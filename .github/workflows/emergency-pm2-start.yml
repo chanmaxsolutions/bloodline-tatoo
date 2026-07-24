@@ -1,0 +1,30 @@
+# Emergency only: bring the site back without install/build.
+# Use when production is down and console SSH is unreachable.
+name: Emergency PM2 start
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-vps-main
+  cancel-in-progress: true
+
+jobs:
+  start:
+    name: Start PM2 bloodline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start app via SSH
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          command_timeout: 2m
+          script: |
+            set -e
+            cd /var/www/bloodline-next
+            pm2 start bloodline || pm2 restart bloodline || pm2 start npm --name bloodline -- start
+            pm2 save
+            pm2 status
+            curl -sS -o /dev/null -w "localhost_http=%{http_code}\n" --max-time 5 http://127.0.0.1:3000/ || true
