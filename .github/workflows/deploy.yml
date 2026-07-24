@@ -39,8 +39,13 @@ jobs:
 
             # Repo may be owned by a different user after manual recovery / mixed sudo.
             git config --global --add safe.directory /var/www/bloodline-next
-            # Keep the tree writable for this deploy user (fixes FETCH_HEAD permission denied).
-            sudo chown -R "$(whoami):$(whoami)" /var/www/bloodline-next
+            # Deploy user must own the tree (no interactive sudo in Actions).
+            # One-time on VPS if this fails: sudo chown -R "$(whoami):$(whoami)" /var/www/bloodline-next
+            if [ ! -w .git ]; then
+              echo "ERROR: .git is not writable by $(whoami). Fix ownership on the VPS, then re-run Deploy."
+              ls -ld . .git || true
+              exit 1
+            fi
 
             git fetch origin main
             git reset --hard origin/main
