@@ -25,18 +25,27 @@ jobs:
             set -euo pipefail
             cd /var/www/bloodline-next
 
+            # Hard cutover — avoid stale Next process serving old chunk HTML.
             pm2 delete bloodline || true
-            # Clear a stuck listener from a crash loop (best-effort).
             fuser -k 3000/tcp || true
             sleep 1
 
-            if [ ! -x node_modules/.bin/next ] && [ ! -f node_modules/next/dist/bin/next ]; then
-              echo "next binary missing — run a full Deploy (npm ci) before emergency start can work"
+            if [ ! -f .next/BUILD_ID ]; then
+              echo "ERROR: missing .next/BUILD_ID — run full Deploy first"
               exit 1
             fi
 
+            echo "BUILD_ID=$(cat .next/BUILD_ID)"
+            echo "sample chunks:"
+            ls .next/static/chunks | head -15
+
             pm2 start npm --name bloodline --cwd /var/www/bloodline-next -- start
             pm2 save
-            sleep 3
+            sleep 4
             pm2 status
-            curl -fsS -o /dev/null -w "localhost_http=%{http_code}\n" --max-time 15 http://127.0.0.1:3000/
+            curl -fsS -o /tmp/home.html --max-time 15 http://127.0.0.1:3000/
+            echo "html_markers:"
+            grep -oE 'turbopack-|/_next/static/chunks/[A-Za-z0-9._~-]+\.css' /tmp/home.html | sort | uniq -c | head -20
+            CSS=$(grep -oE '/_next/static/chunks/[^" ]+\.css' /tmp/home.html | head -1)
+            echo "testing CSS=$CSS"
+            curl -fsS -o /dev/null -w "css=%{http_code} size=%{size_download}\n" --max-time 15 "http://127.0.0.1:3000$CSS"

@@ -55,17 +55,20 @@ jobs:
             npm run build
 
             # Brief cutover only after a successful build.
-            if pm2 describe bloodline >/dev/null 2>&1; then
-              pm2 restart bloodline --update-env
-            else
-              pm2 start npm --name bloodline --cwd /var/www/bloodline-next -- start
-            fi
+            # Delete + start (not restart) so Next never keeps stale chunk HTML in memory.
+            pm2 delete bloodline || true
+            fuser -k 3000/tcp || true
+            sleep 1
+            pm2 start npm --name bloodline --cwd /var/www/bloodline-next -- start
 
             # Safe after the new process is up (avoids long offline image-cache clears).
             rm -rf .next/cache/images || true
             pm2 save
 
             # Fail the job if the app is not actually answering locally.
-            sleep 3
-            curl -fsS -o /dev/null --max-time 15 http://127.0.0.1:3000/
+            sleep 4
+            curl -fsS -o /tmp/home.html --max-time 15 http://127.0.0.1:3000/
+            CSS=$(grep -oE '/_next/static/chunks/[^"'\'' ]+\.css' /tmp/home.html | head -1)
+            test -n "$CSS"
+            curl -fsS -o /dev/null --max-time 15 "http://127.0.0.1:3000$CSS"
             pm2 status
