@@ -33,10 +33,11 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             npm ci --include=dev
-            # Stop the app first so Next.js releases locks on .next/cache/images.
-            pm2 stop bloodline || true
-            # Source files in public/ can change while /_next/image cache keys stay stale.
-            rm -rf .next/cache/images
+            # Keep the current release serving during install + build (ads / live traffic).
             npm run build
+            # Brief cutover only after a successful build — seconds, not minutes.
+            pm2 stop bloodline || true
+            # Clear after stop so Next releases image-cache locks safely.
+            rm -rf .next/cache/images
             pm2 start bloodline || pm2 restart bloodline
             pm2 save
