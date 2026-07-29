@@ -14,7 +14,16 @@ function tattooStyleNavChildrenForRegion(region: RegionSlug): HeaderNavItem[] {
   });
 }
 
+/** Slim hub chrome for bloodlinetattoo.com — studio picker lives on the landing. */
+const globalHubNavigationItems: readonly HeaderNavItem[] = [
+  { label: "About the Studio", href: "/about" },
+];
+
 function navigationItemsForRegion(region: RegionSlug): HeaderNavItem[] {
+  if (region === "global") {
+    return [...globalHubNavigationItems];
+  }
+
   return desktopNavigationItems.map((item) => {
     if (item.href !== "/tattoo-styles") {
       return item;

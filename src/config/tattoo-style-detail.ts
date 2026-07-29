@@ -6,8 +6,8 @@ import type { TattooStyleSlug } from "@/types/tattoo-style";
 
 /** Shared approach-band fallback when a style has no dedicated asset yet. */
 const defaultApproachBandImage = {
-  src: "/images/homepage-authority/institution-craft.webp",
-  alt: "Close detail of tattoo work in a controlled Bloodline studio session",
+  src: "/images/brand/bloodline-family.webp",
+  alt: "Bloodline Family logo mark",
 } as const satisfies TattooStyleDetailProofImage;
 
 const tattooStyleDetailBySlug: Record<TattooStyleSlug, TattooStyleDetailContent> = {

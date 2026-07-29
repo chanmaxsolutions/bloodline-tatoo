@@ -10,6 +10,8 @@ interface SiteHeaderProps {
 function SiteHeader({ region = "global" }: SiteHeaderProps) {
   const regionConfig = getRegionConfig(region);
   const navigationItems = navigationItemsForRegion(region);
+  /** Global hub has no studio WhatsApp — booking lives on regional domains. */
+  const cta = region === "global" ? null : regionConfig.headerCta;
 
   return (
     <HeaderClient
@@ -18,7 +20,7 @@ function SiteHeader({ region = "global" }: SiteHeaderProps) {
       logoPath={regionConfig.branding.logoPath}
       desktopNavigationItems={navigationItems}
       mobileNavigationItems={navigationItems}
-      cta={regionConfig.headerCta}
+      cta={cta}
     />
   );
 }

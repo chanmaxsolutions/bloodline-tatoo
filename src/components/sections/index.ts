@@ -1,7 +1,9 @@
 export { AuthoritySection } from "@/components/sections/authority-section";
+export { GlobalStudioLandingSection } from "@/components/sections/global-studio-landing-section";
 export { HomepageStandardsSplitSection } from "@/components/sections/homepage-standards-split-section";
 export { HomepageTestimonialsCarouselSection } from "@/components/sections/homepage-testimonials-carousel-section";
 export { HeroSection } from "@/components/sections/hero-section";
+export { StudioHomepage } from "@/components/sections/studio-homepage";
 export { SectionShell } from "@/components/sections/section-shell";
 export type { SectionSpacingTier, SectionSurface } from "@/components/sections/section-shell";
 export { TattooStyleTile } from "@/components/sections/tattoo-style-tile";

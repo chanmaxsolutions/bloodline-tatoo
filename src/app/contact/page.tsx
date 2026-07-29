@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { ContactPageFormSection } from "@/components/sections/contact-page-form-section";
 import { ContactPageIntroSection } from "@/components/sections/contact-page-intro-section";
 import { ContactPageNarrativeSection } from "@/components/sections/contact-page-narrative-section";
@@ -13,21 +14,27 @@ import { getRequestRegionContext } from "@/lib/request-region";
 export async function generateMetadata(): Promise<Metadata> {
   const { region, regionConfig } = await getRequestRegionContext();
 
-  const title =
-    region === "global"
-      ? `Contact & Book | ${regionConfig.seo.siteName}`
-      : `Contact & Book in ${regionConfig.regionName} | ${regionConfig.seo.siteName}`;
+  if (region === "global") {
+    return buildMetadata(
+      {
+        title: regionConfig.seo.defaultTitle,
+        description: regionConfig.seo.defaultDescription,
+        canonicalPath: "/",
+        ogImagePath: homepageMediaPaths.heroPoster(region),
+      },
+      regionConfig,
+    );
+  }
 
-  const description =
-    region === "global"
-      ? "Book Bloodline Tattoo across Bangkok, Bali, and Phuket. Message us on WhatsApp, Instagram, or Facebook—appointments confirmed in DMs only."
-      : `Book Bloodline Tattoo in ${regionConfig.regionName}. Message the studio on WhatsApp, Instagram, or Facebook to plan your session.`;
+  const title = `Contact & Book in ${regionConfig.regionName} | ${regionConfig.seo.siteName}`;
+  const description = `Book Bloodline Tattoo in ${regionConfig.regionName}. Message the studio on WhatsApp, Instagram, or Facebook to plan your session.`;
 
   return buildMetadata(
     {
       title,
       description,
       canonicalPath: "/contact",
+      ogImagePath: homepageMediaPaths.heroPoster(region),
     },
     regionConfig,
   );
@@ -35,6 +42,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ContactPage() {
   const { region, regionConfig } = await getRequestRegionContext();
+
+  if (region === "global") {
+    redirect("/");
+  }
+
   const content = getContactPageContent(region);
   const hasContentBelow = true;
 

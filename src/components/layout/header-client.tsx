@@ -23,7 +23,7 @@ interface HeaderClientProps {
   cta: {
     label: string;
     href: string;
-  };
+  } | null;
 }
 
 function HeaderClient({
@@ -110,118 +110,148 @@ function HeaderClient({
             </Link>
 
             <div className="ml-auto hidden items-center gap-8 xl:flex">
-              <nav aria-label="Desktop" className="flex items-center gap-7">
-                {desktopNavigationItems.map((item) => {
-                  if (item.children?.length && item.hasFutureDropdown) {
-                    const isDropdownOpen = openDesktopDropdownHref === item.href;
+              {desktopNavigationItems.length > 0 ? (
+                <nav aria-label="Desktop" className="flex items-center gap-7">
+                  {desktopNavigationItems.map((item) => {
+                    if (item.children?.length && item.hasFutureDropdown) {
+                      const isDropdownOpen = openDesktopDropdownHref === item.href;
 
-                    return (
-                      <div
-                        key={item.href}
-                        className="group/nav-item relative after:pointer-events-auto after:absolute after:top-full after:left-0 after:h-3 after:w-full after:content-['']"
-                        onMouseEnter={() => {
-                          openDesktopDropdown(item);
-                        }}
-                        onMouseLeave={() => setOpenDesktopDropdownHref(null)}
-                        onFocusCapture={() => {
-                          openDesktopDropdown(item);
-                        }}
-                        onBlurCapture={(event) => {
-                          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                            setOpenDesktopDropdownHref(null);
-                          }
-                        }}
-                      >
-                        <Link
-                          href={item.href}
-                          className="inline-flex items-center gap-1 font-heading text-lg leading-none font-semibold uppercase tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:text-2xl"
-                          aria-expanded={isDropdownOpen}
-                          aria-haspopup="true"
-                          onClick={(event) => {
-                            handleSameRouteNavClick(event, pathname, item.href);
+                      return (
+                        <div
+                          key={item.href}
+                          className="group/nav-item relative after:pointer-events-auto after:absolute after:top-full after:left-0 after:h-3 after:w-full after:content-['']"
+                          onMouseEnter={() => {
+                            openDesktopDropdown(item);
+                          }}
+                          onMouseLeave={() => setOpenDesktopDropdownHref(null)}
+                          onFocusCapture={() => {
+                            openDesktopDropdown(item);
+                          }}
+                          onBlurCapture={(event) => {
+                            if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                              setOpenDesktopDropdownHref(null);
+                            }
                           }}
                         >
-                          {item.label}
-                          <ChevronDownIcon
-                            aria-hidden="true"
+                          <Link
+                            href={item.href}
+                            className="inline-flex items-center gap-1 font-heading text-lg leading-none font-semibold uppercase tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:text-2xl"
+                            aria-expanded={isDropdownOpen}
+                            aria-haspopup="true"
+                            onClick={(event) => {
+                              handleSameRouteNavClick(event, pathname, item.href);
+                            }}
+                          >
+                            {item.label}
+                            <ChevronDownIcon
+                              aria-hidden="true"
+                              className={cn(
+                                "mt-0.5 size-4 text-muted-foreground/80 motion-fast",
+                                isDropdownOpen && "rotate-180",
+                              )}
+                            />
+                          </Link>
+                          <div
                             className={cn(
-                              "mt-0.5 size-4 text-muted-foreground/80 motion-fast",
-                              isDropdownOpen && "rotate-180",
+                              "absolute top-full left-0 z-30 w-full min-w-56 pt-3 motion-fast",
+                              isDropdownOpen
+                                ? "pointer-events-auto opacity-100"
+                                : "pointer-events-none opacity-0",
                             )}
-                          />
-                        </Link>
-                        <div
-                          className={cn(
-                            "absolute top-full left-0 z-30 w-full min-w-56 pt-3 motion-fast",
-                            isDropdownOpen
-                              ? "pointer-events-auto opacity-100"
-                              : "pointer-events-none opacity-0",
-                          )}
-                        >
-                          <div className="rounded-sm border border-border/90 bg-surface-elevated px-4 py-3">
-                            <ul className="grid gap-2">
-                              {item.children.map((child) => (
-                                <li key={child.href}>
-                                  <Link
-                                    href={child.href}
-                                    prefetch={true}
-                                    className="inline-flex font-heading text-lg font-semibold uppercase tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 2xl:text-xl"
-                                    onClick={(event) => {
-                                      handleSameRouteNavClick(event, pathname, child.href);
-                                      setOpenDesktopDropdownHref(null);
-                                    }}
-                                  >
-                                    {child.label}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
+                          >
+                            <div className="rounded-sm border border-border/90 bg-surface-elevated px-4 py-3">
+                              <ul className="grid gap-2">
+                                {item.children.map((child) => (
+                                  <li key={child.href}>
+                                    <Link
+                                      href={child.href}
+                                      prefetch={true}
+                                      className="inline-flex font-heading text-lg font-semibold uppercase tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 2xl:text-xl"
+                                      onClick={(event) => {
+                                        handleSameRouteNavClick(event, pathname, child.href);
+                                        setOpenDesktopDropdownHref(null);
+                                      }}
+                                    >
+                                      {child.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  }
+                      );
+                    }
 
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="inline-flex items-center font-heading text-lg leading-none font-semibold uppercase tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:text-2xl"
-                      onClick={(event) => {
-                        handleSameRouteNavClick(event, pathname, item.href);
-                      }}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
-              </nav>
-              <button
-                type="button"
-                className={buttonVariants({ variant: "primary", size: "sm" })}
-                onClick={() =>
-                  openBookingModal({
-                    componentName: "SiteHeader",
-                    ctaText: cta.label,
-                  })
-                }
-              >
-                {cta.label}
-              </button>
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="inline-flex items-center font-heading text-lg leading-none font-semibold uppercase tracking-tight text-muted-foreground motion-fast hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 md:text-2xl"
+                        onClick={(event) => {
+                          handleSameRouteNavClick(event, pathname, item.href);
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </nav>
+              ) : null}
+              {cta ? (
+                <button
+                  type="button"
+                  className={buttonVariants({ variant: "primary", size: "sm" })}
+                  onClick={() =>
+                    openBookingModal({
+                      componentName: "SiteHeader",
+                      ctaText: cta.label,
+                    })
+                  }
+                >
+                  {cta.label}
+                </button>
+              ) : null}
             </div>
 
-            <Button
-              variant="ghost"
-              size="sm"
-              className="xl:hidden"
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu-overlay"
-              aria-label="Open menu"
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <MenuIcon className="size-5" />
-              MENU
-            </Button>
+            {(() => {
+              const aboutItem = mobileNavigationItems[0];
+              const showMobileInlineAboutLink =
+                !cta && mobileNavigationItems.length === 1 && aboutItem?.href === "/about";
+
+              if (showMobileInlineAboutLink && aboutItem) {
+                return (
+                  <Link
+                    href={aboutItem.href}
+                    className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "xl:hidden")}
+                    onClick={(event) => {
+                      handleSameRouteNavClick(event, pathname, aboutItem.href);
+                    }}
+                  >
+                    {aboutItem.label}
+                  </Link>
+                );
+              }
+
+              if (mobileNavigationItems.length > 0 || cta) {
+                return (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="xl:hidden"
+                    aria-expanded={isMenuOpen}
+                    aria-controls="mobile-menu-overlay"
+                    aria-label="Open menu"
+                    onClick={() => setIsMenuOpen(true)}
+                  >
+                    <MenuIcon className="size-5" />
+                    MENU
+                  </Button>
+                );
+              }
+
+              return null;
+            })()}
           </div>
         </Container>
       </header>
@@ -232,11 +262,14 @@ function HeaderClient({
           navigationItems={mobileNavigationItems}
           cta={cta}
           onClose={() => setIsMenuOpen(false)}
-          onBookAppointment={() =>
-            openBookingModal({
-              componentName: "MobileMenuOverlay",
-              ctaText: cta.label,
-            })
+          onBookAppointment={
+            cta
+              ? () =>
+                  openBookingModal({
+                    componentName: "MobileMenuOverlay",
+                    ctaText: cta.label,
+                  })
+              : undefined
           }
         />
       </div>

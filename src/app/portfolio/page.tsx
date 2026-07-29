@@ -34,11 +34,14 @@ export async function generateMetadata({ searchParams }: PortfolioPageProps): Pr
     content.activeCategory,
   );
 
+  const ogImagePath = content.items[0]?.imageSrc ?? pageIntroBackgroundFor("portfolio").src;
+
   return buildMetadata(
     {
       title: meta.title,
       description: meta.description,
       canonicalPath: meta.canonicalPath,
+      ogImagePath,
     },
     regionConfig,
   );

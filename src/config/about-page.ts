@@ -12,10 +12,10 @@ const ABOUT_STUDIO_STORY_YOUTUBE_VIDEO_ID = "4t9BxBku6wI";
 function aboutIntroForRegion(region: RegionSlug, regionName: string): AboutPageIntro {
   if (region === "global") {
     return {
-      eyebrow: "Inside the studio",
-      heading: "A STUDIO HOUSE BUILT ON ONE STANDARD",
+      eyebrow: "The Bloodline family",
+      heading: "BUILT BY FAMILY. ACROSS ASIA.",
       description:
-        "Bloodline runs across Bangkok, Bali and Phuket on one baseline. Consultation first, sterile discipline and custom work built to hold on skin for life.",
+        "Since 2015 Bloodline has grown as one family of artists, staff and clients. What started in Phuket is now three studios across Bangkok, Bali and Phuket, still run with the same care.",
     };
   }
 
@@ -63,10 +63,31 @@ function aboutStoryBlocksForRegion(
   if (region === "global") {
     return [
       {
+        heading: "MORE THAN A TATTOO STUDIO. THIS IS BLOODLINE.",
         paragraphs: [
-          "Bloodline was built for clients who want more than trend-driven tattoo culture. Every studio aligns on placement, scale and reference direction before a session is staged.",
-          "Across Bangkok, Bali and Phuket you get calm rooms, precise process and sterile practice. The city changes. The standard does not.",
-          "You are not booking a fast chair. You are entering a studio house where scope, pacing and aftercare are treated as part of the work.",
+          "Bloodline was built to bring good people together, look after each other, and create the best tattoos we can.",
+          "Since 2015 we’ve grown into a family of more than 45 full-time artists and team members across Phuket, Bangkok and Bali, still treating artists, staff and clients like family.",
+        ],
+      },
+      {
+        heading: "BUILT BY FAMILY. RUN LIKE FAMILY.",
+        paragraphs: [
+          "We built Bloodline so great artists could focus on quality work, support each other, and make clients feel welcome from the door.",
+          "Our owners stay hands-on with managers, artists and staff. Three locations. One team. One Bloodline family.",
+        ],
+      },
+      {
+        heading: "FROM PHUKET TO BANGKOK AND BALI",
+        paragraphs: [
+          "What started in Phuket is now three studios across Southeast Asia.",
+          "Each room has its own team and personality, but the same values: quality tattooing, specialist artists, proper planning, and looking after clients from first message to final session.",
+        ],
+      },
+      {
+        heading: "THE BLOODLINE STANDARD",
+        paragraphs: [
+          "The Bloodline standard is how we work every day: understand the tattoo before we start, match the right specialist, keep professional studio standards, plan large projects properly, and look after clients throughout.",
+          "We’re always improving, but one thing won’t change: Bloodline is about the people. Owners, artists, staff and clients. That’s the Bloodline family.",
         ],
       },
     ];
@@ -91,7 +112,7 @@ function aboutStoryBlocksForRegion(
         heading: "MORE THAN A TATTOO STUDIO. THIS IS BLOODLINE.",
         paragraphs: [
           "Bloodline was built to bring good people together, look after each other, and create the best tattoos we can.",
-          "Since 2015 we’ve grown into a family of more than 45 full-time artists and team members across Phuket, Bangkok and Bali — still treating artists, staff and clients like family.",
+          "Since 2015 we’ve grown into a family of more than 45 full-time artists and team members across Phuket, Bangkok and Bali, still treating artists, staff and clients like family.",
         ],
       },
       {
@@ -112,7 +133,7 @@ function aboutStoryBlocksForRegion(
         heading: "LARGE-SCALE CUSTOM TATTOOING",
         paragraphs: [
           "Full sleeves, leg sleeves, back pieces and other large projects need planning, time and commitment.",
-          "From first consult to final session we map expected sessions, organise consecutive bookings when needed, and keep the process clear — no rushing, no cutting corners.",
+          "From first consult to final session we map expected sessions, organise consecutive bookings when needed, and keep the process clear. No rushing, no cutting corners.",
         ],
       },
       {
@@ -132,8 +153,8 @@ function aboutStoryBlocksForRegion(
       {
         heading: "THE BLOODLINE STANDARD",
         paragraphs: [
-          "The Bloodline standard is how we work every day — understand the tattoo before we start, match the right specialist, keep professional studio standards, plan large projects properly, and look after clients throughout.",
-          "We’re always improving, but one thing won’t change: Bloodline is about the people — owners, artists, staff and clients. That’s the Bloodline family.",
+          "The Bloodline standard is how we work every day: understand the tattoo before we start, match the right specialist, keep professional studio standards, plan large projects properly, and look after clients throughout.",
+          "We’re always improving, but one thing won’t change: Bloodline is about the people. Owners, artists, staff and clients. That’s the Bloodline family.",
         ],
       },
     ];
@@ -161,10 +182,10 @@ function aboutVideoForRegion(region: RegionSlug, regionName: string): AboutPageV
   if (region === "global") {
     return {
       ...base,
-      eyebrow: "Studio story",
-      heading: "THE STORY BEHIND THE STUDIO HOUSE",
+      eyebrow: "Family story",
+      heading: "HOW THE BLOODLINE FAMILY FORMED",
       description:
-        "Watch how Bloodline formed across Bangkok, Bali and Phuket. Consultation first, sterile discipline and work built to hold on skin for life.",
+        "Watch how Bloodline grew from Phuket into Bangkok and Bali. One family of artists, staff and clients, still working to the same standard in every room.",
     };
   }
 
@@ -188,9 +209,9 @@ function aboutVideoForRegion(region: RegionSlug, regionName: string): AboutPageV
 function aboutClosingForRegion(region: RegionSlug, regionName: string) {
   if (region === "global") {
     return {
-      heading: "READY TO BOOK YOUR NEXT SESSION?",
+      heading: "READY TO MEET THE FAMILY?",
       description:
-        "Choose your studio and message us on WhatsApp. We align on placement, scale and timing before anything is committed.",
+        "Choose Bangkok, Bali or Phuket, then message us on Instagram, Facebook or WhatsApp. We align on placement, scale and timing before anything is committed.",
     };
   }
 

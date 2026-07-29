@@ -9,7 +9,6 @@ import {
 } from "@/config/region-tattoo-style-availability";
 import { getPortfolioHrefForTattooStyle } from "@/lib/tattoo-style-portfolio";
 import {
-  resolveTattooStyleApproachImage,
   resolveTattooStyleHeroImage,
   resolveTattooStyleProofGalleryImages,
 } from "@/lib/tattoo-style-media";
@@ -51,9 +50,7 @@ function resolveTattooStyleDetailPage(
 
   const heroImage = detail.heroImage ?? resolveTattooStyleHeroImage(slug, region, catalog.imageAlt);
 
-  const approachImage =
-    detail.approachImage ??
-    resolveTattooStyleApproachImage(slug, region, defaultApproachBandImage.alt);
+  const approachImage = detail.approachImage ?? defaultApproachBandImage;
 
   return {
     slug,

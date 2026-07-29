@@ -32,6 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       canonicalPath: "/faq",
+      ogImagePath: homepageMediaPaths.heroPoster(region),
     },
     regionConfig,
   );

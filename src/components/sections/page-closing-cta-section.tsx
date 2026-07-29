@@ -29,6 +29,8 @@ interface PageClosingCtaSectionProps {
   headingId: string;
   /** Google reviews line above the heading; off only when a page must omit proof. */
   showTrustProofStrip?: boolean;
+  /** Optional secondary link to `/contact`. Off for global hub About. */
+  showContactLink?: boolean;
   /** Optional line below actions (e.g. appointment / WhatsApp note). */
   ctaUrgencyNote?: string;
   /** Override default bordered `bg-surface` shell (e.g. portfolio closing cap). */
@@ -40,6 +42,7 @@ function PageClosingCtaSection({
   headerCtaLabel,
   headingId,
   showTrustProofStrip = true,
+  showContactLink = true,
   ctaUrgencyNote,
   sectionClassName,
 }: PageClosingCtaSectionProps) {
@@ -99,15 +102,17 @@ function PageClosingCtaSection({
             >
               {headerCtaLabel}
             </BookAppointmentTrigger>
-            <Link
-              href="/contact"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "w-auto max-w-full",
-              )}
-            >
-              Contact the studio
-            </Link>
+            {showContactLink ? (
+              <Link
+                href="/contact"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "w-auto max-w-full",
+                )}
+              >
+                Contact the studio
+              </Link>
+            ) : null}
           </div>
 
           {ctaUrgencyNote ? (

@@ -28,6 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       canonicalPath: "/reviews",
+      ogImagePath: homepageMediaPaths.heroPoster(region),
     },
     regionConfig,
   );

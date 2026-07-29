@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { PageSeoInput, RegionConfig } from "@/types";
+import { homepageMediaPaths } from "@/config/homepage-media";
 import { buildRegionalHreflangLanguages } from "@/lib/hreflang";
 import { absoluteRegionalUrl } from "@/lib/schema";
 
@@ -7,7 +8,10 @@ export function buildMetadata(input: PageSeoInput, region: RegionConfig): Metada
   const title = input.title || region.seo.defaultTitle;
   const description = input.description || region.seo.defaultDescription;
   const canonical = absoluteRegionalUrl(region, input.canonicalPath);
-  const ogImageUrl = absoluteRegionalUrl(region, input.ogImagePath ?? region.branding.logoPath);
+  const ogImageUrl = absoluteRegionalUrl(
+    region,
+    input.ogImagePath ?? homepageMediaPaths.heroPoster(region.slug),
+  );
 
   return {
     title,

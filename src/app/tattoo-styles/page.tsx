@@ -29,11 +29,15 @@ export async function generateMetadata(): Promise<Metadata> {
       ? "Browse Bloodline tattoo styles across Bangkok, Bali, and Phuket—realism, portrait, Japanese, colour, mandala, Chicano, bamboo, and healed work proof."
       : `Browse Bloodline tattoo styles in ${regionConfig.regionName}—realism, portrait, Japanese, colour, mandala, and more. Appointment-only custom work built to last.`;
 
+  const tiles = resolveHomepageTattooStyleTiles(tattooStyleSlugsForRegion(region), region);
+  const ogImagePath = tiles[0]?.imageSrc ?? pageIntroBackgroundFor("tattoo-styles").src;
+
   return buildMetadata(
     {
       title,
       description,
       canonicalPath: "/tattoo-styles",
+      ogImagePath,
     },
     regionConfig,
   );

@@ -73,17 +73,19 @@ function AboutPageReviewsSection({
               showStudioName={showStudioName}
               carouselContext="about"
             />
-            <div className="flex justify-center">
-              <Link
-                href="/reviews"
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" }),
-                  homepageGhostCtaSurfaceClassName,
-                )}
-              >
-                View all reviews
-              </Link>
-            </div>
+            {region !== "global" ? (
+              <div className="flex justify-center">
+                <Link
+                  href="/reviews"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "lg" }),
+                    homepageGhostCtaSurfaceClassName,
+                  )}
+                >
+                  View all reviews
+                </Link>
+              </div>
+            ) : null}
           </div>
         </SectionReveal>
       </Container>

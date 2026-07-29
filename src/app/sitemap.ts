@@ -8,6 +8,11 @@ import { absoluteRegionalUrl } from "@/lib/schema";
 import type { RegionConfig } from "@/types";
 import type { RegionSlug } from "@/types/region";
 
+const GLOBAL_HUB_SITEMAP_PATHS = [
+  { path: "/", priority: 1, changeFrequency: "weekly" as const },
+  { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
+] as const;
+
 const STATIC_SITEMAP_PATHS = [
   { path: "/", priority: 1, changeFrequency: "weekly" as const },
   { path: "/tattoo-styles", priority: 0.9, changeFrequency: "weekly" as const },
@@ -24,10 +29,13 @@ function latestPublishedAt(posts: readonly { publishedAt: string }[]): Date {
 }
 
 function staticSitemapEntries(
+  region: RegionSlug,
   regionConfig: RegionConfig,
   lastModified: Date,
 ): MetadataRoute.Sitemap {
-  return STATIC_SITEMAP_PATHS.map(({ path, priority, changeFrequency }) => ({
+  const paths = region === "global" ? GLOBAL_HUB_SITEMAP_PATHS : STATIC_SITEMAP_PATHS;
+
+  return paths.map(({ path, priority, changeFrequency }) => ({
     url: absoluteRegionalUrl(regionConfig, path),
     lastModified,
     changeFrequency,
@@ -50,9 +58,14 @@ function tattooStyleSitemapEntries(
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { region, regionConfig } = await getRequestRegionContext();
+  const siteLastModified = new Date();
+
+  if (region === "global") {
+    return staticSitemapEntries(region, regionConfig, siteLastModified);
+  }
+
   const posts = getBlogPostsForRegion(region);
   const categorySlugs = getBlogCategorySlugsForRegion(region);
-  const siteLastModified = new Date();
   const blogIndexLastModified = posts.length > 0 ? latestPublishedAt(posts) : siteLastModified;
 
   const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
@@ -75,7 +88,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   return [
-    ...staticSitemapEntries(regionConfig, siteLastModified),
+    ...staticSitemapEntries(region, regionConfig, siteLastModified),
     ...tattooStyleSitemapEntries(region, regionConfig, siteLastModified),
     {
       url: absoluteRegionalUrl(regionConfig, "/tattoo-blog"),

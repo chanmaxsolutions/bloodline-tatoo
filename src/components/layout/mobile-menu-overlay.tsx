@@ -16,9 +16,9 @@ interface MobileMenuOverlayProps {
   cta: {
     label: string;
     href: string;
-  };
+  } | null;
   onClose: () => void;
-  onBookAppointment: () => void;
+  onBookAppointment?: () => void;
 }
 
 function MobileMenuOverlay({
@@ -137,16 +137,18 @@ function MobileMenuOverlay({
           </ul>
 
           <div className="pt-10">
-            <button
-              type="button"
-              className={buttonVariants({ variant: "primary", size: "lg", className: "w-full" })}
-              onClick={() => {
-                onBookAppointment();
-                onClose();
-              }}
-            >
-              {cta.label}
-            </button>
+            {cta && onBookAppointment ? (
+              <button
+                type="button"
+                className={buttonVariants({ variant: "primary", size: "lg", className: "w-full" })}
+                onClick={() => {
+                  onBookAppointment();
+                  onClose();
+                }}
+              >
+                {cta.label}
+              </button>
+            ) : null}
           </div>
         </nav>
       </div>

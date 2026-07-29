@@ -74,7 +74,7 @@ export const homepageHeroVideoByRegion = {
 const homepageHeroVideoVersionByRegion: Partial<Record<RegionSlug, string>> = {
   global: "20250604-home",
   bangkok: "20250604-home",
-  bali: "20250717-home",
+  bali: "20260729-1080p",
   phuket: "20250604-home",
 };
 

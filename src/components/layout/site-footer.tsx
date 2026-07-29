@@ -79,6 +79,11 @@ function FooterNavColumn({ title, items }: { title: string; items: HeaderNavItem
 }
 
 function SiteFooter({ region }: SiteFooterProps) {
+  /** Global landing is viewport-height only — no footer band. */
+  if (region === "global") {
+    return null;
+  }
+
   const regionConfig = getRegionConfig(region);
   const navigationItems = navigationItemsForRegion(region);
   const { explore, studio } = partitionFooterNavigation(navigationItems);

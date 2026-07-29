@@ -19,8 +19,7 @@ const galleryPageIntroByRegion: Record<RegionSlug, GalleryPageIntro> = {
   bali: {
     eyebrow: "Portfolio",
     heading: "BALI PORTFOLIO",
-    description:
-      "Fine line, colour, and healed documentation from Bloodline Bali. Built for travelers who want proof, not a souvenir flash sheet.",
+    description: "This is what comes out of Bloodline Tattoo Bali.",
   },
   phuket: {
     eyebrow: "Portfolio",

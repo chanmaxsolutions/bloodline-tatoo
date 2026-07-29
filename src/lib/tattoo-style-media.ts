@@ -27,12 +27,14 @@ const tattooStyleCardFileOverrideByStudio: Partial<
   Record<TattooStyleSlug, Partial<Record<TattooStyleStudioRegion, string>>>
 > = {
   realism: {
+    bali: "card-20260729-home.webp",
     phuket: "card-20250724-home.webp",
   },
   portrait: {
     phuket: "card-20250724-home.webp",
   },
   japanese: {
+    bali: "card-20260729-home.webp",
     phuket: "card-20250724-home.webp",
   },
   mandala: {
@@ -46,6 +48,9 @@ const tattooStyleCardFileOverrideByStudio: Partial<
   },
   colour: {
     phuket: "card-20250724-home.webp",
+  },
+  healed: {
+    bali: "card-20260729-home.webp",
   },
 };
 

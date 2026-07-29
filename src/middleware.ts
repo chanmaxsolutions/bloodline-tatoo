@@ -68,6 +68,12 @@ function nextWithPreviewRegion(
   );
 }
 
+/** Global hub (bloodlinetattoo.com) is home + about only. */
+function isGlobalHubAllowedPath(pathname: string): boolean {
+  const normalized = pathname.replace(/\/+$/, "") || "/";
+  return normalized === "/" || normalized === "/about";
+}
+
 /**
  * Catch old WordPress blog posts published at top-level slugs (e.g. /guide-to-choosing-...).
  * next.config redirects handle known paths; this covers long-tail indexed URLs from site: search.
@@ -100,6 +106,12 @@ function middleware(request: NextRequest) {
       NextResponse.rewrite(url, { request: { headers: requestHeaders } }),
       preview,
     );
+  }
+
+  if (activeRegion === "global" && !isGlobalHubAllowedPath(pathname)) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    return withPreviewRegion(request, NextResponse.redirect(url, 308), preview);
   }
 
   if (pathname === "/" || pathname.includes(".")) {

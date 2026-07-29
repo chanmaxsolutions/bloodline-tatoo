@@ -2,7 +2,6 @@ import { getImageProps } from "next/image";
 import { BookAppointmentTrigger } from "@/components/cta";
 import { SectionReveal } from "@/components/motion";
 import { Container } from "@/components/layout/container";
-import { approachSectionMediaClassName } from "@/components/shared/approach-pointer-card";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { sectionRevealItemClass } from "@/lib/section-reveal-classes";
 import { pageClosingCtaBandTitleClassName } from "@/lib/page-closing-cta-band";
@@ -11,14 +10,29 @@ import { cn } from "@/lib/utils";
 import type { ResolvedTattooStyleDetailPage } from "@/types/tattoo-style-detail";
 
 /** Uniform scrim only — no radial or linear gradients. */
-const approachStatementScrimClassName = "pointer-events-none absolute inset-0 z-1 bg-background/80";
+const approachStatementScrimClassName = "pointer-events-none absolute inset-0 z-1 bg-background/90";
+
+/**
+ * Height comes from in-flow content so mobile never clips the heading.
+ * Min-height only sets a floor — never a crop.
+ */
+const approachStatementMediaClassName = cn(
+  "relative isolate w-full overflow-hidden rounded-md",
+  "min-h-[min(52vh,360px)] lg:min-h-[min(60vh,520px)]",
+);
 
 const approachStatementContentClassName =
-  "relative z-10 flex min-h-[min(52vh,400px)] flex-col items-center justify-center gap-6 px-4 py-16 text-center sm:px-6 md:gap-8 md:py-20 lg:min-h-[min(60vh,520px)] lg:py-24";
+  "relative z-10 flex flex-col items-center justify-center gap-6 px-4 py-14 text-center sm:px-6 md:gap-8 md:py-16 lg:py-20";
 
-/** Fixed attachment on md+ for depth while scrolling; scroll attachment on small screens (iOS-safe). */
-const approachStatementBackgroundClassName =
-  "pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-scroll motion-reduce:bg-scroll md:bg-fixed";
+/**
+ * Mobile: contain so the wide logo is not cropped.
+ * Desktop: cover + fixed for the full-bleed depth effect.
+ */
+const approachStatementBackgroundClassName = cn(
+  "pointer-events-none absolute inset-0 z-0 bg-center bg-no-repeat opacity-40",
+  "bg-contain bg-scroll",
+  "lg:bg-cover lg:bg-fixed motion-reduce:lg:bg-scroll",
+);
 
 interface TattooStyleApproachStatementSectionProps {
   content: ResolvedTattooStyleDetailPage;
@@ -60,7 +74,7 @@ function TattooStyleApproachStatementSection({
       >
         <SectionReveal>
           <div
-            className={cn(approachSectionMediaClassName, "isolate border-0")}
+            className={approachStatementMediaClassName}
             role="img"
             aria-label={content.approachImageAlt}
           >

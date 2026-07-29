@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { JsonLd } from "@/components/seo/json-ld";
-import { BlogPageFeaturedSection } from "@/components/sections/blog-page-featured-section";
 import { BlogPageFiltersSection } from "@/components/sections/blog-page-filters-section";
 import { BlogPageGridSection } from "@/components/sections/blog-page-grid-section";
 import { BlogPageIntroSection } from "@/components/sections/blog-page-intro-section";
@@ -44,9 +43,8 @@ export default async function TattooBlogPage({ searchParams }: TattooBlogPagePro
   const closing = blogPageClosingForRegion(region, regionConfig.regionName);
 
   const introBackgroundVideoSrc = pickRandomTattooStyleHeroVideoSrc(region);
-  const hasAnyPosts = content.featuredPosts.length > 0 || content.gridPosts.length > 0;
-  const showFeaturedBand = content.featuredPosts.length > 0;
   const allListings = [...content.featuredPosts, ...content.gridPosts];
+  const hasAnyPosts = allListings.length > 0;
   const structuredData: Record<string, unknown>[] = [
     buildBreadcrumbListSchema(
       [
@@ -76,9 +74,8 @@ export default async function TattooBlogPage({ searchParams }: TattooBlogPagePro
           activeCategory={content.activeCategory}
         />
       ) : null}
-      {showFeaturedBand ? <BlogPageFeaturedSection posts={content.featuredPosts} /> : null}
       <BlogPageGridSection
-        posts={content.gridPosts}
+        posts={allListings}
         showEmptyState={!hasAnyPosts}
         headerCtaLabel={regionConfig.headerCta.label}
       />
