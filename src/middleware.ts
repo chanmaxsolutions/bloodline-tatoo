@@ -75,6 +75,22 @@ function isGlobalHubAllowedPath(pathname: string): boolean {
 }
 
 /**
+ * Old WordPress spam injection used `?b=blo…` (Italian fashion/affiliate junk).
+ * Those URLs still 200 the same page, so Google listed ~1k as duplicates.
+ * Permanent-redirect to the clean path; keep `?region=` for preview switching.
+ */
+function redirectSpamQueryToCleanPath(request: NextRequest): NextResponse | null {
+  if (!request.nextUrl.searchParams.has("b")) {
+    return null;
+  }
+
+  const url = request.nextUrl.clone();
+  url.searchParams.delete("b");
+
+  return NextResponse.redirect(url, 301);
+}
+
+/**
  * Catch old WordPress blog posts published at top-level slugs (e.g. /guide-to-choosing-...).
  * next.config redirects handle known paths; this covers long-tail indexed URLs from site: search.
  *
@@ -108,6 +124,11 @@ function middleware(request: NextRequest) {
     );
   }
 
+  const spamQueryRedirect = redirectSpamQueryToCleanPath(request);
+  if (spamQueryRedirect) {
+    return withPreviewRegion(request, spamQueryRedirect, preview);
+  }
+
   if (activeRegion === "global" && !isGlobalHubAllowedPath(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
@@ -138,5 +159,5 @@ function middleware(request: NextRequest) {
 export { middleware };
 
 export const config = {
-  matcher: ["/favicon.ico", "/((?!_next/static|_next/image|api|images|videos|.*\\..*).*)"],
+  matcher: ["/", "/favicon.ico", "/((?!_next/static|_next/image|api|images|videos|.*\\..*).*)"],
 };
